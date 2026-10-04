@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "affordance",
+  "kind": "term",
+  "domain": "ux",
+  "category": "usability",
+  "status": "draft",
+  "canonical_name": "Affordance and Signifiers",
+  "tags": [
+    "affordance",
+    "signifier",
+    "click",
+    "button"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "可供性与意符",
+      "aliases": [
+        "能点吗",
+        "按钮",
+        "怎么用",
+        "引导"
+      ],
+      "description": "操作可能性与可感知的提示需要配合：按钮外观、标签与状态应帮助用户理解下一步。",
+      "use_when": [
+        "用于解释或比较与当前任务相关的设计选择。"
+      ],
+      "avoid_when": [
+        "不要将演示参数当作通用行业标准。"
+      ],
+      "prompt_template": "为主要操作提供明确的按钮外观与动词标签，让可交互区域有足够尺寸，并保持默认、悬停、焦点、禁用状态一致。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Affordance and Signifiers",
+      "aliases": [
+        "affordance",
+        "signifier",
+        "click",
+        "button"
+      ],
+      "description": "Available actions need perceivable cues: appearance, labels, and states should make the next step understandable.",
+      "use_when": [
+        "Use to explain or compare design choices relevant to the current task."
+      ],
+      "avoid_when": [
+        "Do not treat demo parameters as universal standards."
+      ],
+      "prompt_template": "Give primary actions a recognizable button shape and verb label. Use adequately sized targets and consistent default, hover, focus, and disabled states."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创概念说明与演示；参数为本项目示例，非标准值。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "概念或实现参考，未复制外部正文与组件代码。",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/button/",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "tab-state",
+  "kind": "effect",
+  "domain": "ui",
+  "category": "motion",
+  "status": "draft",
+  "canonical_name": "Selected Tab State",
+  "tags": [
+    "tab",
+    "switch",
+    "navigation",
+    "selected"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "选中标签状态",
+      "aliases": [
+        "标签",
+        "切换",
+        "导航",
+        "选中"
+      ],
+      "description": "明确区分当前选项与其他选项，支持键盘选择。此处演示视觉状态切换。",
+      "use_when": [
+        "用于解释或比较与当前任务相关的设计选择。"
+      ],
+      "avoid_when": [
+        "不要将演示参数当作通用行业标准。"
+      ],
+      "prompt_template": "标签被选择时，在 {duration_ms}ms 内过渡到深色背景与浅色文字。保持一个选中项，提供语义状态与键盘入口；减少动态效果时即时切换。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Selected Tab State",
+      "aliases": [
+        "tab",
+        "switch",
+        "navigation",
+        "selected"
+      ],
+      "description": "Distinguish the selected option and support keyboard selection; this demo illustrates the visual state change.",
+      "use_when": [
+        "Use to explain or compare design choices relevant to the current task."
+      ],
+      "avoid_when": [
+        "Do not treat demo parameters as universal standards."
+      ],
+      "prompt_template": "Transition the selected tab to a dark background and light text over {duration_ms}ms. Keep one selected option and expose its semantic state and keyboard access. Switch instantly for reduced motion."
+    }
+  },
+  "preview": {
+    "template_id": "tab-state",
+    "params": {
+      "duration_ms": 240
+    }
+  },
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创概念说明与演示；参数为本项目示例，非标准值。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "概念或实现参考，未复制外部正文与组件代码。",
+      "url": "https://www.w3.org/WAI/ARIA/apg/patterns/tabs/",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}

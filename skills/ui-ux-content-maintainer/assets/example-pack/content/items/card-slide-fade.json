@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "id": "card-slide-fade",
+  "kind": "effect",
+  "domain": "ui",
+  "category": "motion",
+  "status": "draft",
+  "canonical_name": "Staggered slide and fade",
+  "tags": ["card", "entry"],
+  "related_ids": ["save-feedback"],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "卡片依次上移淡入",
+      "aliases": ["卡片轻轻出现", "列表依次出现"],
+      "description": "卡片通过位移和透明度变化依次进入画面。",
+      "use_when": ["首次展示少量内容卡片，需要让用户看清出现顺序"],
+      "avoid_when": ["用户连续刷新列表，重复动画拖慢阅读"],
+      "prompt_template": "首次加载后，卡片从下方 {offset_y_px}px 上移至原位并淡入，单张持续 {duration_ms}ms，相邻卡片间隔 {delay_ms}ms，使用 {easing} 缓动。减少动态效果时直接显示最终状态。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Staggered card slide and fade",
+      "aliases": ["gentle card entrance", "sequential card reveal"],
+      "description": "Cards enter sequentially through a change in position and opacity.",
+      "use_when": ["Introducing a small set of cards for the first time"],
+      "avoid_when": ["Repeated list refreshes where motion would slow reading"],
+      "prompt_template": "After the initial load, fade each card in while moving it from {offset_y_px}px below its final position. Use a duration of {duration_ms}ms, a stagger delay of {delay_ms}ms, and {easing} easing. Show the final state immediately when reduced motion is requested."
+    }
+  },
+  "preview": {
+    "template_id": "slide-fade-list",
+    "params": { "duration_ms": 240, "delay_ms": 50, "offset_y_px": 12, "easing": "ease-out" }
+  },
+  "sources": [
+    { "type": "original", "note": "本维护包原创说明；数值为样例方案，不是行业标准。注册表未连接实际渲染器。", "url": null, "license": "MIT", "reuse_permission": "not-applicable" }
+  ]
+}

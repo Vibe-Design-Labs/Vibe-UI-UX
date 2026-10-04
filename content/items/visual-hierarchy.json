@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "visual-hierarchy",
+  "kind": "term",
+  "domain": "ui",
+  "category": "layout",
+  "status": "draft",
+  "canonical_name": "Visual Hierarchy",
+  "tags": [
+    "hierarchy",
+    "premium",
+    "focus",
+    "attention"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "视觉层级",
+      "aliases": [
+        "重点",
+        "高级",
+        "层次",
+        "吸引注意"
+      ],
+      "description": "利用字号、字重、位置和对比安排阅读顺序，突出当前最重要的信息。",
+      "use_when": [
+        "用于解释或比较与当前任务相关的设计选择。"
+      ],
+      "avoid_when": [
+        "不要将演示参数当作通用行业标准。"
+      ],
+      "prompt_template": "为页面建立清晰阅读顺序：主标题、辅助说明、主要操作分别使用可区分的尺寸与对比；保持一个明确的首要动作。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Visual Hierarchy",
+      "aliases": [
+        "hierarchy",
+        "premium",
+        "focus",
+        "attention"
+      ],
+      "description": "Use size, weight, position, and contrast to establish reading order. ",
+      "use_when": [
+        "Use to explain or compare design choices relevant to the current task."
+      ],
+      "avoid_when": [
+        "Do not treat demo parameters as universal standards."
+      ],
+      "prompt_template": "Establish a reading order with distinguishable heading, supporting text, and primary action styles. Keep one clear primary action."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创概念说明与演示；参数为本项目示例，非标准值。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "概念或实现参考，未复制外部正文与组件代码。",
+      "url": "https://m3.material.io/styles/typography/overview",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}

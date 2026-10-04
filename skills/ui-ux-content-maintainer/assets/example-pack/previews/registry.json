@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "templates": {
+    "slide-fade-list": {
+      "version": 1,
+      "params": {
+        "duration_ms": { "type": "number", "min": 0, "max": 2000, "default": 240 },
+        "delay_ms": { "type": "number", "min": 0, "max": 1000, "default": 50 },
+        "offset_y_px": { "type": "number", "min": -100, "max": 100, "default": 12 },
+        "easing": { "type": "enum", "values": ["linear", "ease-in", "ease-out", "ease-in-out"], "default": "ease-out" }
+      }
+    },
+    "ux-state-comparison": {
+      "version": 1,
+      "params": {
+        "feedback_delay_ms": { "type": "number", "min": 0, "max": 1000, "default": 0 }
+      }
+    }
+  }
+}

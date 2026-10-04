@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "cursor-spotlight",
+  "kind": "effect",
+  "domain": "ui",
+  "category": "motion",
+  "status": "draft",
+  "canonical_name": "Cursor Spotlight",
+  "tags": [
+    "spotlight",
+    "glow",
+    "cursor",
+    "hover",
+    "premium"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "鼠标聚光",
+      "aliases": [
+        "鼠标跟随",
+        "聚光",
+        "光晕",
+        "高级",
+        "悬停"
+      ],
+      "description": "光晕位置跟随指针，用局部亮度变化反馈鼠标所在位置。",
+      "use_when": [
+        "用于解释或比较与当前任务相关的设计选择。"
+      ],
+      "avoid_when": [
+        "不要将演示参数当作通用行业标准。"
+      ],
+      "prompt_template": "为卡片添加半径 {radius_px}px、透明度 {opacity} 的指针聚光；悬停抬升 {lift_px}px，抬升过渡 {duration_ms}ms。聚光跟随指针且不拦截点击；触摸与减少动态效果时使用静态状态。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Cursor Spotlight",
+      "aliases": [
+        "spotlight",
+        "glow",
+        "cursor",
+        "hover",
+        "premium"
+      ],
+      "description": "A pointer-tracked radial glow makes the hovered region visible.",
+      "use_when": [
+        "Use to explain or compare design choices relevant to the current task."
+      ],
+      "avoid_when": [
+        "Do not treat demo parameters as universal standards."
+      ],
+      "prompt_template": "Use a pointer-tracked radial glow with radius {radius_px}px and opacity {opacity}. Lift the card by {lift_px}px on hover over {duration_ms}ms. Do not intercept clicks. Use a static state on touch and reduced motion."
+    }
+  },
+  "preview": {
+    "template_id": "cursor-spotlight",
+    "params": {
+      "radius_px": 150,
+      "opacity": 0.25,
+      "lift_px": 6,
+      "duration_ms": 240
+    }
+  },
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创概念说明与演示；参数为本项目示例，非标准值。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "概念或实现参考，未复制外部正文与组件代码。",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Element/pointermove_event",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}

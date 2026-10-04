@@ -1,0 +1,17 @@
+{
+  "name": "intentkit",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "pretest": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check:content": "python skills/ui-ux-content-maintainer/scripts/validate_content.py ."
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

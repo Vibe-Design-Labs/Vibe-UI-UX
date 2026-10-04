@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "id": "focus-ring",
+  "kind": "ux-pattern",
+  "domain": "ux",
+  "category": "accessibility",
+  "status": "draft",
+  "canonical_name": "Visible Focus",
+  "tags": [
+    "keyboard",
+    "focus",
+    "accessibility"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "可见焦点",
+      "aliases": [
+        "键盘",
+        "焦点",
+        "无障碍",
+        "选中"
+      ],
+      "description": "键盘用户需要知道当前操作位置。焦点轮廓不应仅靠微小色差。",
+      "use_when": [
+        "用于解释或比较与当前任务相关的设计选择。"
+      ],
+      "avoid_when": [
+        "不要将演示参数当作通用行业标准。"
+      ],
+      "prompt_template": "键盘焦点使用 3px 轮廓与 {offset_px}px 外边距，保证控件边界清晰；按 Tab 进入输入框即可检查。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Visible Focus",
+      "aliases": [
+        "keyboard",
+        "focus",
+        "accessibility"
+      ],
+      "description": "Keyboard users need a visible indication of the current input target.",
+      "use_when": [
+        "Use to explain or compare design choices relevant to the current task."
+      ],
+      "avoid_when": [
+        "Do not treat demo parameters as universal standards."
+      ],
+      "prompt_template": "Use a 3px visible focus outline with an offset of {offset_px}px. Press Tab to inspect the input focus."
+    }
+  },
+  "preview": {
+    "template_id": "focus-ring",
+    "params": {
+      "offset_px": 4
+    }
+  },
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创概念说明与演示；参数为本项目示例，非标准值。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "概念或实现参考，未复制外部正文与组件代码。",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}

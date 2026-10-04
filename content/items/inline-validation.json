@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "inline-validation",
+  "kind": "ux-pattern",
+  "domain": "ux",
+  "category": "feedback",
+  "status": "draft",
+  "canonical_name": "Inline Validation",
+  "tags": [
+    "form",
+    "error",
+    "validation"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "行内校验",
+      "aliases": [
+        "表单",
+        "错误",
+        "校验",
+        "验证"
+      ],
+      "description": "在用户离开输入框或提交后，把明确错误与对应字段关联。",
+      "use_when": [
+        "用于解释或比较与当前任务相关的设计选择。"
+      ],
+      "avoid_when": [
+        "不要将演示参数当作通用行业标准。"
+      ],
+      "prompt_template": "邮箱字段在离焦时检查格式，错误说明与字段关联，不把空白的初始输入立即标成错误。更正后清除错误。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Inline Validation",
+      "aliases": [
+        "form",
+        "error",
+        "validation"
+      ],
+      "description": "Associate clear validation feedback with the field on blur or submission.",
+      "use_when": [
+        "Use to explain or compare design choices relevant to the current task."
+      ],
+      "avoid_when": [
+        "Do not treat demo parameters as universal standards."
+      ],
+      "prompt_template": "Validate email format on blur. Associate errors with the field, do not flag an untouched empty field immediately, and clear the error after correction."
+    }
+  },
+  "preview": {
+    "template_id": "ux-validation",
+    "params": {}
+  },
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创概念说明与演示；参数为本项目示例，非标准值。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "概念或实现参考，未复制外部正文与组件代码。",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}

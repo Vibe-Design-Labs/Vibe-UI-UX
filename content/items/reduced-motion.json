@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "reduced-motion",
+  "kind": "term",
+  "domain": "ux",
+  "category": "accessibility",
+  "status": "draft",
+  "canonical_name": "Reduced Motion",
+  "tags": [
+    "reduced",
+    "motion",
+    "dizzy",
+    "accessibility"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "减少动态效果",
+      "aliases": [
+        "头晕",
+        "减少动画",
+        "无障碍",
+        "静态"
+      ],
+      "description": "尊重减少动态效果偏好，用静态状态保留相同信息与操作能力。",
+      "use_when": [
+        "用于解释或比较与当前任务相关的设计选择。"
+      ],
+      "avoid_when": [
+        "不要将演示参数当作通用行业标准。"
+      ],
+      "prompt_template": "检测 prefers-reduced-motion，关闭非必要位移、循环装饰和指针跟随。保留清晰状态反馈与完整操作能力，不把关闭动画当成隐藏信息。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Reduced Motion",
+      "aliases": [
+        "reduced",
+        "motion",
+        "dizzy",
+        "accessibility"
+      ],
+      "description": "Respect reduced-motion preferences and preserve equivalent information and actions in a static state.",
+      "use_when": [
+        "Use to explain or compare design choices relevant to the current task."
+      ],
+      "avoid_when": [
+        "Do not treat demo parameters as universal standards."
+      ],
+      "prompt_template": "Respect prefers-reduced-motion by disabling nonessential movement, ambient loops, and pointer tracking. Keep clear status feedback and all actions available."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创概念说明与演示；参数为本项目示例，非标准值。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "概念或实现参考，未复制外部正文与组件代码。",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}

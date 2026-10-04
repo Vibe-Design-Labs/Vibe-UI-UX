@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "staggered-reveal",
+  "kind": "effect",
+  "domain": "ui",
+  "category": "motion",
+  "status": "draft",
+  "canonical_name": "Staggered Reveal",
+  "tags": [
+    "stagger",
+    "sequential",
+    "light",
+    "smooth",
+    "reveal"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "错落入场",
+      "aliases": [
+        "依次出现",
+        "轻盈",
+        "丝滑",
+        "列表入场"
+      ],
+      "description": "元素按顺序淡入并位移，帮助用户感知内容的组织关系。",
+      "use_when": [
+        "用于解释或比较与当前任务相关的设计选择。"
+      ],
+      "avoid_when": [
+        "不要将演示参数当作通用行业标准。"
+      ],
+      "prompt_template": "三张卡片从下方 {offset_y_px}px 上移并从透明到不透明，持续 {duration_ms}ms，相邻延迟 {delay_ms}ms，使用 {easing} 缓动。重播前取消未完成动画；减少动态效果时直接显示最终状态。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Staggered Reveal",
+      "aliases": [
+        "stagger",
+        "sequential",
+        "light",
+        "smooth",
+        "reveal"
+      ],
+      "description": "Elements fade and move in sequentially to communicate their organization.",
+      "use_when": [
+        "Use to explain or compare design choices relevant to the current task."
+      ],
+      "avoid_when": [
+        "Do not treat demo parameters as universal standards."
+      ],
+      "prompt_template": "Fade three cards from transparent to opaque while moving from {offset_y_px}px below the final position over {duration_ms}ms. Stagger by {delay_ms}ms with {easing} easing. Cancel unfinished animations before replay. Show the final state with reduced motion."
+    }
+  },
+  "preview": {
+    "template_id": "slide-fade-list",
+    "params": {
+      "duration_ms": 360,
+      "delay_ms": 70,
+      "offset_y_px": 16,
+      "easing": "ease-out"
+    }
+  },
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创概念说明与演示；参数为本项目示例，非标准值。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "概念或实现参考，未复制外部正文与组件代码。",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Element/animate",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}

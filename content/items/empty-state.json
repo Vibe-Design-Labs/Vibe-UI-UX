@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "id": "empty-state",
+  "kind": "ux-pattern",
+  "domain": "ux",
+  "category": "feedback",
+  "status": "draft",
+  "canonical_name": "Actionable Empty State",
+  "tags": [
+    "empty",
+    "blank",
+    "guidance",
+    "retain"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "可行动的空状态",
+      "aliases": [
+        "没有内容",
+        "空白",
+        "引导",
+        "留住用户"
+      ],
+      "description": "当没有内容时说明原因，并提供与当前任务直接相关的下一步。",
+      "use_when": [
+        "用于解释或比较与当前任务相关的设计选择。"
+      ],
+      "avoid_when": [
+        "不要将演示参数当作通用行业标准。"
+      ],
+      "prompt_template": "没有内容时显示状态说明与一个主要操作。演示操作添加本地占位条目；不要用无关广告替代空状态。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Actionable Empty State",
+      "aliases": [
+        "empty",
+        "blank",
+        "guidance",
+        "retain"
+      ],
+      "description": "Explain why no content is available and offer a next step related to the task.",
+      "use_when": [
+        "Use to explain or compare design choices relevant to the current task."
+      ],
+      "avoid_when": [
+        "Do not treat demo parameters as universal standards."
+      ],
+      "prompt_template": "Show an explanation and one primary action when content is empty. The demo action adds a local placeholder entry. Do not replace the empty state with unrelated promotions."
+    }
+  },
+  "preview": {
+    "template_id": "ux-empty",
+    "params": {}
+  },
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创概念说明与演示；参数为本项目示例，非标准值。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "概念或实现参考，未复制外部正文与组件代码。",
+      "url": "https://m3.material.io/components",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+.sites-runtime/
+.openai/
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+__pycache__/
+*.tar
+*.tar.gz

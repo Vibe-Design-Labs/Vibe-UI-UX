@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "id": "progressive-disclosure",
+  "kind": "ux-pattern",
+  "domain": "ux",
+  "category": "navigation",
+  "status": "draft",
+  "canonical_name": "Progressive Disclosure",
+  "tags": [
+    "disclosure",
+    "more",
+    "simple",
+    "complex"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "渐进披露",
+      "aliases": [
+        "展开",
+        "更多",
+        "简单",
+        "不要复杂"
+      ],
+      "description": "先显示完成任务所需的主要信息，再允许用户主动展开次要信息。",
+      "use_when": [
+        "用于解释或比较与当前任务相关的设计选择。"
+      ],
+      "avoid_when": [
+        "不要将演示参数当作通用行业标准。"
+      ],
+      "prompt_template": "先显示关键说明，将次要信息放入可展开区，提供明确标签与原生键盘操作，不隐藏完成任务的必要信息。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Progressive Disclosure",
+      "aliases": [
+        "disclosure",
+        "more",
+        "simple",
+        "complex"
+      ],
+      "description": "Show primary task information first and let users reveal secondary detail.",
+      "use_when": [
+        "Use to explain or compare design choices relevant to the current task."
+      ],
+      "avoid_when": [
+        "Do not treat demo parameters as universal standards."
+      ],
+      "prompt_template": "Show essential information first. Put secondary details in a labeled, keyboard-operable disclosure. Never hide information required to complete the task."
+    }
+  },
+  "preview": {
+    "template_id": "ux-disclosure",
+    "params": {}
+  },
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创概念说明与演示；参数为本项目示例，非标准值。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "概念或实现参考，未复制外部正文与组件代码。",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}

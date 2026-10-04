@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "skeleton-shimmer",
+  "kind": "effect",
+  "domain": "ui",
+  "category": "motion",
+  "status": "draft",
+  "canonical_name": "Skeleton Shimmer",
+  "tags": [
+    "skeleton",
+    "shimmer",
+    "loading",
+    "placeholder"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "骨架屏扫光",
+      "aliases": [
+        "加载占位",
+        "骨架",
+        "扫光",
+        "加载"
+      ],
+      "description": "用接近内容布局的占位形状说明加载状态；扫光只是一种可选修饰。",
+      "use_when": [
+        "用于解释或比较与当前任务相关的设计选择。"
+      ],
+      "avoid_when": [
+        "不要将演示参数当作通用行业标准。"
+      ],
+      "prompt_template": "骨架占位使用 {duration_ms}ms 周期的横向扫光。真实内容到达后替换骨架；不要显示虚假的加载进度。减少动态效果时关闭扫光并保留静态占位。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Skeleton Shimmer",
+      "aliases": [
+        "skeleton",
+        "shimmer",
+        "loading",
+        "placeholder"
+      ],
+      "description": "Content-shaped placeholders communicate loading; shimmer is optional decoration.",
+      "use_when": [
+        "Use to explain or compare design choices relevant to the current task."
+      ],
+      "avoid_when": [
+        "Do not treat demo parameters as universal standards."
+      ],
+      "prompt_template": "Use a skeleton with a horizontal shimmer cycle of {duration_ms}ms. Replace it when real content arrives. Do not imply fake progress. Disable shimmer but retain static placeholders for reduced motion."
+    }
+  },
+  "preview": {
+    "template_id": "skeleton-shimmer",
+    "params": {
+      "duration_ms": 1400
+    }
+  },
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创概念说明与演示；参数为本项目示例，非标准值。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "概念或实现参考，未复制外部正文与组件代码。",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}

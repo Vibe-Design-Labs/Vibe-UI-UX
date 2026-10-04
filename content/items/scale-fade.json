@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "id": "scale-fade",
+  "kind": "effect",
+  "domain": "ui",
+  "category": "motion",
+  "status": "draft",
+  "canonical_name": "Scale and Fade",
+  "tags": [
+    "scale",
+    "fade",
+    "appear",
+    "light"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "缩放淡入",
+      "aliases": [
+        "轻轻出现",
+        "淡入",
+        "弹出",
+        "轻盈"
+      ],
+      "description": "结合缩放与透明度变化，适合少量新出现的内容。",
+      "use_when": [
+        "用于解释或比较与当前任务相关的设计选择。"
+      ],
+      "avoid_when": [
+        "不要将演示参数当作通用行业标准。"
+      ],
+      "prompt_template": "内容由 {scale_start} 倍缩放与透明状态变为原尺寸与不透明状态，持续 {duration_ms}ms，使用 {easing} 缓动。重播取消旧动画；减少动态效果时直接显示最终状态。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Scale and Fade",
+      "aliases": [
+        "scale",
+        "fade",
+        "appear",
+        "light"
+      ],
+      "description": "Combine scale and opacity for a small amount of newly appearing content.",
+      "use_when": [
+        "Use to explain or compare design choices relevant to the current task."
+      ],
+      "avoid_when": [
+        "Do not treat demo parameters as universal standards."
+      ],
+      "prompt_template": "Animate from scale {scale_start} and opacity 0 to scale 1 and opacity 1 over {duration_ms}ms with {easing} easing. Cancel earlier animations on replay. Show the final state for reduced motion."
+    }
+  },
+  "preview": {
+    "template_id": "scale-fade",
+    "params": {
+      "duration_ms": 320,
+      "scale_start": 0.88,
+      "easing": "ease-out"
+    }
+  },
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创概念说明与演示；参数为本项目示例，非标准值。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "概念或实现参考，未复制外部正文与组件代码。",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Element/animate",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}

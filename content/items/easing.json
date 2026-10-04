@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "easing",
+  "kind": "term",
+  "domain": "ui",
+  "category": "motion",
+  "status": "draft",
+  "canonical_name": "Easing",
+  "tags": [
+    "easing",
+    "smooth",
+    "natural",
+    "speed"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "缓动曲线",
+      "aliases": [
+        "丝滑",
+        "柔和",
+        "自然",
+        "快慢"
+      ],
+      "description": "缓动决定时间与进度的关系。它改变运动节奏，不等于改变持续时间。",
+      "use_when": [
+        "用于解释或比较与当前任务相关的设计选择。"
+      ],
+      "avoid_when": [
+        "不要将演示参数当作通用行业标准。"
+      ],
+      "prompt_template": "入场可考虑 ease-out，让开始较快、结束较慢；退出可考虑 ease-in。结合任务与距离观察效果，不把某条曲线当作高级设计的通用保证。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Easing",
+      "aliases": [
+        "easing",
+        "smooth",
+        "natural",
+        "speed"
+      ],
+      "description": "Easing maps elapsed time to animation progress. It changes pacing, not duration.",
+      "use_when": [
+        "Use to explain or compare design choices relevant to the current task."
+      ],
+      "avoid_when": [
+        "Do not treat demo parameters as universal standards."
+      ],
+      "prompt_template": "Consider ease-out for entrances and ease-in for exits. Evaluate the curve in context; no single easing curve guarantees a premium design."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创概念说明与演示；参数为本项目示例，非标准值。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "概念或实现参考，未复制外部正文与组件代码。",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}

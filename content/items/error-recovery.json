@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "id": "error-recovery",
+  "kind": "ux-pattern",
+  "domain": "ux",
+  "category": "feedback",
+  "status": "draft",
+  "canonical_name": "Error Recovery",
+  "tags": [
+    "error",
+    "retry",
+    "recover",
+    "retain"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "错误恢复",
+      "aliases": [
+        "失败",
+        "重试",
+        "留住用户",
+        "恢复"
+      ],
+      "description": "解释失败并给出恢复入口，尽量保留用户已经输入的内容。",
+      "use_when": [
+        "用于解释或比较与当前任务相关的设计选择。"
+      ],
+      "avoid_when": [
+        "不要将演示参数当作通用行业标准。"
+      ],
+      "prompt_template": "提交失败时保留输入，提供可理解的错误说明与重试操作。演示中的重试只改变本地状态，不发起网络请求。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Error Recovery",
+      "aliases": [
+        "error",
+        "retry",
+        "recover",
+        "retain"
+      ],
+      "description": "Explain a failure, offer recovery, and preserve the user’s input.",
+      "use_when": [
+        "Use to explain or compare design choices relevant to the current task."
+      ],
+      "avoid_when": [
+        "Do not treat demo parameters as universal standards."
+      ],
+      "prompt_template": "Preserve input after submission fails. Explain the error and provide a retry action. This demo changes local state only and makes no network request."
+    }
+  },
+  "preview": {
+    "template_id": "ux-error",
+    "params": {}
+  },
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创概念说明与演示；参数为本项目示例，非标准值。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "概念或实现参考，未复制外部正文与组件代码。",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}

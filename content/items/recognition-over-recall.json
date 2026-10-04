@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "recognition-over-recall",
+  "kind": "term",
+  "domain": "ux",
+  "category": "usability",
+  "status": "draft",
+  "canonical_name": "Recognition Rather Than Recall",
+  "tags": [
+    "recognition",
+    "recall",
+    "learn",
+    "familiar"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "识别优于回忆",
+      "aliases": [
+        "记不住",
+        "减少学习",
+        "迁移门槛",
+        "习惯"
+      ],
+      "description": "在当前任务位置展示可识别的选项，减少用户记住术语、路径或前一步信息的负担。",
+      "use_when": [
+        "用于解释或比较与当前任务相关的设计选择。"
+      ],
+      "avoid_when": [
+        "不要将演示参数当作通用行业标准。"
+      ],
+      "prompt_template": "在使用位置展示清晰标签与候选，保持导航位置和命名一致，不要求用户先记住上一页的信息才能继续。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Recognition Rather Than Recall",
+      "aliases": [
+        "recognition",
+        "recall",
+        "learn",
+        "familiar"
+      ],
+      "description": "Expose recognizable options where needed, reducing the need to remember terms or paths.",
+      "use_when": [
+        "Use to explain or compare design choices relevant to the current task."
+      ],
+      "avoid_when": [
+        "Do not treat demo parameters as universal standards."
+      ],
+      "prompt_template": "Show clear labels and options where they are used. Keep navigation placement and naming consistent, and avoid requiring recall of information from previous screens."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创概念说明与演示；参数为本项目示例，非标准值。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "概念或实现参考，未复制外部正文与组件代码。",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/consistent-navigation.html",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}

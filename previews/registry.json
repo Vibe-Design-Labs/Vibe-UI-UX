@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "templates": {
+    "cursor-spotlight": {
+      "version": 1,
+      "params": {
+        "radius_px": {
+          "type": "number",
+          "min": 40,
+          "max": 400,
+          "default": 150
+        },
+        "opacity": {
+          "type": "number",
+          "min": 0,
+          "max": 0.8,
+          "default": 0.25
+        },
+        "lift_px": {
+          "type": "number",
+          "min": 0,
+          "max": 20,
+          "default": 6
+        },
+        "duration_ms": {
+          "type": "number",
+          "min": 0,
+          "max": 1200,
+          "default": 240
+        }
+      }
+    },
+    "slide-fade-list": {
+      "version": 1,
+      "params": {
+        "duration_ms": {
+          "type": "number",
+          "min": 0,
+          "max": 2000,
+          "default": 360
+        },
+        "delay_ms": {
+          "type": "number",
+          "min": 0,
+          "max": 500,
+          "default": 70
+        },
+        "offset_y_px": {
+          "type": "number",
+          "min": -60,
+          "max": 60,
+          "default": 16
+        },
+        "easing": {
+          "type": "enum",
+          "values": [
+            "linear",
+            "ease-in",
+            "ease-out",
+            "ease-in-out"
+          ],
+          "default": "ease-out"
+        }
+      }
+    },
+    "hover-lift": {
+      "version": 1,
+      "params": {
+        "lift_px": {
+          "type": "number",
+          "min": 0,
+          "max": 24,
+          "default": 6
+        },
+        "duration_ms": {
+          "type": "number",
+          "min": 0,
+          "max": 1200,
+          "default": 240
+        }
+      }
+    },
+    "scale-fade": {
+      "version": 1,
+      "params": {
+        "duration_ms": {
+          "type": "number",
+          "min": 0,
+          "max": 1600,
+          "default": 320
+        },
+        "scale_start": {
+          "type": "number",
+          "min": 0.5,
+          "max": 1,
+          "default": 0.88
+        },
+        "easing": {
+          "type": "enum",
+          "values": [
+            "linear",
+            "ease-in",
+            "ease-out",
+            "ease-in-out"
+          ],
+          "default": "ease-out"
+        }
+      }
+    },
+    "skeleton-shimmer": {
+      "version": 1,
+      "params": {
+        "duration_ms": {
+          "type": "number",
+          "min": 300,
+          "max": 3000,
+          "default": 1400
+        }
+      }
+    },
+    "progress-fill": {
+      "version": 1,
+      "params": {
+        "progress": {
+          "type": "number",
+          "min": 0,
+          "max": 100,
+          "default": 65
+        },
+        "duration_ms": {
+          "type": "number",
+          "min": 0,
+          "max": 2000,
+          "default": 700
+        },
+        "easing": {
+          "type": "enum",
+          "values": [
+            "linear",
+            "ease-in",
+            "ease-out",
+            "ease-in-out"
+          ],
+          "default": "ease-out"
+        }
+      }
+    },
+    "tab-state": {
+      "version": 1,
+      "params": {
+        "duration_ms": {
+          "type": "number",
+          "min": 0,
+          "max": 1000,
+          "default": 240
+        }
+      }
+    },
+    "press-feedback": {
+      "version": 1,
+      "params": {
+        "scale_start": {
+          "type": "number",
+          "min": 0.75,
+          "max": 1,
+          "default": 0.95
+        },
+        "duration_ms": {
+          "type": "number",
+          "min": 0,
+          "max": 1000,
+          "default": 140
+        }
+      }
+    },
+    "ripple": {
+      "version": 1,
+      "params": {
+        "duration_ms": {
+          "type": "number",
+          "min": 0,
+          "max": 1400,
+          "default": 500
+        }
+      }
+    },
+    "ux-state-comparison": {
+      "version": 1,
+      "params": {
+        "feedback_delay_ms": {
+          "type": "number",
+          "min": 0,
+          "max": 1000,
+          "default": 600
+        }
+      }
+    },
+    "focus-ring": {
+      "version": 1,
+      "params": {
+        "offset_px": {
+          "type": "number",
+          "min": 0,
+          "max": 12,
+          "default": 4
+        }
+      }
+    },
+    "ux-disclosure": {
+      "version": 1,
+      "params": {}
+    },
+    "ux-error": {
+      "version": 1,
+      "params": {}
+    },
+    "ux-empty": {
+      "version": 1,
+      "params": {}
+    },
+    "ux-validation": {
+      "version": 1,
+      "params": {}
+    }
+  }
+}
