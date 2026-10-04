@@ -1,12 +1,12 @@
 # IntentKit / 意译
 
-把日常设计表达转成专业 UI/UX 术语、可操作演示和准确描述。v0.2 提供纸张与手写字风格的官网、工作台、24 个词条、15 个可控演示模板、五语界面和 TokenDance BYOK。
+把日常设计表达转成专业 UI/UX 术语、可操作演示和准确描述。v0.3 提供纸张与手写字风格的官网、工作台、24 个词条、15 个可控演示模板、五语界面和 TokenDance BYOK。
 
-[GitHub 开源仓库](https://github.com/virtue192/Vibe-UI-UX) · [维护新内容](docs/CONTENT_MAINTENANCE.md) · [字体与许可](docs/FONTS.md)
+[GitHub 开源仓库](https://github.com/virtue192/Vibe-UI-UX) · [GitHub Pages / Fork 部署](docs/GITHUB_PAGES.md) · [维护新内容](docs/CONTENT_MAINTENANCE.md) · [字体与许可](docs/FONTS.md)
 
 ![IntentKit 米纸与手写字风格界面](docs/preview.png)
 
-IntentKit translates everyday design intentions into professional UI/UX vocabulary, live previews and reusable design briefs. Bring your own TokenDance key for optional AI suggestions. The interface supports Chinese, English, Japanese, Korean and German. Basic search, previews, parameter tuning and export work without an API key. Application code is MIT; bundled fonts remain under SIL OFL 1.1.
+IntentKit translates everyday design intentions into professional UI/UX vocabulary, live previews and reusable design briefs. Bring your own TokenDance key for optional AI suggestions. The interface supports Chinese, English, Japanese, Korean and German. Basic search, previews, parameter tuning and export work without an API key. Fork-friendly static deployment on GitHub Pages is included; visitors connect directly to TokenDance from their browser with their own key. No shared model key or backend is required for Pages. Application code is MIT; bundled fonts remain under SIL OFL 1.1.
 
 ## 运行
 
@@ -31,7 +31,9 @@ Node.js 20+，无需 npm 依赖。Python 3 用于内容验证与源码打包。
 - public/i18n.js：中文、英文、日文、韩文、德文界面；content 翻译独立维护。
 - public/polish.css：纸张配色、字体、字号与响应式布局；public/fonts/ 自托管 OFL 字体。
 - server/worker.js：固定 TokenDance Chat Completions 地址，单次请求中转。
-- scripts/build.mjs：生成 dist/client 静态文件与 dist/server/index.js Worker。
+- scripts/build.mjs：生成本地/Worker 模式的 dist/client 与 dist/server/index.js。
+- scripts/build-pages.mjs：生成 dist/pages/，采用相对路径和浏览器直连 BYOK。
+- .github/workflows/pages.yml：main 推送或手动触发时验证并自动部署 GitHub Pages。
 - skills/ui-ux-content-maintainer：可交给其他 AI 使用的维护 skill 与本地检查脚本。
 
 ## 维护新内容
@@ -54,25 +56,28 @@ Node.js 20+，无需 npm 依赖。Python 3 用于内容验证与源码打包。
 
 尊重 prefers-reduced-motion，关闭非必要位移、扫光、装饰循环与鼠标跟随。官网提供暂停装饰动效按钮。键盘焦点可见、模态支持 Escape、候选和状态消息可操作。WebMCP 仅在 document.modelContext 存在时注册两个无模型调用的工具：search_design_terms 与 set_design_preview。
 
-## BYOK 隐私和限制
+## GitHub Pages 与 fork
 
-仅支持 https://tokendance.space/gateway/v1/chat/completions。模型 ID 以 TokenDance 公开模型目录为准。使用 X-TokenDance-Key 从浏览器传到本实例，再用 Authorization 转发到 TokenDance。密钥仅留在当前页面内存，刷新/清除会丢弃；不写 localStorage/sessionStorage、数据库或日志。语言偏好可保存至 localStorage。
-
-请求经部署方服务器转发，所以使用者应信任部署方。应用代码不记录请求体；部署平台、网络代理与 TokenDance 的独立日志政策不受本项目控制。服务器强制固定目标地址、限制输入及返回大小、35 秒超时、禁止上游重定向、只接受已知候选 ID。模型文本作为普通文本显示，不运行任意代码。
-
-尚未用真实 TokenDance 密钥进行付费联调；自动检查使用模拟响应。模型费用、可用性与响应格式需要实际接入时验证。
-
-## 部署与开源
-
-dist/client/ 可部署到任意静态主机，基础功能完整，AI 中转不可用。完整版本可将 dist/server/index.js 作为 Cloudflare Worker ESM 入口（同目录 assets.js/catalog.js/core.js 随包部署），或运行 Node 本地服务。Worker 不依赖数据库或运行时环境密钥。静态官网本身无需后台。
+推荐将项目发布到自己的 GitHub Pages。完整操作见 [Pages 指南](docs/GITHUB_PAGES.md)：提交源码到 main，在 Settings → Pages 选择 GitHub Actions，然后运行 Deploy GitHub Pages 工作流。fork 后在自己的仓库完成同样的一次性设置即可；相对路径无需改用户名或仓库名前缀。后续 main 更新自动部署。
 
     python scripts/package-source.py
-    npm run build
-    # public/source.zip 由打包脚本生成，官网提供下载
+    npm run build:pages
+    npm run preview:pages
+    # http://localhost:4174/Vibe-UI-UX/
 
-源码包排除 .git、托管身份、环境文件、node_modules 与构建输出。公开仓库与部署身份分开，克隆后不需要原作者的托管账户。无需提交任何 TokenDance Key 或 GitHub Token。
+构建输出为 dist/pages/，只有静态 HTML/CSS/JS/JSON/字体/源码下载包。也可以将它部署到其他静态主机。源码包包含 .github 工作流，排除 .git、托管身份、环境文件、node_modules 和 dist。预期原仓库网址为 https://virtue192.github.io/Vibe-UI-UX/；实际上线以 GitHub 成功的部署任务为准。
 
-早期交互方向参考 https://www.hyperknow.io/；v0.2 根据用户提供的米纸、水墨、朱砂与手写字体参考重新设计。原创编排与代码，不使用参考站或参考图片的图片、商标、正文或组件源码。知识来源链接在各词条数据中；解释与演示为本项目原创。
+## BYOK 隐私和限制
+
+静态 Pages 版由浏览器直连固定 https://tokendance.space/gateway/v1/chat/completions。模型 ID 以 TokenDance 公布的列表为准。访客自己的密钥仅在当前页面内存，通过 Authorization 发送到 TokenDance，不放在仓库、构建产物或 GitHub Secrets 中。刷新或清除后丢弃，不写 localStorage/sessionStorage、数据库或日志。只有界面语言偏好会保存至 localStorage。
+
+2026-10-04 无密钥 OPTIONS 预检验证了 TokenDance 允许跨域 POST 与 Authorization。尚未使用真实模型密钥进行付费联调；实际额度、模型可用性及未来跨域策略需实际接入时确认。网络或跨域失败时显示可理解的错误，清除密钥后可继续本地查询。
+
+本地 npm run dev 与可选 Cloudflare Worker 版本保留同源中转方式；当前实例会接触访客的密钥，应仅在可信部署使用。静态版不依赖这个服务器。两种方式都只接受已知候选 ID、限制输入和返回大小、禁止上游重定向；模型输出作为文本显示，不执行生成的任意代码。
+
+日常内容更新、构建、检查、GitHub Pages 部署不会调用模型，不消耗 GPT 或 TokenDance 模型额度。使用者自行选择模型并承担调用费用。
+
+早期交互方向参考 https://www.hyperknow.io/；v0.3 根据用户提供的米纸、水墨、朱砂与手写字体参考重新设计。原创编排与代码，不使用参考站或参考图片的图片、商标、正文或组件源码。知识来源链接在各词条数据中；解释与演示为本项目原创。
 
 ## Typography & licenses
 

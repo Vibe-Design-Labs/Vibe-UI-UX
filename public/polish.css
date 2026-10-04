@@ -1,7 +1,7 @@
 /* After the mist: paper, brush lettering, and a design field notebook. */
-@font-face{font-family:'IntentKit Brush';src:url('/fonts/intentkit-brush.woff2') format('woff2');font-weight:400;font-display:swap}
-@font-face{font-family:'IntentKit Notes';src:url('/fonts/intentkit-notes.woff2') format('woff2');font-weight:400;font-display:swap}
-@font-face{font-family:'IntentKit Script';src:url('/fonts/intentkit-script.woff2') format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:'IntentKit Brush';src:url('./fonts/intentkit-brush.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'IntentKit Notes';src:url('./fonts/intentkit-notes.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'IntentKit Script';src:url('./fonts/intentkit-script.woff2') format('woff2');font-weight:400 700;font-display:swap}
 :root{--ink:#34362e;--deep:#363e32;--lime:#f4ead4;--paper:#f4ecd9;--white:#fffaf0;--muted:#736953;--line:#c8b99a;--red:#af432f;--moss:#526047;--ochre:#ae8549;--notes:'IntentKit Notes','Kaiti SC','KaiTi',serif;--brush:'IntentKit Brush','IntentKit Notes',serif;--script:'IntentKit Script','IntentKit Notes',cursive;font-family:var(--notes);font-size:18px;font-synthesis:none;color:var(--ink);background:var(--paper)}
 body{background-image:radial-gradient(ellipse at 12% 5%,#d9c09622,transparent 50%),radial-gradient(#70532918 .6px,transparent .8px);background-size:auto,7px 9px;line-height:1.65}
 h1,h2,h3,h4,.brand{font-family:var(--brush);font-weight:400!important;letter-spacing:0}

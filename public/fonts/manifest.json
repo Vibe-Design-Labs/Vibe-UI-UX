@@ -2,16 +2,16 @@
   {
     "file": "intentkit-brush.woff2",
     "family": "IntentKit Brush",
-    "bytes": 282956,
+    "bytes": 282124,
     "source_sha256": "6d2546bb189c732a8ca29af9e22457b152387d158aa459e4ac2ce1e51788b7fb",
-    "glyphs": 788
+    "glyphs": 786
   },
   {
     "file": "intentkit-notes.woff2",
     "family": "IntentKit Notes",
-    "bytes": 276304,
+    "bytes": 276048,
     "source_sha256": "39ad71264b588165b469e35e6afb162a378dacd1f95348160240ba9038ac3009",
-    "glyphs": 1879
+    "glyphs": 1878
   },
   {
     "file": "intentkit-script.woff2",

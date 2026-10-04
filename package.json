@@ -1,6 +1,6 @@
 {
   "name": "intentkit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "license": "MIT",
@@ -9,7 +9,9 @@
     "build": "node scripts/build.mjs",
     "pretest": "node scripts/build.mjs",
     "test": "node --test tests/*.test.mjs",
-    "check:content": "python skills/ui-ux-content-maintainer/scripts/validate_content.py ."
+    "check:content": "python skills/ui-ux-content-maintainer/scripts/validate_content.py .",
+    "build:pages": "node scripts/build-pages.mjs",
+    "preview:pages": "node scripts/preview-pages.mjs"
   },
   "engines": {
     "node": ">=20"
