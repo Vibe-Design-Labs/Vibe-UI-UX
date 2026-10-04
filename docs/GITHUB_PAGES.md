@@ -14,7 +14,7 @@ BYOK 由访客浏览器直连固定 TokenDance 服务。密钥在当前页面内
 4. 在 Actions → Deploy GitHub Pages → Run workflow 手动触发首次部署。
 5. 工作流成功后，从部署任务输出或 Settings → Pages 打开实际生成的站点地址。后续推送 main 自动更新。
 
-原仓库预期地址是 https://virtue192.github.io/Vibe-UI-UX/ ，**此文档中的预期地址不代表已经上线**。fork 后网址通常是 https://你的用户名.github.io/你的仓库名/。文件、字体、词库和导航都使用相对路径，不需要手动改仓库名前缀。
+原仓库已于 2026-10-04 通过 GitHub Actions 部署：[打开 IntentKit](https://virtue192.github.io/Vibe-UI-UX/)。fork 后网址通常是 https://你的用户名.github.io/你的仓库名/，实际网址以自己的部署输出为准。文件、字体、词库和导航都使用相对路径，不需要手动改仓库名前缀。
 
 整个 Pages 工作流只构建、验证、打包和部署，不调用 GPT 或 TokenDance，不需要作者提供付费 Key。GitHub 自带部署令牌只用于 Actions 发布，和访客的 TokenDance Key 是独立的。
 

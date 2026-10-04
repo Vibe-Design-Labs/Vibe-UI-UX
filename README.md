@@ -2,7 +2,7 @@
 
 把日常设计表达转成专业 UI/UX 术语、可操作演示和准确描述。v0.3 提供纸张与手写字风格的官网、工作台、24 个词条、15 个可控演示模板、五语界面和 TokenDance BYOK。
 
-[GitHub 开源仓库](https://github.com/virtue192/Vibe-UI-UX) · [GitHub Pages / Fork 部署](docs/GITHUB_PAGES.md) · [维护新内容](docs/CONTENT_MAINTENANCE.md) · [字体与许可](docs/FONTS.md)
+[在线体验](https://virtue192.github.io/Vibe-UI-UX/) · [GitHub 开源仓库](https://github.com/virtue192/Vibe-UI-UX) · [GitHub Pages / Fork 部署](docs/GITHUB_PAGES.md) · [维护新内容](docs/CONTENT_MAINTENANCE.md) · [字体与许可](docs/FONTS.md)
 
 ![IntentKit 米纸与手写字风格界面](docs/preview.png)
 
@@ -65,7 +65,7 @@ Node.js 20+，无需 npm 依赖。Python 3 用于内容验证与源码打包。
     npm run preview:pages
     # http://localhost:4174/Vibe-UI-UX/
 
-构建输出为 dist/pages/，只有静态 HTML/CSS/JS/JSON/字体/源码下载包。也可以将它部署到其他静态主机。源码包包含 .github 工作流，排除 .git、托管身份、环境文件、node_modules 和 dist。预期原仓库网址为 https://virtue192.github.io/Vibe-UI-UX/；实际上线以 GitHub 成功的部署任务为准。
+构建输出为 dist/pages/，只有静态 HTML/CSS/JS/JSON/字体/源码下载包。也可以将它部署到其他静态主机。源码包包含 .github 工作流，排除 .git、托管身份、环境文件、node_modules 和 dist。原仓库已于 2026-10-04 通过 GitHub Actions 部署：[打开网站](https://virtue192.github.io/Vibe-UI-UX/)。fork 后在自己的仓库启用 Pages，网址以自己的部署输出为准。
 
 ## BYOK 隐私和限制
 

@@ -11,7 +11,8 @@
 - Pages 产物使用 direct 模式。本地查询不调用模型；配置密钥不调用模型，也不写 localStorage/sessionStorage。刷新后恢复无密钥查询。
 - 浏览器中完全拦截 TokenDance 请求，用测试密钥验证了候选成功和 401 失败；仅请求头携带密钥，不发送 Cookie 或 Referer。失败信息不回显密钥。
 - 无密钥 OPTIONS 预检在真实 TokenDance 服务返回 204，允许跨域 POST、Authorization 与 Content-Type；没有发起真实模型调用。
-- GitHub Pages 自动工作流、fork 指南与纯静态构建已准备。当前仓库已创建，但 GitHub 推送仍被写入权限拒绝，尚未上线。
+- GitHub 推送已成功；GitHub Pages 已开启并强制 HTTPS。首次成功部署的提交为 b547df32057fa57d626cbf5caf5c2db576830970；[远端构建与部署](https://github.com/virtue192/Vibe-UI-UX/actions/runs/37205298551)均通过。
+- 公网地址为 https://virtue192.github.io/Vibe-UI-UX/ 。已在实际 Chrome 打开官网、工作台和文档；词库、字体与相对路径可访问。远端 CI 同时执行自动检查、内容结构验证、源码打包与静态构建，没有使用模型 Key。
 
 保留的 v0.2 视觉 / 功能核验：
 
@@ -35,6 +36,6 @@
 - 未输入真实 TokenDance 密钥，未产生付费请求；上游调用仅用模拟响应验证。
 - 中英文词条为草稿，日/韩/德正文明确英文回退；未完成人工审校。严格内容发布检查预期失败。
 - 不代表全面 WCAG 审计或跨浏览器认证。
-- 仓库地址为 https://github.com/virtue192/Vibe-UI-UX 。尚未验证 GitHub Actions 在远端实际运行或 Pages 在线访问；部署成功前不将预期网址作为已发布网站。
+- 仓库与原站点已发布，但 fork 部署仅验证了相对路径与模拟改名访问；未创建额外 GitHub 账号或仓库来进行真实 fork 部署。
 
 截图与浏览器结果在工作区 work/intentkit-*。浏览器成功证明本地静态构建可运行；真实模型、账号额度及未来跨域策略尚需实际接入时确认。
