@@ -11,8 +11,14 @@
 - Pages 产物使用 direct 模式。本地查询不调用模型；配置密钥不调用模型，也不写 localStorage/sessionStorage。刷新后恢复无密钥查询。
 - 浏览器中完全拦截 TokenDance 请求，用测试密钥验证了候选成功和 401 失败；仅请求头携带密钥，不发送 Cookie 或 Referer。失败信息不回显密钥。
 - 无密钥 OPTIONS 预检在真实 TokenDance 服务返回 204，允许跨域 POST、Authorization 与 Content-Type；没有发起真实模型调用。
-- GitHub 推送已成功；GitHub Pages 已开启并强制 HTTPS。首次成功部署的提交为 b547df32057fa57d626cbf5caf5c2db576830970；[远端构建与部署](https://github.com/virtue192/Vibe-UI-UX/actions/runs/37205298551)均通过。
-- 公网地址为 https://virtue192.github.io/Vibe-UI-UX/ 。已在实际 Chrome 打开官网、工作台和文档；词库、字体与相对路径可访问。远端 CI 同时执行自动检查、内容结构验证、源码打包与静态构建，没有使用模型 Key。
+- GitHub 推送已成功；GitHub Pages 已开启并强制 HTTPS。首次成功部署的提交为 b547df32057fa57d626cbf5caf5c2db576830970；[远端构建与部署](https://github.com/Vibe-Design-Labs/Vibe-UI-UX/actions/runs/37205298551)均通过。
+- 迁移前的个人账号站点已在实际 Chrome 验证官网、工作台、文档、词库、字体与相对路径。远端 CI 同时执行自动检查、内容结构验证、源码打包与静态构建，没有使用模型 Key。
+
+组织迁移 · 2026-10-04：
+
+- 原仓库已转移至 Vibe-Design-Labs/Vibe-UI-UX；仓库 ID 1404326642 不变，迁移后的 main 仍为 752973885d2f2cc0183f61ae9bb32aea14f8e5ec，原提交记录保留。
+- Pages 仍使用 GitHub Actions 并强制 HTTPS；当前组织域名为 https://vibe-design-labs.github.io/Vibe-UI-UX/ 。迁移后另行运行工作流并执行公网验证。
+- 本地 Git remote、官网与工作台的仓库链接、五语维护页和文档已更新。原个人仓库地址由 GitHub 重定向；旧 Pages 地址不会自动重定向。
 
 保留的 v0.2 视觉 / 功能核验：
 

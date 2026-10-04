@@ -14,7 +14,7 @@ BYOK 由访客浏览器直连固定 TokenDance 服务。密钥在当前页面内
 4. 在 Actions → Deploy GitHub Pages → Run workflow 手动触发首次部署。
 5. 工作流成功后，从部署任务输出或 Settings → Pages 打开实际生成的站点地址。后续推送 main 自动更新。
 
-原仓库已于 2026-10-04 通过 GitHub Actions 部署：[打开 IntentKit](https://virtue192.github.io/Vibe-UI-UX/)。fork 后网址通常是 https://你的用户名.github.io/你的仓库名/，实际网址以自己的部署输出为准。文件、字体、词库和导航都使用相对路径，不需要手动改仓库名前缀。
+项目已于 2026-10-04 转移至 Vibe-Design-Labs 组织，Pages 使用 GitHub Actions 部署：[打开 IntentKit](https://vibe-design-labs.github.io/Vibe-UI-UX/)。fork 后网址通常是 https://你的用户名.github.io/你的仓库名/，实际网址以自己的部署输出为准。文件、字体、词库和导航都使用相对路径，不需要手动改仓库名前缀。
 
 整个 Pages 工作流只构建、验证、打包和部署，不调用 GPT 或 TokenDance，不需要作者提供付费 Key。GitHub 自带部署令牌只用于 Actions 发布，和访客的 TokenDance Key 是独立的。
 
@@ -36,3 +36,7 @@ npm run preview:pages
 GitHub Pages 只部署 dist/pages/。不要上传 dist/server/、环境文件或托管身份配置。第三方字体在 public/fonts/ 保留完整 OFL 许可；应用代码为 MIT。
 
 官方说明：[发布来源](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)、[自定义 Pages 工作流](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)。
+
+## 从个人账号迁移到组织
+
+仓库从 virtue192 转移到 Vibe-Design-Labs，历史记录与 fork 关联保留。当前官方站点使用组织域名；旧 Pages 地址不会自动跳转。仓库地址、网站中的 GitHub 链接及本地 remote 已更新；页面、字体和词库的相对路径无需改动。组织中的 Pages 来源为 GitHub Actions，main 更新继续自动部署。
