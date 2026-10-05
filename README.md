@@ -1,6 +1,6 @@
 # IntentKit / 意译
 
-把日常设计表达转成专业 UI/UX 术语、可操作演示和准确描述。v0.3 提供纸张与手写字风格的官网、工作台、24 个词条、15 个可控演示模板、五语界面和 TokenDance BYOK。
+把日常设计表达转成专业 UI/UX 术语、可操作演示和准确描述。v0.3 提供纸张与手写字风格的官网、工作台、25 个词条、16 个可控演示模板、五语界面和 TokenDance BYOK。
 
 [在线体验](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [GitHub 开源仓库](https://github.com/Vibe-Design-Labs/Vibe-UI-UX) · [GitHub Pages / Fork 部署](docs/GITHUB_PAGES.md) · [维护新内容](docs/CONTENT_MAINTENANCE.md) · [字体与许可](docs/FONTS.md)
 
@@ -48,7 +48,7 @@ Node.js 20+，无需 npm 依赖。Python 3 用于内容验证与源码打包。
 
 检查器不联网、不使用 API Key、不消耗 GPT 模型额度。使用其他 AI 本身可能有其服务费用。
 
-当前词条是中英文草稿，日/韩/德正文明确英文回退。五语“界面完整”与五语“内容完整”是不同状态。严格发布检查目前应失败，避免把草稿当作已审校知识库。seed-content.py 是一次性初始作者脚本，后续维护不要重新运行，以免覆盖已编辑词条。
+词条以中英文草稿为主；新加入的自定义光标提供五语草稿，其余日/韩/德正文明确英文回退。五语“界面完整”与五语“内容完整”是不同状态。严格发布检查目前应失败，避免把草稿当作已审校知识库。seed-content.py 是一次性初始作者脚本，后续维护不要重新运行，以免覆盖已编辑词条。
 
 ## 动效与可访问性
 

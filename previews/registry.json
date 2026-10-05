@@ -1,6 +1,62 @@
 {
   "schema_version": 1,
   "templates": {
+    "custom-cursor": {
+      "version": 1,
+      "params": {
+        "shape": {
+          "type": "enum",
+          "values": [
+            "arrow",
+            "dot",
+            "ring",
+            "crosshair",
+            "star",
+            "hand",
+            "leaf",
+            "pencil"
+          ],
+          "default": "hand"
+        },
+        "size_px": {
+          "type": "number",
+          "min": 16,
+          "max": 80,
+          "default": 40
+        },
+        "color": {
+          "type": "color",
+          "default": "#B5452E"
+        },
+        "follow_ms": {
+          "type": "number",
+          "min": 0,
+          "max": 300,
+          "default": 80
+        },
+        "hover_scale": {
+          "type": "number",
+          "min": 1,
+          "max": 2,
+          "default": 1.35
+        },
+        "click_effect": {
+          "type": "enum",
+          "values": [
+            "none",
+            "pulse",
+            "burst"
+          ],
+          "default": "burst"
+        },
+        "duration_ms": {
+          "type": "number",
+          "min": 0,
+          "max": 800,
+          "default": 240
+        }
+      }
+    },
     "cursor-spotlight": {
       "version": 1,
       "params": {

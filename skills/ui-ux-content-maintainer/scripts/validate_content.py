@@ -45,6 +45,9 @@ def parameter_error(spec, value):
             return "enum choices must be unique nonempty strings"
         if not isinstance(value, str) or value not in choices:
             return "value must be one of the registered enum choices"
+    elif spec.get("type") == "color":
+        if not isinstance(value, str) or re.fullmatch(r"#[0-9a-fA-F]{6}", value) is None:
+            return "color must be a six-digit hexadecimal value such as #B5452E"
     else:
         return "unsupported parameter type"
     return None

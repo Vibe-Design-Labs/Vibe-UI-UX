@@ -10,7 +10,7 @@ test('all registered parameter bounds export without unresolved placeholders',()
  for(const item of items){
   const rules=registry.templates[item.preview?.template_id]?.params||{};
   for(const edge of ['min','max']){
-   const params=Object.fromEntries(Object.entries(rules).map(([k,r])=>[k,r.type==='number'?r[edge]:r.values[0]]));
+   const params=Object.fromEntries(Object.entries(rules).map(([k,r])=>[k,r.type==='number'?r[edge]:r.type==='enum'?r.values[0]:'#123ABC']));
    for(const locale of ['zh-CN','en','ja','ko','de']){
     const brief=makeBrief(item,registry,locale,params);
     assert.ok(brief&&!/\{[a-z_]+\}/.test(brief),item.id);
@@ -53,4 +53,19 @@ test('every registry template has an implemented renderer and every HTML transla
   const html=await readFile(new URL('public/'+filename,root),'utf8');
   for(const match of html.matchAll(/data-i18n(?:-label|-placeholder)?="([^"]+)"/g))assert.ok(module.dictionaries.en[match[1]],match[1]);
  }
+});
+
+test('custom cursor briefs preserve safe colors and all supported shape choices',()=>{
+ const item=items.find(i=>i.id==='custom-cursor');
+ for(const shape of registry.templates['custom-cursor'].params.shape.values){
+  const params=effectiveParams(item,registry,{shape,color:'#123abc',size_px:64,follow_ms:0});
+  const brief=makeBrief(item,registry,'zh-CN',params);
+  assert.ok(brief.includes(shape)&&brief.includes('#123abc')&&brief.includes('64px')&&brief.includes('0ms'));
+ }
+ for(const color of ['red','#fff','#12345678','#B5452E\n','var(--ink)','url(https://example.com/x)',false]){
+  assert.throws(()=>effectiveParams(item,registry,{color}));
+ }
+ assert.throws(()=>effectiveParams(item,registry,{shape:'<svg onload=alert(1)>'}));
+ assert.throws(()=>effectiveParams(item,registry,{hover_scale:3}));
+ assert.ok(localCandidates(items,'想要鼠标换形状').some(i=>i.id==='custom-cursor'));
 });

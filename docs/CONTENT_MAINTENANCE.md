@@ -16,3 +16,9 @@
 GitHub Pages 更新：本地核验后运行 `python scripts/package-source.py`、`npm run build:pages`、`npm run preview:pages`。先在仓库子路径检查导航、字体、词库和参数，再提交 main；已开启 Pages 的仓库会自动验证并发布。首次 / fork 部署见 [Pages 指南](GITHUB_PAGES.md)。源码打包、构建与部署均不调用模型；不需要 GPT 额度或把 TokenDance Key 放到仓库。
 
 不要重新运行一次性 scripts/seed-content.py 覆盖日后维护的内容。结构检查不会帮你联网核验来源，也不会证明知识与翻译正确。
+
+## 新增自定义光标（2026-10-05）
+
+示例：content/items/custom-cursor.json、previews/registry.json 的 custom-cursor，以及 public/cursor-preview.js。形状使用受控枚举；颜色采用严格的 color 类型（#RRGGBB），由核心参数校验和内容检查器共同约束。页面使用颜色选择器，导出使用同一份有效参数，不接受任意 SVG、HTML 或 CSS 输入。
+
+首页“自定义光标”入口读取词库与参数契约，形状和颜色可切换；进入工作台时会携带并重新校验当前参数。全局原生光标保留；定制光标仅在预览区接管鼠标，文字输入、触摸、键盘、减少动态效果与暂停动效均保留原生行为。新增其他光标形状时同步修改受控枚举、原创 SVG 形状、五语选项标签和浏览器验证用例。

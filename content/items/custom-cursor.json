@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "id": "custom-cursor",
+  "kind": "effect",
+  "domain": "ui",
+  "category": "motion",
+  "status": "draft",
+  "canonical_name": "Custom Cursor",
+  "tags": [
+    "cursor",
+    "pointer",
+    "shape",
+    "custom",
+    "brand",
+    "hover",
+    "click"
+  ],
+  "related_ids": [
+    "cursor-spotlight",
+    "press-feedback",
+    "reduced-motion"
+  ],
+  "locales": {
+    "zh-CN": {
+      "name": "自定义光标",
+      "aliases": [
+        "形状光标",
+        "自定义鼠标",
+        "鼠标换形状",
+        "鼠标图案",
+        "插画光标",
+        "手形光标",
+        "鼠标跟随图形",
+        "品牌光标"
+      ],
+      "description": "用有明确形状的图形跟随鼠标，并为悬停和点击提供反馈。可调整形状、大小、颜色及跟随方式；仅在演示区域接管指针，输入区、键盘和触摸保留原生操作。",
+      "use_when": [
+        "品牌介绍、作品集或轻量互动展示，需要让指针与页面视觉语言呼应。",
+        "先确认点击热区与图形尖端的位置，并提供明确的悬停和点击状态。"
+      ],
+      "avoid_when": [
+        "密集表单、文本编辑或需要精确定位的任务，不应遮挡原生指针或文字选择。",
+        "触摸、键盘和减少动态效果时使用静态形状示意与原生指针。"
+      ],
+      "prompt_template": "在演示区域使用形状为 {shape}、尺寸 {size_px}px、颜色 {color} 的自定义 SVG 光标。跟随平滑时间常数为 {follow_ms}ms（0 表示直接跟随）；可点击目标悬停时放大至 {hover_scale} 倍，点击反馈使用 {click_effect}，反馈与缩放过渡为 {duration_ms}ms。按形状热区定位，图形不拦截点击；离开区域、切换效果或按 Tab/Escape 时清理跟随与未完成反馈。文字输入、触摸及减少动态效果时保留原生指针，并显示静态形状示意。",
+      "review_status": "draft"
+    },
+    "en": {
+      "name": "Custom Cursor",
+      "aliases": [
+        "shaped cursor",
+        "custom mouse pointer",
+        "illustrated pointer",
+        "branded cursor",
+        "hand cursor",
+        "cursor shape"
+      ],
+      "description": "A shaped graphic follows the mouse and reacts to hover and clicks. Adjust shape, size, color and following behavior. Pointer takeover is scoped to the demo; text input, keyboard and touch retain native behavior.",
+      "use_when": [
+        "Brand pages, portfolios or lightweight interactive showcases where the pointer supports the visual identity.",
+        "Align the graphic hotspot with the click location and provide recognizable hover and click states."
+      ],
+      "avoid_when": [
+        "Dense forms, text editing or precision tasks where a custom graphic obscures native pointer cues.",
+        "Use a static shape illustration and native pointer for touch, keyboard and reduced motion."
+      ],
+      "prompt_template": "Within the demo area, use a custom SVG cursor with shape {shape}, size {size_px}px and color {color}. Use a following time constant of {follow_ms}ms (0 follows directly). Scale to {hover_scale} on clickable targets, with {click_effect} click feedback and {duration_ms}ms feedback/scale transitions. Align the shape hotspot; the graphic must not intercept clicks. Cancel tracking and unfinished feedback on exit, effect switch, Tab or Escape. Retain native input and pointer behavior with a static shape illustration for text input, touch and reduced motion.",
+      "review_status": "draft"
+    },
+    "ja": {
+      "name": "カスタムカーソル",
+      "aliases": [
+        "形状カーソル",
+        "マウスポインター",
+        "図形カーソル",
+        "ブランドカーソル"
+      ],
+      "description": "図形がマウスに追従し、ホバーやクリックに反応します。形状・サイズ・色・追従方法を調整できます。デモ領域だけに適用し、文字入力・キーボード・タッチの操作は標準のままにします。",
+      "use_when": [
+        "ブランド紹介、ポートフォリオ、軽い体験型コンテンツで見た目を統一したい場合。",
+        "図形のホットスポットとクリック位置を合わせ、状態の変化を分かりやすくする場合。"
+      ],
+      "avoid_when": [
+        "入力項目の多いフォーム、文章編集、精密な位置指定では標準ポインターを妨げない。",
+        "タッチや動きを減らす設定では、静止した図形と標準ポインターを使う。"
+      ],
+      "prompt_template": "デモ領域で形状 {shape}、サイズ {size_px}px、色 {color} の SVG カーソルを使用。追従の時定数は {follow_ms}ms（0 は直接追従）、クリック可能な要素へのホバー倍率は {hover_scale}、クリック反応は {click_effect}、反応と拡縮は {duration_ms}ms。ホットスポットを合わせ、クリックを遮らない。領域外・効果切替・Tab/Escape で追従と未完了の反応を解除。文字入力・タッチ・動きを減らす設定では標準操作と静止した図形表示を保つ。",
+      "review_status": "draft"
+    },
+    "ko": {
+      "name": "사용자 지정 커서",
+      "aliases": [
+        "모양 커서",
+        "마우스 포인터",
+        "그림 커서",
+        "브랜드 커서"
+      ],
+      "description": "모양이 있는 그래픽이 마우스를 따라가며 호버와 클릭에 반응합니다. 모양, 크기, 색상과 따라오는 방식을 조절할 수 있습니다. 데모 영역에만 적용하며 텍스트 입력, 키보드와 터치는 기본 조작을 유지합니다.",
+      "use_when": [
+        "브랜드 소개, 포트폴리오 또는 가벼운 인터랙션에서 시각적 분위기를 맞출 때.",
+        "그래픽의 핫스폿을 클릭 위치에 맞추고 호버와 클릭 상태를 명확히 구분할 때."
+      ],
+      "avoid_when": [
+        "복잡한 폼, 텍스트 편집 또는 정밀 작업에서 기본 포인터를 가리지 않도록 합니다.",
+        "터치 및 모션 감소 설정에서는 정적인 모양과 기본 포인터를 사용합니다."
+      ],
+      "prompt_template": "데모 영역에서 모양 {shape}, 크기 {size_px}px, 색상 {color}의 SVG 커서를 사용합니다. 따라오기 시간 상수는 {follow_ms}ms(0은 즉시 이동), 클릭 가능한 요소의 호버 배율은 {hover_scale}, 클릭 피드백은 {click_effect}, 피드백 및 크기 전환 시간은 {duration_ms}ms입니다. 핫스폿을 맞추고 클릭을 가로채지 않습니다. 영역을 벗어나거나 효과 변경, Tab/Escape 시 추적과 진행 중인 피드백을 정리합니다. 텍스트 입력, 터치, 모션 감소 설정에는 기본 조작과 정적인 모양을 유지합니다.",
+      "review_status": "draft"
+    },
+    "de": {
+      "name": "Benutzerdefinierter Cursor",
+      "aliases": [
+        "geformter Cursor",
+        "eigener Mauszeiger",
+        "illustrierter Zeiger",
+        "Marken-Cursor"
+      ],
+      "description": "Eine geformte Grafik folgt der Maus und reagiert auf Hover und Klicks. Form, Größe, Farbe und Nachlauf sind einstellbar. Der Effekt gilt nur im Demobereich; Texteingabe, Tastatur und Touch behalten das native Verhalten.",
+      "use_when": [
+        "Markenseiten, Portfolios und leichte interaktive Präsentationen, bei denen der Zeiger zur Gestaltung passt.",
+        "Grafik-Hotspot und Klickposition ausrichten und verständliche Hover- und Klickzustände anbieten."
+      ],
+      "avoid_when": [
+        "In dichten Formularen, Texteditoren und Präzisionsaufgaben native Zeigerhinweise nicht verdecken.",
+        "Bei Touch und reduzierter Bewegung eine statische Form und den nativen Zeiger verwenden."
+      ],
+      "prompt_template": "Im Demobereich einen SVG-Cursor mit Form {shape}, Größe {size_px}px und Farbe {color} verwenden. Zeitkonstante des Nachlaufs: {follow_ms}ms (0 folgt direkt). Auf klickbaren Zielen auf {hover_scale} skalieren; Klickfeedback {click_effect}, Feedback- und Skalierungsdauer {duration_ms}ms. Hotspot ausrichten und Klicks nicht abfangen. Nachlauf und laufendes Feedback beim Verlassen, Effektwechsel, Tab oder Escape entfernen. Bei Texteingabe, Touch und reduzierter Bewegung native Bedienung und eine statische Form beibehalten.",
+      "review_status": "draft"
+    }
+  },
+  "preview": {
+    "template_id": "custom-cursor",
+    "params": {
+      "shape": "hand",
+      "size_px": 40,
+      "color": "#B5452E",
+      "follow_ms": 80,
+      "hover_scale": 1.35,
+      "click_effect": "burst",
+      "duration_ms": 240
+    }
+  },
+  "sources": [
+    {
+      "type": "original",
+      "note": "原创解释、八种 SVG 形状及受控演示实现；参数为本项目示例，非行业标准。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "参考所观察到的插画形指针跟随行为；未复制该站的拳头图形、品牌文字或组件代码。",
+      "url": "https://knocket.trtc.io/",
+      "license": "unknown",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "原生光标与回退语义的实现参考；说明与演示为本项目原创。",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/cursor",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "指针事件穿透及命中行为参考，未复制外部正文。",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events",
+      "license": "not-applicable",
+      "reuse_permission": "not-applicable"
+    }
+  ]
+}
