@@ -2,7 +2,7 @@
 
 把日常设计表达转成专业 UI/UX 术语、可操作演示和准确描述。v0.3 提供纸张与手写字风格的官网、工作台、25 个词条、16 个可控演示模板、五语界面和 TokenDance BYOK。
 
-[在线体验](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [GitHub 开源仓库](https://github.com/Vibe-Design-Labs/Vibe-UI-UX) · [GitHub Pages / Fork 部署](docs/GITHUB_PAGES.md) · [维护新内容](docs/CONTENT_MAINTENANCE.md) · [字体与许可](docs/FONTS.md)
+[在线体验](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [GitHub 开源仓库](https://github.com/Vibe-Design-Labs/Vibe-UI-UX) · [GitHub Pages / Fork 部署](docs/GITHUB_PAGES.md) · [维护新内容](docs/CONTENT_MAINTENANCE.md) · [字体与许可](docs/FONTS.md) · [TokenDance 接入](docs/TOKENDANCE.md)
 
 ![IntentKit 米纸与手写字风格界面](docs/preview.png)
 
@@ -30,7 +30,10 @@ Node.js 20+，无需 npm 依赖。Python 3 用于内容验证与源码打包。
 - public/core.js：最终参数校验、描述生成与候选校验；预览与导出共用。
 - public/i18n.js：中文、英文、日文、韩文、德文界面；content 翻译独立维护。
 - public/polish.css：纸张配色、字体、字号与响应式布局；public/fonts/ 自托管 OFL 字体。
-- server/worker.js：固定 TokenDance Chat Completions 地址，单次请求中转。
+- public/tokendance.js：模型协议筛选、S256 PKCE、授权交换、错误恢复与共享提示词。
+- public/connection.js：实时模型列表、授权弹窗、手动 BYOK；密钥和 PKCE 验证信息仅在内存。
+- public/authorize.html：静态授权回调，同源窗口、来源与流程标识校验。
+- server/worker.js：固定 TokenDance 地址的模型目录、授权交换与对话中转。
 - scripts/build.mjs：生成本地/Worker 模式的 dist/client 与 dist/server/index.js。
 - scripts/build-pages.mjs：生成 dist/pages/，采用相对路径和浏览器直连 BYOK。
 - .github/workflows/pages.yml：main 推送或手动触发时验证并自动部署 GitHub Pages。
@@ -69,11 +72,11 @@ Node.js 20+，无需 npm 依赖。Python 3 用于内容验证与源码打包。
 
 ## BYOK 隐私和限制
 
-静态 Pages 版由浏览器直连固定 https://tokendance.space/gateway/v1/chat/completions。模型 ID 以 TokenDance 公布的列表为准。访客自己的密钥仅在当前页面内存，通过 Authorization 发送到 TokenDance，不放在仓库、构建产物或 GitHub Secrets 中。刷新或清除后丢弃，不写 localStorage/sessionStorage、数据库或日志。只有界面语言偏好会保存至 localStorage。
+静态 Pages 版由浏览器直连固定 https://tokendance.space/gateway/v1/chat/completions。连接面板读取实时公开模型目录，只列出 supported_protocols 含 openai:chat-completions 的模型；读取失败可手动填写官方模型 ID。支持通过 TokenDance 授权弹窗（S256 PKCE）创建新 Key，也支持手动输入已有 Key。访客自己的密钥仅在当前页面内存，通过 Authorization 发送到 TokenDance，不放在仓库、构建产物或 GitHub Secrets 中。刷新或清除后丢弃，不写 localStorage/sessionStorage、数据库或日志。只有界面语言偏好会保存至 localStorage。
 
-2026-10-04 无密钥 OPTIONS 预检验证了 TokenDance 允许跨域 POST 与 Authorization。尚未使用真实模型密钥进行付费联调；实际额度、模型可用性及未来跨域策略需实际接入时确认。网络或跨域失败时显示可理解的错误，清除密钥后可继续本地查询。
+2026-10-06 依据 [官方接入文档](https://tokendance.space/docs/ai-integration.md) 更新。实测公开模型目录 HTTP 200，108 个模型中有 71 个支持对话协议；Chat Completions 与授权交换 OPTIONS 均返回 204。公开目录读取及授权交换不调用模型；授权会在用户确认后创建 Key。尚未使用真实模型密钥进行付费联调；实际额度、模型可用性及未来跨域策略需实际接入时确认。网络或跨域失败时显示可理解的错误，清除密钥后可继续本地查询。
 
-本地 npm run dev 与可选 Cloudflare Worker 版本保留同源中转方式；当前实例会接触访客的密钥，应仅在可信部署使用。静态版不依赖这个服务器。两种方式都只接受已知候选 ID、限制输入和返回大小、禁止上游重定向；模型输出作为文本显示，不执行生成的任意代码。
+本地 npm run dev 与可选 Cloudflare Worker 版本保留同源中转方式；当前实例会接触访客的密钥，应仅在可信部署使用。静态版不依赖这个服务器。两种方式都将实际部署的稳定 App URL 用于 OAuth app_url 与调用 X-App-URL（本机使用 app://intentkit）。错误仅保留已知恢复动作，提示充值、重新授权或等待周期刷新，不自动充值或重试。两种方式都只接受已知候选 ID、限制输入和返回大小、禁止上游重定向；模型输出作为文本显示，不执行生成的任意代码。
 
 日常内容更新、构建、检查、GitHub Pages 部署不会调用模型，不消耗 GPT 或 TokenDance 模型额度。使用者自行选择模型并承担调用费用。
 

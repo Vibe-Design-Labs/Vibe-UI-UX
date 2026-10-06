@@ -2,9 +2,9 @@
 
 GitHub Pages 静态版保留官网、五语界面、术语查询、动效预览、参数调节、复制与 JSON 导出。浏览、学习和更新内容不需要模型密钥。
 
-BYOK 由访客浏览器直连固定 TokenDance 服务。密钥在当前页面内存中，不写 localStorage/sessionStorage，不放进仓库或 GitHub Secrets，刷新页面会清除。只有访客保存密钥并主动点击“查找效果”才调用模型。
+BYOK 由访客浏览器直连固定 TokenDance 服务。密钥在当前页面内存中，不写 localStorage/sessionStorage，不放进仓库或 GitHub Secrets，刷新页面会清除。访客可以通过 S256 PKCE 授权弹窗连接 TokenDance，也可以填写已有密钥。打开连接面板会读取无需密钥的公开模型目录；只有保存连接并主动点击“查找效果”才调用模型。授权过程会经用户确认创建 Key，但不调用模型。
 
-2026-10-04 实际 OPTIONS 检查：TokenDance 返回 204、Access-Control-Allow-Origin: *、允许 POST 及 Authorization/Content-Type。此检查证明当时允许跨域请求，不代表真实模型或付费账号已完成联调；未来服务策略可能变化。跨域或网络失败会显示说明，仍可清除密钥使用本地匹配。
+2026-10-06 实际检查：模型目录 GET 返回 200；Chat Completions 和授权交换 OPTIONS 返回 204、Access-Control-Allow-Origin: *。对话端点允许 Authorization/Content-Type/X-App-URL，授权端点允许 Content-Type。此检查证明当时允许跨域请求，不代表真实模型或付费账号已完成联调；未来服务策略可能变化。跨域或网络失败会显示说明，仍可清除密钥使用本地匹配。
 
 ## 首次发布 / fork 后发布
 
@@ -40,3 +40,9 @@ GitHub Pages 只部署 dist/pages/。不要上传 dist/server/、环境文件或
 ## 从个人账号迁移到组织
 
 仓库从 virtue192 转移到 Vibe-Design-Labs，历史记录与 fork 关联保留。当前官方站点使用组织域名；旧 Pages 地址不会自动跳转。仓库地址、网站中的 GitHub 链接及本地 remote 已更新；页面、字体和词库的相对路径无需改动。组织中的 Pages 来源为 GitHub Actions，main 更新继续自动部署。
+
+## TokenDance 授权与 fork
+
+授权回调使用与工作台同目录的 authorize.html，自动保留仓库子路径。弹窗必须由用户点击开启；回调只接受原弹窗、同源且匹配流程标识的消息。PKCE verifier、授权状态和 API Key 仅在页面内存，不进入浏览器存储。取消、超时、关闭连接面板或离开页面会中止流程；刷新后需要重新连接。若弹窗被拦截，允许弹窗或改用手动密钥。
+
+App URL 从当前部署地址计算，OAuth app_url 与模型调用 X-App-URL 保持一致。fork 不会继续归因到原作者；本地开发固定使用 app://intentkit。纯静态部署无后端、无部署密钥。详细接口、恢复动作与测试范围见 [TokenDance 接入说明](TOKENDANCE.md)。

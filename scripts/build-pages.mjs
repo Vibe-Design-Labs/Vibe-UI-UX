@@ -9,7 +9,7 @@ await cp(path.join(root, 'dist/client'), target, {recursive: true});
 await writeFile(path.join(target, 'transport.js'), "export const transportMode = 'direct';\n");
 await writeFile(path.join(target, '.nojekyll'), '');
 const policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://tokendance.space; object-src 'none'; base-uri 'self'; form-action 'self'";
-for (const name of ['index.html', 'studio.html', 'docs.html']) {
+for (const name of ['index.html', 'studio.html', 'docs.html', 'authorize.html']) {
   const file = path.join(target, name);
   const html = await readFile(file, 'utf8');
   await writeFile(file, html.replace('<head>', '<head><meta http-equiv="Content-Security-Policy" content="' + policy + '">'));

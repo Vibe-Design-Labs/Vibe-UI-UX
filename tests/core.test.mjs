@@ -49,7 +49,7 @@ test('every registry template has an implemented renderer and every HTML transla
  assert.deepEqual([...ids].sort(),Object.keys(registry.templates).sort());
  const i18n=await readFile(new URL('public/i18n.js',root),'utf8');
  const module=await import('data:text/javascript;base64,'+Buffer.from(i18n.slice(0,i18n.indexOf('export let locale='))).toString('base64'));
- for(const filename of ['index.html','studio.html','docs.html']){
+ for(const filename of ['index.html','studio.html','docs.html','authorize.html']){
   const html=await readFile(new URL('public/'+filename,root),'utf8');
   for(const match of html.matchAll(/data-i18n(?:-label|-placeholder)?="([^"]+)"/g))assert.ok(module.dictionaries.en[match[1]],match[1]);
  }

@@ -11,5 +11,6 @@ await writeFile(path.join(root,'dist/client/catalog.json'),JSON.stringify({items
 const files={};async function walk(dir,prefix=''){for(const name of await readdir(dir)){const filename=path.join(dir,name),key=prefix+'/'+name;if((await stat(filename)).isDirectory())await walk(filename,key);else files[key]=(await readFile(filename)).toString('base64');}}
 await walk(path.join(root,'dist/client'));await writeFile(path.join(root,'dist/server/assets.js'),'export default '+JSON.stringify(files)+';\n');
 await cp(path.join(root,'server/worker.js'),path.join(root,'dist/server/index.js'));await cp(path.join(root,'public/core.js'),path.join(root,'dist/server/core.js'));
+await cp(path.join(root,'public/tokendance.js'),path.join(root,'dist/server/tokendance.js'));
 await writeFile(path.join(root,'dist/server/catalog.js'),'export default '+JSON.stringify({items,registry})+';\n');
 console.log(`Built static pages + BYOK Worker; ${items.length} entries, ${Object.keys(files).length} assets.`);
