@@ -1,0 +1,12 @@
+.brand-pointer-layer{position:fixed;inset:0;z-index:80;overflow:hidden;pointer-events:none;visibility:hidden;contain:strict}
+.brand-pointer-layer.pointer-active{visibility:visible}
+.brand-pointer-glyph{position:absolute;top:0;left:0;z-index:2;pointer-events:none;will-change:transform}
+.brand-pointer-glyph svg{display:block;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 .6px #fffaf0)}
+.brand-pointer-active,.brand-pointer-active *{cursor:none!important}
+.pointer-light{position:absolute;top:0;left:0;z-index:0;pointer-events:none;opacity:0;will-change:transform;background:radial-gradient(circle,rgba(255,243,214,var(--light-opacity)) 0%,rgba(var(--light-rgb),var(--light-opacity)) 24%,rgba(var(--light-rgb),0) 72%);transition:opacity 160ms ease-out}
+.pointer-light.light-active{opacity:1}
+.brand-click-pulse{position:absolute;width:18px;height:18px;border:1.5px solid #B5452E;border-radius:50%;z-index:1;pointer-events:none}
+.cursor-playground .pointer-light{z-index:0}.cursor-playground>p,.cursor-playground>.cursor-sample,.cursor-playground>.cursor-targets{position:relative;z-index:1}
+.cursor-pulse{border-color:var(--cursor-feedback-color,var(--cursor-color))}.cursor-burst i{background:var(--cursor-feedback-color,var(--cursor-color))}
+.motion-paused .brand-pointer-layer,.motion-paused .pointer-light{visibility:hidden}
+@media(prefers-reduced-motion:reduce),(pointer:coarse){.brand-pointer-layer,.pointer-light{display:none}.brand-pointer-active,.brand-pointer-active *{cursor:auto!important}}

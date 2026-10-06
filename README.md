@@ -2,11 +2,17 @@
 
 把日常设计表达转成专业 UI/UX 术语、可操作演示和准确描述。v0.3 提供纸张与手写字风格的官网、工作台、25 个词条、16 个可控演示模板、五语界面和 TokenDance BYOK。
 
-[在线体验](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [GitHub 开源仓库](https://github.com/Vibe-Design-Labs/Vibe-UI-UX) · [GitHub Pages / Fork 部署](docs/GITHUB_PAGES.md) · [维护新内容](docs/CONTENT_MAINTENANCE.md) · [字体与许可](docs/FONTS.md) · [TokenDance 接入](docs/TOKENDANCE.md)
+[在线体验](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [GitHub 开源仓库](https://github.com/Vibe-Design-Labs/Vibe-UI-UX) · [GitHub Pages / Fork 部署](docs/GITHUB_PAGES.md) · [维护新内容](docs/CONTENT_MAINTENANCE.md) · [字体与许可](docs/FONTS.md) · [TokenDance 接入](docs/TOKENDANCE.md) · [叶片与聚光](docs/LEAF_CURSOR.md) · [更新记录](CHANGELOG.md)
 
 ![IntentKit 米纸与手写字风格界面](docs/preview.png)
 
 IntentKit translates everyday design intentions into professional UI/UX vocabulary, live previews and reusable design briefs. Bring your own TokenDance key for optional AI suggestions. The interface supports Chinese, English, Japanese, Korean and German. Basic search, previews, parameter tuning and export work without an API key. Fork-friendly static deployment on GitHub Pages is included; visitors connect directly to TokenDance from their browser with their own key. No shared model key or backend is required for Pages. Application code is MIT; bundled fonts remain under SIL OFL 1.1.
+
+## 当前版本：0.4.0.1.0
+
+官网加入墨绿叶片指针、米色叶脉、朱砂墨点和暖杏金聚光。工作台可独立调整指针与灯光的跟随、颜色、半径和透明度；预览与 JSON 导出使用同一组参数。输入、弹窗、触摸、键盘和减少动态效果保留原生操作。
+
+公开版本采用五段编号，由 package.json 的 intentkitVersion 统一管理。网页显示、version.json、更新记录与 Git 标签保持完整编号；package.json 的 version 保留 npm 兼容格式，当前为 0.4.1。详见 [版本规则](docs/VERSIONING.md)。
 
 ## 运行
 
@@ -27,6 +33,8 @@ Node.js 20+，无需 npm 依赖。Python 3 用于内容验证与源码打包。
 - content/items/*.json：一词条一文件，稳定 ID、双语正文、别名、来源与审校状态。
 - previews/registry.json：参数默认值、合法范围、枚举。
 - public/previews.js：受控渲染器，不运行模型生成代码。
+- public/leaf-art.js：已确认叶片稿的矢量实现；构建时生成同源 leaf-cursor.svg。
+- public/brand-pointer.js / pointer-light.js：首页品牌指针、聚光、取消与原生操作恢复。
 - public/core.js：最终参数校验、描述生成与候选校验；预览与导出共用。
 - public/i18n.js：中文、英文、日文、韩文、德文界面；content 翻译独立维护。
 - public/polish.css：纸张配色、字体、字号与响应式布局；public/fonts/ 自托管 OFL 字体。
@@ -54,6 +62,8 @@ Node.js 20+，无需 npm 依赖。Python 3 用于内容验证与源码打包。
 词条以中英文草稿为主；新加入的自定义光标提供五语草稿，其余日/韩/德正文明确英文回退。五语“界面完整”与五语“内容完整”是不同状态。严格发布检查目前应失败，避免把草稿当作已审校知识库。seed-content.py 是一次性初始作者脚本，后续维护不要重新运行，以免覆盖已编辑词条。
 
 ## 动效与可访问性
+
+首页叶片精确跟随点击位置，灯光单独平滑跟随。默认指针 32px，聚光半径 160px、透明度 0.15、颜色 #EBCB8B、灯光时间常数 80ms。叶片 SVG 尖端为热区，悬停轻微放大、点击出现朱砂小圆环。输入与弹窗恢复原生指针，触摸和减少动态效果不启动指针或灯光跟随。
 
 鼠标聚光通过 pointermove、requestAnimationFrame 和径向渐变实现；模板使用同一份半径、透明度、抬升距离和过渡时长。鼠标吸附仅用于官网主要操作。粗指针触摸不启动指针跟随；保留原生光标和原生控件。
 

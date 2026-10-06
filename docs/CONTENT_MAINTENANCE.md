@@ -21,4 +21,10 @@ GitHub Pages 更新：本地核验后运行 `python scripts/package-source.py`�
 
 示例：content/items/custom-cursor.json、previews/registry.json 的 custom-cursor，以及 public/cursor-preview.js。形状使用受控枚举；颜色采用严格的 color 类型（#RRGGBB），由核心参数校验和内容检查器共同约束。页面使用颜色选择器，导出使用同一份有效参数，不接受任意 SVG、HTML 或 CSS 输入。
 
-首页“自定义光标”入口读取词库与参数契约，形状和颜色可切换；进入工作台时会携带并重新校验当前参数。全局原生光标保留；定制光标仅在预览区接管鼠标，文字输入、触摸、键盘、减少动态效果与暂停动效均保留原生行为。新增其他光标形状时同步修改受控枚举、原创 SVG 形状、五语选项标签和浏览器验证用例。
+首页“自定义光标”入口读取词库与参数契约，形状和颜色可切换；进入工作台时会携带并重新校验当前参数。当前首页使用品牌叶片与聚光，工作台将品牌指针限制在预览区域；定制光标演示接管自身区域，文字输入、弹窗、触摸、键盘、减少动态效果与暂停动效保留原生行为。新增其他光标形状时同步修改受控枚举、原创 SVG 形状、五语选项标签和浏览器验证用例。
+
+## 叶片与聚光（0.4.0.1.0）
+
+叶片几何路径在 public/leaf-art.js，构建自动导出 leaf-cursor.svg。custom-cursor 新增 spotlight_radius_px、spotlight_opacity、spotlight_color、spotlight_follow_ms；模板版本为 2。颜色继续只接受 #RRGGBB。叶脉与墨点为固定品牌色；指针和灯光分别调节，并将全部参数写入五语描述。
+
+本次参数调整复用原有词条 ID，不新增近义词条。对源码与内容进行下一次更新时，按 [五段版本规则](VERSIONING.md) 更新 package.json.intentkitVersion 和 CHANGELOG.md，再重新打包与部署。

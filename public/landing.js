@@ -1,6 +1,7 @@
 import {setupLanguage,t} from './i18n.js';
-import {setupAmbientMotion,attachSpotlight,setPaused} from './motion.js';
+import {setupAmbientMotion,setPaused} from './motion.js';
 import {mountPreview} from './previews.js';
+import {attachLeafPointer} from './brand-pointer.js';
 import {effectiveParams} from './core.js';
 let current='spotlight',cleanup=()=>{},paused=false,cursorCatalog=null;
 const stage=document.querySelector('#hero-demo'),range=document.querySelector('#hero-power');
@@ -13,7 +14,7 @@ function render(){
  document.querySelector('#hero-cursor-options').hidden=current!=='cursor';
  const intent=document.querySelector('#intent-label');intent.dataset.i18n=current==='cursor'?'cursorDemoIntent':'demoIntent';intent.textContent=t(intent.dataset.i18n);intent.style.whiteSpace='pre-line';
  for(const option of shapeSelect.options)option.textContent=t(shapeLabel(option.value));
- const defs={spotlight:{id:'cursor-spotlight',name:'Cursor Spotlight + Hover Lift',template:'cursor-spotlight',params:{radius_px:70+value*2,opacity:value/150,lift_px:value/8,duration_ms:240}},stagger:{id:'staggered-reveal',name:'Staggered Reveal',template:'slide-fade-list',params:{duration_ms:180+value*4,delay_ms:value*2,offset_y_px:value/3,easing:'ease-out'}},feedback:{id:'save-feedback',name:'Save Feedback',template:'ux-state-comparison',params:{feedback_delay_ms:value*10}}};
+ const defs={spotlight:{id:'cursor-spotlight',name:'Cursor Spotlight + Hover Lift',template:'cursor-spotlight',params:{radius_px:70+value*2,opacity:value*.0035,lift_px:value/8,duration_ms:240,color:'#EBCB8B',follow_ms:80}},stagger:{id:'staggered-reveal',name:'Staggered Reveal',template:'slide-fade-list',params:{duration_ms:180+value*4,delay_ms:value*2,offset_y_px:value/3,easing:'ease-out'}},feedback:{id:'save-feedback',name:'Save Feedback',template:'ux-state-comparison',params:{feedback_delay_ms:value*10}}};
  let d=defs[current];
  if(current==='cursor'){
   const item=cursorCatalog.items.find(i=>i.id==='custom-cursor');
@@ -34,8 +35,9 @@ fetch(new URL('./catalog.json',import.meta.url)).then(r=>{if(!r.ok)throw new Err
  cursorCatalog=catalog;
  for(const id of rules.shape.values){const option=document.createElement('option');option.value=id;option.textContent=t(shapeLabel(id));shapeSelect.append(option);}
  shapeSelect.value=item.preview.params.shape;colorInput.value=item.preview.params.color;cursorTab.disabled=false;
+ const dispose=attachLeafPointer(document.body,effectiveParams(item,catalog.registry));addEventListener('pagehide',event=>{if(!event.persisted)dispose();});
 }).catch(()=>{cursorTab.hidden=true;});
-setupLanguage(render);render();setupAmbientMotion();attachSpotlight(document.querySelector('.hero'),{radius:440,opacity:.09});
+setupLanguage(render);render();setupAmbientMotion();
 range.addEventListener('input',render);shapeSelect.addEventListener('change',render);colorInput.addEventListener('input',render);
 document.querySelector('#hero-replay').addEventListener('click',render);
 document.querySelectorAll('.effect-tab').forEach(b=>{

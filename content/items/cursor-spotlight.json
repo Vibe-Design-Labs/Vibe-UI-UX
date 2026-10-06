@@ -32,7 +32,7 @@
       "avoid_when": [
         "不要将演示参数当作通用行业标准。"
       ],
-      "prompt_template": "为卡片添加半径 {radius_px}px、透明度 {opacity} 的指针聚光；悬停抬升 {lift_px}px，抬升过渡 {duration_ms}ms。聚光跟随指针且不拦截点击；触摸与减少动态效果时使用静态状态。"
+      "prompt_template": "为卡片添加半径 {radius_px}px、颜色 {color}、透明度 {opacity} 的指针聚光，灯光跟随时间常数 {follow_ms}ms（0 直接跟随）；悬停抬升 {lift_px}px，抬升过渡 {duration_ms}ms。不拦截点击；触摸与减少动态效果时使用静态状态。"
     },
     "en": {
       "review_status": "draft",
@@ -51,16 +51,18 @@
       "avoid_when": [
         "Do not treat demo parameters as universal standards."
       ],
-      "prompt_template": "Use a pointer-tracked radial glow with radius {radius_px}px and opacity {opacity}. Lift the card by {lift_px}px on hover over {duration_ms}ms. Do not intercept clicks. Use a static state on touch and reduced motion."
+      "prompt_template": "Use a pointer-tracked radial glow with radius {radius_px}px, color {color}, opacity {opacity} and following time constant {follow_ms}ms (0 follows directly). Lift the card by {lift_px}px on hover over {duration_ms}ms. Do not intercept clicks. Use a static state on touch and reduced motion."
     }
   },
   "preview": {
     "template_id": "cursor-spotlight",
     "params": {
-      "radius_px": 150,
-      "opacity": 0.25,
+      "radius_px": 160,
+      "opacity": 0.15,
       "lift_px": 6,
-      "duration_ms": 240
+      "duration_ms": 240,
+      "color": "#EBCB8B",
+      "follow_ms": 80
     }
   },
   "sources": [

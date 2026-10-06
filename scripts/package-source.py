@@ -2,7 +2,7 @@ from pathlib import Path
 import zipfile
 root=Path(__file__).resolve().parents[1]
 target=root/'public/source.zip'
-allowed=['.github','public','server','scripts','tests','content','previews','skills','docs','README.md','LICENSE','package.json','.gitignore','.gitattributes']
+allowed=['.github','public','server','scripts','tests','content','previews','skills','docs','README.md','CHANGELOG.md','LICENSE','package.json','.gitignore','.gitattributes']
 with zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED) as archive:
  for entry in allowed:
   path=root/entry

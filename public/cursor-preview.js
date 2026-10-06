@@ -1,5 +1,7 @@
 import {t} from './i18n.js';
 import {motionAllowed} from './motion.js';
+import {createLeafSvg,leafArt} from './leaf-art.js';
+import {createPointerLight,followAmount} from './pointer-light.js';
 
 const ns='http://www.w3.org/2000/svg';
 const shapes={
@@ -9,11 +11,11 @@ const shapes={
  crosshair:{hotspot:[12,12],paths:['M12 3V8M12 16V21M3 12H8M16 12H21'],circle:[12,12,2],outline:true},
  star:{hotspot:[12,12],paths:['M12 2 15 9 22 12 15 15 12 22 9 15 2 12 9 9Z']},
  hand:{hotspot:[10,3],paths:['M6 12V9.5Q6 8 7.5 8H8V4Q8 2 10 2T12 4V9L14 8.5 16 10 18 10Q20 10 20 12V16Q20 18 17 21H10L5 16Q3 13 4.5 12Q5.5 11.5 6 12Z','M12 9V13M15 10V14M18 12V15']},
- leaf:{hotspot:[4,20],paths:['M4 20Q2 5 21 3Q20 21 4 20Z','M4 20 16 8']},
  pencil:{hotspot:[4,20],paths:['M4 20 6 13 17 2 22 7 11 18Z','M6 13 11 18M15 4 20 9']}
 };
 const element=(tag,cls,text)=>{const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined)node.textContent=text;return node;};
 export function cursorSvg(shape,color){
+ if(shape==='leaf')return {svg:createLeafSvg(color),hotspot:leafArt.hotspot};
  const spec=shapes[shape];
  if(!spec)throw new Error('Unknown cursor shape');
  const svg=document.createElementNS(ns,'svg');
@@ -25,9 +27,12 @@ export function cursorSvg(shape,color){
  return {svg,hotspot:spec.hotspot};
 }
 export function mountCursorPreview(stage,params){
- const {shape,size_px,color,follow_ms,hover_scale,click_effect,duration_ms}=params;
+ const {shape,size_px,color,follow_ms,hover_scale,click_effect,duration_ms,spotlight_radius_px,spotlight_opacity,spotlight_color,spotlight_follow_ms}=params;
  const area=element('div','cursor-playground');
  area.dataset.shape=shape;area.style.setProperty('--cursor-color',color);
+ area.style.setProperty('--cursor-feedback-color',shape==='leaf'?leafArt.accent:color);
+ const light=createPointerLight({radius:spotlight_radius_px,opacity:spotlight_opacity,color:spotlight_color,follow_ms:spotlight_follow_ms});
+ area.append(light.node);
  const note=element('p','cursor-instruction',t('cursorMoveHint'));
  const samples=element('div','cursor-sample');
  const sample=cursorSvg(shape,color).svg;sample.style.width=size_px+'px';sample.style.height=size_px+'px';
@@ -53,24 +58,25 @@ export function mountCursorPreview(stage,params){
  const listen=(node,event,fn)=>{node.addEventListener(event,fn);cleanups.push(()=>node.removeEventListener(event,fn));};
  const canTrack=()=>fine.matches&&motionAllowed();
  const scale=()=>glyph.style.transform='scale('+(pressed ? .86 : hovered ? hover_scale : 1)+')';
- const localPoint=event=>{const rect=area.getBoundingClientRect();return {x:(event.clientX-rect.left)*area.offsetWidth/rect.width-area.clientLeft,y:(event.clientY-rect.top)*area.offsetHeight/rect.height-area.clientTop};};
+ const localPoint=event=>{const rect=area.getBoundingClientRect();return {x:(event.clientX-rect.left)*area.offsetWidth/rect.width-area.clientLeft+area.scrollLeft,y:(event.clientY-rect.top)*area.offsetHeight/rect.height-area.clientTop+area.scrollTop};};
  const place=()=>overlay.style.transform='translate3d('+(position.x-anchor.x)+'px,'+(position.y-anchor.y)+'px,0)';
  const tick=now=>{
   frame=0;if(!active||!position||!target)return;
   const delta=Math.min(64,Math.max(1,now-lastTime));lastTime=now;
-  const amount=follow_ms===0?1:1-Math.exp(-delta/follow_ms);
+  const amount=followAmount(delta,follow_ms);
   position.x+=(target.x-position.x)*amount;position.y+=(target.y-position.y)*amount;place();
   if(Math.abs(position.x-target.x)+Math.abs(position.y-target.y)>.2)frame=requestAnimationFrame(tick);
   else{position={...target};place();}
  };
  const reset=()=>{
   active=false;hovered=false;pressed=false;position=null;target=null;
-  cancelAnimationFrame(frame);frame=0;area.classList.remove('cursor-tracking');scale();
+  cancelAnimationFrame(frame);frame=0;area.classList.remove('cursor-tracking');light.hide();scale();
   for(const effect of effects){effect.animation.cancel();effect.node.remove();}effects.clear();
  };
  const move=event=>{
   if(event.pointerType==='touch'||!canTrack()||event.target.closest('input,textarea,select,[contenteditable],.cursor-native')){reset();return;}
   target=localPoint(event);
+  light.move(target.x,target.y);
   if(!active){position={...target};active=true;lastTime=performance.now();place();area.classList.add('cursor-tracking');}
   hovered=!!event.target.closest('button,a,[role="button"]');scale();
   if(!frame)frame=requestAnimationFrame(tick);
@@ -89,11 +95,13 @@ export function mountCursorPreview(stage,params){
  };
  listen(area,'pointermove',move);listen(area,'pointerdown',feedback);
  listen(area,'pointerleave',reset);listen(area,'pointercancel',reset);
+ listen(area,'scroll',reset);
  listen(window,'pointerup',()=>{pressed=false;scale();});
  listen(window,'blur',reset);listen(window,'scroll',reset);listen(window,'resize',reset);
+ listen(window,'intentkit-motion-change',reset);listen(window,'pagehide',reset);listen(document,'visibilitychange',()=>{if(document.hidden)reset();});
  listen(document,'keydown',event=>{if(event.key==='Tab'||event.key==='Escape')reset();});
  listen(fine,'change',reset);
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');listen(reduced,'change',reset);
- return()=>{reset();cleanups.forEach(fn=>fn());area.remove();};
+ return()=>{reset();cleanups.forEach(fn=>fn());light.dispose();area.remove();};
 }
 

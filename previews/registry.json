@@ -2,7 +2,7 @@
   "schema_version": 1,
   "templates": {
     "custom-cursor": {
-      "version": 1,
+      "version": 2,
       "params": {
         "shape": {
           "type": "enum",
@@ -16,29 +16,29 @@
             "leaf",
             "pencil"
           ],
-          "default": "hand"
+          "default": "leaf"
         },
         "size_px": {
           "type": "number",
           "min": 16,
           "max": 80,
-          "default": 40
+          "default": 32
         },
         "color": {
           "type": "color",
-          "default": "#B5452E"
+          "default": "#3E4535"
         },
         "follow_ms": {
           "type": "number",
           "min": 0,
           "max": 300,
-          "default": 80
+          "default": 0
         },
         "hover_scale": {
           "type": "number",
           "min": 1,
           "max": 2,
-          "default": 1.35
+          "default": 1.12
         },
         "click_effect": {
           "type": "enum",
@@ -47,30 +47,52 @@
             "pulse",
             "burst"
           ],
-          "default": "burst"
+          "default": "pulse"
         },
         "duration_ms": {
           "type": "number",
           "min": 0,
           "max": 800,
           "default": 240
+        },
+        "spotlight_radius_px": {
+          "type": "number",
+          "min": 40,
+          "max": 400,
+          "default": 160
+        },
+        "spotlight_opacity": {
+          "type": "number",
+          "min": 0,
+          "max": 0.35,
+          "default": 0.15
+        },
+        "spotlight_color": {
+          "type": "color",
+          "default": "#EBCB8B"
+        },
+        "spotlight_follow_ms": {
+          "type": "number",
+          "min": 0,
+          "max": 300,
+          "default": 80
         }
       }
     },
     "cursor-spotlight": {
-      "version": 1,
+      "version": 2,
       "params": {
         "radius_px": {
           "type": "number",
           "min": 40,
           "max": 400,
-          "default": 150
+          "default": 160
         },
         "opacity": {
           "type": "number",
           "min": 0,
           "max": 0.8,
-          "default": 0.25
+          "default": 0.15
         },
         "lift_px": {
           "type": "number",
@@ -83,6 +105,16 @@
           "min": 0,
           "max": 1200,
           "default": 240
+        },
+        "color": {
+          "type": "color",
+          "default": "#EBCB8B"
+        },
+        "follow_ms": {
+          "type": "number",
+          "min": 0,
+          "max": 300,
+          "default": 80
         }
       }
     },
