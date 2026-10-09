@@ -30,7 +30,7 @@
       "avoid_when": [
         "不要将演示参数当作通用行业标准。"
       ],
-      "prompt_template": "检查文字、背景与交互边界的对比，为状态增加文字或图标辅助。常规正文以 WCAG AA 的 4.5:1 要求为检查目标，实际组合需测量。"
+      "prompt_template": "检查文字、背景与交互边界的对比，为状态增加文字或图标辅助。常规正文以 WCAG AA 的 4.5:1 要求为检查目标，实际组合需测量。\n专属演示：用真实前景色计算相对亮度与对比度，展示弱对比与测量后的文字样例。 参数：文字颜色 {text_color}。"
     },
     "en": {
       "review_status": "draft",
@@ -48,10 +48,15 @@
       "avoid_when": [
         "Do not treat demo parameters as universal standards."
       ],
-      "prompt_template": "Measure foreground/background contrast and supplement state colors with text or icons. Check normal text against the WCAG AA 4.5:1 requirement."
+      "prompt_template": "Measure foreground/background contrast and supplement state colors with text or icons. Check normal text against the WCAG AA 4.5:1 requirement.\nDedicated demonstration: Compute relative luminance and contrast from the actual foreground color, comparing weak and measured text samples. Parameters: text color {text_color}."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "contrast",
+    "params": {
+      "text_color": "#363E32"
+    }
+  },
   "sources": [
     {
       "type": "original",

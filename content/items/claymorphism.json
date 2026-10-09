@@ -33,7 +33,7 @@
         "体积与陰影不应吞掉组件内部空间。",
         "交互状态不能只靠材质高光细微变化。"
       ],
-      "prompt_template": "在少量卡片与图形上使用圆润体积、柔和阴影和适度高光；正文与控制标签保持清楚对比；按下、选中和焦点状态独立可辨，不默认附加未经定义的弹性动画。"
+      "prompt_template": "在少量卡片与图形上使用圆润体积、柔和阴影和适度高光；正文与控制标签保持清楚对比；按下、选中和焦点状态独立可辨，不默认附加未经定义的弹性动画。\n专属演示：圆润黏土球体与立体按钮，按压呈现内凹状态，不附加弹簧。 参数：圆角 {corner_px}px；投影偏移/扩散 {shadow_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Volume and shadows should not consume needed content space.",
         "Interactive states must not rely solely on subtle highlight changes."
       ],
-      "prompt_template": "Apply rounded volume, gentle shadows and moderate highlights to selected cards or graphics. Keep text and control labels clearly legible. Make pressed, selected and focused states independently recognizable without assuming unspecified elastic motion."
+      "prompt_template": "Apply rounded volume, gentle shadows and moderate highlights to selected cards or graphics. Keep text and control labels clearly legible. Make pressed, selected and focused states independently recognizable without assuming unspecified elastic motion.\nDedicated demonstration: Rounded clay volumes and a dimensional button; pressing shows an inset state without a spring. Parameters: corner radius {corner_px}px; shadow offset/spread {shadow_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "claymorphism",
+    "params": {
+      "corner_px": 28,
+      "shadow_px": 10
+    }
+  },
   "sources": [
     {
       "type": "original",

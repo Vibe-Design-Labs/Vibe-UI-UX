@@ -33,7 +33,7 @@
         "不能将点击行为直接当作心理动机。",
         "不要默认采集敏感输入或可识别个人数据。"
       ],
-      "prompt_template": "按用户任务展示事件路径和漏斗，说明事件定义、时间范围与样本；区分观察事实与原因假设，提供群组比较和数据缺失提示；减少个人可识别信息，仅显示任务必要的数据。"
+      "prompt_template": "按用户任务展示事件路径和漏斗，说明事件定义、时间范围与样本；区分观察事实与原因假设，提供群组比较和数据缺失提示；减少个人可识别信息，仅显示任务必要的数据。\n专属演示：示例访问、探索和完成的漏斗与路径视图，切换视图保留统一样本说明。 参数：内容间距 {gap_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,15 @@
         "Do not treat click behavior as direct evidence of motivation.",
         "Do not collect sensitive input or identifiable personal data by default."
       ],
-      "prompt_template": "Show event paths and funnels organized by user task, with event definitions, time ranges and sample information. Distinguish observations from causal hypotheses, support cohort comparison, and disclose missing data. Minimize identifiable information and show only task-relevant data."
+      "prompt_template": "Show event paths and funnels organized by user task, with event definitions, time ranges and sample information. Distinguish observations from causal hypotheses, support cohort comparison, and disclose missing data. Minimize identifiable information and show only task-relevant data.\nDedicated demonstration: A sample visit/explore/complete funnel and path view; switching views retains the sample explanation. Parameters: content gap {gap_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "user-behavior-analytics",
+    "params": {
+      "gap_px": 16
+    }
+  },
   "sources": [
     {
       "type": "original",

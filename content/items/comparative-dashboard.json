@@ -33,7 +33,7 @@
         "不能使用不一致坐标范围误导比较。",
         "不要忽略样本量或数据缺失造成的差异。"
       ],
-      "prompt_template": "并排展示可比较对象，统一单位、时间范围和图表尺度；突出差值与必要基准，说明样本量和口径差异；筛选变化后同步更新所有相关视图，并保留当前比较条件。"
+      "prompt_template": "并排展示可比较对象，统一单位、时间范围和图表尺度；突出差值与必要基准，说明样本量和口径差异；筛选变化后同步更新所有相关视图，并保留当前比较条件。\n专属演示：同单位同尺度的两组并列条图与差值，切换比较对象更新对应样例。 参数：初始示例周期 {period}；内容间距 {gap_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Avoid misleading comparisons with inconsistent axis scales.",
         "Do not ignore differences caused by sample size or missing data."
       ],
-      "prompt_template": "Show comparable entities side by side with consistent units, time ranges and scales. Highlight differences and relevant baselines, and explain sample sizes or definition changes. Update related views together after filtering and keep comparison conditions visible."
+      "prompt_template": "Show comparable entities side by side with consistent units, time ranges and scales. Highlight differences and relevant baselines, and explain sample sizes or definition changes. Update related views together after filtering and keep comparison conditions visible.\nDedicated demonstration: Two side-by-side bar series on the same units and scale, with differences; switch comparison groups to update samples. Parameters: initial sample period {period}; content gap {gap_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "comparative-dashboard",
+    "params": {
+      "period": "week",
+      "gap_px": 16
+    }
+  },
   "sources": [
     {
       "type": "original",

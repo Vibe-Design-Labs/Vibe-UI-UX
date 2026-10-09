@@ -6,7 +6,7 @@
 
 [Website](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [Studio ausprobieren](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [Änderungen](CHANGELOG.md)
 
-**v0.4.1.1.1 · 75 Designeinträge · 16 kontrollierte Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
+**v0.4.1.2.0 · 75 Designeinträge · 75 eigene Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
 
 [![Echte Studioaufnahme: Blattzeiger, warmes Spotlight, Klickwelle und gestaffeltes Erscheinen](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -21,7 +21,7 @@ Design Compiler arbeitet nach **Alltagssprache → bearbeitbares Verständnis (D
 | Funktion | Aktueller Umfang |
 | --- | --- |
 | Bibliothek | 75 Einträge mit Begriffen, gepflegten Aliasnamen, Definitionen, Einsatzhinweisen und Quellen |
-| Effektstudio | 16 Vorlagen, geprüfte Parameter, Beschreibungen, JSON und teilbare Links für einzelne Effekte |
+| Effektstudio | 75 passende Vorlagen, geprüfte Parameter, Beschreibungen, JSON und teilbare Links für einzelne Effekte |
 | Design Compiler | 5 lokale Familien: leichte Anhebung, warmes Licht mit Anhebung, Druckfeedback, gestaffelter Eintritt und Klickwelle |
 | Mauszeiger | 8 Formen; Farbe, Größe, Nachführung, Klickreaktion und getrennte Spotlight-Einstellungen |
 | Sprachen | Oberfläche auf Chinesisch, Englisch, Japanisch, Koreanisch und Deutsch; README-Wechsel über die Links oben |
@@ -30,12 +30,12 @@ Design Compiler arbeitet nach **Alltagssprache → bearbeitbares Verständnis (D
 ## Zuerst ohne Schlüssel ausprobieren
 
 1. Öffne das [Studio](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) und wähle oben rechts Deutsch.
-2. Wähle bei den lokalen Beispielen die leicht angehobene Karte. Du kannst auch einen Wunsch eingeben und **Verstehen & erstellen** anklicken. Ohne eingerichteten Key gelten lokale Regeln.
+2. Wähle das lokale Beispiel **Karte sanft anheben**. Du kannst auch einen Wunsch eingeben und **Verstehen & erstellen** anklicken. Ohne eingerichteten Key gelten lokale Regeln.
 3. Prüfe das Verständnis und öffne die bearbeitbaren Felder für Ziel, Auslöser und Stärke. Standardwerte und Schlussfolgerungen werden getrennt von deiner Aussage angezeigt.
 4. Bewege die Maus über die Karte und passe rechts die Werte an. Vorschau, Beschreibung und Rezept verwenden dieselben endgültigen Parameter. Bei einem Widerspruch zur Absicht musst du die aktuellen Werte ausdrücklich bestätigen.
 5. Kopiere die **Agent-Beschreibung** aus dem Compiler-Ergebnis in deinen Coding-Assistenten oder exportiere die **Kompilierungs-JSON**. Der bisherige Export rechts bleibt eine getrennte **Einzeleffekt-JSON**.
 
-Für Begriffe kannst du links etwa `frosted glass` oder `backdrop-filter` suchen. **75 Einträge bedeuten nicht 75 eigene Vorschauen.** Die 50 neuen Einträge haben keinen eigenen Renderer; ihr allgemeiner Platzhalter wird deutlich gekennzeichnet.
+Für Begriffe kannst du links etwa `frosted glass` oder `backdrop-filter` suchen. **Jeder öffentliche Eintrag hat eine passende Vorschau.** Stile zeigen eigene Materialien und Layouts, Bewegungseinträge echte Animationen, Dashboards klar markierte Beispieldaten und UX-Prinzipien Aufgaben und Zustände. Allgemeine Platzhalter entfallen. Siehe den [Vorschauvertrag](docs/PREVIEW_SCENES.md) (Chinesisch).
 
 ![Design Compiler: Verständnis, Vorschau, Parameter und Agent-Beschreibung](docs/media/studio.png)
 
@@ -105,7 +105,7 @@ Führe `npm run check:content`, `npm test` und `npm run check:docs` aus. Baue be
 - Strukturprüfung bestätigt weder Fakten noch Übersetzungen. Die strenge Inhaltsfreigabe scheitert weiterhin an Entwürfen. Nicht lesbare WeChat-Artikel wurden nicht als gelesene Quellen ausgegeben.
 - Vorschauen zeigen Konzepte und speichern keine echten Daten. Prüfe Exporte vor der Umsetzung. Reduzierte Bewegung, Touch und Tastatur werden berücksichtigt.
 
-[Compiler-Details](docs/DESIGN_COMPILER.md) · [50 neue Einträge und Quellen](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release-Prüfungen](docs/RELEASE_0.4.1.1.1.md) · [Fünfteilige Versionen](docs/VERSIONING.md) — die Detaildokumentation ist derzeit Chinesisch.
+[Compiler-Details](docs/DESIGN_COMPILER.md) · [50 neue Einträge und Quellen](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release-Prüfungen](docs/RELEASE_0.4.1.2.0.md) · [Fünfteilige Versionen](docs/VERSIONING.md) — die Detaildokumentation ist derzeit Chinesisch.
 
 ## Lizenz und Dank
 

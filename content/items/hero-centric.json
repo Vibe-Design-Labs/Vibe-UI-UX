@@ -33,7 +33,7 @@
         "主视觉不能把核心说明与按钮挤到不可见位置。",
         "不要用空泛标语替代可核实的产品价值。"
       ],
-      "prompt_template": "首屏先说明产品对象和解决的问题，配一个可核实的界面或成果示例；突出一个主操作，次要链接降低视觉权重；移动端优先保留标题、价值说明和入口。"
+      "prompt_template": "首屏先说明产品对象和解决的问题，配一个可核实的界面或成果示例；突出一个主操作，次要链接降低视觉权重；移动端优先保留标题、价值说明和入口。\n专属演示：大主题、简短价值说明与主操作配合独立主视觉；主操作改变本地体验状态。 参数：标题字号 {heading_px}px；圆角 {corner_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Do not let imagery push essential explanation and actions out of view.",
         "Avoid replacing verifiable value with vague slogans."
       ],
-      "prompt_template": "State who the product is for and what problem it solves, supported by a verifiable interface or outcome example. Prioritize one action and give secondary links less weight. Keep the heading, value explanation and entry point prominent on mobile."
+      "prompt_template": "State who the product is for and what problem it solves, supported by a verifiable interface or outcome example. Prioritize one action and give secondary links less weight. Keep the heading, value explanation and entry point prominent on mobile.\nDedicated demonstration: A dominant heading, concise value and primary action beside a dedicated hero visual; the action changes a local trial state. Parameters: heading size {heading_px}px; corner radius {corner_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "hero-centric",
+    "params": {
+      "heading_px": 38,
+      "corner_px": 20
+    }
+  },
   "sources": [
     {
       "type": "original",

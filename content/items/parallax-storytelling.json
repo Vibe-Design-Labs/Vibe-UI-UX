@@ -33,7 +33,7 @@
         "不要劫持滚动或改变浏览器正常导航习惯。",
         "对运动敏感的用户需要关闭非必要位移。"
       ],
-      "prompt_template": "保持浏览器原生滚动，只在装饰层使用适度前后景位移；正文与主操作保持稳定；限制层数与运动范围，提供静态或减少动态效果版本，所有内容按正常顺序可访问。"
+      "prompt_template": "保持浏览器原生滚动，只在装饰层使用适度前后景位移；正文与主操作保持稳定；限制层数与运动范围，提供静态或减少动态效果版本，所有内容按正常顺序可访问。\n专属演示：可滚动叙事区内三层山景按不同距离移动，键盘滚动与章节按钮同样可用。 参数：层间位移 {depth_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,15 @@
         "Avoid scroll hijacking and changes to normal browser navigation.",
         "Motion-sensitive users need a way to disable nonessential movement."
       ],
-      "prompt_template": "Keep native browser scrolling and use restrained foreground-background movement only in decorative layers. Keep copy and primary actions stable, limit layers and motion range, provide static or reduced-motion alternatives, and preserve normal access to all content."
+      "prompt_template": "Keep native browser scrolling and use restrained foreground-background movement only in decorative layers. Keep copy and primary actions stable, limit layers and motion range, provide static or reduced-motion alternatives, and preserve normal access to all content.\nDedicated demonstration: Three landscape layers move by different distances inside a scrollable narrative, with keyboard scrolling and chapter buttons. Parameters: layer depth {depth_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "parallax-storytelling",
+    "params": {
+      "depth_px": 24
+    }
+  },
   "sources": [
     {
       "type": "original",

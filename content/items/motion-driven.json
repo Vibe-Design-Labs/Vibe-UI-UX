@@ -36,7 +36,7 @@
         "不要强制等待装饰动画后才能继续任务。",
         "持续装饰不能与反馈动效争夺注意力。"
       ],
-      "prompt_template": "先定义状态关系，再为切换、进入和反馈选择必要动效；允许中断和重复操作，旧动效在状态改变时清理；减少动态效果时用直接状态切换保留同样的信息。"
+      "prompt_template": "先定义状态关系，再为切换、进入和反馈选择必要动效；允许中断和重复操作，旧动效在状态改变时清理；减少动态效果时用直接状态切换保留同样的信息。\n专属演示：切换步骤驱动方向明确的内容过渡，不以持续装饰动画代替任务反馈。 参数：演示时长 {duration_ms}ms；过渡位移 {distance_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -55,10 +55,16 @@
         "Do not force users to wait for decoration before continuing a task.",
         "Continuous decoration should not compete with meaningful feedback."
       ],
-      "prompt_template": "Define state relationships first, then choose necessary motion for transitions, entry and feedback. Allow interruption and repeated actions, clean up obsolete motion when state changes, and preserve information through direct state changes when motion is reduced."
+      "prompt_template": "Define state relationships first, then choose necessary motion for transitions, entry and feedback. Allow interruption and repeated actions, clean up obsolete motion when state changes, and preserve information through direct state changes when motion is reduced.\nDedicated demonstration: Step changes drive directional content transitions instead of continuous decoration replacing task feedback. Parameters: demo duration {duration_ms}ms; transition distance {distance_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "motion-driven",
+    "params": {
+      "duration_ms": 480,
+      "distance_px": 20
+    }
+  },
   "sources": [
     {
       "type": "original",

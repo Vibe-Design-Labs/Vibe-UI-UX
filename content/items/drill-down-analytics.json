@@ -33,7 +33,7 @@
         "没有清楚维度时不要设计无限层级跳转。",
         "不能在下钻后悄悄改变指标口径。"
       ],
-      "prompt_template": "从概览提供进入分组和明细的入口，保持时间范围、筛选与指标定义一致；用面包屑或当前维度说明位置；返回上层时恢复原视图和筛选，必要时区分下钻与独立详情。"
+      "prompt_template": "从概览提供进入分组和明细的入口，保持时间范围、筛选与指标定义一致；用面包屑或当前维度说明位置；返回上层时恢复原视图和筛选，必要时区分下钻与独立详情。\n专属演示：汇总到分组到明细的可点击层级，面包屑和返回恢复当前上下文。 参数：行高 {row_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,15 @@
         "Avoid endless hierarchical navigation without meaningful dimensions.",
         "Do not silently change metric definitions after drilling down."
       ],
-      "prompt_template": "Provide routes from overview to grouped data and records, preserving time range, filters and metric definitions. Show the current dimension through breadcrumbs or context labels. Restore the prior view when returning, and distinguish drill-down from independent detail views."
+      "prompt_template": "Provide routes from overview to grouped data and records, preserving time range, filters and metric definitions. Show the current dimension through breadcrumbs or context labels. Restore the prior view when returning, and distinguish drill-down from independent detail views.\nDedicated demonstration: Clickable summary, group and detail levels, with breadcrumbs and back navigation preserving context. Parameters: row height {row_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "drill-down-analytics",
+    "params": {
+      "row_px": 44
+    }
+  },
   "sources": [
     {
       "type": "original",

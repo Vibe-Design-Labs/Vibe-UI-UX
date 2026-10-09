@@ -33,7 +33,7 @@
         "变化背景不能持续影响文字对比。",
         "不应默认使用持续移动的大面积光团。"
       ],
-      "prompt_template": "以少量柔和多色渐变作为背景，前景文字和操作保持稳定对比；渐变不遮挡组件边界；如增加缓慢变化，提供静态替代与减少动态效果支持，不把装饰称为真实照明。"
+      "prompt_template": "以少量柔和多色渐变作为背景，前景文字和操作保持稳定对比；渐变不遮挡组件边界；如增加缓慢变化，提供静态替代与减少动态效果支持，不把装饰称为真实照明。\n专属演示：独立柔和光团构成多色极光，重播产生有限渐变漂移，减少动态时静止。 参数：视觉强度 {intensity}；演示时长 {duration_ms}ms。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Changing backgrounds must not undermine text contrast.",
         "Do not default to large continuously moving color fields."
       ],
-      "prompt_template": "Use a limited number of soft multicolor gradients in the background while keeping foreground text and actions consistently legible. Preserve component boundaries. If slow animation is added, provide a static alternative and reduced-motion support; do not label decoration as physical lighting."
+      "prompt_template": "Use a limited number of soft multicolor gradients in the background while keeping foreground text and actions consistently legible. Preserve component boundaries. If slow animation is added, provide a static alternative and reduced-motion support; do not label decoration as physical lighting.\nDedicated demonstration: Soft independent color blobs form an aurora; replay a finite drift, static under reduced motion. Parameters: visual intensity {intensity}; demo duration {duration_ms}ms."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "aurora-ui",
+    "params": {
+      "intensity": 0.55,
+      "duration_ms": 1600
+    }
+  },
   "sources": [
     {
       "type": "original",

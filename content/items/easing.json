@@ -30,7 +30,7 @@
       "avoid_when": [
         "不要将演示参数当作通用行业标准。"
       ],
-      "prompt_template": "入场可考虑 ease-out，让开始较快、结束较慢；退出可考虑 ease-in。结合任务与距离观察效果，不把某条曲线当作高级设计的通用保证。"
+      "prompt_template": "入场可考虑 ease-out，让开始较快、结束较慢；退出可考虑 ease-in。结合任务与距离观察效果，不把某条曲线当作高级设计的通用保证。\n专属演示：两个实际运动对象以线性和所选缓动同步播放，行程与时长一致以便比较。 参数：选定缓动 {easing}；演示时长 {duration_ms}ms。"
     },
     "en": {
       "review_status": "draft",
@@ -48,10 +48,16 @@
       "avoid_when": [
         "Do not treat demo parameters as universal standards."
       ],
-      "prompt_template": "Consider ease-out for entrances and ease-in for exits. Evaluate the curve in context; no single easing curve guarantees a premium design."
+      "prompt_template": "Consider ease-out for entrances and ease-in for exits. Evaluate the curve in context; no single easing curve guarantees a premium design.\nDedicated demonstration: Two real moving objects play linear and selected easing together with equal distance and duration. Parameters: selected easing {easing}; demo duration {duration_ms}ms."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "easing",
+    "params": {
+      "easing": "ease-out",
+      "duration_ms": 800
+    }
+  },
   "sources": [
     {
       "type": "original",

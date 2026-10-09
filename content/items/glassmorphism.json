@@ -34,7 +34,7 @@
         "密集表格或复杂背景容易使文字难读。",
         "不支持模糊或减少透明效果时需要实色回退。"
       ],
-      "prompt_template": "为少量浮动卡片采用半透明底色、背景模糊与可见边界；文本使用稳定的高对比色，先检查复杂背景；提供不依赖模糊的实色替代，不把所有容器都做成玻璃。"
+      "prompt_template": "为少量浮动卡片采用半透明底色、背景模糊与可见边界；文本使用稳定的高对比色，先检查复杂背景；提供不依赖模糊的实色替代，不把所有容器都做成玻璃。\n专属演示：彩色背景透过真实 backdrop-filter 毛玻璃；关闭与恢复模糊可比较可读性。 参数：背景模糊 {blur_px}px；圆角 {corner_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -54,10 +54,16 @@
         "Dense tables and busy backgrounds can make translucent content difficult to read.",
         "Provide an opaque fallback when blur or translucency is unavailable."
       ],
-      "prompt_template": "Use translucency, backdrop blur and visible edges for a small number of floating cards. Keep text contrast stable across busy backgrounds and provide an opaque alternative that works without blur. Avoid applying glass treatment to every container."
+      "prompt_template": "Use translucency, backdrop blur and visible edges for a small number of floating cards. Keep text contrast stable across busy backgrounds and provide an opaque alternative that works without blur. Avoid applying glass treatment to every container.\nDedicated demonstration: Colored shapes behind a real backdrop-filter surface; toggle frosting to compare readability. Parameters: backdrop blur {blur_px}px; corner radius {corner_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "glassmorphism",
+    "params": {
+      "blur_px": 12,
+      "corner_px": 20
+    }
+  },
   "sources": [
     {
       "type": "original",

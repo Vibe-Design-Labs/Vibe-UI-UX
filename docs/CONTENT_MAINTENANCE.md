@@ -5,7 +5,7 @@
 维护步骤：
 
 1. 查看已有 JSON，确认是否只是既有术语的新别名；保留稳定 ID。
-2. 查看注册表和实际渲染器，复用已有模板，参数只能用已声明键。
+2. 官网每个可见词条都需要与概念对应的专属预览。查看注册表和实际渲染器；共享基础组件可以，不能用通用占位卡替代独立材料、编排或交互。参数只能用已声明键。
 3. 添加中英文原文、别名、适用与避免条件、来源。日/韩/德缺失时保留英文回退，不伪造审校状态。
 4. 描述模板包含所有已注册参数占位符；预览和描述生成共用 public/core.js 的有效参数。
 5. 新增字符时按 docs/FONTS.md 重新生成 Web 字体子集（无需 GPT）；运行内容校验、npm run build、npm test。在浏览器检查字体加载、极值、重播、键盘、触摸、减少动态效果与移动布局。
@@ -28,3 +28,11 @@ GitHub Pages 更新：本地核验后运行 `python scripts/package-source.py`�
 叶片几何路径在 public/leaf-art.js，构建自动导出 leaf-cursor.svg。custom-cursor 新增 spotlight_radius_px、spotlight_opacity、spotlight_color、spotlight_follow_ms；模板版本为 2。颜色继续只接受 #RRGGBB。叶脉与墨点为固定品牌色；指针和灯光分别调节，并将全部参数写入五语描述。
 
 本次参数调整复用原有词条 ID，不新增近义词条。对源码与内容进行下一次更新时，按 [五段版本规则](VERSIONING.md) 更新 package.json.intentkitVersion 和 CHANGELOG.md，再重新打包与部署。
+
+## 专属预览门槛（0.4.1.2.0）
+
+`public/preview-capabilities.js` 声明实际能力；`preview-scenes.js` 实现 59 个新场景；`preview-scenes.css` 只控制演示区域；`scene-strings.js` 维护五语演示界面。原有 16 个渲染器继续使用 `previews.js`。
+
+新内容先完成场景、注册参数、描述变量和五语控件，再加入可见词库。运行 `npm run check:content`（含 `--require-previews`）、`npm test`、`npm run check:docs`。构建会拒绝缺失或未实现的预览；场景还要通过实际浏览器验证。整数数量参数可声明 `integer:true`，不允许用偷偷四舍五入的演示与导出不一致。
+
+完整对应关系、局部数据与 Web 材质近似的边界见 [专属场景说明](PREVIEW_SCENES.md)。这些脚本和演示不调用模型；用其他 AI 更新时也需遵守同一门槛。

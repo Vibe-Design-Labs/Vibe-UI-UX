@@ -33,7 +33,7 @@
         "大量等强度色块会争夺注意力。",
         "颜色不能替代标签、图标或状态说明。"
       ],
-      "prompt_template": "用有限的高饱和色块区分主要内容模块，为每个背景选择可读文字色；保留明确标题和稳定间距；主操作采用独立识别提示，减少同时竞争的强调色。"
+      "prompt_template": "用有限的高饱和色块区分主要内容模块，为每个背景选择可读文字色；保留明确标题和稳定间距；主操作采用独立识别提示，减少同时竞争的强调色。\n专属演示：大面积高饱和色块按任务分组，真实切换当前任务的强调色。 参数：强调色 {accent}；内容间距 {gap_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Many equally intense blocks compete for attention.",
         "Color cannot replace labels, icons or state explanations."
       ],
-      "prompt_template": "Use a limited set of vibrant blocks to separate main content modules, choosing readable text colors for each surface. Retain clear headings and stable spacing. Give primary actions independent recognition cues and avoid competing emphasis colors."
+      "prompt_template": "Use a limited set of vibrant blocks to separate main content modules, choosing readable text colors for each surface. Retain clear headings and stable spacing. Give primary actions independent recognition cues and avoid competing emphasis colors.\nDedicated demonstration: Large saturated blocks group tasks; switch the active task and its emphasis. Parameters: accent color {accent}; content gap {gap_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "vibrant-block",
+    "params": {
+      "accent": "#B5452E",
+      "gap_px": 16
+    }
+  },
   "sources": [
     {
       "type": "original",

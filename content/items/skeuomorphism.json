@@ -33,7 +33,7 @@
         "不熟悉实体原型的用户可能无法理解隐喻。",
         "装饰细节不能遮挡状态与必要标签。"
       ],
-      "prompt_template": "只在能辅助理解的组件上采用实体形状或材质隐喻；配合明确文字标签与真实状态反馈；避免让装饰细节压过任务信息，为不熟悉隐喻的用户提供直接说明。"
+      "prompt_template": "只在能辅助理解的组件上采用实体形状或材质隐喻；配合明确文字标签与真实状态反馈；避免让装饰细节压过任务信息，为不熟悉隐喻的用户提供直接说明。\n专属演示：纸页、缝线与装订细节构成实体手册，标签切换展示不同笔记。 参数：圆角 {corner_px}px；投影偏移/扩散 {shadow_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "People unfamiliar with the physical original may not understand the metaphor.",
         "Decorative detail must not obscure states or necessary labels."
       ],
-      "prompt_template": "Use physical shapes or material metaphors only where they aid understanding. Pair them with explicit labels and real state feedback. Keep decoration subordinate to task information and offer direct explanations for people unfamiliar with the metaphor."
+      "prompt_template": "Use physical shapes or material metaphors only where they aid understanding. Pair them with explicit labels and real state feedback. Keep decoration subordinate to task information and offer direct explanations for people unfamiliar with the metaphor.\nDedicated demonstration: Paper, stitching and binding form a physical notebook metaphor; tabs switch between notes. Parameters: corner radius {corner_px}px; shadow offset/spread {shadow_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "skeuomorphism",
+    "params": {
+      "corner_px": 10,
+      "shadow_px": 7
+    }
+  },
   "sources": [
     {
       "type": "original",

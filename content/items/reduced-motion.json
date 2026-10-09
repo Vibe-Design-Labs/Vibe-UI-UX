@@ -30,7 +30,7 @@
       "avoid_when": [
         "不要将演示参数当作通用行业标准。"
       ],
-      "prompt_template": "检测 prefers-reduced-motion，关闭非必要位移、循环装饰和指针跟随。保留清晰状态反馈与完整操作能力，不把关闭动画当成隐藏信息。"
+      "prompt_template": "检测 prefers-reduced-motion，关闭非必要位移、循环装饰和指针跟随。保留清晰状态反馈与完整操作能力，不把关闭动画当成隐藏信息。\n专属演示：位移与静态状态对比；本地切换仅控制演示，系统减少动态偏好始终优先。 参数：演示时长 {duration_ms}ms。"
     },
     "en": {
       "review_status": "draft",
@@ -48,10 +48,15 @@
       "avoid_when": [
         "Do not treat demo parameters as universal standards."
       ],
-      "prompt_template": "Respect prefers-reduced-motion by disabling nonessential movement, ambient loops, and pointer tracking. Keep clear status feedback and all actions available."
+      "prompt_template": "Respect prefers-reduced-motion by disabling nonessential movement, ambient loops, and pointer tracking. Keep clear status feedback and all actions available.\nDedicated demonstration: Compare movement and static states; the local toggle controls only this demo, with system reduced-motion preferences taking precedence. Parameters: demo duration {duration_ms}ms."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "reduced-motion",
+    "params": {
+      "duration_ms": 500
+    }
+  },
   "sources": [
     {
       "type": "original",

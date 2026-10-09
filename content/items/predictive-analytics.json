@@ -33,7 +33,7 @@
         "没有实际模型时，不要把延长曲线称为可靠预测。",
         "不要隐藏误差、假设或不适用情况。"
       ],
-      "prompt_template": "将历史实测与预测区域清楚分开，标出预测窗口、区间、更新时间与主要假设；提供查看依据和调整情景的入口；模型不可用或数据不足时明确显示状态，避免把估计写成事实。"
+      "prompt_template": "将历史实测与预测区域清楚分开，标出预测窗口、区间、更新时间与主要假设；提供查看依据和调整情景的入口；模型不可用或数据不足时明确显示状态，避免把估计写成事实。\n专属演示：历史实线、预测虚线和区间带明确分隔；调节模拟预测跨度，不宣称真实预测能力。 参数：模拟预测跨度 {horizon_days}天。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,15 @@
         "Without an actual model, do not present an extended curve as a reliable forecast.",
         "Do not hide uncertainty, assumptions or unsuitable conditions."
       ],
-      "prompt_template": "Separate observed history from the forecast region. Label the forecast horizon, ranges, update time and key assumptions. Offer access to the basis and scenario controls, and clearly show model unavailability or insufficient data instead of presenting estimates as facts."
+      "prompt_template": "Separate observed history from the forecast region. Label the forecast horizon, ranges, update time and key assumptions. Offer access to the basis and scenario controls, and clearly show model unavailability or insufficient data instead of presenting estimates as facts.\nDedicated demonstration: Historical solid lines, a forecast dashed line and an interval band are separated; tune a synthetic horizon without claiming real prediction. Parameters: synthetic horizon {horizon_days} days."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "predictive-analytics",
+    "params": {
+      "horizon_days": 7
+    }
+  },
   "sources": [
     {
       "type": "original",

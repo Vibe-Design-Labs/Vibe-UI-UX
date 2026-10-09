@@ -33,7 +33,7 @@
         "不能伪造评价、品牌合作或使用人数。",
         "不相关的名人背书不能替代实用信息。"
       ],
-      "prompt_template": "在相关决策信息附近展示可核实的用户评价或案例，说明场景、来源和必要日期；优先用具体成果与限制，避免无出处数字；外部引用取得许可并提供访问来源的入口。"
+      "prompt_template": "在相关决策信息附近展示可核实的用户评价或案例，说明场景、来源和必要日期；优先用具体成果与限制，避免无出处数字；外部引用取得许可并提供访问来源的入口。\n专属演示：明确标为虚构的样例反馈卡与角色来源，切换角色展示不同使用情境。 参数：内容间距 {gap_px}px；圆角 {corner_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Never fabricate testimonials, partnerships or user counts.",
         "Unrelated celebrity endorsement does not replace useful evidence."
       ],
-      "prompt_template": "Place verifiable testimonials or cases near the decision they support. Include context, attribution and dates where relevant. Prefer concrete outcomes and limitations over unsourced numbers, obtain required permissions, and provide a route to the source."
+      "prompt_template": "Place verifiable testimonials or cases near the decision they support. Include context, attribution and dates where relevant. Prefer concrete outcomes and limitations over unsourced numbers, obtain required permissions, and provide a route to the source.\nDedicated demonstration: Explicitly fictional sample testimonials and attributed roles; switch roles to compare usage contexts. Parameters: content gap {gap_px}px; corner radius {corner_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "social-proof",
+    "params": {
+      "gap_px": 16,
+      "corner_px": 20
+    }
+  },
   "sources": [
     {
       "type": "original",

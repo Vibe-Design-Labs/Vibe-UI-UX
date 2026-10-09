@@ -33,7 +33,7 @@
         "装饰仪表不应冒充真实数据或控制状态。",
         "不要复制老系统的低可读性与隐蔽操作。"
       ],
-      "prompt_template": "选择一致的复古未来意象用于主视觉和辅助装饰；现代任务使用明确标签、可靠反馈和清楚导航；区分装饰仪表与真实指标，让窄屏保留必要功能而减少装饰。"
+      "prompt_template": "选择一致的复古未来意象用于主视觉和辅助装饰；现代任务使用明确标签、可靠反馈和清楚导航；区分装饰仪表与真实指标，让窄屏保留必要功能而减少装饰。\n专属演示：模拟仪表盘、同心轨道与模拟旋钮，切换频段改变读数而不调用设备。 参数：强调色 {accent}；圆角 {corner_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Decorative instruments must not imply real data or control states.",
         "Do not reproduce poor legibility or hidden controls from old systems."
       ],
-      "prompt_template": "Use a coherent retro-futuristic motif set in key visuals and supporting decoration. Keep present-day tasks clearly labeled with dependable feedback and navigation. Distinguish decorative instruments from real metrics and reduce decoration on narrow screens."
+      "prompt_template": "Use a coherent retro-futuristic motif set in key visuals and supporting decoration. Keep present-day tasks clearly labeled with dependable feedback and navigation. Distinguish decorative instruments from real metrics and reduce decoration on narrow screens.\nDedicated demonstration: Analog instruments, concentric orbits and a simulated dial; changing bands updates the reading without device access. Parameters: accent color {accent}; corner radius {corner_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "retro-futurism",
+    "params": {
+      "accent": "#AE8549",
+      "corner_px": 18
+    }
+  },
   "sources": [
     {
       "type": "original",

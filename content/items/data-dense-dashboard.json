@@ -33,7 +33,7 @@
         "新用户缺少指标解释时会难以理解。",
         "不要牺牲文字可读性与可点击区域。"
       ],
-      "prompt_template": "用稳定网格、紧凑但清楚的表格和分组标签增加有效密度；筛选条件保持可见，数字列对齐并标出单位；按任务提供详情展开或聚焦视图，不以小字号代替信息组织。"
+      "prompt_template": "用稳定网格、紧凑但清楚的表格和分组标签增加有效密度；筛选条件保持可见，数字列对齐并标出单位；按任务提供详情展开或聚焦视图，不以小字号代替信息组织。\n专属演示：可筛选的密集表格、单位与数字对齐；行高调整是真实布局变化。 参数：行高 {row_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,15 @@
         "Unexplained metrics make the page difficult for new users.",
         "Do not trade away legibility or usable interaction targets."
       ],
-      "prompt_template": "Increase useful density with a stable grid, compact readable tables and grouped labels. Keep filters visible, align numeric columns and show units. Provide task-based detail or focus views instead of substituting tiny text for organization."
+      "prompt_template": "Increase useful density with a stable grid, compact readable tables and grouped labels. Keep filters visible, align numeric columns and show units. Provide task-based detail or focus views instead of substituting tiny text for organization.\nDedicated demonstration: A filterable dense table with units and aligned numbers; row-height changes alter the actual layout. Parameters: row height {row_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "data-dense-dashboard",
+    "params": {
+      "row_px": 40
+    }
+  },
   "sources": [
     {
       "type": "original",

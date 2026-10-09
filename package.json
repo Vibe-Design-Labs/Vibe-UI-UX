@@ -1,6 +1,6 @@
 {
   "name": "intentkit",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "private": true,
   "type": "module",
   "license": "MIT",
@@ -9,7 +9,7 @@
     "build": "node scripts/build.mjs",
     "pretest": "node scripts/build.mjs",
     "test": "node --test tests/*.test.mjs",
-    "check:content": "python skills/ui-ux-content-maintainer/scripts/validate_content.py .",
+    "check:content": "python skills/ui-ux-content-maintainer/scripts/validate_content.py . --require-previews",
     "check:docs": "node scripts/check-readmes.mjs",
     "build:pages": "node scripts/build-pages.mjs",
     "preview:pages": "node scripts/preview-pages.mjs"
@@ -17,5 +17,5 @@
   "engines": {
     "node": ">=20"
   },
-  "intentkitVersion": "0.4.1.1.1"
+  "intentkitVersion": "0.4.1.2.0"
 }

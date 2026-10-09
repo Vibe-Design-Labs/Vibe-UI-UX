@@ -30,7 +30,7 @@
       "avoid_when": [
         "不要将演示参数当作通用行业标准。"
       ],
-      "prompt_template": "按用户任务组织内容，提供清晰分类、当前位置与可预测导航；在信息量较大时提供搜索与目录等多种查找方式。"
+      "prompt_template": "按用户任务组织内容，提供清晰分类、当前位置与可预测导航；在信息量较大时提供搜索与目录等多种查找方式。\n专属演示：真实分组导航、层级目录与路径，进入分类和返回更新同一内容区。 参数：内容间距 {gap_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -48,10 +48,15 @@
       "avoid_when": [
         "Do not treat demo parameters as universal standards."
       ],
-      "prompt_template": "Organize content by user tasks with clear categories, location cues, and predictable navigation. For larger collections, provide multiple ways to find content, such as search and a directory."
+      "prompt_template": "Organize content by user tasks with clear categories, location cues, and predictable navigation. For larger collections, provide multiple ways to find content, such as search and a directory.\nDedicated demonstration: Grouped navigation, a hierarchy and a path; entering and returning changes the same content area. Parameters: content gap {gap_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "information-architecture",
+    "params": {
+      "gap_px": 16
+    }
+  },
   "sources": [
     {
       "type": "original",

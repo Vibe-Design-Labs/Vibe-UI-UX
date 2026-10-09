@@ -33,7 +33,7 @@
         "不能依赖两道淡阴影作为唯一交互提示。",
         "不要声称柔和外观自动满足无障碍。"
       ],
-      "prompt_template": "保留柔和表面与适度圆角；为按钮、输入框和选中状态设置可辨识的边界和对比；轻微阴影只表达辅助层次，键盘焦点与错误提示独立可见。"
+      "prompt_template": "保留柔和表面与适度圆角；为按钮、输入框和选中状态设置可辨识的边界和对比；轻微阴影只表达辅助层次，键盘焦点与错误提示独立可见。\n专属演示：柔和表面保留清楚边界和文字对比，真实选择控件显示选中与焦点状态。 参数：投影偏移/扩散 {shadow_px}px；圆角 {corner_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Do not use faint paired shadows as the only interaction cue.",
         "A soft appearance does not establish accessibility compliance."
       ],
-      "prompt_template": "Keep soft surfaces and moderate rounding, but give buttons, fields and selected states identifiable boundaries and contrast. Use gentle shadows only as supporting depth cues. Make keyboard focus and errors independently visible."
+      "prompt_template": "Keep soft surfaces and moderate rounding, but give buttons, fields and selected states identifiable boundaries and contrast. Use gentle shadows only as supporting depth cues. Make keyboard focus and errors independently visible.\nDedicated demonstration: Soft surfaces retain visible boundaries and text contrast; a real selection control shows checked and focus states. Parameters: shadow offset/spread {shadow_px}px; corner radius {corner_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "soft-ui-evolution",
+    "params": {
+      "shadow_px": 5,
+      "corner_px": 20
+    }
+  },
   "sources": [
     {
       "type": "original",

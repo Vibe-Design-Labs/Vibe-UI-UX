@@ -33,7 +33,7 @@
         "密集业务界面不宜铺满高强度图案。",
         "可操作元素不能与装饰图形混淆。"
       ],
-      "prompt_template": "在主视觉与分区边缘使用少量几何图案和明确色彩对比；正文放在安静的表面上，操作组件保持统一形状与标签；控制图案数量，窄屏减少不必要装饰。"
+      "prompt_template": "在主视觉与分区边缘使用少量几何图案和明确色彩对比；正文放在安静的表面上，操作组件保持统一形状与标签；控制图案数量，窄屏减少不必要装饰。\n专属演示：圆点、锯齿与不规则几何构成，切换图形组合，正文独立保持可读。 参数：强调色 {accent}；内容间距 {gap_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Avoid filling dense work interfaces with intense patterns.",
         "Do not make controls indistinguishable from decorative shapes."
       ],
-      "prompt_template": "Use selective geometric patterns and clear color contrast in key visuals and section edges. Put body text on quiet surfaces and give controls consistent shapes and labels. Limit competing patterns and reduce unnecessary decoration on narrow screens."
+      "prompt_template": "Use selective geometric patterns and clear color contrast in key visuals and section edges. Put body text on quiet surfaces and give controls consistent shapes and labels. Limit competing patterns and reduce unnecessary decoration on narrow screens.\nDedicated demonstration: Dots, zigzags and irregular geometry; switch the arrangement while keeping text readable. Parameters: accent color {accent}; content gap {gap_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "memphis-design",
+    "params": {
+      "accent": "#B5452E",
+      "gap_px": 16
+    }
+  },
   "sources": [
     {
       "type": "original",

@@ -1,10 +1,13 @@
 import {t} from './i18n.js';
 import {mountCursorPreview} from './cursor-preview.js';
 import {attachSpotlight,motionAllowed} from './motion.js';
+import {rendererIds,sceneFamilies} from './preview-capabilities.js';
+import {mountDedicatedScene} from './preview-scenes.js';
 const el=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
-export const rendererIds=['cursor-spotlight','custom-cursor','slide-fade-list','hover-lift','scale-fade','skeleton-shimmer','progress-fill','tab-state','press-feedback','ripple','ux-state-comparison','focus-ring','ux-disclosure','ux-error','ux-empty','ux-validation'];
+export {rendererIds};
 export function mountPreview(stage,item,params={}){stage.replaceChildren();const type=item.preview?.template_id;const cleaners=[];const animations=[];const timers=[];const time=fn=>{const timer=setTimeout(fn,params.feedback_delay_ms??0);timers.push(timer);};const animate=(node,frames,options)=>{if(motionAllowed())animations.push(node.animate(frames,{fill:'both',...options}));};
  const card=()=>{const c=el('div','preview-card');c.append(el('div','demo-icon','↗'),el('h4','',t('cardTitle')),el('p','',t('cardBody')),el('div','demo-line'),el('div','demo-line short'));c.style.setProperty('--duration',(params.duration_ms??240)+'ms');c.style.setProperty('--lift',motionAllowed()?(params.lift_px??6)+'px':'0px');return c;};
+ if(sceneFamilies[type])return mountDedicatedScene(stage,item,params);
  if(type==='custom-cursor'){cleaners.push(mountCursorPreview(stage,params));}
  else if(type==='cursor-spotlight'||type==='hover-lift'){const c=card();if(type==='cursor-spotlight'){c.classList.add('spotlight','custom-spotlight');cleaners.push(attachSpotlight(c,{radius:params.radius_px,opacity:params.opacity,color:params.color,follow_ms:params.follow_ms}));}stage.append(c);}
  else if(type==='slide-fade-list'){const stack=el('div','preview-stack');for(let i=0;i<3;i++){const row=el('div');row.append(el('i'),el('span','',t(['tab1','tab2','tab3'][i])));stack.append(row);animate(row,[{opacity:0,transform:`translateY(${params.offset_y_px}px)`},{opacity:1,transform:'translateY(0)'}],{duration:params.duration_ms,delay:i*params.delay_ms,easing:params.easing});}stage.append(stack);}
@@ -19,6 +22,6 @@ export function mountPreview(stage,item,params={}){stage.replaceChildren();const
  else if(type==='ux-error'){const c=el('div','demo-ui'),p=el('p','',t('apiNetwork')),b=el('button','',t('replay'));p.setAttribute('role','status');b.addEventListener('click',()=>{p.textContent=t('saved')+' · '+t('demoOnly');b.disabled=true;});c.append(el('h4','',t('effectFeedback')),p,b);stage.append(c);}
  else if(type==='ux-empty'){const c=el('div','demo-ui'),p=el('p','',t('noResults')),b=el('button','',t('cardTitle'));b.addEventListener('click',()=>{p.textContent=t('cardBody');b.disabled=true;});c.append(el('h4','',t('tab2')),p,b);stage.append(c);}
  else if(type==='ux-validation'){const c=el('div','demo-ui'),label=el('label','',t('email')),input=el('input','focus-target'),p=el('p');input.type='email';input.id='preview-email';label.htmlFor=input.id;input.placeholder='you@example.com';p.id='preview-email-error';p.setAttribute('role','status');input.setAttribute('aria-describedby',p.id);const validate=()=>{const invalid=!!input.value&&!input.validity.valid;input.setAttribute('aria-invalid',String(invalid));p.textContent=invalid?t('invalidEmail'):'';};input.addEventListener('blur',validate);input.addEventListener('input',()=>{if(input.validity.valid)validate();});c.append(label,input,p);stage.append(c);}
- else {const c=el('div','demo-ui'),id=item.id;if(id==='grid-layout'){c.style.display='grid';c.style.gridTemplateColumns='repeat(2,1fr)';c.style.gap='12px';for(let i=0;i<4;i++){const b=el('div','',String(i+1).padStart(2,'0'));b.style.cssText='padding:18px;background:var(--paper);border-radius:6px';c.append(b);}}else{c.append(el('h4','',t('cardTitle')),el('p','',t('cardBody')));const b=el('button','',t('start'));b.disabled=true;c.append(b);if(id==='whitespace')c.style.padding='32px';if(id==='contrast')c.style.background='var(--deep)',c.style.color='var(--paper)';if(id==='information-architecture')c.prepend(el('p','',t('tab1')+' / UI / Motion'));}stage.append(c);}
+ else throw new Error('No implemented preview: '+String(type));
  return()=>{cleaners.forEach(f=>f());animations.forEach(a=>a.cancel());timers.forEach(clearTimeout);stage.replaceChildren();};
 }

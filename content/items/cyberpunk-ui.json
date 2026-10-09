@@ -33,7 +33,7 @@
         "高饱和光效不宜覆盖正文和密集数据。",
         "不要用频繁闪烁表达重要状态。"
       ],
-      "prompt_template": "使用深色表面和有限霓虹强调，把科幻图形放在装饰层；正文、状态与主操作保持高可读性；重要变化用文字和稳定状态表达，故障与闪烁效果可关闭且不影响任务。"
+      "prompt_template": "使用深色表面和有限霓虹强调，把科幻图形放在装饰层；正文、状态与主操作保持高可读性；重要变化用文字和稳定状态表达，故障与闪烁效果可关闭且不影响任务。\n专属演示：深色技术面板、切角边界与霓虹强调；单次本地扫描更新明确状态，无闪烁循环。 参数：强调色 {accent}；演示时长 {duration_ms}ms。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Intense glow should not cover body text or dense data.",
         "Do not use frequent flicker to communicate important states."
       ],
-      "prompt_template": "Use dark surfaces with limited neon accents and keep science-fiction graphics in decorative layers. Preserve readable text, states and actions. Communicate important changes through text and stable cues; any glitch or flicker treatment must be optional and nonessential."
+      "prompt_template": "Use dark surfaces with limited neon accents and keep science-fiction graphics in decorative layers. Preserve readable text, states and actions. Communicate important changes through text and stable cues; any glitch or flicker treatment must be optional and nonessential.\nDedicated demonstration: A dark technical panel, clipped edges and neon accents; one local scan updates an explicit status without flashing loops. Parameters: accent color {accent}; demo duration {duration_ms}ms."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "cyberpunk-ui",
+    "params": {
+      "accent": "#B9CF84",
+      "duration_ms": 700
+    }
+  },
   "sources": [
     {
       "type": "original",

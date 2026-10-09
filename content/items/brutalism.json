@@ -33,7 +33,7 @@
         "不能把破坏导航与可访问性当作风格要求。",
         "重要操作仍需要一致、可识别的入口。"
       ],
-      "prompt_template": "用直接排版、简单表面和清楚的结构展示内容，弱化无关装饰；保留可读层级、可靠导航和一致链接样式；形式可以朴素，交互反馈和键盘操作不能缺失。"
+      "prompt_template": "用直接排版、简单表面和清楚的结构展示内容，弱化无关装饰；保留可读层级、可靠导航和一致链接样式；形式可以朴素，交互反馈和键盘操作不能缺失。\n专属演示：直接的文档排版、实线分隔与原生可点击链接；切换章节展示真实导航。 参数：正文字号 {font_size_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,15 @@
         "Do not treat broken navigation or accessibility as stylistic requirements.",
         "Important actions still need consistent, recognizable entry points."
       ],
-      "prompt_template": "Present content with direct typography, simple surfaces and clear structure while reducing unrelated decoration. Preserve readable hierarchy, dependable navigation and consistent links. The appearance can be raw, but feedback and keyboard interaction must remain usable."
+      "prompt_template": "Present content with direct typography, simple surfaces and clear structure while reducing unrelated decoration. Preserve readable hierarchy, dependable navigation and consistent links. The appearance can be raw, but feedback and keyboard interaction must remain usable.\nDedicated demonstration: Direct document typography, solid separators and operable links; section changes demonstrate real navigation. Parameters: body size {font_size_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "brutalism",
+    "params": {
+      "font_size_px": 18
+    }
+  },
   "sources": [
     {
       "type": "original",

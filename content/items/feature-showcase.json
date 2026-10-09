@@ -33,7 +33,7 @@
         "不要把路线图功能描述为已可使用。",
         "全部等权展示会增加寻找关键能力的负担。"
       ],
-      "prompt_template": "按用户任务分组介绍功能，先展示核心能力，再补充扩展能力；每组附一个具体使用例子与可验证状态；明确已支持、试验和计划中的功能，保留快速进入相关体验的入口。"
+      "prompt_template": "按用户任务分组介绍功能，先展示核心能力，再补充扩展能力；每组附一个具体使用例子与可验证状态；明确已支持、试验和计划中的功能，保留快速进入相关体验的入口。\n专属演示：按用户任务分组的功能标签与关联演示区，切换标签实际改变内容。 参数：内容间距 {gap_px}px；圆角 {corner_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Do not present roadmap items as currently available.",
         "Equal emphasis on every feature makes priority capabilities harder to find."
       ],
-      "prompt_template": "Group capabilities by user task, lead with the core ones and then cover extensions. Provide a concrete example and verifiable availability for each group. Distinguish supported, experimental and planned features, and offer a direct route to relevant experiences."
+      "prompt_template": "Group capabilities by user task, lead with the core ones and then cover extensions. Provide a concrete example and verifiable availability for each group. Distinguish supported, experimental and planned features, and offer a direct route to relevant experiences.\nDedicated demonstration: Task-grouped feature tabs and an associated demo area; selecting tabs changes the content. Parameters: content gap {gap_px}px; corner radius {corner_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "feature-showcase",
+    "params": {
+      "gap_px": 16,
+      "corner_px": 20
+    }
+  },
   "sources": [
     {
       "type": "original",

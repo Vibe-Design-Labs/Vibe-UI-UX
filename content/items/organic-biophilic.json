@@ -33,7 +33,7 @@
         "不规则形状不应损害对齐与可点击范围。",
         "不要声称绿色与自然素材自动改善用户健康。"
       ],
-      "prompt_template": "选用自然相关的色彩与适量素材，在装饰区域采用有机轮廓；功能组件仍保持稳定栅格、明确边界与文字对比；纹理轻量化，避免影响正文阅读和页面性能。"
+      "prompt_template": "选用自然相关的色彩与适量素材，在装饰区域采用有机轮廓；功能组件仍保持稳定栅格、明确边界与文字对比；纹理轻量化，避免影响正文阅读和页面性能。\n专属演示：自然叶片、曲线分区与生长进度，支持本地照料状态切换。 参数：圆角 {corner_px}px；内容间距 {gap_px}px；强调色 {accent}。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,17 @@
         "Irregular shapes must not undermine alignment or usable targets.",
         "Do not claim that green colors or natural motifs automatically improve health."
       ],
-      "prompt_template": "Use nature-related colors and selective imagery, with organic contours in decorative areas. Keep functional components on a stable grid with clear boundaries and readable contrast. Use lightweight textures that do not impair reading or page performance."
+      "prompt_template": "Use nature-related colors and selective imagery, with organic contours in decorative areas. Keep functional components on a stable grid with clear boundaries and readable contrast. Use lightweight textures that do not impair reading or page performance.\nDedicated demonstration: Organic leaves, curved sections and a growth meter with a local care-state toggle. Parameters: corner radius {corner_px}px; content gap {gap_px}px; accent color {accent}."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "organic-biophilic",
+    "params": {
+      "corner_px": 20,
+      "gap_px": 16,
+      "accent": "#526047"
+    }
+  },
   "sources": [
     {
       "type": "original",

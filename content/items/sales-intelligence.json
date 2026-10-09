@@ -33,7 +33,7 @@
         "不要把模型评分当作已成交概率保证。",
         "敏感客户资料应按任务和权限限制展示。"
       ],
-      "prompt_template": "按销售阶段和责任人组织机会，突出需要跟进的事项和目标差距；说明评分依据与更新时间，将预测和事实区分开；提供进入机会详情的入口，并遵循客户数据访问权限。"
+      "prompt_template": "按销售阶段和责任人组织机会，突出需要跟进的事项和目标差距；说明评分依据与更新时间，将预测和事实区分开；提供进入机会详情的入口，并遵循客户数据访问权限。\n专属演示：三个销售阶段与样例机会卡，通过按钮移动一条机会并同步计数。 参数：内容间距 {gap_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,15 @@
         "Do not treat model scores as guaranteed closing probabilities.",
         "Limit sensitive customer information to task and access needs."
       ],
-      "prompt_template": "Organize opportunities by sales stage and owner, highlighting follow-up needs and target gaps. Explain score basis and update time, separate predictions from facts, provide access to opportunity details, and respect customer-data permissions."
+      "prompt_template": "Organize opportunities by sales stage and owner, highlighting follow-up needs and target gaps. Explain score basis and update time, separate predictions from facts, provide access to opportunity details, and respect customer-data permissions.\nDedicated demonstration: Three sales stages and sample opportunities; a button moves one opportunity and updates stage counts. Parameters: content gap {gap_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "sales-intelligence",
+    "params": {
+      "gap_px": 16
+    }
+  },
   "sources": [
     {
       "type": "original",

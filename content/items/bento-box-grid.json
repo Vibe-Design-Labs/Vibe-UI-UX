@@ -35,7 +35,7 @@
         "内容必须按连续步骤阅读时，不要强行切碎。",
         "移动端不能只缩小桌面宫格，应保留阅读顺序。"
       ],
-      "prompt_template": "把内容按主题分成卡片，使用统一列网格和一致的间距；重要主题可跨列，次要主题保持紧凑；窄屏按阅读顺序单列排列，交互卡片与信息卡片使用不同提示。"
+      "prompt_template": "把内容按主题分成卡片，使用统一列网格和一致的间距；重要主题可跨列，次要主题保持紧凑；窄屏按阅读顺序单列排列，交互卡片与信息卡片使用不同提示。\n专属演示：大小不同的主题块共享栅格，重要主题跨行，信息块与操作块明确区分。 参数：内容间距 {gap_px}px；圆角 {corner_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -54,10 +54,16 @@
         "Avoid fragmenting content that must be read in sequence.",
         "Do not simply shrink a desktop grid on mobile; preserve reading order."
       ],
-      "prompt_template": "Group content into topic cards on a shared column grid with consistent spacing. Let priority topics span columns, keep secondary topics compact, and stack cards in reading order on narrow screens. Distinguish interactive cards from informational ones."
+      "prompt_template": "Group content into topic cards on a shared column grid with consistent spacing. Let priority topics span columns, keep secondary topics compact, and stack cards in reading order on narrow screens. Distinguish interactive cards from informational ones.\nDedicated demonstration: Unequal topic blocks share a grid; a featured block spans rows, with information and action areas distinguished. Parameters: content gap {gap_px}px; corner radius {corner_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "bento-box-grid",
+    "params": {
+      "gap_px": 16,
+      "corner_px": 20
+    }
+  },
   "sources": [
     {
       "type": "original",

@@ -33,7 +33,7 @@
         "不要让按钮和普通文本无法区分。",
         "不能只用颜色区分状态或操作。"
       ],
-      "prompt_template": "用简洁色块、明确文字层级和统一间距组织页面；按钮保留形状、标签与可见状态，链接保留识别提示；减少装饰阴影，仍提供清楚的焦点和错误信息。"
+      "prompt_template": "用简洁色块、明确文字层级和统一间距组织页面；按钮保留形状、标签与可见状态，链接保留识别提示；减少装饰阴影，仍提供清楚的焦点和错误信息。\n专属演示：无投影的平面色块、清楚的按钮轮廓与可切换选中状态。 参数：强调色 {accent}；内容间距 {gap_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Do not make buttons indistinguishable from ordinary text.",
         "Do not rely solely on color to convey state or interactivity."
       ],
-      "prompt_template": "Organize the page with simple color fields, clear text hierarchy and consistent spacing. Give buttons recognizable shapes, labels and states, and make links identifiable. Reduce decorative shadows while retaining clear focus and error feedback."
+      "prompt_template": "Organize the page with simple color fields, clear text hierarchy and consistent spacing. Give buttons recognizable shapes, labels and states, and make links identifiable. Reduce decorative shadows while retaining clear focus and error feedback.\nDedicated demonstration: Shadow-free flat color blocks, distinct button outlines and a switchable selected state. Parameters: accent color {accent}; content gap {gap_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "flat-design",
+    "params": {
+      "accent": "#B5452E",
+      "gap_px": 16
+    }
+  },
   "sources": [
     {
       "type": "original",

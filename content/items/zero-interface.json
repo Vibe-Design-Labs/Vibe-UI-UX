@@ -33,7 +33,7 @@
         "不能默认持续监听或隐瞒数据采集。",
         "语音或手势不能成为排他的唯一通道。"
       ],
-      "prompt_template": "减少对屏幕的依赖，但为启动、监听、执行和结束提供明确反馈；说明采集范围与权限，提供停止、纠正和撤销方式；为不能使用主要通道的用户保留可访问的替代入口。"
+      "prompt_template": "减少对屏幕的依赖，但为启动、监听、执行和结束提供明确反馈；说明采集范围与权限，提供停止、纠正和撤销方式；为不能使用主要通道的用户保留可访问的替代入口。\n专属演示：按住按钮模拟语音状态，并提供真实文字输入替代；不读取麦克风、不联网。 参数：演示时长 {duration_ms}ms。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,15 @@
         "Do not default to continuous listening or conceal data collection.",
         "Voice or gesture must not become an exclusive interaction channel."
       ],
-      "prompt_template": "Reduce screen dependence while giving explicit feedback for activation, listening, execution and completion. Explain data collection and permissions, provide stop, correction and undo, and retain accessible alternatives for users who cannot use the main channel."
+      "prompt_template": "Reduce screen dependence while giving explicit feedback for activation, listening, execution and completion. Explain data collection and permissions, provide stop, correction and undo, and retain accessible alternatives for users who cannot use the main channel.\nDedicated demonstration: Hold a button to simulate voice states, with a real text-input alternative; no microphone access or network request. Parameters: demo duration {duration_ms}ms."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "zero-interface",
+    "params": {
+      "duration_ms": 400
+    }
+  },
   "sources": [
     {
       "type": "original",

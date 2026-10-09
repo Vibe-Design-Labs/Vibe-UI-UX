@@ -35,7 +35,7 @@
         "网页近似不能宣称已经还原原生光学行为。",
         "密集内容与变化背景下必须检查可读性。"
       ],
-      "prompt_template": "先确认目标平台与可用材质；支持原生能力时采用对应平台组件，网页方案明确标注视觉近似；限定透明材质的使用范围，保证文字、状态和操作边界可辨，提供减少透明与动态效果的替代。"
+      "prompt_template": "先确认目标平台与可用材质；支持原生能力时采用对应平台组件，网页方案明确标注视觉近似；限定透明材质的使用范围，保证文字、状态和操作边界可辨，提供减少透明与动态效果的替代。\n专属演示：透明透镜跟随指针展示高光、模糊和背景色彩变化；为 Web 材质近似，不是 Apple 原生渲染。 参数：背景模糊 {blur_px}px；玻璃高光透明度 {glass_strength}。"
     },
     "en": {
       "review_status": "draft",
@@ -54,10 +54,16 @@
         "Do not claim native optical behavior for a web approximation.",
         "Check legibility over busy content and changing backgrounds."
       ],
-      "prompt_template": "Confirm the target platform and available material first. Use the corresponding platform components where supported and label web treatments as visual approximations. Limit translucent surfaces, preserve readable text and state boundaries, and provide reduced-transparency and reduced-motion alternatives."
+      "prompt_template": "Confirm the target platform and available material first. Use the corresponding platform components where supported and label web treatments as visual approximations. Limit translucent surfaces, preserve readable text and state boundaries, and provide reduced-transparency and reduced-motion alternatives.\nDedicated demonstration: A pointer-tracked translucent lens shows highlights, blur and background color changes; a Web material approximation, not Apple native rendering. Parameters: backdrop blur {blur_px}px; glass highlight opacity {glass_strength}."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "liquid-glass",
+    "params": {
+      "blur_px": 8,
+      "glass_strength": 0.3
+    }
+  },
   "sources": [
     {
       "type": "original",

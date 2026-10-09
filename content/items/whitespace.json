@@ -30,7 +30,7 @@
       "avoid_when": [
         "不要将演示参数当作通用行业标准。"
       ],
-      "prompt_template": "相关内容内部间距小于不同分组间距，避免密集信息；用留白强调阅读顺序，并检查窄屏上的内容连续性。"
+      "prompt_template": "相关内容内部间距小于不同分组间距，避免密集信息；用留白强调阅读顺序，并检查窄屏上的内容连续性。\n专属演示：紧凑与有呼吸感的排版并置，调节真实内容内边距，观察分组关系。 参数：内容内边距 {space_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -48,10 +48,15 @@
       "avoid_when": [
         "Do not treat demo parameters as universal standards."
       ],
-      "prompt_template": "Keep spacing within groups smaller than spacing between groups. Use whitespace to support reading order, and check content continuity on narrow screens."
+      "prompt_template": "Keep spacing within groups smaller than spacing between groups. Use whitespace to support reading order, and check content continuity on narrow screens.\nDedicated demonstration: Compact and spacious layouts side by side; adjust actual content padding to observe grouping. Parameters: content padding {space_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "whitespace",
+    "params": {
+      "space_px": 22
+    }
+  },
   "sources": [
     {
       "type": "original",

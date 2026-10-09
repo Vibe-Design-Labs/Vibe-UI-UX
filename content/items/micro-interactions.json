@@ -37,7 +37,7 @@
         "不要让反馈拖延真实操作或掩盖失败。",
         "不要把系统尚未完成的工作提示为成功。"
       ],
-      "prompt_template": "为具体触发设计明确反馈，区分已接收、处理中、成功与失败；反馈靠近操作位置，兼顾键盘与触摸；动效可以减少或关闭，重要状态仍通过文字或形状保留。"
+      "prompt_template": "为具体触发设计明确反馈，区分已接收、处理中、成功与失败；反馈靠近操作位置，兼顾键盘与触摸；动效可以减少或关闭，重要状态仍通过文字或形状保留。\n专属演示：收藏操作的触发、选中规则、视觉反馈与状态文本完整演示，可反向取消。 参数：演示时长 {duration_ms}ms。"
     },
     "en": {
       "review_status": "draft",
@@ -56,10 +56,15 @@
         "Feedback must not delay real work or hide failure.",
         "Do not report success before the actual operation completes."
       ],
-      "prompt_template": "Provide focused feedback for a specific trigger, distinguishing receipt, processing, success and failure. Keep feedback near its action and support keyboard and touch. Allow motion reduction while retaining important states through text or shape."
+      "prompt_template": "Provide focused feedback for a specific trigger, distinguishing receipt, processing, success and failure. Keep feedback near its action and support keyboard and touch. Allow motion reduction while retaining important states through text or shape.\nDedicated demonstration: A complete favorite micro-interaction: trigger, selected-state rule, visual feedback and status text, with reversal. Parameters: demo duration {duration_ms}ms."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "micro-interactions",
+    "params": {
+      "duration_ms": 240
+    }
+  },
   "sources": [
     {
       "type": "original",

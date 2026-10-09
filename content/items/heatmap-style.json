@@ -33,7 +33,7 @@
         "不适合依靠颜色读取许多精确数值的任务。",
         "不能让缺失数据和零值使用同一解释。"
       ],
-      "prompt_template": "根据真实数据建立明确色阶、图例与单位，标出行列维度和缺失数据；悬停、键盘或详情入口可读取数值；提供表格或文本替代，不用装饰渐变冒充数据图。"
+      "prompt_template": "根据真实数据建立明确色阶、图例与单位，标出行列维度和缺失数据；悬停、键盘或详情入口可读取数值；提供表格或文本替代，不用装饰渐变冒充数据图。\n专属演示：带图例和数值的真实热力网格，点击或键盘聚焦单元格查看对应样例。 参数：强调色 {accent}；视觉强度 {intensity}。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Color alone is a poor way to read many exact values.",
         "Do not conflate missing data with zero."
       ],
-      "prompt_template": "Build the color scale, legend and units from actual data, label row and column dimensions, and distinguish missing values. Make exact values available through hover, keyboard or details, and provide table or text alternatives instead of using decorative gradients as data."
+      "prompt_template": "Build the color scale, legend and units from actual data, label row and column dimensions, and distinguish missing values. Make exact values available through hover, keyboard or details, and provide table or text alternatives instead of using decorative gradients as data.\nDedicated demonstration: A real heatmap grid with legend and values; click or focus a cell to inspect its sample. Parameters: accent color {accent}; visual intensity {intensity}."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "heatmap-style",
+    "params": {
+      "accent": "#526047",
+      "intensity": 0.8
+    }
+  },
   "sources": [
     {
       "type": "original",

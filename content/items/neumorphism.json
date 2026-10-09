@@ -35,7 +35,7 @@
         "密集表单与重要操作不应依赖低对比浮雕。",
         "不要把装饰凸起自动等同于可点击。"
       ],
-      "prompt_template": "仅在少量表面使用同色系浮雕和相对的明暗阴影；按钮、输入框和选中状态补充清楚边界与标签；验证多种背景和显示条件，焦点与错误提示不依赖阴影。"
+      "prompt_template": "仅在少量表面使用同色系浮雕和相对的明暗阴影；按钮、输入框和选中状态补充清楚边界与标签；验证多种背景和显示条件，焦点与错误提示不依赖阴影。\n专属演示：同色表面凸起与凹入对比，切换真实 aria-pressed 控件的内外阴影。 参数：投影偏移/扩散 {shadow_px}px；圆角 {corner_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -54,10 +54,16 @@
         "Dense forms and critical actions should not depend on low-contrast relief.",
         "Do not equate decorative elevation with clickability."
       ],
-      "prompt_template": "Use closely matched surfaces and opposing light-dark shadows selectively. Give buttons, fields and selected states clear boundaries and labels. Check varied backgrounds and viewing conditions; focus and error cues must not depend on shadows."
+      "prompt_template": "Use closely matched surfaces and opposing light-dark shadows selectively. Give buttons, fields and selected states clear boundaries and labels. Check varied backgrounds and viewing conditions; focus and error cues must not depend on shadows.\nDedicated demonstration: Raised and inset same-color surfaces; a real aria-pressed control switches inner and outer shadows. Parameters: shadow offset/spread {shadow_px}px; corner radius {corner_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "neumorphism",
+    "params": {
+      "shadow_px": 10,
+      "corner_px": 20
+    }
+  },
   "sources": [
     {
       "type": "original",

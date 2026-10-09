@@ -35,7 +35,7 @@
         "不适合依赖同时比较大量信息的界面。",
         "长标题不能在手机上被截断或挤出按钮。"
       ],
-      "prompt_template": "用一个大标题承载首屏主题，其余信息精简为必要说明和主操作；通过留白与比例形成张力；为长文案和窄屏降低字号或换行，保持正文可读。"
+      "prompt_template": "用一个大标题承载首屏主题，其余信息精简为必要说明和主操作；通过留白与比例形成张力；为长文案和窄屏降低字号或换行，保持正文可读。\n专属演示：超大主题字与大留白围绕单一操作，窄屏保留必要说明。 参数：标题字号 {heading_px}px；内容内边距 {space_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -54,10 +54,16 @@
         "It is a poor fit for comparing many data points at once.",
         "Long headings must not be clipped or crowd actions on mobile."
       ],
-      "prompt_template": "Let one oversized heading carry the first-screen message, supported by essential copy and a primary action. Use whitespace and proportion for emphasis. Adapt type size and wrapping for long copy and narrow screens while keeping body text readable."
+      "prompt_template": "Let one oversized heading carry the first-screen message, supported by essential copy and a primary action. Use whitespace and proportion for emphasis. Adapt type size and wrapping for long copy and narrow screens while keeping body text readable.\nDedicated demonstration: Oversized typography and generous whitespace around one action, retaining essential text on narrow screens. Parameters: heading size {heading_px}px; content padding {space_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "exaggerated-minimalism",
+    "params": {
+      "heading_px": 64,
+      "space_px": 28
+    }
+  },
   "sources": [
     {
       "type": "original",

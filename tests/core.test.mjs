@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile,readdir} from 'node:fs/promises';
 import {effectiveParams,makeBrief,localCandidates,validateSuggestions,searchItems} from '../public/core.js';
+import {rendererIds} from '../public/preview-capabilities.js';
 const root=new URL('../',import.meta.url);
 const registry=JSON.parse(await readFile(new URL('previews/registry.json',root),'utf8'));
 const names=(await readdir(new URL('content/items/',root))).filter(n=>n.endsWith('.json'));
@@ -45,7 +46,7 @@ test('five interface dictionaries have a nonempty string for every declared key'
 });
 test('every registry template has an implemented renderer and every HTML translation exists',async()=>{
  const src=await readFile(new URL('public/previews.js',root),'utf8');
- const ids=JSON.parse(src.match(/export const rendererIds=(\[[^\n]+\]);/)[1].replaceAll("'",'"'));
+ const ids=rendererIds;
  assert.deepEqual([...ids].sort(),Object.keys(registry.templates).sort());
  const i18n=await readFile(new URL('public/i18n.js',root),'utf8');
  const module=await import('data:text/javascript;base64,'+Buffer.from(i18n.slice(0,i18n.indexOf('export let locale='))).toString('base64'));

@@ -33,7 +33,7 @@
         "不能把模拟或过期数据标为实时。",
         "频繁刷新不应打断阅读、筛选或键盘操作。"
       ],
-      "prompt_template": "展示状态、最近更新时间和数据连接情况；新事件按优先级提示，过期或断连时明确标注；保留用户当前筛选与阅读位置，提供暂停自动更新或查看事件历史的方式。"
+      "prompt_template": "展示状态、最近更新时间和数据连接情况；新事件按优先级提示，过期或断连时明确标注；保留用户当前筛选与阅读位置，提供暂停自动更新或查看事件历史的方式。\n专属演示：明确标注模拟数据的监控线图；手动步进或启动本地定时更新，离开时清理。 参数：本地更新间隔 {interval_ms}ms。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,15 @@
         "Do not label simulated or stale data as live.",
         "Frequent updates must not disrupt reading, filters or keyboard interaction."
       ],
-      "prompt_template": "Show state, last update time and connection health. Prioritize new events and clearly mark stale data or disconnection. Preserve filters and reading position, and offer a way to pause updates or review event history."
+      "prompt_template": "Show state, last update time and connection health. Prioritize new events and clearly mark stale data or disconnection. Preserve filters and reading position, and offer a way to pause updates or review event history.\nDedicated demonstration: A monitoring line chart labeled as synthetic data; step manually or start local timed updates, cleaned up on exit. Parameters: local update interval {interval_ms}ms."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "real-time-monitoring",
+    "params": {
+      "interval_ms": 1500
+    }
+  },
   "sources": [
     {
       "type": "original",

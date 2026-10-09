@@ -29,14 +29,14 @@ project/
 | tags | 检索标签列表 |
 | related_ids | 已存在词条的 ID 列表 |
 | locales | `zh-CN`、`en`、`ja`、`ko`、`de` 中已有的内容译文 |
-| preview | `null`，或 `{template_id, params}`；效果与 UX 案例必须关联模板 |
+| preview | `null`，或 `{template_id, params}`；效果与 UX 案例必须关联模板；IntentKit 官网的所有可见词条均必须关联真实实现 |
 | sources | 非空来源记录列表 |
 
 每个已有内容译文包含 `review_status`（draft/reviewed）、`name`、`aliases`、`description`、`use_when`、`avoid_when`、`prompt_template`。缺失译文不填该语言，由应用显式回退英文。
 
 `prompt_template` 的变量使用 `{duration_ms}` 等参数名。变量只允许注册表定义的参数名，无属性访问、索引、格式表达式或代码。演示模板中的所有参数都需在输出模板中显式体现，以便检查一致性。单纯词条且无预览时可用空字符串。
 
-注册表参数支持 `number`、`enum` 和 `color`。数值规定 `min`、`max`、`default`；枚举规定 `values` 和 `default`；颜色规定 `default`，仅接受 `#RRGGBB` 六位十六进制字符串（例如 `#B5452E`），不接受 CSS 函数、外部 URL 或任意样式。需要坐标、手势等其他新参数类型时，先扩展契约和检查器，再增加实际模板。
+注册表参数支持 `number`、`enum` 和 `color`。数值规定 `min`、`max`、`default`；数量可用 `integer:true` 要求整数；枚举规定 `values` 和 `default`；颜色规定 `default`，仅接受 `#RRGGBB` 六位十六进制字符串（例如 `#B5452E`），不接受 CSS 函数、外部 URL 或任意样式。需要坐标、手势等其他新参数类型时，先扩展契约和检查器，再增加实际模板。
 
 ## 来源字段
 
@@ -59,3 +59,5 @@ project/
 本包脚本只读本地 JSON，不联网、不调用模型、不保存密钥、不修改内容。检查：格式版本、ID 和文件名、重复 ID、引用、模板引用、参数类型和范围、变量绑定、所要求语言的状态、来源元数据。
 
 它不检查动效视觉质量、渲染器是否正确使用参数、译文自然程度、无障碍实际表现、网站构建或第三方许可的适用范围。相关结果必须通过实际预览与人工审阅确认。
+
+IntentKit 公开词库额外使用 `--require-previews`。未实现的概念应留在工作草稿中，不加入可见词库；使用注册表参数不等于已有真实渲染器，构建与浏览器均需验证。

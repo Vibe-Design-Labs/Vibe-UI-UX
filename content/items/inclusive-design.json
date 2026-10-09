@@ -36,7 +36,7 @@
         "不要靠人口标签推断所有人的需要。",
         "不能用单一替代方式覆盖所有障碍。"
       ],
-      "prompt_template": "识别核心任务中谁被排除及其具体情境，邀请相关用户参与检查；为输入、阅读和恢复提供可选择路径；验证不同语言、辅助技术、设备和连接条件，不强迫所有人使用同一种交互。"
+      "prompt_template": "识别核心任务中谁被排除及其具体情境，邀请相关用户参与检查；为输入、阅读和恢复提供可选择路径；验证不同语言、辅助技术、设备和连接条件，不强迫所有人使用同一种交互。\n专属演示：带文字的图标、输入替代路径与阅读偏好，模拟选择不排除键盘和触摸。 参数：正文字号 {font_size_px}px；内容间距 {gap_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -55,10 +55,16 @@
         "Do not infer everyone’s needs from demographic labels alone.",
         "One alternative cannot address every barrier."
       ],
-      "prompt_template": "Identify who is excluded from core tasks and under what conditions, and involve those users in evaluation. Provide alternative paths for input, reading and recovery. Check languages, assistive technologies, devices and connection conditions without forcing one interaction method."
+      "prompt_template": "Identify who is excluded from core tasks and under what conditions, and involve those users in evaluation. Provide alternative paths for input, reading and recovery. Check languages, assistive technologies, devices and connection conditions without forcing one interaction method.\nDedicated demonstration: Labeled icons, an input alternative and reading preferences; simulated choices retain keyboard and touch access. Parameters: body size {font_size_px}px; content gap {gap_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "inclusive-design",
+    "params": {
+      "font_size_px": 18,
+      "gap_px": 16
+    }
+  },
   "sources": [
     {
       "type": "original",

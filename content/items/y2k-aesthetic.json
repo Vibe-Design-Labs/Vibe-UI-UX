@@ -33,7 +33,7 @@
         "不能用像素字体和高光材质牺牲长文本阅读。",
         "不要把装饰窗口做成误导性的系统提示。"
       ],
-      "prompt_template": "在标题、图像与少量装饰中使用金属或复古数字意象；正文和表单采用清楚的现代排版与操作反馈；明确区分装饰窗口与真正交互，保留无装饰的内容阅读区域。"
+      "prompt_template": "在标题、图像与少量装饰中使用金属或复古数字意象；正文和表单采用清楚的现代排版与操作反馈；明确区分装饰窗口与真正交互，保留无装饰的内容阅读区域。\n专属演示：金属渐变、鼓起胶囊与星形徽记，点击切换镀铬面板的状态。 参数：材质高光透明度 {shine}；圆角 {corner_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Do not sacrifice long-text legibility for pixel fonts or glossy materials.",
         "Do not make decorative windows look like deceptive system messages."
       ],
-      "prompt_template": "Use metallic or retro digital motifs in headings, imagery and selected decoration. Keep body copy and forms readable with clear contemporary feedback. Distinguish decorative windows from actual interaction and preserve quiet content-reading areas."
+      "prompt_template": "Use metallic or retro digital motifs in headings, imagery and selected decoration. Keep body copy and forms readable with clear contemporary feedback. Distinguish decorative windows from actual interaction and preserve quiet content-reading areas.\nDedicated demonstration: Chrome gradients, inflated capsules and star emblems; click to change the chrome panel state. Parameters: material highlight opacity {shine}; corner radius {corner_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "y2k-aesthetic",
+    "params": {
+      "shine": 0.45,
+      "corner_px": 30
+    }
+  },
   "sources": [
     {
       "type": "original",

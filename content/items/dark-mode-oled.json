@@ -35,7 +35,7 @@
         "不要直接反转所有颜色或使用刺眼的满屏白字。",
         "功耗与观感需要在实际设备上验证。"
       ],
-      "prompt_template": "建立深色背景、表面和文字的层级色阶；正文使用足够对比且不过亮的色值，主操作和错误状态仍可辨认；同时提供浅色主题，不把纯黑或省电视为硬性保证。"
+      "prompt_template": "建立深色背景、表面和文字的层级色阶；正文使用足够对比且不过亮的色值，主操作和错误状态仍可辨认；同时提供浅色主题，不把纯黑或省电视为硬性保证。\n专属演示：在真实深浅主题之间切换，并保持前景、表面和状态层级；不宣称省电。 参数：初始主题 {theme}；圆角 {corner_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -54,10 +54,16 @@
         "Do not simply invert every color or fill the screen with glaring white text.",
         "Validate energy use and visual comfort on actual devices."
       ],
-      "prompt_template": "Define separate dark background, surface and text levels. Keep body copy legible without excessive brightness, and preserve recognizable actions and errors. Offer a light theme as well; do not promise that pure black is always preferable or saves energy."
+      "prompt_template": "Define separate dark background, surface and text levels. Keep body copy legible without excessive brightness, and preserve recognizable actions and errors. Offer a light theme as well; do not promise that pure black is always preferable or saves energy.\nDedicated demonstration: Switch real dark/light themes while preserving text, surface and status hierarchy; no energy-saving claim. Parameters: initial theme {theme}; corner radius {corner_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "dark-mode-oled",
+    "params": {
+      "theme": "dark",
+      "corner_px": 20
+    }
+  },
   "sources": [
     {
       "type": "original",

@@ -33,7 +33,7 @@
         "复杂产品需要的说明不能被删掉。",
         "不要隐藏价格、权限需求或重要限制。"
       ],
-      "prompt_template": "开头直接说明用途与主操作，围绕用户下一步补充必要说明；移除重复入口和无关装饰；把价格、权限和限制放在决定发生之前。"
+      "prompt_template": "开头直接说明用途与主操作，围绕用户下一步补充必要说明；移除重复入口和无关装饰；把价格、权限和限制放在决定发生之前。\n专属演示：一句价值说明、单个输入与主按钮；提交显示本地完成状态。 参数：内容内边距 {space_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,15 @@
         "Do not remove explanations that a complex product needs.",
         "Do not hide pricing, permission requirements or important limitations."
       ],
-      "prompt_template": "State the purpose and main action at the beginning, then provide the information needed for the next decision. Remove duplicate entry points and unrelated decoration. Show pricing, permissions and limitations before commitment."
+      "prompt_template": "State the purpose and main action at the beginning, then provide the information needed for the next decision. Remove duplicate entry points and unrelated decoration. Show pricing, permissions and limitations before commitment.\nDedicated demonstration: One value statement, one input and one primary button; submission shows a local completion state. Parameters: content padding {space_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "minimal-direct",
+    "params": {
+      "space_px": 20
+    }
+  },
   "sources": [
     {
       "type": "original",

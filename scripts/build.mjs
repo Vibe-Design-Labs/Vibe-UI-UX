@@ -4,6 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {leafMarkup} from '../public/leaf-art.js';
 import {effectiveParams} from '../public/core.js';
 import {assertCompilerType} from '../public/compiler-schema.js';
+import {assertPreviewCoverage} from '../public/preview-capabilities.js';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 await mkdir(path.join(root,'dist/client'),{recursive:true});await mkdir(path.join(root,'dist/server'),{recursive:true});
 await cp(path.join(root,'public'),path.join(root,'dist/client'),{recursive:true});
@@ -17,6 +18,8 @@ for(const name of ['index.html','studio.html','docs.html','authorize.html']){
 const filenames=(await readdir(path.join(root,'content/items'))).filter(n=>n.endsWith('.json')).sort();
 const items=await Promise.all(filenames.map(n=>readFile(path.join(root,'content/items',n),'utf8').then(JSON.parse)));
 const registry=JSON.parse(await readFile(path.join(root,'previews/registry.json'),'utf8'));
+assertPreviewCoverage(items,registry);
+for(const item of items)effectiveParams(item,registry);
 await writeFile(path.join(root,'dist/client/catalog.json'),JSON.stringify({items,registry}));
 const compiler={version:metadata.intentkitVersion};
 for(const [key,name] of Object.entries({schemas:'schema',lexicon:'lexicon',strings:'strings',implementations:'implementations'}))compiler[key]=JSON.parse(await readFile(path.join(root,'compiler',name+'.json'),'utf8'));

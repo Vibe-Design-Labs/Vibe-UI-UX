@@ -33,7 +33,7 @@
         "所有元素都同样抢眼会破坏层级。",
         "不要用错位与密集描边牺牲文本和触控空间。"
       ],
-      "prompt_template": "采用清晰粗描边、少量高对比色块和硬边阴影；优先突出主操作，正文保持安静易读；组件间距和焦点提示一致，阴影不遮挡相邻内容。"
+      "prompt_template": "采用清晰粗描边、少量高对比色块和硬边阴影；优先突出主操作，正文保持安静易读；组件间距和焦点提示一致，阴影不遮挡相邻内容。\n专属演示：粗描边、实体偏移投影与色块，按下时投影收拢并显示本地反馈。 参数：描边 {border_px}px；投影偏移/扩散 {shadow_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Making every element equally loud destroys hierarchy.",
         "Do not sacrifice legibility or touch space for offset shadows and dense outlines."
       ],
-      "prompt_template": "Use clear bold outlines, a limited set of contrasting color blocks and hard shadows. Give the primary action priority while keeping body content quiet and readable. Maintain consistent spacing and focus cues; shadows must not obscure adjacent content."
+      "prompt_template": "Use clear bold outlines, a limited set of contrasting color blocks and hard shadows. Give the primary action priority while keeping body content quiet and readable. Maintain consistent spacing and focus cues; shadows must not obscure adjacent content.\nDedicated demonstration: Thick outlines, hard offset shadows and color blocks; pressing contracts the shadow and displays local feedback. Parameters: border width {border_px}px; shadow offset/spread {shadow_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "neubrutalism",
+    "params": {
+      "border_px": 3,
+      "shadow_px": 7
+    }
+  },
   "sources": [
     {
       "type": "original",

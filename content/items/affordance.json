@@ -30,7 +30,7 @@
       "avoid_when": [
         "不要将演示参数当作通用行业标准。"
       ],
-      "prompt_template": "为主要操作提供明确的按钮外观与动词标签，让可交互区域有足够尺寸，并保持默认、悬停、焦点、禁用状态一致。"
+      "prompt_template": "为主要操作提供明确的按钮外观与动词标签，让可交互区域有足够尺寸，并保持默认、悬停、焦点、禁用状态一致。\n专属演示：普通文字与清楚操作意符并置；真实按钮可触发添加与撤销反馈。 参数：圆角 {corner_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -48,10 +48,15 @@
       "avoid_when": [
         "Do not treat demo parameters as universal standards."
       ],
-      "prompt_template": "Give primary actions a recognizable button shape and verb label. Use adequately sized targets and consistent default, hover, focus, and disabled states."
+      "prompt_template": "Give primary actions a recognizable button shape and verb label. Use adequately sized targets and consistent default, hover, focus, and disabled states.\nDedicated demonstration: Plain text compared with a clear action signifier; the real button triggers add and undo feedback. Parameters: corner radius {corner_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "affordance",
+    "params": {
+      "corner_px": 20
+    }
+  },
   "sources": [
     {
       "type": "original",

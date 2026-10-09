@@ -6,7 +6,7 @@
 
 [Website](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [Try the studio](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [Changelog](CHANGELOG.md)
 
-**v0.4.1.1.1 · 75 design entries · 16 controlled preview templates · 5 local recipe families · MIT + OFL**
+**v0.4.1.2.0 · 75 design entries · 75 dedicated preview templates · 5 local recipe families · MIT + OFL**
 
 [![Real studio capture: leaf cursor, warm spotlight, click ripple and staggered reveal](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -21,7 +21,7 @@ Design Compiler follows **everyday language → editable understanding (Design I
 | Feature | Available now |
 | --- | --- |
 | Design library | 75 searchable entries, curated aliases, definitions, usage guidance and source links |
-| Effect studio | 16 templates, validated parameters, briefs, JSON export and shareable single-effect links |
+| Effect studio | 75 corresponding templates, validated parameters, briefs, JSON export and shareable single-effect links |
 | Design Compiler | 5 local recipe families: gentle lift, warm glow with lift, press feedback, staggered entry and click ripple |
 | Custom cursor | 8 shapes; configurable color, size, following and click feedback, plus independent spotlight settings |
 | Languages | Chinese, English, Japanese, Korean and German interface; README languages switch via the links above |
@@ -30,12 +30,12 @@ Design Compiler follows **everyday language → editable understanding (Design I
 ## First run: no key needed
 
 1. Open the [studio](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) and choose English in the top-right language selector.
-2. Click **Try locally → A gently lifting card**, or enter `The card should lift gently on hover, not too much` and click **Understand & compile**. Without a configured key, it uses local rules.
+2. Click **Try locally → Gentle card lift**, or enter `The card should lift gently on hover, not too much` and click **Understand & compile**. Without a configured key, it uses local rules.
 3. Review the understanding and expand the editable fields to correct target, trigger and strength. Defaults and inferences are listed separately from your stated intent.
 4. Hover over the card and adjust the parameters. Preview, brief and recipe use the same final values. If an adjustment conflicts with the intent, review the warning and explicitly accept the current parameters.
 5. Copy the **Agent brief** from the compiler output into your coding assistant, or export the **compilation JSON**. The original right-hand JSON export remains a separate **single-effect export**.
 
-For terminology lookup, search `frosted glass`, `backdrop-filter` or a known alias in the sidebar. **75 entries do not mean 75 dedicated previews.** The 50 new entries have no dedicated renderer; the studio labels their generic concept placeholder explicitly.
+For terminology lookup, search `frosted glass`, `backdrop-filter` or a known alias in the sidebar. **Every public entry has a corresponding preview.** Styles show distinct materials and layouts, motion entries show real movement, dashboards use clearly labeled synthetic data, and UX principles demonstrate tasks and states. There is no generic concept placeholder. See the [dedicated-preview contract](docs/PREVIEW_SCENES.md) (Chinese).
 
 ![Design Compiler studio: understanding, live preview, parameters and Agent brief](docs/media/studio.png)
 
@@ -105,7 +105,7 @@ Run `npm run check:content`, `npm test` and `npm run check:docs`; rebuild [font 
 - Structural validation does not certify facts, sources or translations. Strict publication review intentionally fails while drafts remain. Unread WeChat article text was not fabricated as a consulted source.
 - Previews illustrate concepts and do not save real data. Review exports before implementation. Reduced motion, touch and keyboard interactions are handled separately.
 
-[Compiler structure and constraints](docs/DESIGN_COMPILER.md) · [50 new entries and source status](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release checks](docs/RELEASE_0.4.1.1.1.md) · [Five-part versioning](docs/VERSIONING.md) — detailed documents are currently in Chinese.
+[Compiler structure and constraints](docs/DESIGN_COMPILER.md) · [50 new entries and source status](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release checks](docs/RELEASE_0.4.1.2.0.md) · [Five-part versioning](docs/VERSIONING.md) — detailed documents are currently in Chinese.
 
 ## License and credits
 

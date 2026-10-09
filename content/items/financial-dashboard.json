@@ -33,7 +33,7 @@
         "不能混合不同币种而不说明换算。",
         "不应把未结算、预测或缺失数字伪装为实绩。"
       ],
-      "prompt_template": "围绕任务分组展示收入、支出和现金流，明确币种、周期、单位和口径；将预算、实绩与预测区分开，负值与异常除颜色外还有文字提示；保留数据来源与访问权限说明。"
+      "prompt_template": "围绕任务分组展示收入、支出和现金流，明确币种、周期、单位和口径；将预算、实绩与预测区分开，负值与异常除颜色外还有文字提示；保留数据来源与访问权限说明。\n专属演示：样例收入、支出与结余的现金流分解，货币单位同步用于全部数字和图表。 参数：样例货币单位 {currency}；内容间距 {gap_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Do not combine currencies without explaining conversion.",
         "Do not present unsettled, forecast or missing values as actual results."
       ],
-      "prompt_template": "Group revenue, expenses and cash flow by the task, showing currency, period, units and definitions. Separate budgets, actual results and forecasts. Use textual cues as well as color for negative values and exceptions, and explain provenance and access permissions."
+      "prompt_template": "Group revenue, expenses and cash flow by the task, showing currency, period, units and definitions. Separate budgets, actual results and forecasts. Use textual cues as well as color for negative values and exceptions, and explain provenance and access permissions.\nDedicated demonstration: Sample income, expense and balance decomposition; the chosen currency applies to every number and chart. Parameters: sample currency {currency}; content gap {gap_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "financial-dashboard",
+    "params": {
+      "currency": "CNY",
+      "gap_px": 16
+    }
+  },
   "sources": [
     {
       "type": "original",

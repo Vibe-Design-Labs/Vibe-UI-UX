@@ -309,6 +309,897 @@
     "ux-validation": {
       "version": 1,
       "params": {}
+    },
+    "organic-biophilic": {
+      "version": 1,
+      "params": {
+        "corner_px": {
+          "type": "number",
+          "min": 4,
+          "max": 32,
+          "default": 20
+        },
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        },
+        "accent": {
+          "type": "color",
+          "default": "#526047"
+        }
+      }
+    },
+    "glassmorphism": {
+      "version": 1,
+      "params": {
+        "blur_px": {
+          "type": "number",
+          "min": 0,
+          "max": 24,
+          "default": 12
+        },
+        "corner_px": {
+          "type": "number",
+          "min": 4,
+          "max": 32,
+          "default": 20
+        }
+      }
+    },
+    "liquid-glass": {
+      "version": 1,
+      "params": {
+        "blur_px": {
+          "type": "number",
+          "min": 0,
+          "max": 20,
+          "default": 8
+        },
+        "glass_strength": {
+          "type": "number",
+          "min": 0.1,
+          "max": 0.6,
+          "default": 0.3
+        }
+      }
+    },
+    "neumorphism": {
+      "version": 1,
+      "params": {
+        "shadow_px": {
+          "type": "number",
+          "min": 2,
+          "max": 18,
+          "default": 10
+        },
+        "corner_px": {
+          "type": "number",
+          "min": 4,
+          "max": 32,
+          "default": 20
+        }
+      }
+    },
+    "claymorphism": {
+      "version": 1,
+      "params": {
+        "corner_px": {
+          "type": "number",
+          "min": 12,
+          "max": 40,
+          "default": 28
+        },
+        "shadow_px": {
+          "type": "number",
+          "min": 2,
+          "max": 18,
+          "default": 10
+        }
+      }
+    },
+    "soft-ui-evolution": {
+      "version": 1,
+      "params": {
+        "shadow_px": {
+          "type": "number",
+          "min": 1,
+          "max": 12,
+          "default": 5
+        },
+        "corner_px": {
+          "type": "number",
+          "min": 4,
+          "max": 32,
+          "default": 20
+        }
+      }
+    },
+    "dark-mode-oled": {
+      "version": 1,
+      "params": {
+        "theme": {
+          "type": "enum",
+          "values": [
+            "dark",
+            "light"
+          ],
+          "default": "dark"
+        },
+        "corner_px": {
+          "type": "number",
+          "min": 4,
+          "max": 32,
+          "default": 20
+        }
+      }
+    },
+    "minimalism-swiss": {
+      "version": 1,
+      "params": {
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        },
+        "heading_px": {
+          "type": "number",
+          "min": 28,
+          "max": 48,
+          "default": 38
+        }
+      }
+    },
+    "swiss-modernism-2": {
+      "version": 1,
+      "params": {
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        },
+        "heading_px": {
+          "type": "number",
+          "min": 28,
+          "max": 48,
+          "default": 36
+        }
+      }
+    },
+    "neubrutalism": {
+      "version": 1,
+      "params": {
+        "border_px": {
+          "type": "number",
+          "min": 2,
+          "max": 6,
+          "default": 3
+        },
+        "shadow_px": {
+          "type": "number",
+          "min": 2,
+          "max": 14,
+          "default": 7
+        }
+      }
+    },
+    "brutalism": {
+      "version": 1,
+      "params": {
+        "font_size_px": {
+          "type": "number",
+          "min": 16,
+          "max": 24,
+          "default": 18
+        }
+      }
+    },
+    "flat-design": {
+      "version": 1,
+      "params": {
+        "accent": {
+          "type": "color",
+          "default": "#B5452E"
+        },
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        }
+      }
+    },
+    "exaggerated-minimalism": {
+      "version": 1,
+      "params": {
+        "heading_px": {
+          "type": "number",
+          "min": 44,
+          "max": 76,
+          "default": 64
+        },
+        "space_px": {
+          "type": "number",
+          "min": 16,
+          "max": 44,
+          "default": 28
+        }
+      }
+    },
+    "memphis-design": {
+      "version": 1,
+      "params": {
+        "accent": {
+          "type": "color",
+          "default": "#B5452E"
+        },
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        }
+      }
+    },
+    "y2k-aesthetic": {
+      "version": 1,
+      "params": {
+        "shine": {
+          "type": "number",
+          "min": 0.1,
+          "max": 0.8,
+          "default": 0.45
+        },
+        "corner_px": {
+          "type": "number",
+          "min": 12,
+          "max": 40,
+          "default": 30
+        }
+      }
+    },
+    "vaporwave": {
+      "version": 1,
+      "params": {
+        "intensity": {
+          "type": "number",
+          "min": 0.2,
+          "max": 1,
+          "default": 0.6
+        },
+        "duration_ms": {
+          "type": "number",
+          "min": 400,
+          "max": 1800,
+          "default": 1000
+        }
+      }
+    },
+    "aurora-ui": {
+      "version": 1,
+      "params": {
+        "intensity": {
+          "type": "number",
+          "min": 0.2,
+          "max": 1,
+          "default": 0.55
+        },
+        "duration_ms": {
+          "type": "number",
+          "min": 400,
+          "max": 2400,
+          "default": 1600
+        }
+      }
+    },
+    "retro-futurism": {
+      "version": 1,
+      "params": {
+        "accent": {
+          "type": "color",
+          "default": "#AE8549"
+        },
+        "corner_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 18
+        }
+      }
+    },
+    "cyberpunk-ui": {
+      "version": 1,
+      "params": {
+        "accent": {
+          "type": "color",
+          "default": "#B9CF84"
+        },
+        "duration_ms": {
+          "type": "number",
+          "min": 200,
+          "max": 1600,
+          "default": 700
+        }
+      }
+    },
+    "vibrant-block": {
+      "version": 1,
+      "params": {
+        "accent": {
+          "type": "color",
+          "default": "#B5452E"
+        },
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        }
+      }
+    },
+    "skeuomorphism": {
+      "version": 1,
+      "params": {
+        "corner_px": {
+          "type": "number",
+          "min": 4,
+          "max": 24,
+          "default": 10
+        },
+        "shadow_px": {
+          "type": "number",
+          "min": 2,
+          "max": 14,
+          "default": 7
+        }
+      }
+    },
+    "hyperrealism-3d": {
+      "version": 1,
+      "params": {
+        "tilt_deg": {
+          "type": "number",
+          "min": 0,
+          "max": 60,
+          "default": 24
+        },
+        "shine": {
+          "type": "number",
+          "min": 0.1,
+          "max": 0.8,
+          "default": 0.5
+        }
+      }
+    },
+    "bento-box-grid": {
+      "version": 1,
+      "params": {
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        },
+        "corner_px": {
+          "type": "number",
+          "min": 4,
+          "max": 32,
+          "default": 20
+        }
+      }
+    },
+    "grid-layout": {
+      "version": 1,
+      "params": {
+        "columns": {
+          "type": "enum",
+          "values": [
+            "2",
+            "3",
+            "4"
+          ],
+          "default": "3"
+        },
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        }
+      }
+    },
+    "dimensional-layering": {
+      "version": 1,
+      "params": {
+        "depth_px": {
+          "type": "number",
+          "min": 4,
+          "max": 24,
+          "default": 12
+        },
+        "corner_px": {
+          "type": "number",
+          "min": 4,
+          "max": 32,
+          "default": 20
+        }
+      }
+    },
+    "visual-hierarchy": {
+      "version": 1,
+      "params": {
+        "heading_px": {
+          "type": "number",
+          "min": 24,
+          "max": 44,
+          "default": 34
+        },
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        }
+      }
+    },
+    "whitespace": {
+      "version": 1,
+      "params": {
+        "space_px": {
+          "type": "number",
+          "min": 8,
+          "max": 32,
+          "default": 22
+        }
+      }
+    },
+    "hero-centric": {
+      "version": 1,
+      "params": {
+        "heading_px": {
+          "type": "number",
+          "min": 28,
+          "max": 46,
+          "default": 38
+        },
+        "corner_px": {
+          "type": "number",
+          "min": 4,
+          "max": 32,
+          "default": 20
+        }
+      }
+    },
+    "minimal-direct": {
+      "version": 1,
+      "params": {
+        "space_px": {
+          "type": "number",
+          "min": 12,
+          "max": 32,
+          "default": 20
+        }
+      }
+    },
+    "conversion-optimized": {
+      "version": 1,
+      "params": {
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        },
+        "corner_px": {
+          "type": "number",
+          "min": 4,
+          "max": 32,
+          "default": 20
+        }
+      }
+    },
+    "social-proof": {
+      "version": 1,
+      "params": {
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        },
+        "corner_px": {
+          "type": "number",
+          "min": 4,
+          "max": 32,
+          "default": 20
+        }
+      }
+    },
+    "interactive-demo": {
+      "version": 1,
+      "params": {
+        "lift_px": {
+          "type": "number",
+          "min": 0,
+          "max": 16,
+          "default": 4
+        },
+        "duration_ms": {
+          "type": "number",
+          "min": 120,
+          "max": 800,
+          "default": 220
+        }
+      }
+    },
+    "feature-showcase": {
+      "version": 1,
+      "params": {
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        },
+        "corner_px": {
+          "type": "number",
+          "min": 4,
+          "max": 32,
+          "default": 20
+        }
+      }
+    },
+    "trust-authority": {
+      "version": 1,
+      "params": {
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        }
+      }
+    },
+    "storytelling-driven": {
+      "version": 1,
+      "params": {
+        "duration_ms": {
+          "type": "number",
+          "min": 120,
+          "max": 1200,
+          "default": 480
+        },
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        }
+      }
+    },
+    "executive-dashboard": {
+      "version": 1,
+      "params": {
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        }
+      }
+    },
+    "data-dense-dashboard": {
+      "version": 1,
+      "params": {
+        "row_px": {
+          "type": "number",
+          "min": 32,
+          "max": 56,
+          "default": 40
+        }
+      }
+    },
+    "real-time-monitoring": {
+      "version": 1,
+      "params": {
+        "interval_ms": {
+          "type": "number",
+          "min": 500,
+          "max": 4000,
+          "default": 1500
+        }
+      }
+    },
+    "comparative-dashboard": {
+      "version": 1,
+      "params": {
+        "period": {
+          "type": "enum",
+          "values": [
+            "week",
+            "month"
+          ],
+          "default": "week"
+        },
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        }
+      }
+    },
+    "predictive-analytics": {
+      "version": 1,
+      "params": {
+        "horizon_days": {
+          "type": "number",
+          "min": 3,
+          "max": 14,
+          "default": 7,
+          "integer": true
+        }
+      }
+    },
+    "drill-down-analytics": {
+      "version": 1,
+      "params": {
+        "row_px": {
+          "type": "number",
+          "min": 36,
+          "max": 60,
+          "default": 44
+        }
+      }
+    },
+    "user-behavior-analytics": {
+      "version": 1,
+      "params": {
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        }
+      }
+    },
+    "financial-dashboard": {
+      "version": 1,
+      "params": {
+        "currency": {
+          "type": "enum",
+          "values": [
+            "CNY",
+            "USD",
+            "EUR"
+          ],
+          "default": "CNY"
+        },
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        }
+      }
+    },
+    "sales-intelligence": {
+      "version": 1,
+      "params": {
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        }
+      }
+    },
+    "heatmap-style": {
+      "version": 1,
+      "params": {
+        "accent": {
+          "type": "color",
+          "default": "#526047"
+        },
+        "intensity": {
+          "type": "number",
+          "min": 0.2,
+          "max": 1,
+          "default": 0.8
+        }
+      }
+    },
+    "affordance": {
+      "version": 1,
+      "params": {
+        "corner_px": {
+          "type": "number",
+          "min": 4,
+          "max": 32,
+          "default": 20
+        }
+      }
+    },
+    "contrast": {
+      "version": 1,
+      "params": {
+        "text_color": {
+          "type": "color",
+          "default": "#363E32"
+        }
+      }
+    },
+    "recognition-over-recall": {
+      "version": 1,
+      "params": {
+        "suggestions": {
+          "type": "enum",
+          "values": [
+            "3",
+            "4",
+            "6"
+          ],
+          "default": "4"
+        }
+      }
+    },
+    "information-architecture": {
+      "version": 1,
+      "params": {
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        }
+      }
+    },
+    "reduced-motion": {
+      "version": 1,
+      "params": {
+        "duration_ms": {
+          "type": "number",
+          "min": 200,
+          "max": 1000,
+          "default": 500
+        }
+      }
+    },
+    "accessible-ethical": {
+      "version": 1,
+      "params": {
+        "font_size_px": {
+          "type": "number",
+          "min": 16,
+          "max": 22,
+          "default": 18
+        }
+      }
+    },
+    "inclusive-design": {
+      "version": 1,
+      "params": {
+        "font_size_px": {
+          "type": "number",
+          "min": 16,
+          "max": 24,
+          "default": 18
+        },
+        "gap_px": {
+          "type": "number",
+          "min": 8,
+          "max": 28,
+          "default": 16
+        }
+      }
+    },
+    "ai-native-ui": {
+      "version": 1,
+      "params": {
+        "duration_ms": {
+          "type": "number",
+          "min": 120,
+          "max": 900,
+          "default": 400
+        }
+      }
+    },
+    "zero-interface": {
+      "version": 1,
+      "params": {
+        "duration_ms": {
+          "type": "number",
+          "min": 120,
+          "max": 900,
+          "default": 400
+        }
+      }
+    },
+    "easing": {
+      "version": 1,
+      "params": {
+        "easing": {
+          "type": "enum",
+          "values": [
+            "linear",
+            "ease-in",
+            "ease-out",
+            "ease-in-out"
+          ],
+          "default": "ease-out"
+        },
+        "duration_ms": {
+          "type": "number",
+          "min": 300,
+          "max": 1400,
+          "default": 800
+        }
+      }
+    },
+    "micro-interactions": {
+      "version": 1,
+      "params": {
+        "duration_ms": {
+          "type": "number",
+          "min": 120,
+          "max": 800,
+          "default": 240
+        }
+      }
+    },
+    "motion-driven": {
+      "version": 1,
+      "params": {
+        "duration_ms": {
+          "type": "number",
+          "min": 120,
+          "max": 1200,
+          "default": 480
+        },
+        "distance_px": {
+          "type": "number",
+          "min": 8,
+          "max": 40,
+          "default": 20
+        }
+      }
+    },
+    "kinetic-typography": {
+      "version": 1,
+      "params": {
+        "duration_ms": {
+          "type": "number",
+          "min": 200,
+          "max": 1400,
+          "default": 700
+        },
+        "delay_ms": {
+          "type": "number",
+          "min": 20,
+          "max": 160,
+          "default": 70
+        },
+        "heading_px": {
+          "type": "number",
+          "min": 28,
+          "max": 52,
+          "default": 40
+        }
+      }
+    },
+    "parallax-storytelling": {
+      "version": 1,
+      "params": {
+        "depth_px": {
+          "type": "number",
+          "min": 8,
+          "max": 48,
+          "default": 24
+        }
+      }
     }
   }
 }

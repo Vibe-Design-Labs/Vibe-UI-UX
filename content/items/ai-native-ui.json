@@ -33,7 +33,7 @@
         "不能用流畅文本伪装为已经验证的事实。",
         "模型建议不应默认直接执行重要外部操作。"
       ],
-      "prompt_template": "围绕输入、生成、检查与修正组织任务，显示来源、限制与实际执行状态；提供可编辑结果、撤销与非AI替代路径；必要动作由用户确认，不把建议当作已执行结果。"
+      "prompt_template": "围绕输入、生成、检查与修正组织任务，显示来源、限制与实际执行状态；提供可编辑结果、撤销与非AI替代路径；必要动作由用户确认，不把建议当作已执行结果。\n专属演示：输入、模拟建议、人工编辑和确认的独立状态，不调用模型，不把建议当作已执行。 参数：演示时长 {duration_ms}ms。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,15 @@
         "Do not present fluent text as automatically verified fact.",
         "Model suggestions should not automatically execute consequential external actions."
       ],
-      "prompt_template": "Organize the task around input, generation, review and correction. Show provenance, limitations and actual execution state. Offer editable results, undo and non-AI alternatives; require confirmation where needed and distinguish suggestions from executed outcomes."
+      "prompt_template": "Organize the task around input, generation, review and correction. Show provenance, limitations and actual execution state. Offer editable results, undo and non-AI alternatives; require confirmation where needed and distinguish suggestions from executed outcomes.\nDedicated demonstration: Separate input, simulated suggestion, human edit and confirmation states; no model call and no suggestion presented as an executed action. Parameters: demo duration {duration_ms}ms."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "ai-native-ui",
+    "params": {
+      "duration_ms": 400
+    }
+  },
   "sources": [
     {
       "type": "original",

@@ -33,7 +33,7 @@
         "正文、表单标签和关键说明不应持续移动。",
         "不能只在短暂动画的一帧展示必要内容。"
       ],
-      "prompt_template": "为短标题设计可读的文字入场或强调，完成后停在稳定排版；保留完整静态文本、阅读顺序和换行规则；减少动态效果时直接显示最终文字，不用视觉拆字破坏文本语义。"
+      "prompt_template": "为短标题设计可读的文字入场或强调，完成后停在稳定排版；保留完整静态文本、阅读顺序和换行规则；减少动态效果时直接显示最终文字，不用视觉拆字破坏文本语义。\n专属演示：真实文字逐字位移入场，字形使用同一字体体系；重播与减少动态效果清理正确。 参数：每字入场时长 {duration_ms}ms；逐字间隔 {delay_ms}ms；标题字号 {heading_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,17 @@
         "Body copy, form labels and essential instructions should not keep moving.",
         "Required information must not exist only for one brief animation frame."
       ],
-      "prompt_template": "Animate the entry or emphasis of short headings, then settle into a stable readable layout. Preserve complete static text, reading order and wrapping. Show final text immediately when motion is reduced, and avoid breaking text semantics for visual letter effects."
+      "prompt_template": "Animate the entry or emphasis of short headings, then settle into a stable readable layout. Preserve complete static text, reading order and wrapping. Show final text immediately when motion is reduced, and avoid breaking text semantics for visual letter effects.\nDedicated demonstration: Real text enters letter by letter using the same typography system; replay and reduced-motion cleanup are supported. Parameters: per-letter duration {duration_ms}ms; letter delay {delay_ms}ms; heading size {heading_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "kinetic-typography",
+    "params": {
+      "duration_ms": 700,
+      "delay_ms": 70,
+      "heading_px": 40
+    }
+  },
   "sources": [
     {
       "type": "original",

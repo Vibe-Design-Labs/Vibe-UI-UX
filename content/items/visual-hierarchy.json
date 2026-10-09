@@ -30,7 +30,7 @@
       "avoid_when": [
         "不要将演示参数当作通用行业标准。"
       ],
-      "prompt_template": "为页面建立清晰阅读顺序：主标题、辅助说明、主要操作分别使用可区分的尺寸与对比；保持一个明确的首要动作。"
+      "prompt_template": "为页面建立清晰阅读顺序：主标题、辅助说明、主要操作分别使用可区分的尺寸与对比；保持一个明确的首要动作。\n专属演示：主题、摘要与元信息的真实字阶对比，切换重点内容仍保留固定阅读顺序。 参数：标题字号 {heading_px}px；内容间距 {gap_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -48,10 +48,16 @@
       "avoid_when": [
         "Do not treat demo parameters as universal standards."
       ],
-      "prompt_template": "Establish a reading order with distinguishable heading, supporting text, and primary action styles. Keep one clear primary action."
+      "prompt_template": "Establish a reading order with distinguishable heading, supporting text, and primary action styles. Keep one clear primary action.\nDedicated demonstration: Real heading, summary and metadata hierarchy; changing the featured item preserves reading order. Parameters: heading size {heading_px}px; content gap {gap_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "visual-hierarchy",
+    "params": {
+      "heading_px": 34,
+      "gap_px": 16
+    }
+  },
   "sources": [
     {
       "type": "original",

@@ -39,6 +39,8 @@ def parameter_error(spec, value):
             return "invalid numeric range"
         if not number(value) or not low <= value <= high:
             return "value must be a finite number within the registered range"
+        if spec.get("integer") and value != int(value):
+            return "value must be an integer for this parameter"
     elif spec.get("type") == "enum":
         choices = spec.get("values")
         if not strings(choices) or not choices or len(set(choices)) != len(choices):
@@ -53,7 +55,7 @@ def parameter_error(spec, value):
     return None
 
 
-def inspect_pack(root, publish=False, required_locales=("zh-CN", "en")):
+def inspect_pack(root, publish=False, required_locales=("zh-CN", "en"), require_previews=False):
     root = Path(root).resolve()
     errors, warnings = [], []
     items = {}
@@ -148,7 +150,7 @@ def inspect_pack(root, publish=False, required_locales=("zh-CN", "en")):
         specs = {}
         preview = item.get("preview")
         if preview is None:
-            if item.get("kind") in ("effect", "ux-pattern"):
+            if require_previews or item.get("kind") in ("effect", "ux-pattern"):
                 error(label, "this kind requires a preview template")
         elif not isinstance(preview, dict):
             error(label, "preview must be null or an object")
@@ -258,9 +260,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("root", type=Path, help="Folder containing content/items and previews/registry.json")
     parser.add_argument("--publish-check", action="store_true", help="Strict read-only check; does not deploy")
+    parser.add_argument("--require-previews", action="store_true", help="Every visible entry must have a registered preview")
     parser.add_argument("--require-locales", nargs="+", choices=LOCALES, default=["zh-CN", "en"])
     args = parser.parse_args()
-    report = inspect_pack(args.root, args.publish_check, args.require_locales)
+    report = inspect_pack(args.root, args.publish_check, args.require_locales, args.require_previews)
     print(json.dumps(report, ensure_ascii=False, indent=2))
     return 1 if report["errors"] else 0
 

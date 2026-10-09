@@ -33,7 +33,7 @@
         "不要使用失真字体展示关键说明或操作标签。",
         "避免无必要的闪烁与持续噪点动画。"
       ],
-      "prompt_template": "在封面与背景使用受控的怀旧数字拼贴和粉紫青色调，正文放在稳定的高对比表面；功能入口清楚可辨；噪点和失真仅作有限装饰，减少动态效果时移除非必要动画。"
+      "prompt_template": "在封面与背景使用受控的怀旧数字拼贴和粉紫青色调，正文放在稳定的高对比表面；功能入口清楚可辨；噪点和失真仅作有限装饰，减少动态效果时移除非必要动画。\n专属演示：落日、透视格线与低饱和复古渐变，播放有限时长的光景变化。 参数：视觉强度 {intensity}；演示时长 {duration_ms}ms。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Do not use distorted typography for essential instructions or action labels.",
         "Avoid unnecessary flicker and continuous animated noise."
       ],
-      "prompt_template": "Use controlled retro digital collage and pink-purple-cyan tones in covers or backgrounds. Place body text on stable high-contrast surfaces and keep actions recognizable. Limit noise and distortion to decoration, removing nonessential animation when motion is reduced."
+      "prompt_template": "Use controlled retro digital collage and pink-purple-cyan tones in covers or backgrounds. Place body text on stable high-contrast surfaces and keep actions recognizable. Limit noise and distortion to decoration, removing nonessential animation when motion is reduced.\nDedicated demonstration: A sunset, perspective grid and muted retro gradients; play a finite ambient transition. Parameters: visual intensity {intensity}; demo duration {duration_ms}ms."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "vaporwave",
+    "params": {
+      "intensity": 0.6,
+      "duration_ms": 1000
+    }
+  },
   "sources": [
     {
       "type": "original",

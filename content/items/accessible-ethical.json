@@ -35,7 +35,7 @@
         "不能只通过自动评分宣布全面合规。",
         "不要用深色模式或大字体替代完整任务检查。"
       ],
-      "prompt_template": "检查文字对比、键盘路径、语义标签、错误恢复与减少动态效果；让权限和数据用途清楚可见，选择可撤回；覆盖真实辅助技术与不同用户任务，记录仍未解决的障碍。"
+      "prompt_template": "检查文字对比、键盘路径、语义标签、错误恢复与减少动态效果；让权限和数据用途清楚可见，选择可撤回；覆盖真实辅助技术与不同用户任务，记录仍未解决的障碍。\n专属演示：清楚可撤回的偏好选择、默认关闭的可选数据项和键盘焦点，保存只更新本地演示。 参数：正文字号 {font_size_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -54,10 +54,15 @@
         "Do not declare full compliance from an automated score alone.",
         "Dark mode or larger type cannot replace complete task checks."
       ],
-      "prompt_template": "Check contrast, keyboard paths, semantic labels, error recovery and reduced motion. Make permissions and data use visible and allow choices to be reversed. Evaluate real assistive technologies and varied user tasks, recording unresolved barriers."
+      "prompt_template": "Check contrast, keyboard paths, semantic labels, error recovery and reduced motion. Make permissions and data use visible and allow choices to be reversed. Evaluate real assistive technologies and varied user tasks, recording unresolved barriers.\nDedicated demonstration: Clear reversible preference choices, optional data disabled by default and visible keyboard focus; saving changes only the local demo. Parameters: body size {font_size_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "accessible-ethical",
+    "params": {
+      "font_size_px": 18
+    }
+  },
   "sources": [
     {
       "type": "original",

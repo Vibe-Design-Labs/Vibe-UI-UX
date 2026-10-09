@@ -33,7 +33,7 @@
         "不要使用未经授权的认证标识或合作品牌。",
         "不能把承诺与案例写成结果保证。"
       ],
-      "prompt_template": "清楚展示产品提供方、联系渠道、能力边界与可核实证据；证书或合作关系注明来源和适用范围；把关键费用、隐私处理和风险放在相关操作之前，避免仅靠装饰徽章建立信任。"
+      "prompt_template": "清楚展示产品提供方、联系渠道、能力边界与可核实证据；证书或合作关系注明来源和适用范围；把关键费用、隐私处理和风险放在相关操作之前，避免仅靠装饰徽章建立信任。\n专属演示：可展开依据、更新时间与能力限制，展示透明信息，不使用虚构认证。 参数：内容间距 {gap_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,15 @@
         "Do not display unauthorized certifications or partner logos.",
         "Do not turn promises or case studies into guaranteed outcomes."
       ],
-      "prompt_template": "Show the provider, contact routes, capability limits and verifiable evidence. Attribute certifications or partnerships and explain their scope. Present important costs, privacy handling and risks before relevant actions instead of relying on decorative badges."
+      "prompt_template": "Show the provider, contact routes, capability limits and verifiable evidence. Attribute certifications or partnerships and explain their scope. Present important costs, privacy handling and risks before relevant actions instead of relying on decorative badges.\nDedicated demonstration: Expandable evidence, an update date and capability limits demonstrate transparent information without fabricated credentials. Parameters: content gap {gap_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "trust-authority",
+    "params": {
+      "gap_px": 16
+    }
+  },
   "sources": [
     {
       "type": "original",

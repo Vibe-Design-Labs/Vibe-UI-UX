@@ -33,7 +33,7 @@
         "赶时间的用户仍应能直达功能或结果。",
         "不要以强制滚动与自动播放代替信息组织。"
       ],
-      "prompt_template": "按问题、过程和结果组织内容，给每段一个清楚的小标题与证据；提供目录或直达主操作的入口；动效只辅助段落关系，减少动态效果时仍能完整阅读。"
+      "prompt_template": "按问题、过程和结果组织内容，给每段一个清楚的小标题与证据；提供目录或直达主操作的入口；动效只辅助段落关系，减少动态效果时仍能完整阅读。\n专属演示：三段叙事与章节进度，前后切换保留当前位置并播放受控入场。 参数：演示时长 {duration_ms}ms；内容间距 {gap_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Time-sensitive users should still reach features or outcomes directly.",
         "Do not substitute scroll hijacking or autoplay for information structure."
       ],
-      "prompt_template": "Organize content around the problem, process and outcome, with clear section headings and evidence. Provide a contents route or direct access to the primary action. Use motion only to support relationships, and keep the story complete when motion is reduced."
+      "prompt_template": "Organize content around the problem, process and outcome, with clear section headings and evidence. Provide a contents route or direct access to the primary action. Use motion only to support relationships, and keep the story complete when motion is reduced.\nDedicated demonstration: A three-chapter narrative with progress; previous/next navigation preserves position and plays a controlled entrance. Parameters: demo duration {duration_ms}ms; content gap {gap_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "storytelling-driven",
+    "params": {
+      "duration_ms": 480,
+      "gap_px": 16
+    }
+  },
   "sources": [
     {
       "type": "original",

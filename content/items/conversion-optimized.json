@@ -33,7 +33,7 @@
         "不要用误导、假倒计时或默认勾选迫使用户行动。",
         "不要把停留时间或点击量直接当作完成目标。"
       ],
-      "prompt_template": "确定一个对用户有价值的主行动，按决策所需信息排列页面，清楚说明成本与限制；减少重复填写和无关选择；完成后给出明确反馈，并以真实任务完成数据评估改版。"
+      "prompt_template": "确定一个对用户有价值的主行动，按决策所需信息排列页面，清楚说明成本与限制；减少重复填写和无关选择；完成后给出明确反馈，并以真实任务完成数据评估改版。\n专属演示：清楚成本说明与两步表单，真实本地校验、上一步和完成反馈。 参数：内容间距 {gap_px}px；圆角 {corner_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Avoid deceptive urgency, fake countdowns and coercive defaults.",
         "Do not treat time on page or raw clicks as task completion."
       ],
-      "prompt_template": "Define one user-benefiting primary action and organize information around that decision. Explain costs and limitations, reduce duplicate entry and irrelevant choices, and give clear completion feedback. Evaluate changes using actual task outcomes."
+      "prompt_template": "Define one user-benefiting primary action and organize information around that decision. Explain costs and limitations, reduce duplicate entry and irrelevant choices, and give clear completion feedback. Evaluate changes using actual task outcomes.\nDedicated demonstration: Clear cost information and a two-step form with real local validation, back navigation and completion feedback. Parameters: content gap {gap_px}px; corner radius {corner_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "conversion-optimized",
+    "params": {
+      "gap_px": 16,
+      "corner_px": 20
+    }
+  },
   "sources": [
     {
       "type": "original",

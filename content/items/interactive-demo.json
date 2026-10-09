@@ -33,7 +33,7 @@
         "演示不能默默发起付费或外部写入。",
         "不能将假数据与真实业务结果混在一起。"
       ],
-      "prompt_template": "提供一个短小的可操作样例，突出输入、操作和反馈；明确哪些数据是模拟的、是否保存和哪些功能尚未实现；提供重置入口，让用户能重复比较结果。"
+      "prompt_template": "提供一个短小的可操作样例，突出输入、操作和反馈；明确哪些数据是模拟的、是否保存和哪些功能尚未实现；提供重置入口，让用户能重复比较结果。\n专属演示：落地页内嵌可操作卡片：悬停抬升和点击确认共同支持先试后理解。 参数：悬停抬升 {lift_px}px；演示时长 {duration_ms}ms。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Do not silently trigger paid services or external writes.",
         "Do not mix simulated data with real business results."
       ],
-      "prompt_template": "Provide a concise interactive example with visible input, action and feedback. Explain which data is simulated, whether results persist, and which capabilities are unavailable. Include reset so users can repeat and compare outcomes."
+      "prompt_template": "Provide a concise interactive example with visible input, action and feedback. Explain which data is simulated, whether results persist, and which capabilities are unavailable. Include reset so users can repeat and compare outcomes.\nDedicated demonstration: An interactive card embedded in a landing-page composition: hover lift and click confirmation enable trying before reading. Parameters: hover lift {lift_px}px; demo duration {duration_ms}ms."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "interactive-demo",
+    "params": {
+      "lift_px": 4,
+      "duration_ms": 220
+    }
+  },
   "sources": [
     {
       "type": "original",

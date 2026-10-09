@@ -30,7 +30,7 @@
       "avoid_when": [
         "不要将演示参数当作通用行业标准。"
       ],
-      "prompt_template": "用共享网格列线组织卡片与标题，统一间距；窄屏改为单列，避免横向溢出，保持阅读顺序。"
+      "prompt_template": "用共享网格列线组织卡片与标题，统一间距；窄屏改为单列，避免横向溢出，保持阅读顺序。\n专属演示：真实 CSS 网格按列数和间距重排内容，窄屏保留阅读顺序。 参数：网格列数 {columns}；内容间距 {gap_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -48,10 +48,16 @@
       "avoid_when": [
         "Do not treat demo parameters as universal standards."
       ],
-      "prompt_template": "Organize headings and cards on shared grid lines with consistent gaps. Use one column on narrow screens, avoid horizontal overflow, and preserve reading order."
+      "prompt_template": "Organize headings and cards on shared grid lines with consistent gaps. Use one column on narrow screens, avoid horizontal overflow, and preserve reading order.\nDedicated demonstration: A real CSS grid reflows content with column and gap controls, retaining reading order on narrow screens. Parameters: grid columns {columns}; content gap {gap_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "grid-layout",
+    "params": {
+      "columns": "3",
+      "gap_px": 16
+    }
+  },
   "sources": [
     {
       "type": "original",

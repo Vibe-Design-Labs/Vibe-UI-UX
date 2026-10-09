@@ -30,7 +30,7 @@
       "avoid_when": [
         "不要将演示参数当作通用行业标准。"
       ],
-      "prompt_template": "在使用位置展示清晰标签与候选，保持导航位置和命名一致，不要求用户先记住上一页的信息才能继续。"
+      "prompt_template": "在使用位置展示清晰标签与候选，保持导航位置和命名一致，不要求用户先记住上一页的信息才能继续。\n专属演示：可见候选与已选项支持识别，点选候选实际填入本地搜索输入。 参数：可见候选数 {suggestions}。"
     },
     "en": {
       "review_status": "draft",
@@ -48,10 +48,15 @@
       "avoid_when": [
         "Do not treat demo parameters as universal standards."
       ],
-      "prompt_template": "Show clear labels and options where they are used. Keep navigation placement and naming consistent, and avoid requiring recall of information from previous screens."
+      "prompt_template": "Show clear labels and options where they are used. Keep navigation placement and naming consistent, and avoid requiring recall of information from previous screens.\nDedicated demonstration: Visible suggestions and the current selection support recognition; selecting one fills a local search input. Parameters: visible suggestion count {suggestions}."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "recognition-over-recall",
+    "params": {
+      "suggestions": "4"
+    }
+  },
   "sources": [
     {
       "type": "original",

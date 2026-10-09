@@ -33,7 +33,7 @@
         "没有上下文的数字不支持可靠判断。",
         "不要将过多运营细节全部塞进首屏。"
       ],
-      "prompt_template": "围绕决策目标选择少量核心指标，标出单位、时间范围、目标和变化；优先突出异常与待处理事项，提供进入详细分析的入口；说明数据更新时间与统计口径。"
+      "prompt_template": "围绕决策目标选择少量核心指标，标出单位、时间范围、目标和变化；优先突出异常与待处理事项，提供进入详细分析的入口；说明数据更新时间与统计口径。\n专属演示：少量 KPI、目标进度与关注事项，展开关键指标显示本地细分样例。 参数：内容间距 {gap_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,15 @@
         "Context-free numbers do not support reliable decisions.",
         "Do not crowd the overview with every operational detail."
       ],
-      "prompt_template": "Select a small set of metrics for the decision at hand. Show units, time windows, targets and change, highlight notable issues, and offer a route to detailed analysis. Explain update time and metric definitions."
+      "prompt_template": "Select a small set of metrics for the decision at hand. Show units, time windows, targets and change, highlight notable issues, and offer a route to detailed analysis. Explain update time and metric definitions.\nDedicated demonstration: A few KPIs, target progress and attention items; expand a metric to inspect local sample detail. Parameters: content gap {gap_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "executive-dashboard",
+    "params": {
+      "gap_px": 16
+    }
+  },
   "sources": [
     {
       "type": "original",

@@ -36,7 +36,7 @@
         "不要把极简变成隐藏重要操作或帮助。",
         "品牌需要丰富叙事时，可保留必要的图像与情绪。"
       ],
-      "prompt_template": "删去重复装饰，按明确栅格对齐标题、正文与操作；用字体大小、字重和留白区分层级，保留可见的操作提示；不要用极低对比度表达克制。"
+      "prompt_template": "删去重复装饰，按明确栅格对齐标题、正文与操作；用字体大小、字重和留白区分层级，保留可见的操作提示；不要用极低对比度表达克制。\n专属演示：左对齐栅格、非对称留白与明确字阶，展示版式组织而非同一张通用卡。 参数：内容间距 {gap_px}px；标题字号 {heading_px}px。"
     },
     "en": {
       "review_status": "draft",
@@ -55,10 +55,16 @@
         "Do not hide essential actions or help in the name of minimalism.",
         "Retain meaningful imagery when the brand needs a richer narrative."
       ],
-      "prompt_template": "Remove redundant decoration and align headings, body text and actions to a clear grid. Use type size, weight and whitespace for hierarchy, retain visible interaction cues, and keep restrained styling legible."
+      "prompt_template": "Remove redundant decoration and align headings, body text and actions to a clear grid. Use type size, weight and whitespace for hierarchy, retain visible interaction cues, and keep restrained styling legible.\nDedicated demonstration: An aligned grid, asymmetric whitespace and deliberate type hierarchy demonstrate the layout. Parameters: content gap {gap_px}px; heading size {heading_px}px."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "minimalism-swiss",
+    "params": {
+      "gap_px": 16,
+      "heading_px": 38
+    }
+  },
   "sources": [
     {
       "type": "original",

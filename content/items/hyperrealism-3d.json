@@ -33,7 +33,7 @@
         "不要用高成本三维装饰拖慢关键内容。",
         "装饰模型不能暗示并不存在的产品能力。"
       ],
-      "prompt_template": "确认三维素材对任务的作用，按需要选择静态图或受控交互模型；正文与操作独立可用，提供文字或平面替代；控制资源体积和加载状态，不把写实效果当成功能证明。"
+      "prompt_template": "确认三维素材对任务的作用，按需要选择静态图或受控交互模型；正文与操作独立可用，提供文字或平面替代；控制资源体积和加载状态，不把写实效果当成功能证明。\n专属演示：CSS 3D 物体与高光材质示意，调节姿态和光泽；不冒充照片级物理渲染。 参数：立体倾角 {tilt_deg}°；材质高光透明度 {shine}。 立体示意的 X 轴为 -{tilt_deg}°，Y 轴为固定 22°加{tilt_deg}°。"
     },
     "en": {
       "review_status": "draft",
@@ -52,10 +52,16 @@
         "Do not delay essential content with expensive decorative rendering.",
         "Decorative models must not imply nonexistent product capabilities."
       ],
-      "prompt_template": "Confirm what dimensional imagery adds to the task, then choose a static image or controlled interactive model as appropriate. Keep text and actions usable independently, provide text or flat alternatives, manage asset size and loading states, and avoid treating realism as proof of functionality."
+      "prompt_template": "Confirm what dimensional imagery adds to the task, then choose a static image or controlled interactive model as appropriate. Keep text and actions usable independently, provide text or flat alternatives, manage asset size and loading states, and avoid treating realism as proof of functionality.\nDedicated demonstration: A CSS 3D object and specular material study with pose and shine controls; not photorealistic physical rendering. Parameters: 3D tilt {tilt_deg}°; material highlight opacity {shine}. The CSS 3D pose uses X = -{tilt_deg} degrees and Y = 22 + {tilt_deg} degrees."
     }
   },
-  "preview": null,
+  "preview": {
+    "template_id": "hyperrealism-3d",
+    "params": {
+      "tilt_deg": 24,
+      "shine": 0.5
+    }
+  },
   "sources": [
     {
       "type": "original",
