@@ -6,7 +6,7 @@
 
 [打开官网](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [直接试用工作台](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [更新记录](CHANGELOG.md)
 
-**v0.4.1.2.0 · 75 设计词条 · 75 专属预览模板 · 5 本地配方家族 · MIT + OFL**
+**v0.4.1.2.1 · 75 设计词条 · 75 专属预览模板 · 5 本地配方家族 · MIT + OFL**
 
 [![工作台实录：叶片光标、暖金聚光、点击水波与错落入场](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 

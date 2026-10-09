@@ -30,7 +30,7 @@ function render(){
  document.querySelector('.console-footer a').href=studioUrl.href;
 }
 const cursorTab=document.querySelector('[data-effect="cursor"]');cursorTab.disabled=true;
-fetch(new URL('./catalog.json',import.meta.url)).then(r=>{if(!r.ok)throw new Error('Catalog unavailable');return r.json();}).then(catalog=>{
+fetch(new URL('./catalog.json',import.meta.url),{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('Catalog unavailable');return r.json();}).then(catalog=>{
  const rules=catalog.registry.templates['custom-cursor'].params,item=catalog.items.find(i=>i.id==='custom-cursor');if(!item)throw new Error('Cursor unavailable');
  cursorCatalog=catalog;
  for(const id of rules.shape.values){const option=document.createElement('option');option.value=id;option.textContent=t(shapeLabel(id));shapeSelect.append(option);}

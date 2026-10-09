@@ -6,7 +6,7 @@
 
 [홈페이지](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [작업대 체험](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [변경 기록](CHANGELOG.md)
 
-**v0.4.1.2.0 · 75 디자인 항목 · 75 전용 미리보기 템플릿 · 5 로컬 레시피 유형 · MIT + OFL**
+**v0.4.1.2.1 · 75 디자인 항목 · 75 전용 미리보기 템플릿 · 5 로컬 레시피 유형 · MIT + OFL**
 
 [![실제 작업대 녹화: 나뭇잎 커서, 따뜻한 스포트라이트, 클릭 파동, 순차 등장](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 

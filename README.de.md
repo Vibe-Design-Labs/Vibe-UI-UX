@@ -6,7 +6,7 @@
 
 [Website](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [Studio ausprobieren](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [Änderungen](CHANGELOG.md)
 
-**v0.4.1.2.0 · 75 Designeinträge · 75 eigene Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
+**v0.4.1.2.1 · 75 Designeinträge · 75 eigene Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
 
 [![Echte Studioaufnahme: Blattzeiger, warmes Spotlight, Klickwelle und gestaffeltes Erscheinen](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 

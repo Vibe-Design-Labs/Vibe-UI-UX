@@ -13,7 +13,14 @@ if(!/^(?:0|[1-9]\d*)(?:\.(?:0|[1-9]\d*)){4}$/.test(metadata.intentkitVersion))th
 await writeFile(path.join(root,'dist/client/version.json'),JSON.stringify({version:metadata.intentkitVersion,package_version:metadata.version})+'\n');
 await writeFile(path.join(root,'dist/client/leaf-cursor.svg'),leafMarkup()+'\n');
 for(const name of ['index.html','studio.html','docs.html','authorize.html']){
- const file=path.join(root,'dist/client',name);const html=await readFile(file,'utf8');await writeFile(file,html.replaceAll('__PROJECT_VERSION__',metadata.intentkitVersion));
+ const file=path.join(root,'dist/client',name);const html=await readFile(file,'utf8');
+ await writeFile(file,html.replaceAll('__PROJECT_VERSION__',metadata.intentkitVersion).replace(/((?:src|href)="\.\/[^"?]+\.(?:js|css|woff2|zip))"/g,'$1?v='+metadata.intentkitVersion+'"'));
+}
+// All modules and font URLs share a release namespace, including nested imports.
+for(const name of await readdir(path.join(root,'dist/client'))){
+ const file=path.join(root,'dist/client',name);
+ if(name.endsWith('.js')){const source=await readFile(file,'utf8');await writeFile(file,source.replace(/(from\s*['"]\.\/[^'"?]+\.js)(['"])/g,'$1?v='+metadata.intentkitVersion+'$2'));}
+ if(name.endsWith('.css')){const source=await readFile(file,'utf8');await writeFile(file,source.replace(/(url\(['"]?\.\/[^)'"?]+\.(?:woff2?|svg))(['"]?\))/g,'$1?v='+metadata.intentkitVersion+'$2'));}
 }
 const filenames=(await readdir(path.join(root,'content/items'))).filter(n=>n.endsWith('.json')).sort();
 const items=await Promise.all(filenames.map(n=>readFile(path.join(root,'content/items',n),'utf8').then(JSON.parse)));

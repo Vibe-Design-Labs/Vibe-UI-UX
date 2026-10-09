@@ -6,7 +6,7 @@
 
 [ホームページ](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [スタジオを試す](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [変更履歴](CHANGELOG.md)
 
-**v0.4.1.2.0 · 75 デザイン用語 · 75 専用プレビューテンプレート · 5 ローカルレシピ系統 · MIT + OFL**
+**v0.4.1.2.1 · 75 デザイン用語 · 75 専用プレビューテンプレート · 5 ローカルレシピ系統 · MIT + OFL**
 
 [![実際のスタジオ録画：葉のカーソル、暖色の光、クリック波紋、時間差表示](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
