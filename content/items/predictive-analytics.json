@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "predictive-analytics",
+  "kind": "term",
+  "domain": "ux",
+  "category": "dashboard",
+  "status": "draft",
+  "canonical_name": "Predictive Analytics",
+  "tags": [
+    "dashboard",
+    "ux",
+    "predictive-analytics",
+    "forecast analytics",
+    "forecast dashboard",
+    "predictive dashboard"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "预测分析",
+      "aliases": [
+        "预测看板",
+        "未来趋势估计",
+        "预测区间"
+      ],
+      "description": "利用模型或规则估计未来结果、可能区间或风险的分析方式。预测是带假设与不确定性的输出，需要与历史实测数据区分，不是具有保证效果的视觉风格。",
+      "use_when": [
+        "用户确实需要评估未来可能情况。",
+        "有可说明的数据依据、假设与验证范围。"
+      ],
+      "avoid_when": [
+        "没有实际模型时，不要把延长曲线称为可靠预测。",
+        "不要隐藏误差、假设或不适用情况。"
+      ],
+      "prompt_template": "将历史实测与预测区域清楚分开，标出预测窗口、区间、更新时间与主要假设；提供查看依据和调整情景的入口；模型不可用或数据不足时明确显示状态，避免把估计写成事实。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Predictive Analytics",
+      "aliases": [
+        "forecast analytics",
+        "forecast dashboard",
+        "predictive dashboard"
+      ],
+      "description": "An analysis approach that estimates future outcomes, ranges or risks using models or rules. Predictions depend on assumptions and uncertainty and must be distinguished from observed data; this is not a visual style or a guaranteed outcome.",
+      "use_when": [
+        "Users need to assess plausible future conditions.",
+        "Data provenance, assumptions and validation scope can be explained."
+      ],
+      "avoid_when": [
+        "Without an actual model, do not present an extended curve as a reliable forecast.",
+        "Do not hide uncertainty, assumptions or unsuitable conditions."
+      ],
+      "prompt_template": "Separate observed history from the forecast region. Label the forecast horizon, ranges, update time and key assumptions. Offer access to the basis and scenario controls, and clearly show model unavailability or insufficient data instead of presenting estimates as facts."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

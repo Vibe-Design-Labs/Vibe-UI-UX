@@ -1,0 +1,38 @@
+{
+  "id": "gentle-button-press",
+  "item_id": "press-feedback",
+  "target": "button",
+  "trigger": "press",
+  "feature": "press",
+  "params": {
+    "scale_start": 0.97,
+    "duration_ms": 120
+  },
+  "locales": {
+    "zh-CN": {
+      "name": "干脆的按压确认",
+      "reason": "轻微缩小后恢复，固定 ease-out，无弹簧。",
+      "review_status": "draft"
+    },
+    "en": {
+      "name": "Crisp press confirmation",
+      "reason": "Slight press scale; fixed ease-out, no spring.",
+      "review_status": "draft"
+    },
+    "ja": {
+      "name": "明確な押下フィードバック",
+      "reason": "少し縮小して復帰。固定 ease-out、バネなし。",
+      "review_status": "draft"
+    },
+    "ko": {
+      "name": "명확한 누름 피드백",
+      "reason": "살짝 줄었다 복원됩니다. 고정 ease-out, 스프링 없음.",
+      "review_status": "draft"
+    },
+    "de": {
+      "name": "Klares Druckfeedback",
+      "reason": "Leicht verkleinern; festes ease-out, keine Feder.",
+      "review_status": "draft"
+    }
+  }
+}

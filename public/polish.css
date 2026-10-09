@@ -37,3 +37,7 @@ html[lang=en] .hero-copy h1,html[lang=de] .hero-copy h1{font-family:var(--script
 .hero h1>span:first-child{rotate:-4deg}.hero h1>span.accent{rotate:-2deg}.hero-console{rotate:-.6deg}
 @media(max-width:780px){.console-grid{grid-template-columns:1fr}.hero-console{rotate:-.35deg}.studio-preview .demo-tabs{max-width:100%}.small-cta{white-space:nowrap}.header-actions{gap:8px}html[lang=en] .hero-copy h1{font-size:clamp(52px,13.4vw,100px)}}
 @media(prefers-reduced-motion:reduce){.hero:before{display:none}.hero h1>span{animation:none}}
+
+/* Release guide: keep scope and preview availability visible. */
+.hero-side .release-summary{font-size:clamp(17px,1.35vw,21px);line-height:1.65;color:var(--moss);margin:0 0 22px;max-width:34ch}
+.preview-note{margin:14px 20px 0;padding:12px 16px;border-left:3px solid var(--red);background:var(--paper);font-size:17px;line-height:1.6;color:var(--deep)}

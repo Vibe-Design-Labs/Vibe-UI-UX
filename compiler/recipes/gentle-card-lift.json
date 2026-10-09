@@ -1,0 +1,38 @@
+{
+  "id": "gentle-card-lift",
+  "item_id": "hover-lift",
+  "target": "card",
+  "trigger": "hover",
+  "feature": "lift",
+  "params": {
+    "lift_px": 3,
+    "duration_ms": 180
+  },
+  "locales": {
+    "zh-CN": {
+      "name": "轻轻浮起的卡片",
+      "reason": "小幅抬升回应悬停，保持克制。",
+      "review_status": "draft"
+    },
+    "en": {
+      "name": "Gentle card lift",
+      "reason": "A small lift acknowledges hover without exaggeration.",
+      "review_status": "draft"
+    },
+    "ja": {
+      "name": "カードを軽く浮かせる",
+      "reason": "小さな移動で控えめに伝えます。",
+      "review_status": "draft"
+    },
+    "ko": {
+      "name": "카드 살짝 띄우기",
+      "reason": "작은 이동으로 절제되게 반응합니다.",
+      "review_status": "draft"
+    },
+    "de": {
+      "name": "Karte sanft anheben",
+      "reason": "Ein kleiner Hub bestätigt Hover ohne Übertreibung.",
+      "review_status": "draft"
+    }
+  }
+}

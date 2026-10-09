@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "heatmap-style",
+  "kind": "term",
+  "domain": "ui",
+  "category": "visualization",
+  "status": "draft",
+  "canonical_name": "Heat Map & Heatmap Style",
+  "tags": [
+    "visualization",
+    "ui",
+    "heatmap-style",
+    "heatmap",
+    "heat map",
+    "matrix heatmap"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "热力图风格",
+      "aliases": [
+        "矩阵热图",
+        "数值热力图",
+        "色阶地图"
+      ],
+      "description": "用颜色编码矩阵、区域或空间中的数值差异，帮助发现集中、稀疏或异常位置。数据热力图与仅作装饰的热色渐变不同，必须提供图例、量纲与可访问的替代信息。",
+      "use_when": [
+        "需要观察两个维度交叉的数值分布。",
+        "空间位置或矩阵关系对任务有意义。"
+      ],
+      "avoid_when": [
+        "不适合依靠颜色读取许多精确数值的任务。",
+        "不能让缺失数据和零值使用同一解释。"
+      ],
+      "prompt_template": "根据真实数据建立明确色阶、图例与单位，标出行列维度和缺失数据；悬停、键盘或详情入口可读取数值；提供表格或文本替代，不用装饰渐变冒充数据图。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Heat Map & Heatmap Style",
+      "aliases": [
+        "heatmap",
+        "heat map",
+        "matrix heatmap"
+      ],
+      "description": "A visualization that encodes values in a matrix or spatial region with color to expose concentrations, sparse areas or anomalies. A data heatmap differs from decorative warm gradients and needs a legend, units and accessible alternatives.",
+      "use_when": [
+        "The task needs patterns across two intersecting dimensions.",
+        "Spatial or matrix relationships are meaningful."
+      ],
+      "avoid_when": [
+        "Color alone is a poor way to read many exact values.",
+        "Do not conflate missing data with zero."
+      ],
+      "prompt_template": "Build the color scale, legend and units from actual data, label row and column dimensions, and distinguish missing values. Make exact values available through hover, keyboard or details, and provide table or text alternatives instead of using decorative gradients as data."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "热力图色阶编码的概念参考。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://charts.carbondesignsystem.com/heatmap",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "id": "motion-driven",
+  "kind": "term",
+  "domain": "ui",
+  "category": "motion",
+  "status": "draft",
+  "canonical_name": "Motion-Driven",
+  "tags": [
+    "motion",
+    "ui",
+    "motion-driven",
+    "motion-led UI",
+    "motion-based interaction",
+    "purposeful animation"
+  ],
+  "related_ids": [
+    "staggered-reveal",
+    "scale-fade"
+  ],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "动效驱动",
+      "aliases": [
+        "动效组织界面",
+        "运动表达层级",
+        "动效叙事"
+      ],
+      "description": "工作用交互方向：借助有目的的移动、出现和状态过渡表达关系、层级与操作结果。动效应服务任务，不能替代结构、说明或真实状态。",
+      "use_when": [
+        "静态变化难以表达前后状态或空间关系。",
+        "短暂过渡能帮助用户理解操作结果。"
+      ],
+      "avoid_when": [
+        "不要强制等待装饰动画后才能继续任务。",
+        "持续装饰不能与反馈动效争夺注意力。"
+      ],
+      "prompt_template": "先定义状态关系，再为切换、进入和反馈选择必要动效；允许中断和重复操作，旧动效在状态改变时清理；减少动态效果时用直接状态切换保留同样的信息。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Motion-Driven",
+      "aliases": [
+        "motion-led UI",
+        "motion-based interaction",
+        "purposeful animation"
+      ],
+      "description": "A working interaction direction that uses purposeful movement, appearance and transitions to express relationships, hierarchy and outcomes. Motion must serve the task rather than replace structure, explanation or real state.",
+      "use_when": [
+        "A static change does not clearly convey state or spatial relationships.",
+        "A brief transition can help users understand an outcome."
+      ],
+      "avoid_when": [
+        "Do not force users to wait for decoration before continuing a task.",
+        "Continuous decoration should not compete with meaningful feedback."
+      ],
+      "prompt_template": "Define state relationships first, then choose necessary motion for transitions, entry and feedback. Allow interruption and repeated actions, clean up obsolete motion when state changes, and preserve information through direct state changes when motion is reduced."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "减少动态效果处理的技术参考；不将其作为各审美标签的命名依据。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/%40media/prefers-reduced-motion",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

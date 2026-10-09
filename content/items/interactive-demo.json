@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "interactive-demo",
+  "kind": "term",
+  "domain": "ux",
+  "category": "landing",
+  "status": "draft",
+  "canonical_name": "Interactive Product Demo",
+  "tags": [
+    "landing",
+    "ux",
+    "interactive-demo",
+    "interactive demo",
+    "product sandbox",
+    "hands-on demo"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "交互演示型",
+      "aliases": [
+        "可操作样例",
+        "产品沙盒",
+        "体验式演示"
+      ],
+      "description": "让用户在受控样例中操作产品核心流程，而不只观看截图。演示需要标明模拟数据、实际支持范围和是否保存结果，不应暗示它已经完成真实业务操作。",
+      "use_when": [
+        "产品价值需要通过一次真实交互才能理解。",
+        "可提供无需敏感信息的代表性样例。"
+      ],
+      "avoid_when": [
+        "演示不能默默发起付费或外部写入。",
+        "不能将假数据与真实业务结果混在一起。"
+      ],
+      "prompt_template": "提供一个短小的可操作样例，突出输入、操作和反馈；明确哪些数据是模拟的、是否保存和哪些功能尚未实现；提供重置入口，让用户能重复比较结果。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Interactive Product Demo",
+      "aliases": [
+        "interactive demo",
+        "product sandbox",
+        "hands-on demo"
+      ],
+      "description": "Letting users operate a core product flow in a controlled example rather than only viewing screenshots. A demo should disclose simulated data, supported scope and persistence instead of implying real business actions occurred.",
+      "use_when": [
+        "One interaction communicates value better than a static image.",
+        "A representative example can run without sensitive information."
+      ],
+      "avoid_when": [
+        "Do not silently trigger paid services or external writes.",
+        "Do not mix simulated data with real business results."
+      ],
+      "prompt_template": "Provide a concise interactive example with visible input, action and feedback. Explain which data is simulated, whether results persist, and which capabilities are unavailable. Include reset so users can repeat and compare outcomes."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

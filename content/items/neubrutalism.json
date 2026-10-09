@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "neubrutalism",
+  "kind": "term",
+  "domain": "ui",
+  "category": "style",
+  "status": "draft",
+  "canonical_name": "Neubrutalism",
+  "tags": [
+    "style",
+    "ui",
+    "neubrutalism",
+    "neobrutalism",
+    "neo-brutalist UI",
+    "bold outline UI"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "新粗野主义",
+      "aliases": [
+        "新野兽派UI",
+        "粗描边卡片",
+        "硬阴影按钮"
+      ],
+      "description": "在界面中使用鲜明描边、硬边阴影、直接的排版和明显色块来突出结构。它通常比传统网页粗野主义更受控，但醒目的外观不能替代清楚的操作层级。",
+      "use_when": [
+        "品牌需要直接、鲜明且易识别的视觉性格。",
+        "少量关键操作需要强烈的可见边界。"
+      ],
+      "avoid_when": [
+        "所有元素都同样抢眼会破坏层级。",
+        "不要用错位与密集描边牺牲文本和触控空间。"
+      ],
+      "prompt_template": "采用清晰粗描边、少量高对比色块和硬边阴影；优先突出主操作，正文保持安静易读；组件间距和焦点提示一致，阴影不遮挡相邻内容。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Neubrutalism",
+      "aliases": [
+        "neobrutalism",
+        "neo-brutalist UI",
+        "bold outline UI"
+      ],
+      "description": "An interface style using bold outlines, hard shadows, direct typography and distinct color blocks. It is often more deliberately composed than web brutalism; visual boldness still needs clear interaction hierarchy.",
+      "use_when": [
+        "The brand benefits from a direct and distinctive visual character.",
+        "A few key actions need highly visible boundaries."
+      ],
+      "avoid_when": [
+        "Making every element equally loud destroys hierarchy.",
+        "Do not sacrifice legibility or touch space for offset shadows and dense outlines."
+      ],
+      "prompt_template": "Use clear bold outlines, a limited set of contrasting color blocks and hard shadows. Give the primary action priority while keeping body content quiet and readable. Maintain consistent spacing and focus cues; shadows must not obscure adjacent content."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "新粗野主义的视觉特征与可读性限制参考。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://www.nngroup.com/articles/neobrutalism/",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

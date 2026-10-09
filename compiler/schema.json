@@ -1,0 +1,480 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$ref": "#/$defs/CompilationResult",
+  "$defs": {
+    "DesignIR": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "const": 1
+        },
+        "target": {
+          "type": "string",
+          "enum": [
+            "card",
+            "button",
+            "list",
+            "cursor",
+            "unspecified"
+          ]
+        },
+        "intent": {
+          "type": "object",
+          "properties": {
+            "character": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "restrained",
+                  "lively",
+                  "clear",
+                  "soft",
+                  "sequential"
+                ]
+              },
+              "maxItems": 5,
+              "uniqueItems": true
+            },
+            "feedback_strength": {
+              "type": "string",
+              "enum": [
+                "subtle",
+                "medium",
+                "strong",
+                "unspecified"
+              ]
+            }
+          },
+          "required": [
+            "character",
+            "feedback_strength"
+          ],
+          "additionalProperties": false
+        },
+        "interaction": {
+          "type": "object",
+          "properties": {
+            "trigger": {
+              "type": "string",
+              "enum": [
+                "hover",
+                "press",
+                "appear",
+                "click",
+                "pointermove",
+                "unspecified"
+              ]
+            }
+          },
+          "required": [
+            "trigger"
+          ],
+          "additionalProperties": false
+        },
+        "motion": {
+          "type": "object",
+          "properties": {
+            "amount": {
+              "type": "string",
+              "enum": [
+                "low",
+                "medium",
+                "high",
+                "unspecified"
+              ]
+            },
+            "speed": {
+              "type": "string",
+              "enum": [
+                "fast",
+                "moderate",
+                "slow",
+                "unspecified"
+              ]
+            },
+            "bounce": {
+              "type": "string",
+              "enum": [
+                "none",
+                "present",
+                "unspecified"
+              ]
+            }
+          },
+          "required": [
+            "amount",
+            "speed",
+            "bounce"
+          ],
+          "additionalProperties": false
+        },
+        "visual": {
+          "type": "object",
+          "properties": {
+            "glow": {
+              "type": "string",
+              "enum": [
+                "none",
+                "subtle",
+                "present",
+                "unspecified"
+              ]
+            },
+            "tone": {
+              "type": "string",
+              "enum": [
+                "warm",
+                "cool",
+                "unspecified"
+              ]
+            }
+          },
+          "required": [
+            "glow",
+            "tone"
+          ],
+          "additionalProperties": false
+        },
+        "avoid": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "glow",
+              "strong-glow",
+              "bounce",
+              "large-motion",
+              "scale"
+            ]
+          },
+          "maxItems": 5,
+          "uniqueItems": true
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "field": {
+                "type": "string",
+                "enum": [
+                  "target",
+                  "intent.character",
+                  "intent.feedback_strength",
+                  "interaction.trigger",
+                  "motion.amount",
+                  "motion.speed",
+                  "motion.bounce",
+                  "visual.glow",
+                  "visual.tone",
+                  "avoid"
+                ]
+              },
+              "quote": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              }
+            },
+            "required": [
+              "field",
+              "quote"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 16
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "local-rule",
+            "model",
+            "user-edited"
+          ]
+        }
+      },
+      "required": [
+        "schema_version",
+        "target",
+        "intent",
+        "interaction",
+        "motion",
+        "visual",
+        "avoid",
+        "evidence",
+        "source"
+      ],
+      "additionalProperties": false
+    },
+    "Recipe": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "maxLength": 80
+        },
+        "item_id": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "template_id": {
+          "type": "string",
+          "maxLength": 80
+        },
+        "template_version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "params": {
+          "type": "object",
+          "maxProperties": 30,
+          "additionalProperties": {
+            "type": [
+              "number",
+              "string"
+            ]
+          }
+        },
+        "parameter_sources": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "enum": [
+              "recipe-default",
+              "intent-rule",
+              "user-adjustment"
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "item_id",
+        "template_id",
+        "template_version",
+        "params",
+        "parameter_sources"
+      ],
+      "additionalProperties": false
+    },
+    "Implementation": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "const": "native-web"
+        },
+        "status": {
+          "const": "supported"
+        },
+        "methods": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "css-transform",
+              "css-transition",
+              "dom-pointer-events",
+              "request-animation-frame",
+              "css-gradient",
+              "web-animations",
+              "dom-click",
+              "css-keyframes"
+            ]
+          },
+          "maxItems": 8
+        }
+      },
+      "required": [
+        "provider",
+        "status",
+        "methods"
+      ],
+      "additionalProperties": false
+    },
+    "CompilationResult": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "intentkit.compilation"
+        },
+        "schema_version": {
+          "const": 1
+        },
+        "compiler_version": {
+          "type": "string",
+          "pattern": "^\\d+(?:\\.\\d+){4}$"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ready",
+            "partial",
+            "needs-clarification"
+          ]
+        },
+        "source_text": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "locale": {
+          "type": "string",
+          "enum": [
+            "zh-CN",
+            "en",
+            "ja",
+            "ko",
+            "de"
+          ]
+        },
+        "ir": {
+          "$ref": "#/$defs/DesignIR"
+        },
+        "recipe": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Recipe"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "implementation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Implementation"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "preview-target-default",
+              "preset-parameters",
+              "inferred-motion-speed",
+              "inferred-feedback-strength",
+              "inferred-target",
+              "inferred-trigger"
+            ]
+          },
+          "maxItems": 10
+        },
+        "unresolved": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "target-ambiguous",
+              "trigger-ambiguous",
+              "glow-contradiction",
+              "unsupported-interaction",
+              "shadow-not-configurable",
+              "bounce-not-supported",
+              "composition-not-supported",
+              "numeric-request-not-mapped"
+            ]
+          },
+          "maxItems": 12
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Conflict"
+          },
+          "maxItems": 12
+        },
+        "adjustments_accepted": {
+          "type": "boolean"
+        },
+        "design_brief": {
+          "type": "string",
+          "maxLength": 10000
+        },
+        "agent_brief": {
+          "type": "string",
+          "maxLength": 15000
+        }
+      },
+      "required": [
+        "schema",
+        "schema_version",
+        "compiler_version",
+        "status",
+        "source_text",
+        "locale",
+        "ir",
+        "recipe",
+        "implementation",
+        "assumptions",
+        "unresolved",
+        "conflicts",
+        "adjustments_accepted",
+        "design_brief",
+        "agent_brief"
+      ],
+      "additionalProperties": false
+    },
+    "ModelIntent": {
+      "type": "object",
+      "properties": {
+        "ir": {
+          "$ref": "#/$defs/DesignIR"
+        },
+        "candidate_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "maxItems": 4,
+          "uniqueItems": true
+        },
+        "explanation": {
+          "type": "string",
+          "maxLength": 600
+        }
+      },
+      "required": [
+        "ir",
+        "candidate_ids",
+        "explanation"
+      ],
+      "additionalProperties": false
+    },
+    "Conflict": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "enum": [
+            "glow-forbidden",
+            "strong-glow-forbidden",
+            "scale-forbidden",
+            "large-motion-forbidden",
+            "stronger-than-intent",
+            "faster-than-intent",
+            "slower-than-intent"
+          ]
+        },
+        "severity": {
+          "enum": [
+            "constraint",
+            "preference"
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "severity"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

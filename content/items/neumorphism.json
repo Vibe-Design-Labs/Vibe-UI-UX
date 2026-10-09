@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "neumorphism",
+  "kind": "term",
+  "domain": "ui",
+  "category": "style",
+  "status": "draft",
+  "canonical_name": "Neumorphism",
+  "tags": [
+    "style",
+    "ui",
+    "neumorphism",
+    "neumorphic UI",
+    "soft UI",
+    "raised inset surfaces"
+  ],
+  "related_ids": [
+    "soft-ui-evolution"
+  ],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "新拟态",
+      "aliases": [
+        "新拟物化",
+        "软UI浮雕",
+        "同色浮雕卡片"
+      ],
+      "description": "让组件与背景接近同一色系，通过相对的明暗阴影形成凸起或凹入的浮雕感。低对比边界容易使组件难以辨认，因此状态与可操作性需要额外提示。",
+      "use_when": [
+        "需要少量安静的浮雕式视觉强调。",
+        "有空间增加清楚的标签、边界与状态提示。"
+      ],
+      "avoid_when": [
+        "密集表单与重要操作不应依赖低对比浮雕。",
+        "不要把装饰凸起自动等同于可点击。"
+      ],
+      "prompt_template": "仅在少量表面使用同色系浮雕和相对的明暗阴影；按钮、输入框和选中状态补充清楚边界与标签；验证多种背景和显示条件，焦点与错误提示不依赖阴影。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Neumorphism",
+      "aliases": [
+        "neumorphic UI",
+        "soft UI",
+        "raised inset surfaces"
+      ],
+      "description": "A style that uses closely matched component and background colors with paired light and dark shadows to suggest raised or inset relief. Low-contrast boundaries can make controls hard to identify, so states and interactivity need additional cues.",
+      "use_when": [
+        "Selective quiet relief supports the visual direction.",
+        "Clear labels, boundaries and states can accompany the treatment."
+      ],
+      "avoid_when": [
+        "Dense forms and critical actions should not depend on low-contrast relief.",
+        "Do not equate decorative elevation with clickability."
+      ],
+      "prompt_template": "Use closely matched surfaces and opposing light-dark shadows selectively. Give buttons, fields and selected states clear boundaries and labels. Check varied backgrounds and viewing conditions; focus and error cues must not depend on shadows."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

@@ -1,5 +1,8 @@
 # TokenDance 接入 · v0.4
 
+本地 0.4.1.0.0 预览另外增加「理解并生成方案」按钮：连接密钥后会调用模型解析闭合 IR；本地示例、修改理解和调参不调用模型。此预览尚未发布，编译流程见 [Design Compiler](DESIGN_COMPILER.md)。下方原有授权与「查找效果」流程仍保留。
+
+
 依据 2026-10-06 实际读取的 [AI 接入入口](https://tokendance.space/docs/ai-integration.md) 与 [文档索引](https://tokendance.space/llms.txt)，保留项目现有的 OpenAI Chat Completions HTTP 协议，无额外 SDK 或 npm 依赖。
 
 ## 使用方式

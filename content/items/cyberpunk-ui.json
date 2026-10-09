@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "cyberpunk-ui",
+  "kind": "term",
+  "domain": "ui",
+  "category": "style",
+  "status": "draft",
+  "canonical_name": "Cyberpunk UI",
+  "tags": [
+    "style",
+    "ui",
+    "cyberpunk-ui",
+    "cyberpunk interface",
+    "neon sci-fi UI",
+    "cyberpunk aesthetic"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "赛博朋克 UI",
+      "aliases": [
+        "霓虹科技风",
+        "赛博界面",
+        "深色HUD主题"
+      ],
+      "description": "通过深色背景、霓虹强调、技术化图形与都市科幻意象表达赛博朋克氛围。它是主题化视觉，不要求闪烁、故障文字或持续 HUD 动画。",
+      "use_when": [
+        "娱乐、游戏或科技品牌有明确的主题表达。",
+        "少量霓虹强调可以帮助区分信息层级。"
+      ],
+      "avoid_when": [
+        "高饱和光效不宜覆盖正文和密集数据。",
+        "不要用频繁闪烁表达重要状态。"
+      ],
+      "prompt_template": "使用深色表面和有限霓虹强调，把科幻图形放在装饰层；正文、状态与主操作保持高可读性；重要变化用文字和稳定状态表达，故障与闪烁效果可关闭且不影响任务。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Cyberpunk UI",
+      "aliases": [
+        "cyberpunk interface",
+        "neon sci-fi UI",
+        "cyberpunk aesthetic"
+      ],
+      "description": "A themed visual direction using dark backgrounds, neon accents, technical graphics and urban science-fiction imagery. It does not require flicker, glitch text or continuously animated HUD elements.",
+      "use_when": [
+        "Entertainment, games or a technology brand has a clear thematic intent.",
+        "Selective neon accents can reinforce hierarchy."
+      ],
+      "avoid_when": [
+        "Intense glow should not cover body text or dense data.",
+        "Do not use frequent flicker to communicate important states."
+      ],
+      "prompt_template": "Use dark surfaces with limited neon accents and keep science-fiction graphics in decorative layers. Preserve readable text, states and actions. Communicate important changes through text and stable cues; any glitch or flicker treatment must be optional and nonessential."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

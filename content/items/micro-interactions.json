@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "id": "micro-interactions",
+  "kind": "term",
+  "domain": "ui",
+  "category": "motion",
+  "status": "draft",
+  "canonical_name": "Micro-interactions",
+  "tags": [
+    "motion",
+    "ui",
+    "micro-interactions",
+    "microinteraction",
+    "trigger feedback",
+    "small interaction feedback"
+  ],
+  "related_ids": [
+    "click-ripple",
+    "press-feedback",
+    "hover-lift"
+  ],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "微交互",
+      "aliases": [
+        "微小反馈",
+        "触发反馈",
+        "小交互"
+      ],
+      "description": "由一个具体触发与针对性反馈组成的小范围交互，例如按钮按压状态、保存结果或输入校验。微交互可以使用文字、状态或动效，不等于所有装饰动画。",
+      "use_when": [
+        "用户需要确认输入或操作已被识别。",
+        "状态变化需要在发生位置附近清楚表达。"
+      ],
+      "avoid_when": [
+        "不要让反馈拖延真实操作或掩盖失败。",
+        "不要把系统尚未完成的工作提示为成功。"
+      ],
+      "prompt_template": "为具体触发设计明确反馈，区分已接收、处理中、成功与失败；反馈靠近操作位置，兼顾键盘与触摸；动效可以减少或关闭，重要状态仍通过文字或形状保留。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Micro-interactions",
+      "aliases": [
+        "microinteraction",
+        "trigger feedback",
+        "small interaction feedback"
+      ],
+      "description": "A small interaction pairing a specific trigger with focused feedback, such as a pressed state, save result or input validation. Microinteractions may use text, state changes or motion; not every decorative animation qualifies.",
+      "use_when": [
+        "Users need confirmation that input or an action was recognized.",
+        "A state change needs clear feedback near its context."
+      ],
+      "avoid_when": [
+        "Feedback must not delay real work or hide failure.",
+        "Do not report success before the actual operation completes."
+      ],
+      "prompt_template": "Provide focused feedback for a specific trigger, distinguishing receipt, processing, success and failure. Keep feedback near its action and support keyboard and touch. Allow motion reduction while retaining important states through text or shape."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "触发与针对性反馈组成微交互的概念参考。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://www.nngroup.com/articles/microinteractions/",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "conversion-optimized",
+  "kind": "term",
+  "domain": "ux",
+  "category": "landing",
+  "status": "draft",
+  "canonical_name": "Conversion-Optimized",
+  "tags": [
+    "landing",
+    "ux",
+    "conversion-optimized",
+    "conversion-focused landing page",
+    "conversion flow",
+    "goal-oriented landing page"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "转化优化型",
+      "aliases": [
+        "转化落地页",
+        "注册引导页",
+        "行动导向页面"
+      ],
+      "description": "围绕一个明确的转化目标组织信息、操作与反馈，例如完成注册或开始试用。是否优化有效需结合用户任务和实际数据验证，不能仅由按钮颜色或视觉风格判断。",
+      "use_when": [
+        "有明确且对用户有价值的主要行动。",
+        "能够验证关键步骤的完成率与阻碍。"
+      ],
+      "avoid_when": [
+        "不要用误导、假倒计时或默认勾选迫使用户行动。",
+        "不要把停留时间或点击量直接当作完成目标。"
+      ],
+      "prompt_template": "确定一个对用户有价值的主行动，按决策所需信息排列页面，清楚说明成本与限制；减少重复填写和无关选择；完成后给出明确反馈，并以真实任务完成数据评估改版。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Conversion-Optimized",
+      "aliases": [
+        "conversion-focused landing page",
+        "conversion flow",
+        "goal-oriented landing page"
+      ],
+      "description": "A page approach organized around an explicit conversion goal such as registration or starting a trial. Its effectiveness requires evidence from user tasks and actual outcomes, not assumptions based on button color or visual style.",
+      "use_when": [
+        "The primary action has a clear benefit for users.",
+        "The team can evaluate completion and obstacles along the task path."
+      ],
+      "avoid_when": [
+        "Avoid deceptive urgency, fake countdowns and coercive defaults.",
+        "Do not treat time on page or raw clicks as task completion."
+      ],
+      "prompt_template": "Define one user-benefiting primary action and organize information around that decision. Explain costs and limitations, reduce duplicate entry and irrelevant choices, and give clear completion feedback. Evaluate changes using actual task outcomes."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "网站可信度与信息透明性参考。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://www.nngroup.com/articles/trustworthy-design/",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

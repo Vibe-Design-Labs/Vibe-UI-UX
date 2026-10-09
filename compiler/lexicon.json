@@ -1,0 +1,49 @@
+{
+  "negation": "不要|不想|不需要|别|避免|没有|不允许|without|do not|don't|avoid|no\\b|not\\b|nicht|ohne|kein\\w*|避け|なし|しない|없이|말고|않|ない|不(?=弹|发光|放大|缩|大幅)",
+  "targets": {
+    "card": "卡片|卡牌|card|Karte|カード|카드",
+    "button": "按钮|按键|button|Knopf|ボタン|버튼",
+    "list": "列表|内容|content|list|Liste|Inhalt|コンテンツ|リスト|콘텐츠|목록",
+    "cursor": "指针形状|光标|cursor|pointer shape|Zeiger|カーソル|커서"
+  },
+  "triggers": {
+    "hover": "悬停|移上|鼠标放上|鼠标经过|hover|mouse over|pointer over|ホバー|마우스를 올|호버|darüber",
+    "press": "按下|按压|按住|按下去|press|押す|押した|押下|누르|drück",
+    "appear": "出现|进入|进来|入场|reveal|appear|enter|表示|現れ|나타|erscheinen|einblenden",
+    "click": "点一下|点击|点按|click|tap|クリック|클릭|klick"
+  },
+  "features": {
+    "glow": "聚光|暖光|发光|光晕|光效|一点光|glow|spotlight|\\blight\\b|Leuchten|Licht|光|빛",
+    "lift": "浮起|浮起来|抬升|上移|移动|位移|lift|float|raise|浮か|持ち上|띄우|올라|anheb|schweb",
+    "stagger": "一个接一个|一个一个|依次|错落|逐个|one by one|one-by-one|stagger|sequential|一つずつ|順番|하나씩|순서대로|nacheinander",
+    "ripple": "水波|波纹|涟漪|扩散圆|ripple|wave|波紋|물결|Welle",
+    "bounce": "弹跳|弹簧|弹一下|弹|bounce|spring|バネ|跳ね|튕|스프링|Feder|hüpf",
+    "scale": "缩放|放大|缩小|scale|zoom|拡大|縮小|확대|축소|skalier",
+    "large": "大幅|大位移|大规模|large|big|大きな|크게|groß",
+    "shadow": "阴影|shadow|Schatten|影|그림자"
+  },
+  "strengths": {
+    "subtle": "轻轻|轻微|一点|克制|低调|不要太夸张|subtle|gentle|restrained|slight|控えめ|少し|살짝|절제|sanft|dezent",
+    "medium": "中等|有力量|确认感|medium|confirm|明確|확인|klar",
+    "strong": "强烈|明显|夸张|strong|intense|強く|강하|stark"
+  },
+  "amounts": {
+    "low": "轻轻|稍微|轻微|小幅|不要太夸张|low|small|little|少し|小さ|살짝|작게|klein|sanft",
+    "high": "大幅|大位移|大量|large|big|大き|크게|groß"
+  },
+  "speeds": {
+    "fast": "快速|干脆|迅速|fast|quick|速く|빠르|schnell",
+    "slow": "慢|缓慢|slow|ゆっくり|느리|langsam"
+  },
+  "tones": {
+    "warm": "暖|温暖|warm|暖か|따뜻",
+    "cool": "冷光|冷色|cool|cold|冷たい|차가|kühl"
+  },
+  "characters": {
+    "restrained": "克制|低调|不要太夸张|restrained|understated|控えめ|절제|dezent",
+    "lively": "生命感|生动|alive|lively|生き|생명|lebendig",
+    "clear": "确认感|干脆|clear|crisp|明確|확인|klar",
+    "soft": "柔和|轻盈|soft|gentle|柔らか|부드럽|weich",
+    "sequential": "一个接一个|one by one|sequential|一つずつ|하나씩|nacheinander"
+  }
+}

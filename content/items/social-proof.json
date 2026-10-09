@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "social-proof",
+  "kind": "term",
+  "domain": "ux",
+  "category": "landing",
+  "status": "draft",
+  "canonical_name": "Social Proof-Focused",
+  "tags": [
+    "landing",
+    "ux",
+    "social-proof",
+    "customer testimonials",
+    "user reviews",
+    "social proof"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "社会证明型",
+      "aliases": [
+        "用户口碑",
+        "客户案例证明",
+        "评价背书"
+      ],
+      "description": "用真实评价、案例、使用者或可核实的数据帮助用户判断产品是否适合自己。社会证明是说服信息，不是可替代产品说明、真实证据或安全保证的装饰。",
+      "use_when": [
+        "新用户希望了解他人的实际使用经历。",
+        "评价的对象和场景与目标用户相关。"
+      ],
+      "avoid_when": [
+        "不能伪造评价、品牌合作或使用人数。",
+        "不相关的名人背书不能替代实用信息。"
+      ],
+      "prompt_template": "在相关决策信息附近展示可核实的用户评价或案例，说明场景、来源和必要日期；优先用具体成果与限制，避免无出处数字；外部引用取得许可并提供访问来源的入口。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Social Proof-Focused",
+      "aliases": [
+        "customer testimonials",
+        "user reviews",
+        "social proof"
+      ],
+      "description": "Using authentic reviews, case studies, customer evidence or verifiable usage data to support a decision. Social proof is persuasive information, not a substitute for product explanation, evidence or safety guarantees.",
+      "use_when": [
+        "New users want evidence of other people’s actual experiences.",
+        "The evidence matches the intended audience and use case."
+      ],
+      "avoid_when": [
+        "Never fabricate testimonials, partnerships or user counts.",
+        "Unrelated celebrity endorsement does not replace useful evidence."
+      ],
+      "prompt_template": "Place verifiable testimonials or cases near the decision they support. Include context, attribution and dates where relevant. Prefer concrete outcomes and limitations over unsourced numbers, obtain required permissions, and provide a route to the source."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "社会证明与真实使用证据的概念参考。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://www.nngroup.com/articles/social-proof-ux/",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

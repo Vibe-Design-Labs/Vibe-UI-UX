@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "real-time-monitoring",
+  "kind": "term",
+  "domain": "ux",
+  "category": "dashboard",
+  "status": "draft",
+  "canonical_name": "Real-Time Monitoring",
+  "tags": [
+    "dashboard",
+    "ux",
+    "real-time-monitoring",
+    "live monitoring",
+    "status dashboard",
+    "real-time status"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "实时监控",
+      "aliases": [
+        "实时状态面板",
+        "在线监控",
+        "实时告警"
+      ],
+      "description": "持续或定期更新状态与事件的监控界面。所谓实时必须由实际刷新机制、时间戳和数据链路支持；仅有跳动数字或闪烁装饰并不代表实时数据。",
+      "use_when": [
+        "任务需要及时发现状态变化或异常。",
+        "数据来源可提供明确的更新与失效信息。"
+      ],
+      "avoid_when": [
+        "不能把模拟或过期数据标为实时。",
+        "频繁刷新不应打断阅读、筛选或键盘操作。"
+      ],
+      "prompt_template": "展示状态、最近更新时间和数据连接情况；新事件按优先级提示，过期或断连时明确标注；保留用户当前筛选与阅读位置，提供暂停自动更新或查看事件历史的方式。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Real-Time Monitoring",
+      "aliases": [
+        "live monitoring",
+        "status dashboard",
+        "real-time status"
+      ],
+      "description": "A monitoring interface that updates states and events continuously or at defined intervals. Real-time claims require actual refresh behavior, timestamps and data delivery; animated numbers alone do not establish live data.",
+      "use_when": [
+        "The task requires timely awareness of changes or anomalies.",
+        "The data source can communicate update and stale-state information."
+      ],
+      "avoid_when": [
+        "Do not label simulated or stale data as live.",
+        "Frequent updates must not disrupt reading, filters or keyboard interaction."
+      ],
+      "prompt_template": "Show state, last update time and connection health. Prioritize new events and clearly mark stale data or disconnection. Preserve filters and reading position, and offer a way to pause updates or review event history."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "看板布局与联动原则参考；并非该业务功能已经实现的证明。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://www.carbondesignsystem.com/building-blocks/data-visualization/dashboards",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

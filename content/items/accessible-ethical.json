@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "id": "accessible-ethical",
+  "kind": "term",
+  "domain": "ux",
+  "category": "principle",
+  "status": "draft",
+  "canonical_name": "Accessible & Ethical",
+  "tags": [
+    "principle",
+    "ux",
+    "accessible-ethical",
+    "accessible design",
+    "responsible design",
+    "ethical UX"
+  ],
+  "related_ids": [
+    "reduced-motion"
+  ],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "无障碍与伦理设计",
+      "aliases": [
+        "可访问性与负责设计",
+        "无障碍设计",
+        "尊重用户选择"
+      ],
+      "description": "结合可感知、可操作、可理解等可访问性要求与透明、尊重选择、最少必要数据等设计责任。它是持续检查任务和影响的原则，不是换成大字号或贴一个无障碍标识即可完成。",
+      "use_when": [
+        "所有产品的核心任务都应考虑不同使用能力。",
+        "涉及权限、数据或用户承诺的选择。"
+      ],
+      "avoid_when": [
+        "不能只通过自动评分宣布全面合规。",
+        "不要用深色模式或大字体替代完整任务检查。"
+      ],
+      "prompt_template": "检查文字对比、键盘路径、语义标签、错误恢复与减少动态效果；让权限和数据用途清楚可见，选择可撤回；覆盖真实辅助技术与不同用户任务，记录仍未解决的障碍。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Accessible & Ethical",
+      "aliases": [
+        "accessible design",
+        "responsible design",
+        "ethical UX"
+      ],
+      "description": "A principle combining accessibility needs with transparency, meaningful choice and appropriate data minimization. It requires ongoing checks of tasks and impacts, not just larger type or an accessibility badge.",
+      "use_when": [
+        "Core product tasks must account for varied abilities.",
+        "Choices involve permissions, data or user commitments."
+      ],
+      "avoid_when": [
+        "Do not declare full compliance from an automated score alone.",
+        "Dark mode or larger type cannot replace complete task checks."
+      ],
+      "prompt_template": "Check contrast, keyboard paths, semantic labels, error recovery and reduced motion. Make permissions and data use visible and allow choices to be reversed. Evaluate real assistive technologies and varied user tasks, recording unresolved barriers."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "可访问性原则参考；伦理与透明选择的操作建议为本项目原创。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://www.w3.org/WAI/fundamentals/accessibility-principles/",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

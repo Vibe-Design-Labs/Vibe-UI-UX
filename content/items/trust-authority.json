@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "trust-authority",
+  "kind": "term",
+  "domain": "ux",
+  "category": "landing",
+  "status": "draft",
+  "canonical_name": "Trust & Authority",
+  "tags": [
+    "landing",
+    "ux",
+    "trust-authority",
+    "trust-building page",
+    "credibility-focused design",
+    "authority cues"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "信任权威型",
+      "aliases": [
+        "可信官网",
+        "透明背书",
+        "权威信息展示"
+      ],
+      "description": "工作用页面标签：通过透明的主体信息、可验证证据、清楚的产品限制和稳定体验建立信任。视觉上的正式感或徽章本身不构成权威认证。",
+      "use_when": [
+        "用户作决定前需要确认来源、责任主体和限制。",
+        "产品可提供可核实的支持信息。"
+      ],
+      "avoid_when": [
+        "不要使用未经授权的认证标识或合作品牌。",
+        "不能把承诺与案例写成结果保证。"
+      ],
+      "prompt_template": "清楚展示产品提供方、联系渠道、能力边界与可核实证据；证书或合作关系注明来源和适用范围；把关键费用、隐私处理和风险放在相关操作之前，避免仅靠装饰徽章建立信任。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Trust & Authority",
+      "aliases": [
+        "trust-building page",
+        "credibility-focused design",
+        "authority cues"
+      ],
+      "description": "A working page label for building trust through transparent identity, verifiable evidence, clear product limits and a dependable experience. A formal visual tone or badge alone does not establish accreditation.",
+      "use_when": [
+        "Users need to understand provenance, accountability and limitations before deciding.",
+        "The product can provide verifiable supporting information."
+      ],
+      "avoid_when": [
+        "Do not display unauthorized certifications or partner logos.",
+        "Do not turn promises or case studies into guaranteed outcomes."
+      ],
+      "prompt_template": "Show the provider, contact routes, capability limits and verifiable evidence. Attribute certifications or partnerships and explain their scope. Present important costs, privacy handling and risks before relevant actions instead of relying on decorative badges."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "网站可信度与信息透明性参考。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://www.nngroup.com/articles/trustworthy-design/",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

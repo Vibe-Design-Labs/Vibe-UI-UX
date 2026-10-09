@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "minimal-direct",
+  "kind": "term",
+  "domain": "ui",
+  "category": "landing",
+  "status": "draft",
+  "canonical_name": "Minimal & Direct",
+  "tags": [
+    "landing",
+    "ui",
+    "minimal-direct",
+    "direct landing page",
+    "minimal direct layout",
+    "straight-to-the-point page"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "极简直给型",
+      "aliases": [
+        "极简直达",
+        "开门见山",
+        "直给落地页"
+      ],
+      "description": "工作用页面标签：尽早展示用途、必要信息与主操作，减少绕路和装饰。它描述任务路径的直接程度，不等于所有产品都只需要一屏。",
+      "use_when": [
+        "用户已知道要做什么，希望快速进入操作。",
+        "页面只有一个主要任务与少量决策信息。"
+      ],
+      "avoid_when": [
+        "复杂产品需要的说明不能被删掉。",
+        "不要隐藏价格、权限需求或重要限制。"
+      ],
+      "prompt_template": "开头直接说明用途与主操作，围绕用户下一步补充必要说明；移除重复入口和无关装饰；把价格、权限和限制放在决定发生之前。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Minimal & Direct",
+      "aliases": [
+        "direct landing page",
+        "minimal direct layout",
+        "straight-to-the-point page"
+      ],
+      "description": "A working page label for presenting purpose, essential information and the main action early. It describes a direct task path, not a requirement that every product fit on one screen.",
+      "use_when": [
+        "Users already know their task and want to reach it quickly.",
+        "The page has one primary task with limited decision information."
+      ],
+      "avoid_when": [
+        "Do not remove explanations that a complex product needs.",
+        "Do not hide pricing, permission requirements or important limitations."
+      ],
+      "prompt_template": "State the purpose and main action at the beginning, then provide the information needed for the next decision. Remove duplicate entry points and unrelated decoration. Show pricing, permissions and limitations before commitment."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "首屏层级与理解产品价值的设计参考；不构成转化效果保证。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://www.nngroup.com/articles/first-impressions-human-automaticity/",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

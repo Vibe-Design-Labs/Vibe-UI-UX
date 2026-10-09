@@ -2,7 +2,7 @@
 
 GitHub Pages 静态版保留官网、五语界面、术语查询、动效预览、参数调节、复制与 JSON 导出。浏览、学习和更新内容不需要模型密钥。
 
-BYOK 由访客浏览器直连固定 TokenDance 服务。密钥在当前页面内存中，不写 localStorage/sessionStorage，不放进仓库或 GitHub Secrets，刷新页面会清除。访客可以通过 S256 PKCE 授权弹窗连接 TokenDance，也可以填写已有密钥。打开连接面板会读取无需密钥的公开模型目录；只有保存连接并主动点击“查找效果”才调用模型。授权过程会经用户确认创建 Key，但不调用模型。
+BYOK 由访客浏览器直连固定 TokenDance 服务。密钥在当前页面内存中，不写 localStorage/sessionStorage，不放进仓库或 GitHub Secrets，刷新页面会清除。访客可以通过 S256 PKCE 授权弹窗连接 TokenDance，也可以填写已有密钥。打开连接面板会读取无需密钥的公开模型目录；只有保存连接并主动点击“查找效果”或“理解并生成方案”才调用模型；五个本地编译示例始终本地运行。授权过程会经用户确认创建 Key，但不调用模型。
 
 2026-10-06 实际检查：模型目录 GET 返回 200；Chat Completions 和授权交换 OPTIONS 返回 204、Access-Control-Allow-Origin: *。对话端点允许 Authorization/Content-Type/X-App-URL，授权端点允许 Content-Type。此检查证明当时允许跨域请求，不代表真实模型或付费账号已完成联调；未来服务策略可能变化。跨域或网络失败会显示说明，仍可清除密钥使用本地匹配。
 

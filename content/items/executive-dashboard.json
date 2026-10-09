@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "executive-dashboard",
+  "kind": "term",
+  "domain": "ux",
+  "category": "dashboard",
+  "status": "draft",
+  "canonical_name": "Executive Dashboard",
+  "tags": [
+    "dashboard",
+    "ux",
+    "executive-dashboard",
+    "executive overview",
+    "management dashboard",
+    "KPI overview"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "高管驾驶舱",
+      "aliases": [
+        "管理概览",
+        "经营驾驶舱",
+        "决策看板"
+      ],
+      "description": "面向管理决策的看板组织方式：以少量关键指标、目标差距和需要关注的变化提供概览，再允许查看原因。它描述使用角色与决策任务，不是固定视觉皮肤。",
+      "use_when": [
+        "使用者需要快速判断总体状况和需要介入的事项。",
+        "指标定义、目标与更新节奏可明确说明。"
+      ],
+      "avoid_when": [
+        "没有上下文的数字不支持可靠判断。",
+        "不要将过多运营细节全部塞进首屏。"
+      ],
+      "prompt_template": "围绕决策目标选择少量核心指标，标出单位、时间范围、目标和变化；优先突出异常与待处理事项，提供进入详细分析的入口；说明数据更新时间与统计口径。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Executive Dashboard",
+      "aliases": [
+        "executive overview",
+        "management dashboard",
+        "KPI overview"
+      ],
+      "description": "A dashboard approach for management decisions: a concise view of key metrics, target gaps and notable changes with access to underlying reasons. It describes audience and decision tasks rather than a fixed visual skin.",
+      "use_when": [
+        "Users need a quick assessment of overall status and issues requiring attention.",
+        "Metric definitions, targets and update cadence can be explained."
+      ],
+      "avoid_when": [
+        "Context-free numbers do not support reliable decisions.",
+        "Do not crowd the overview with every operational detail."
+      ],
+      "prompt_template": "Select a small set of metrics for the decision at hand. Show units, time windows, targets and change, highlight notable issues, and offer a route to detailed analysis. Explain update time and metric definitions."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "看板布局与联动原则参考；并非该业务功能已经实现的证明。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://www.carbondesignsystem.com/building-blocks/data-visualization/dashboards",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

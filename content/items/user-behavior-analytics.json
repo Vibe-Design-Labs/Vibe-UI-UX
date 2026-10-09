@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "user-behavior-analytics",
+  "kind": "term",
+  "domain": "ux",
+  "category": "dashboard",
+  "status": "draft",
+  "canonical_name": "User Behavior Analytics",
+  "tags": [
+    "dashboard",
+    "ux",
+    "user-behavior-analytics",
+    "behavior analytics",
+    "event analytics",
+    "funnel analysis"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "用户行为分析",
+      "aliases": [
+        "行为看板",
+        "用户事件分析",
+        "漏斗分析"
+      ],
+      "description": "围绕用户操作路径、事件、群组和任务结果分析产品使用情况。事件记录、热区或漏斗并不能直接解释用户为什么行动，需要结合定义、隐私边界与其他研究。",
+      "use_when": [
+        "希望找出任务路径中的流失或操作阻碍。",
+        "事件定义与数据采集范围透明且合适。"
+      ],
+      "avoid_when": [
+        "不能将点击行为直接当作心理动机。",
+        "不要默认采集敏感输入或可识别个人数据。"
+      ],
+      "prompt_template": "按用户任务展示事件路径和漏斗，说明事件定义、时间范围与样本；区分观察事实与原因假设，提供群组比较和数据缺失提示；减少个人可识别信息，仅显示任务必要的数据。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "User Behavior Analytics",
+      "aliases": [
+        "behavior analytics",
+        "event analytics",
+        "funnel analysis"
+      ],
+      "description": "Analyzing product use through action paths, events, cohorts and task outcomes. Events, heatmaps and funnels do not directly explain user motivation; interpretation needs clear definitions, privacy boundaries and complementary research.",
+      "use_when": [
+        "The team needs to identify drop-off or friction within task paths.",
+        "Event definitions and data collection boundaries are transparent and appropriate."
+      ],
+      "avoid_when": [
+        "Do not treat click behavior as direct evidence of motivation.",
+        "Do not collect sensitive input or identifiable personal data by default."
+      ],
+      "prompt_template": "Show event paths and funnels organized by user task, with event definitions, time ranges and sample information. Distinguish observations from causal hypotheses, support cohort comparison, and disclose missing data. Minimize identifiable information and show only task-relevant data."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

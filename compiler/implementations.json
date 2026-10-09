@@ -1,0 +1,46 @@
+{
+  "gentle-card-lift": {
+    "provider": "native-web",
+    "status": "supported",
+    "methods": [
+      "css-transform",
+      "css-transition"
+    ]
+  },
+  "warm-card-spotlight": {
+    "provider": "native-web",
+    "status": "supported",
+    "methods": [
+      "dom-pointer-events",
+      "request-animation-frame",
+      "css-gradient",
+      "css-transform",
+      "css-transition"
+    ]
+  },
+  "gentle-button-press": {
+    "provider": "native-web",
+    "status": "supported",
+    "methods": [
+      "dom-pointer-events",
+      "css-transform",
+      "css-transition"
+    ]
+  },
+  "sequential-content-entry": {
+    "provider": "native-web",
+    "status": "supported",
+    "methods": [
+      "web-animations",
+      "css-transform"
+    ]
+  },
+  "water-ripple": {
+    "provider": "native-web",
+    "status": "supported",
+    "methods": [
+      "dom-click",
+      "css-keyframes"
+    ]
+  }
+}

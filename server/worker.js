@@ -1,5 +1,7 @@
 import assets from './assets.js';
 import catalog from './catalog.js';
+import compilerData from './compiler-data.js';
+import {compilerPrompt,validateModelIntent} from './compiler-core.js';
 import {validateSuggestions} from './core.js';
 import {tokenDanceEndpoint as endpoint, modelsEndpoint, exchangeEndpoint, validKey, validVerifier, gatewayError, compatibleModels, applicationURL, suggestionBody} from './tokendance.js';
 const security={'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"};
@@ -8,9 +10,10 @@ export async function translate(request,upstream=fetch){if(request.method!=='POS
  const key=request.headers.get('X-TokenDance-Key');if(!key||key.length>512||/[\r\n]/.test(key))return json({error:'auth'},401);
  let value;try{const text=await boundedText(request,16000);value=JSON.parse(text);}catch{return json({error:'input'},400);}
  if(typeof value.intent!=='string'||!value.intent.trim()||value.intent.length>2000||typeof value.model!=='string'||!/^[a-zA-Z0-9._:/-]{1,120}$/.test(value.model)||!['zh-CN','en','ja','ko','de'].includes(value.locale))return json({error:'input'},400);
- try{const response=await upstream(endpoint,{method:'POST',redirect:'error',signal:AbortSignal.timeout(35000),headers:{'Authorization':'Bearer '+key,'Content-Type':'application/json','X-App-URL':applicationURL(new URL('/',request.url))},body:JSON.stringify(suggestionBody(catalog.items,value))});
+ if(value.task!==undefined&&value.task!=='compile')return json({error:'input'},400);
+ try{const response=await upstream(endpoint,{method:'POST',redirect:'error',signal:AbortSignal.timeout(35000),headers:{'Authorization':'Bearer '+key,'Content-Type':'application/json','X-App-URL':applicationURL(new URL('/',request.url))},body:JSON.stringify(value.task==='compile'?compilerPrompt(catalog.items,compilerData,value):suggestionBody(catalog.items,value))});
  if(!response.ok){const error=gatewayError(response);return json({error:error.message,...(error.recovery?{recovery:error.recovery}:{})},error.message==='auth'?401:error.message==='limit'?429:502);}
- const result=JSON.parse(await boundedText(response,180000));let text=result.choices?.[0]?.message?.content;if(typeof text!=='string'||text.length>10000||text.includes(key))return json({error:'format'},502);text=text.trim().replace(/^```(?:json)?\s*/,'').replace(/\s*```$/,'');const candidates=validateSuggestions(JSON.parse(text),catalog.items);return json({candidates});
+ const result=JSON.parse(await boundedText(response,180000));let text=result.choices?.[0]?.message?.content;if(typeof text!=='string'||text.length>10000||text.includes(key))return json({error:'format'},502);text=text.trim().replace(/^```(?:json)?\s*/,'').replace(/\s*```$/,'');if(value.task==='compile')return json(validateModelIntent(JSON.parse(text),catalog,compilerData,value.intent));const candidates=validateSuggestions(JSON.parse(text),catalog.items);return json({candidates});
  }catch(error){return json({error:error?.name==='TimeoutError'||error?.name==='AbortError'||error instanceof TypeError?'network':'format'},502);}
 }
 async function boundedText(message,limit){if(!message.body)return '';const reader=message.body.getReader();const decoder=new TextDecoder();let size=0,text='';try{for(;;){const {done,value}=await reader.read();if(done)break;size+=value.byteLength;if(size>limit){await reader.cancel();throw new Error('Response too large');}text+=decoder.decode(value,{stream:true});}return text+decoder.decode();}finally{reader.releaseLock();}}

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "exaggerated-minimalism",
+  "kind": "term",
+  "domain": "ui",
+  "category": "style",
+  "status": "draft",
+  "canonical_name": "Exaggerated Minimalism",
+  "tags": [
+    "style",
+    "ui",
+    "exaggerated-minimalism",
+    "oversized minimalism",
+    "big type minimal layout",
+    "expressive minimalism"
+  ],
+  "related_ids": [
+    "visual-hierarchy"
+  ],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "夸张极简主义",
+      "aliases": [
+        "超大字极简",
+        "大标题留白",
+        "夸张比例排版"
+      ],
+      "description": "工作用风格标签：保留很少的内容，同时用超大标题、醒目比例或强烈留白制造冲击。强调的是视觉主次，不是删除用户完成任务所需的信息。",
+      "use_when": [
+        "首屏有一个需要突出表达的核心信息。",
+        "品牌主题适合以排印作为主要视觉。"
+      ],
+      "avoid_when": [
+        "不适合依赖同时比较大量信息的界面。",
+        "长标题不能在手机上被截断或挤出按钮。"
+      ],
+      "prompt_template": "用一个大标题承载首屏主题，其余信息精简为必要说明和主操作；通过留白与比例形成张力；为长文案和窄屏降低字号或换行，保持正文可读。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Exaggerated Minimalism",
+      "aliases": [
+        "oversized minimalism",
+        "big type minimal layout",
+        "expressive minimalism"
+      ],
+      "description": "A working style label for sparse content with oversized headings, striking proportions or pronounced whitespace. It emphasizes visual priority without removing information required to complete a task.",
+      "use_when": [
+        "The opening screen has one central message to emphasize.",
+        "Typography can carry the main brand expression."
+      ],
+      "avoid_when": [
+        "It is a poor fit for comparing many data points at once.",
+        "Long headings must not be clipped or crowd actions on mobile."
+      ],
+      "prompt_template": "Let one oversized heading carry the first-screen message, supported by essential copy and a primary action. Use whitespace and proportion for emphasis. Adapt type size and wrapping for long copy and narrow screens while keeping body text readable."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

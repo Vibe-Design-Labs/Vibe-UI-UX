@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "kinetic-typography",
+  "kind": "term",
+  "domain": "ui",
+  "category": "motion",
+  "status": "draft",
+  "canonical_name": "Kinetic Typography",
+  "tags": [
+    "motion",
+    "ui",
+    "kinetic-typography",
+    "animated typography",
+    "motion typography",
+    "text choreography"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "动态字体",
+      "aliases": [
+        "动态排印",
+        "文字入场",
+        "运动文字"
+      ],
+      "description": "通过文字的位置、比例、节奏或出现顺序传递强调与叙事的动态排印。它描述文字的运动编排，不等于使用某种特殊字体或让所有正文一直移动。",
+      "use_when": [
+        "短标题或关键短语需要额外强调。",
+        "运动与文字内容有清楚关系。"
+      ],
+      "avoid_when": [
+        "正文、表单标签和关键说明不应持续移动。",
+        "不能只在短暂动画的一帧展示必要内容。"
+      ],
+      "prompt_template": "为短标题设计可读的文字入场或强调，完成后停在稳定排版；保留完整静态文本、阅读顺序和换行规则；减少动态效果时直接显示最终文字，不用视觉拆字破坏文本语义。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Kinetic Typography",
+      "aliases": [
+        "animated typography",
+        "motion typography",
+        "text choreography"
+      ],
+      "description": "Animated typography that communicates emphasis or narrative through position, scale, timing or reveal order. It describes choreographed text movement, not a special typeface or continuously moving body copy.",
+      "use_when": [
+        "Short headings or key phrases benefit from added emphasis.",
+        "The motion has a clear relationship to the text."
+      ],
+      "avoid_when": [
+        "Body copy, form labels and essential instructions should not keep moving.",
+        "Required information must not exist only for one brief animation frame."
+      ],
+      "prompt_template": "Animate the entry or emphasis of short headings, then settle into a stable readable layout. Preserve complete static text, reading order and wrapping. Show final text immediately when motion is reduced, and avoid breaking text semantics for visual letter effects."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "减少动态效果处理的技术参考；不将其作为各审美标签的命名依据。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/%40media/prefers-reduced-motion",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

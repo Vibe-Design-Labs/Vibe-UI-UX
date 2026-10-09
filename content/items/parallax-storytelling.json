@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "parallax-storytelling",
+  "kind": "term",
+  "domain": "ui",
+  "category": "motion",
+  "status": "draft",
+  "canonical_name": "Parallax Storytelling",
+  "tags": [
+    "motion",
+    "ui",
+    "parallax-storytelling",
+    "scroll parallax",
+    "parallax narrative",
+    "layered scrolling"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "视差叙事",
+      "aliases": [
+        "滚动视差",
+        "视差滚动叙事",
+        "前后景差速"
+      ],
+      "description": "随滚动让前景与背景以不同幅度移动，以空间层次辅助内容叙事。它不应改变正常滚动的控制权，内容顺序与静态版本必须仍可理解。",
+      "use_when": [
+        "长页内容具有适合层次表达的叙事段落。",
+        "可提供完整静态阅读方案。"
+      ],
+      "avoid_when": [
+        "不要劫持滚动或改变浏览器正常导航习惯。",
+        "对运动敏感的用户需要关闭非必要位移。"
+      ],
+      "prompt_template": "保持浏览器原生滚动，只在装饰层使用适度前后景位移；正文与主操作保持稳定；限制层数与运动范围，提供静态或减少动态效果版本，所有内容按正常顺序可访问。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Parallax Storytelling",
+      "aliases": [
+        "scroll parallax",
+        "parallax narrative",
+        "layered scrolling"
+      ],
+      "description": "Using different scroll-relative movement for foreground and background to support a narrative through depth. It should not take control of scrolling; the content order and static version must remain understandable.",
+      "use_when": [
+        "A long page has narrative sections that benefit from depth cues.",
+        "A complete static reading alternative is available."
+      ],
+      "avoid_when": [
+        "Avoid scroll hijacking and changes to normal browser navigation.",
+        "Motion-sensitive users need a way to disable nonessential movement."
+      ],
+      "prompt_template": "Keep native browser scrolling and use restrained foreground-background movement only in decorative layers. Keep copy and primary actions stable, limit layers and motion range, provide static or reduced-motion alternatives, and preserve normal access to all content."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "减少动态效果处理的技术参考；不将其作为各审美标签的命名依据。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/%40media/prefers-reduced-motion",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

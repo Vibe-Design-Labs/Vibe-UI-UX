@@ -31,6 +31,7 @@ jobs:
         run: |
           npm test
           npm run check:content
+          npm run check:docs
       - name: Package open source and build static pages
         run: |
           python scripts/package-source.py

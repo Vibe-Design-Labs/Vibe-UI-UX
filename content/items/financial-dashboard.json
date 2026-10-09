@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "financial-dashboard",
+  "kind": "term",
+  "domain": "ux",
+  "category": "dashboard",
+  "status": "draft",
+  "canonical_name": "Financial Dashboard",
+  "tags": [
+    "dashboard",
+    "ux",
+    "financial-dashboard",
+    "finance dashboard",
+    "financial overview",
+    "cash-flow dashboard"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "财务看板",
+      "aliases": [
+        "财务概览",
+        "收支看板",
+        "现金流面板"
+      ],
+      "description": "围绕收入、费用、现金流或其他财务指标组织的看板。它描述数据与工作任务，不代表投资建议；每个数字需要币种、时间范围和会计或业务口径。",
+      "use_when": [
+        "使用者需要比较财务指标或追踪预算差异。",
+        "数据口径、访问权限与时间范围能够明确。"
+      ],
+      "avoid_when": [
+        "不能混合不同币种而不说明换算。",
+        "不应把未结算、预测或缺失数字伪装为实绩。"
+      ],
+      "prompt_template": "围绕任务分组展示收入、支出和现金流，明确币种、周期、单位和口径；将预算、实绩与预测区分开，负值与异常除颜色外还有文字提示；保留数据来源与访问权限说明。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Financial Dashboard",
+      "aliases": [
+        "finance dashboard",
+        "financial overview",
+        "cash-flow dashboard"
+      ],
+      "description": "A dashboard organized around financial measures such as revenue, expenses or cash flow. It describes data and work tasks rather than investment advice; values require currency, period and accounting or business definitions.",
+      "use_when": [
+        "Users need to compare financial measures or track budget variance.",
+        "Definitions, permissions and reporting periods can be made explicit."
+      ],
+      "avoid_when": [
+        "Do not combine currencies without explaining conversion.",
+        "Do not present unsettled, forecast or missing values as actual results."
+      ],
+      "prompt_template": "Group revenue, expenses and cash flow by the task, showing currency, period, units and definitions. Separate budgets, actual results and forecasts. Use textual cues as well as color for negative values and exceptions, and explain provenance and access permissions."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

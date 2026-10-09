@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "y2k-aesthetic",
+  "kind": "term",
+  "domain": "ui",
+  "category": "style",
+  "status": "draft",
+  "canonical_name": "Y2K Aesthetic",
+  "tags": [
+    "style",
+    "ui",
+    "y2k-aesthetic",
+    "Y2K style",
+    "millennium aesthetic",
+    "retro digital look"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "Y2K 美学",
+      "aliases": [
+        "千禧年美学",
+        "复古数字风",
+        "千禧科技感"
+      ],
+      "description": "借用世纪之交数字媒介常见的金属感、亮色、像素或塑料质感等意象表达复古数字氛围。它是宽泛审美标签，并不要求把老式界面的操作缺陷一并复制。",
+      "use_when": [
+        "品牌或活动希望表达复古数字氛围。",
+        "视觉素材与目标受众的语境相符。"
+      ],
+      "avoid_when": [
+        "不能用像素字体和高光材质牺牲长文本阅读。",
+        "不要把装饰窗口做成误导性的系统提示。"
+      ],
+      "prompt_template": "在标题、图像与少量装饰中使用金属或复古数字意象；正文和表单采用清楚的现代排版与操作反馈；明确区分装饰窗口与真正交互，保留无装饰的内容阅读区域。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Y2K Aesthetic",
+      "aliases": [
+        "Y2K style",
+        "millennium aesthetic",
+        "retro digital look"
+      ],
+      "description": "A broad aesthetic drawing on turn-of-the-century digital motifs such as metallic surfaces, bright colors, pixels or plastic-like textures. It evokes digital nostalgia without requiring the interaction flaws of old interfaces.",
+      "use_when": [
+        "A brand or campaign seeks a nostalgic digital tone.",
+        "The imagery fits the intended audience and context."
+      ],
+      "avoid_when": [
+        "Do not sacrifice long-text legibility for pixel fonts or glossy materials.",
+        "Do not make decorative windows look like deceptive system messages."
+      ],
+      "prompt_template": "Use metallic or retro digital motifs in headings, imagery and selected decoration. Keep body copy and forms readable with clear contemporary feedback. Distinguish decorative windows from actual interaction and preserve quiet content-reading areas."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

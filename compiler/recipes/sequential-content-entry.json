@@ -1,0 +1,40 @@
+{
+  "id": "sequential-content-entry",
+  "item_id": "staggered-reveal",
+  "target": "list",
+  "trigger": "appear",
+  "feature": "stagger",
+  "params": {
+    "duration_ms": 360,
+    "delay_ms": 70,
+    "offset_y_px": 16,
+    "easing": "ease-out"
+  },
+  "locales": {
+    "zh-CN": {
+      "name": "一个接一个出现",
+      "reason": "短间隔保持顺序和连贯。",
+      "review_status": "draft"
+    },
+    "en": {
+      "name": "One-by-one reveal",
+      "reason": "A short stagger preserves sequence and continuity.",
+      "review_status": "draft"
+    },
+    "ja": {
+      "name": "一つずつ表示",
+      "reason": "短い時間差で順番に表示。",
+      "review_status": "draft"
+    },
+    "ko": {
+      "name": "하나씩 나타내기",
+      "reason": "짧은 간격으로 순서대로 표시합니다.",
+      "review_status": "draft"
+    },
+    "de": {
+      "name": "Nacheinander einblenden",
+      "reason": "Kurze Abstände erhalten Reihenfolge und Zusammenhang.",
+      "review_status": "draft"
+    }
+  }
+}

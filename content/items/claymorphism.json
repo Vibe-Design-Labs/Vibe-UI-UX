@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "claymorphism",
+  "kind": "term",
+  "domain": "ui",
+  "category": "style",
+  "status": "draft",
+  "canonical_name": "Claymorphism",
+  "tags": [
+    "style",
+    "ui",
+    "claymorphism",
+    "clay UI",
+    "clay-like interface",
+    "soft molded cards"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "黏土拟态",
+      "aliases": [
+        "黏土UI",
+        "粘土质感",
+        "软塑形卡片"
+      ],
+      "description": "用圆润体积、柔和内外阴影与轻微高光营造黏土或软质塑形的外观。它是一种视觉处理，不能据此推断组件真的具有弹簧、拖拽或物理模拟。",
+      "use_when": [
+        "品牌或插图需要亲和的圆润体积感。",
+        "少量重点容器可以承受较多视觉细节。"
+      ],
+      "avoid_when": [
+        "体积与陰影不应吞掉组件内部空间。",
+        "交互状态不能只靠材质高光细微变化。"
+      ],
+      "prompt_template": "在少量卡片与图形上使用圆润体积、柔和阴影和适度高光；正文与控制标签保持清楚对比；按下、选中和焦点状态独立可辨，不默认附加未经定义的弹性动画。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Claymorphism",
+      "aliases": [
+        "clay UI",
+        "clay-like interface",
+        "soft molded cards"
+      ],
+      "description": "A visual treatment suggesting clay or soft molded material through rounded volume, gentle inner and outer shadows and mild highlights. Appearance alone does not imply spring motion, dragging or physical simulation.",
+      "use_when": [
+        "The brand or illustration benefits from friendly rounded volume.",
+        "A small number of highlighted surfaces can support richer visual detail."
+      ],
+      "avoid_when": [
+        "Volume and shadows should not consume needed content space.",
+        "Interactive states must not rely solely on subtle highlight changes."
+      ],
+      "prompt_template": "Apply rounded volume, gentle shadows and moderate highlights to selected cards or graphics. Keep text and control labels clearly legible. Make pressed, selected and focused states independently recognizable without assuming unspecified elastic motion."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

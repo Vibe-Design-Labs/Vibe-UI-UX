@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "drill-down-analytics",
+  "kind": "term",
+  "domain": "ux",
+  "category": "dashboard",
+  "status": "draft",
+  "canonical_name": "Drill-Down Analytics",
+  "tags": [
+    "dashboard",
+    "ux",
+    "drill-down-analytics",
+    "drill-down",
+    "hierarchical analytics",
+    "aggregate-to-detail"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "下钻分析",
+      "aliases": [
+        "数据下钻",
+        "从概览到明细",
+        "层级分析"
+      ],
+      "description": "从汇总指标逐步进入细分数据，并保留维度与筛选上下文的分析交互。下钻通常沿分类或层级深入，不等于任何“点击查看详情”。",
+      "use_when": [
+        "用户需要定位汇总变化背后的群组或项目。",
+        "数据具有可解释的维度或层级。"
+      ],
+      "avoid_when": [
+        "没有清楚维度时不要设计无限层级跳转。",
+        "不能在下钻后悄悄改变指标口径。"
+      ],
+      "prompt_template": "从概览提供进入分组和明细的入口，保持时间范围、筛选与指标定义一致；用面包屑或当前维度说明位置；返回上层时恢复原视图和筛选，必要时区分下钻与独立详情。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Drill-Down Analytics",
+      "aliases": [
+        "drill-down",
+        "hierarchical analytics",
+        "aggregate-to-detail"
+      ],
+      "description": "An analysis interaction that moves from aggregate metrics to more detailed dimensions while preserving filters and context. Drill-down usually follows a category hierarchy rather than meaning any generic details click.",
+      "use_when": [
+        "Users need to identify groups or records behind aggregate changes.",
+        "The data has meaningful dimensions or hierarchy."
+      ],
+      "avoid_when": [
+        "Avoid endless hierarchical navigation without meaningful dimensions.",
+        "Do not silently change metric definitions after drilling down."
+      ],
+      "prompt_template": "Provide routes from overview to grouped data and records, preserving time range, filters and metric definitions. Show the current dimension through breadcrumbs or context labels. Restore the prior view when returning, and distinguish drill-down from independent detail views."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "看板布局与联动原则参考；并非该业务功能已经实现的证明。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://www.carbondesignsystem.com/building-blocks/data-visualization/dashboards",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "data-dense-dashboard",
+  "kind": "term",
+  "domain": "ux",
+  "category": "dashboard",
+  "status": "draft",
+  "canonical_name": "Data-Dense Dashboard",
+  "tags": [
+    "dashboard",
+    "ux",
+    "data-dense-dashboard",
+    "dense dashboard",
+    "information-dense dashboard",
+    "analyst workspace"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "高密度数据看板",
+      "aliases": [
+        "密集分析面板",
+        "专业数据工作台",
+        "高信息密度"
+      ],
+      "description": "面向经常比较和定位细节的专业用户，在可读的基础上集中呈现较多指标、表格和筛选。高密度来自有效组织，不等于缩小所有字号或去掉间距。",
+      "use_when": [
+        "专业用户需要同时比较多项数据。",
+        "具有稳定的表格结构和明确筛选维度。"
+      ],
+      "avoid_when": [
+        "新用户缺少指标解释时会难以理解。",
+        "不要牺牲文字可读性与可点击区域。"
+      ],
+      "prompt_template": "用稳定网格、紧凑但清楚的表格和分组标签增加有效密度；筛选条件保持可见，数字列对齐并标出单位；按任务提供详情展开或聚焦视图，不以小字号代替信息组织。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Data-Dense Dashboard",
+      "aliases": [
+        "dense dashboard",
+        "information-dense dashboard",
+        "analyst workspace"
+      ],
+      "description": "A dashboard approach for expert users who compare and locate detailed information frequently. Density comes from effective organization of metrics, tables and filters, not from shrinking every label or eliminating spacing.",
+      "use_when": [
+        "Expert users need to compare multiple data points simultaneously.",
+        "Stable tables and clear filtering dimensions support the task."
+      ],
+      "avoid_when": [
+        "Unexplained metrics make the page difficult for new users.",
+        "Do not trade away legibility or usable interaction targets."
+      ],
+      "prompt_template": "Increase useful density with a stable grid, compact readable tables and grouped labels. Keep filters visible, align numeric columns and show units. Provide task-based detail or focus views instead of substituting tiny text for organization."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "看板布局与联动原则参考；并非该业务功能已经实现的证明。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://www.carbondesignsystem.com/building-blocks/data-visualization/dashboards",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

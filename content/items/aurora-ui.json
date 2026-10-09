@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "aurora-ui",
+  "kind": "term",
+  "domain": "ui",
+  "category": "style",
+  "status": "draft",
+  "canonical_name": "Aurora UI",
+  "tags": [
+    "style",
+    "ui",
+    "aurora-ui",
+    "aurora gradient",
+    "soft gradient background",
+    "diffuse multicolor glow"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "极光 UI",
+      "aliases": [
+        "极光渐变",
+        "柔光渐变背景",
+        "彩色模糊光团"
+      ],
+      "description": "工作用视觉标签：用柔和、多色、边界模糊的渐变光团形成极光般的背景氛围。渐变本身不是鼠标聚光、真实光照模拟或已经实现的动态效果。",
+      "use_when": [
+        "品牌背景需要柔和的色彩氛围。",
+        "前景内容有独立的稳定承载表面。"
+      ],
+      "avoid_when": [
+        "变化背景不能持续影响文字对比。",
+        "不应默认使用持续移动的大面积光团。"
+      ],
+      "prompt_template": "以少量柔和多色渐变作为背景，前景文字和操作保持稳定对比；渐变不遮挡组件边界；如增加缓慢变化，提供静态替代与减少动态效果支持，不把装饰称为真实照明。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Aurora UI",
+      "aliases": [
+        "aurora gradient",
+        "soft gradient background",
+        "diffuse multicolor glow"
+      ],
+      "description": "A working visual label for soft multicolor gradients with diffuse boundaries that evoke an aurora-like background. A gradient alone is not a cursor spotlight, physical lighting simulation or an implemented animation.",
+      "use_when": [
+        "The brand background benefits from soft color atmosphere.",
+        "Foreground content has its own stable surface."
+      ],
+      "avoid_when": [
+        "Changing backgrounds must not undermine text contrast.",
+        "Do not default to large continuously moving color fields."
+      ],
+      "prompt_template": "Use a limited number of soft multicolor gradients in the background while keeping foreground text and actions consistently legible. Preserve component boundaries. If slow animation is added, provide a static alternative and reduced-motion support; do not label decoration as physical lighting."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

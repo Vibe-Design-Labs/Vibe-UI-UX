@@ -14,7 +14,7 @@ import sys
 root = Path(__file__).resolve().parents[1]
 originals = Path(sys.argv[1]).resolve()
 chars = set()
-for folder in ('public', 'content'):
+for folder in ('public', 'content', 'compiler'):
     for path in (root / folder).rglob('*'):
         if path.suffix in ('.html', '.js', '.json'):
             chars.update(path.read_text(encoding='utf-8'))

@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "zero-interface",
+  "kind": "term",
+  "domain": "ui",
+  "category": "pattern",
+  "status": "draft",
+  "canonical_name": "Zero Interface",
+  "tags": [
+    "pattern",
+    "ui",
+    "zero-interface",
+    "Zero UI",
+    "screenless interaction",
+    "ambient interaction"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "零界面",
+      "aliases": [
+        "零UI",
+        "无屏幕交互",
+        "环境式交互"
+      ],
+      "description": "用语音、环境感知或其他低屏幕依赖方式完成任务的方向性标签。“零界面”不表示没有交互设计；用户仍需要知道系统状态、控制权限以及如何退出或纠正。",
+      "use_when": [
+        "任务适合非视觉通道且用户能够明确控制。",
+        "有可靠的状态反馈和替代操作方式。"
+      ],
+      "avoid_when": [
+        "不能默认持续监听或隐瞒数据采集。",
+        "语音或手势不能成为排他的唯一通道。"
+      ],
+      "prompt_template": "减少对屏幕的依赖，但为启动、监听、执行和结束提供明确反馈；说明采集范围与权限，提供停止、纠正和撤销方式；为不能使用主要通道的用户保留可访问的替代入口。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Zero Interface",
+      "aliases": [
+        "Zero UI",
+        "screenless interaction",
+        "ambient interaction"
+      ],
+      "description": "A directional label for tasks using voice, ambient sensing or other methods with less dependence on screens. It does not eliminate interaction design: users still need status, control, consent and ways to exit or correct the system.",
+      "use_when": [
+        "The task suits nonvisual channels and users can maintain control.",
+        "Reliable status feedback and alternative interaction methods are available."
+      ],
+      "avoid_when": [
+        "Do not default to continuous listening or conceal data collection.",
+        "Voice or gesture must not become an exclusive interaction channel."
+      ],
+      "prompt_template": "Reduce screen dependence while giving explicit feedback for activation, listening, execution and completion. Explain data collection and permissions, provide stop, correction and undo, and retain accessible alternatives for users who cannot use the main channel."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "warm-card-spotlight",
+  "item_id": "cursor-spotlight",
+  "target": "card",
+  "trigger": "hover",
+  "feature": "glow",
+  "params": {
+    "radius_px": 160,
+    "opacity": 0.12,
+    "color": "#EBCB8B",
+    "follow_ms": 80,
+    "lift_px": 3,
+    "duration_ms": 180
+  },
+  "locales": {
+    "zh-CN": {
+      "name": "暖光与轻微抬升",
+      "reason": "同一模板演示聚光与抬升，不叠加渲染器。",
+      "review_status": "draft"
+    },
+    "en": {
+      "name": "Warm light & gentle lift",
+      "reason": "One template previews spotlight and lift together.",
+      "review_status": "draft"
+    },
+    "ja": {
+      "name": "暖かい光と小さな浮き上がり",
+      "reason": "一つのテンプレートで光と移動を表示。",
+      "review_status": "draft"
+    },
+    "ko": {
+      "name": "따뜻한 빛과 작은 상승",
+      "reason": "템플릿 하나로 빛과 상승을 표시합니다.",
+      "review_status": "draft"
+    },
+    "de": {
+      "name": "Warmes Licht & kleiner Hub",
+      "reason": "Eine Vorlage zeigt Licht und Hub gemeinsam.",
+      "review_status": "draft"
+    }
+  }
+}

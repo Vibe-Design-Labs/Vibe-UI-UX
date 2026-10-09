@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "skeuomorphism",
+  "kind": "term",
+  "domain": "ui",
+  "category": "style",
+  "status": "draft",
+  "canonical_name": "Skeuomorphism",
+  "tags": [
+    "style",
+    "ui",
+    "skeuomorphism",
+    "skeuomorphic UI",
+    "physical metaphor",
+    "material imitation"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "拟物化",
+      "aliases": [
+        "拟物界面",
+        "实体材质UI",
+        "物理隐喻"
+      ],
+      "description": "通过熟悉的实体材质、形状或操作隐喻帮助理解数字界面，例如翻页或旋钮的视觉暗示。相似外观不保证用户懂得功能，隐喻应符合实际操作。",
+      "use_when": [
+        "实体工具的形状确实能帮助理解对应操作。",
+        "产品需要少量可识别的材质与空间暗示。"
+      ],
+      "avoid_when": [
+        "不熟悉实体原型的用户可能无法理解隐喻。",
+        "装饰细节不能遮挡状态与必要标签。"
+      ],
+      "prompt_template": "只在能辅助理解的组件上采用实体形状或材质隐喻；配合明确文字标签与真实状态反馈；避免让装饰细节压过任务信息，为不熟悉隐喻的用户提供直接说明。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Skeuomorphism",
+      "aliases": [
+        "skeuomorphic UI",
+        "physical metaphor",
+        "material imitation"
+      ],
+      "description": "Using recognizable physical materials, shapes or interaction metaphors to help people interpret digital interfaces. Familiar appearance does not guarantee understanding; the metaphor should match actual behavior.",
+      "use_when": [
+        "A physical tool metaphor helps explain the corresponding action.",
+        "Selective material or spatial cues support recognition."
+      ],
+      "avoid_when": [
+        "People unfamiliar with the physical original may not understand the metaphor.",
+        "Decorative detail must not obscure states or necessary labels."
+      ],
+      "prompt_template": "Use physical shapes or material metaphors only where they aid understanding. Pair them with explicit labels and real state feedback. Keep decoration subordinate to task information and offer direct explanations for people unfamiliar with the metaphor."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

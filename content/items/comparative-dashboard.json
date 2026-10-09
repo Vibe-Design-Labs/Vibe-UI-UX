@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "comparative-dashboard",
+  "kind": "term",
+  "domain": "ux",
+  "category": "dashboard",
+  "status": "draft",
+  "canonical_name": "Comparative Analysis Dashboard",
+  "tags": [
+    "dashboard",
+    "ux",
+    "comparative-dashboard",
+    "comparison dashboard",
+    "comparative analytics",
+    "cohort comparison"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "对比分析看板",
+      "aliases": [
+        "横向对比看板",
+        "组间比较",
+        "周期比较面板"
+      ],
+      "description": "将不同时间、群组、方案或业务单元放在可比较的指标框架中。比较需要一致的单位、时间范围与统计口径，色彩不同不代表数据可直接相比。",
+      "use_when": [
+        "用户需要判断不同对象或时期之间的差异。",
+        "数据具有可解释的一致或可转换口径。"
+      ],
+      "avoid_when": [
+        "不能使用不一致坐标范围误导比较。",
+        "不要忽略样本量或数据缺失造成的差异。"
+      ],
+      "prompt_template": "并排展示可比较对象，统一单位、时间范围和图表尺度；突出差值与必要基准，说明样本量和口径差异；筛选变化后同步更新所有相关视图，并保留当前比较条件。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Comparative Analysis Dashboard",
+      "aliases": [
+        "comparison dashboard",
+        "comparative analytics",
+        "cohort comparison"
+      ],
+      "description": "A dashboard approach for comparing periods, cohorts, scenarios or business units within a consistent metric framework. Units, time windows and definitions must be comparable; different colors do not make unrelated data comparable.",
+      "use_when": [
+        "Users need to assess differences between groups or periods.",
+        "The data has consistent or explicitly convertible definitions."
+      ],
+      "avoid_when": [
+        "Avoid misleading comparisons with inconsistent axis scales.",
+        "Do not ignore differences caused by sample size or missing data."
+      ],
+      "prompt_template": "Show comparable entities side by side with consistent units, time ranges and scales. Highlight differences and relevant baselines, and explain sample sizes or definition changes. Update related views together after filtering and keep comparison conditions visible."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "看板布局与联动原则参考；并非该业务功能已经实现的证明。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://www.carbondesignsystem.com/building-blocks/data-visualization/dashboards",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

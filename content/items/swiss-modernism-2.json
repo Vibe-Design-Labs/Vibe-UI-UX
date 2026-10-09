@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "id": "swiss-modernism-2",
+  "kind": "term",
+  "domain": "ui",
+  "category": "style",
+  "status": "draft",
+  "canonical_name": "Swiss Modernism 2.0",
+  "tags": [
+    "style",
+    "ui",
+    "swiss-modernism-2",
+    "contemporary Swiss style",
+    "Swiss grid reinterpretation",
+    "modern Swiss typography"
+  ],
+  "related_ids": [
+    "minimalism-swiss",
+    "visual-hierarchy"
+  ],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "瑞士现代主义 2.0",
+      "aliases": [
+        "当代瑞士排版",
+        "现代瑞士栅格",
+        "瑞士风格新演绎"
+      ],
+      "description": "工作用当代风格标签：在瑞士栅格与排印秩序的基础上加入更灵活的比例、色彩或响应式变化。“2.0”不是统一版本的行业规范，需明确实际要采用哪些特征。",
+      "use_when": [
+        "需要清楚信息秩序，同时保留当代表达。",
+        "可以明确选择栅格、排印和视觉变化规则。"
+      ],
+      "avoid_when": [
+        "不要把版本名当作可直接实现的完整规范。",
+        "变化比例不应破坏文本和交互一致性。"
+      ],
+      "prompt_template": "采用清楚的栅格、排印层级与对齐规则，在少量主视觉中引入更灵活的比例或色彩；响应式保持阅读顺序和组件一致性；明确特征与限制，不仅用“瑞士2.0”作为需求描述。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Swiss Modernism 2.0",
+      "aliases": [
+        "contemporary Swiss style",
+        "Swiss grid reinterpretation",
+        "modern Swiss typography"
+      ],
+      "description": "A working contemporary style label combining Swiss grid and typographic order with more flexible proportions, colors or responsive variation. The “2.0” suffix is not a universally versioned standard; specify the desired features.",
+      "use_when": [
+        "The design needs clear information order with contemporary expression.",
+        "Grid, typography and variation rules can be specified explicitly."
+      ],
+      "avoid_when": [
+        "Do not treat a version-like label as a complete implementation specification.",
+        "Expressive proportions must not break reading or interaction consistency."
+      ],
+      "prompt_template": "Use clear grid, typographic hierarchy and alignment rules, adding flexible proportions or color selectively in key visuals. Preserve reading order and component consistency across layouts. Specify concrete features and limits rather than using “Swiss 2.0” as the entire requirement."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "栅格对齐与响应式组织的概念参考，不作为组合风格标签的定义依据。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://designsystem.digital.gov/utilities/layout-grid/",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

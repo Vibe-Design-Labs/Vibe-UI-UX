@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "hyperrealism-3d",
+  "kind": "term",
+  "domain": "ui",
+  "category": "style",
+  "status": "draft",
+  "canonical_name": "3D & Hyperrealism",
+  "tags": [
+    "style",
+    "ui",
+    "hyperrealism-3d",
+    "3D visual design",
+    "hyperrealistic imagery",
+    "dimensional product render"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "3D 与超写实",
+      "aliases": [
+        "超写实三维",
+        "三维主视觉",
+        "写实材质图"
+      ],
+      "description": "用具有体积、材质、光照或细节的三维视觉表达对象与品牌氛围。3D 与超写实不是同义词；真实感程度需由任务决定，也不代表页面已经支持交互三维模型。",
+      "use_when": [
+        "对象的体积、结构或材质确实帮助理解。",
+        "品牌主视觉需要少量三维素材。"
+      ],
+      "avoid_when": [
+        "不要用高成本三维装饰拖慢关键内容。",
+        "装饰模型不能暗示并不存在的产品能力。"
+      ],
+      "prompt_template": "确认三维素材对任务的作用，按需要选择静态图或受控交互模型；正文与操作独立可用，提供文字或平面替代；控制资源体积和加载状态，不把写实效果当成功能证明。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "3D & Hyperrealism",
+      "aliases": [
+        "3D visual design",
+        "hyperrealistic imagery",
+        "dimensional product render"
+      ],
+      "description": "Using dimensional imagery with material, lighting or detail to express objects and brand atmosphere. 3D and hyperrealism are not synonymous, and realistic imagery does not imply an interactive 3D model is implemented.",
+      "use_when": [
+        "Volume, structure or material helps explain the subject.",
+        "A small number of dimensional assets supports the brand."
+      ],
+      "avoid_when": [
+        "Do not delay essential content with expensive decorative rendering.",
+        "Decorative models must not imply nonexistent product capabilities."
+      ],
+      "prompt_template": "Confirm what dimensional imagery adds to the task, then choose a static image or controlled interactive model as appropriate. Keep text and actions usable independently, provide text or flat alternatives, manage asset size and loading states, and avoid treating realism as proof of functionality."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

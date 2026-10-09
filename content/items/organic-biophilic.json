@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "organic-biophilic",
+  "kind": "term",
+  "domain": "ui",
+  "category": "style",
+  "status": "draft",
+  "canonical_name": "Organic Biophilic",
+  "tags": [
+    "style",
+    "ui",
+    "organic-biophilic",
+    "nature-inspired UI",
+    "organic interface",
+    "biophilic visual direction"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "有机亲自然",
+      "aliases": [
+        "亲自然界面",
+        "自然有机风",
+        "植物与纸感"
+      ],
+      "description": "工作用视觉标签：用自然意象、非机械轮廓和温和材质表达亲自然感。它不是健康效果保证，也不要求给每个组件添加叶子、波浪或随机圆角。",
+      "use_when": [
+        "品牌主题与自然、生活或温和触感相关。",
+        "装饰能辅助情绪而不遮挡任务信息。"
+      ],
+      "avoid_when": [
+        "不规则形状不应损害对齐与可点击范围。",
+        "不要声称绿色与自然素材自动改善用户健康。"
+      ],
+      "prompt_template": "选用自然相关的色彩与适量素材，在装饰区域采用有机轮廓；功能组件仍保持稳定栅格、明确边界与文字对比；纹理轻量化，避免影响正文阅读和页面性能。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Organic Biophilic",
+      "aliases": [
+        "nature-inspired UI",
+        "organic interface",
+        "biophilic visual direction"
+      ],
+      "description": "A working visual label for nature-related imagery, less mechanical contours and gentle material cues. It does not guarantee health benefits or require leaves, waves and random rounded shapes on every component.",
+      "use_when": [
+        "The brand relates to nature, daily life or a gentle tactile tone.",
+        "Decoration supports mood without obscuring task information."
+      ],
+      "avoid_when": [
+        "Irregular shapes must not undermine alignment or usable targets.",
+        "Do not claim that green colors or natural motifs automatically improve health."
+      ],
+      "prompt_template": "Use nature-related colors and selective imagery, with organic contours in decorative areas. Keep functional components on a stable grid with clear boundaries and readable contrast. Use lightweight textures that do not impair reading or page performance."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

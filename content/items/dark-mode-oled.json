@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "id": "dark-mode-oled",
+  "kind": "term",
+  "domain": "ui",
+  "category": "style",
+  "status": "draft",
+  "canonical_name": "Dark Mode OLED",
+  "tags": [
+    "style",
+    "ui",
+    "dark-mode-oled",
+    "OLED dark theme",
+    "black theme",
+    "dark mode"
+  ],
+  "related_ids": [
+    "contrast"
+  ],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "OLED 深色模式",
+      "aliases": [
+        "纯黑主题",
+        "OLED黑色界面",
+        "深色模式"
+      ],
+      "description": "以深色表面为基础的显示方案，可在支持的 OLED 屏幕上选择黑色或近黑色背景。OLED 指屏幕技术，不是一个保证省电或提高可读性的 UI 风格名称。",
+      "use_when": [
+        "用户偏好深色主题或在低亮度环境使用。",
+        "产品需要保持深浅主题的内容与状态一致。"
+      ],
+      "avoid_when": [
+        "不要直接反转所有颜色或使用刺眼的满屏白字。",
+        "功耗与观感需要在实际设备上验证。"
+      ],
+      "prompt_template": "建立深色背景、表面和文字的层级色阶；正文使用足够对比且不过亮的色值，主操作和错误状态仍可辨认；同时提供浅色主题，不把纯黑或省电视为硬性保证。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Dark Mode OLED",
+      "aliases": [
+        "OLED dark theme",
+        "black theme",
+        "dark mode"
+      ],
+      "description": "A dark-surface display direction that may use black or near-black backgrounds on OLED screens. OLED is display technology, not a UI style that guarantees energy savings or better readability.",
+      "use_when": [
+        "Users prefer a dark theme or work in low-light environments.",
+        "The product needs consistent content and states across light and dark themes."
+      ],
+      "avoid_when": [
+        "Do not simply invert every color or fill the screen with glaring white text.",
+        "Validate energy use and visual comfort on actual devices."
+      ],
+      "prompt_template": "Define separate dark background, surface and text levels. Keep body copy legible without excessive brightness, and preserve recognizable actions and errors. Offer a light theme as well; do not promise that pure black is always preferable or saves energy."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "深浅主题与可读性原则参考；不是 OLED 功耗保证依据。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/dark-mode",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "id": "water-ripple",
+  "item_id": "click-ripple",
+  "target": "button",
+  "trigger": "click",
+  "feature": "ripple",
+  "params": {
+    "duration_ms": 500
+  },
+  "locales": {
+    "zh-CN": {
+      "name": "点击水波反馈",
+      "reason": "鼠标从点击位置扩散，键盘从中心开始。",
+      "review_status": "draft"
+    },
+    "en": {
+      "name": "Click ripple feedback",
+      "reason": "Mouse starts at the click; keyboard starts at the center.",
+      "review_status": "draft"
+    },
+    "ja": {
+      "name": "クリックの波紋",
+      "reason": "クリック位置、キーボードでは中央から開始。",
+      "review_status": "draft"
+    },
+    "ko": {
+      "name": "클릭 물결 피드백",
+      "reason": "클릭 위치에서, 키보드는 중심에서 시작합니다.",
+      "review_status": "draft"
+    },
+    "de": {
+      "name": "Klick-Wellenfeedback",
+      "reason": "Maus am Klickpunkt, Tastatur in der Mitte.",
+      "review_status": "draft"
+    }
+  }
+}

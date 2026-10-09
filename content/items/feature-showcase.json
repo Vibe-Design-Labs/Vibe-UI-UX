@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "feature-showcase",
+  "kind": "term",
+  "domain": "ux",
+  "category": "landing",
+  "status": "draft",
+  "canonical_name": "Feature-Rich Showcase",
+  "tags": [
+    "landing",
+    "ux",
+    "feature-showcase",
+    "feature showcase",
+    "capability overview",
+    "feature matrix"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "功能展示型",
+      "aliases": [
+        "功能陈列页",
+        "功能分组展示",
+        "功能矩阵"
+      ],
+      "description": "工作用页面标签：按用户目标分组介绍产品功能，用场景、实例和清楚的层级支持比较。它并不是把所有功能堆成等权重的卡片墙。",
+      "use_when": [
+        "产品有多组能力，用户需要选择适合自己的场景。",
+        "功能之间有明确分组和差异。"
+      ],
+      "avoid_when": [
+        "不要把路线图功能描述为已可使用。",
+        "全部等权展示会增加寻找关键能力的负担。"
+      ],
+      "prompt_template": "按用户任务分组介绍功能，先展示核心能力，再补充扩展能力；每组附一个具体使用例子与可验证状态；明确已支持、试验和计划中的功能，保留快速进入相关体验的入口。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Feature-Rich Showcase",
+      "aliases": [
+        "feature showcase",
+        "capability overview",
+        "feature matrix"
+      ],
+      "description": "A working page label for showcasing capabilities in groups tied to user goals, with scenarios, examples and hierarchy. It is not an instruction to give every feature equal prominence.",
+      "use_when": [
+        "Users need to select among several capability groups.",
+        "Features have meaningful categories and differences."
+      ],
+      "avoid_when": [
+        "Do not present roadmap items as currently available.",
+        "Equal emphasis on every feature makes priority capabilities harder to find."
+      ],
+      "prompt_template": "Group capabilities by user task, lead with the core ones and then cover extensions. Provide a concrete example and verifiable availability for each group. Distinguish supported, experimental and planned features, and offer a direct route to relevant experiences."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

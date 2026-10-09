@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "memphis-design",
+  "kind": "term",
+  "domain": "ui",
+  "category": "style",
+  "status": "draft",
+  "canonical_name": "Memphis Design",
+  "tags": [
+    "style",
+    "ui",
+    "memphis-design",
+    "Memphis style",
+    "Memphis graphics",
+    "playful geometric design"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "孟菲斯设计",
+      "aliases": [
+        "孟菲斯几何",
+        "彩色几何拼贴",
+        "波点几何风"
+      ],
+      "description": "以鲜明几何图形、图案、色彩碰撞和有意的非对称构图形成活泼视觉。作为 UI 方向时，装饰层与功能层需要分开，图形不自动成为操作按钮。",
+      "use_when": [
+        "活动或品牌表达需要活泼的图形性格。",
+        "正文较少，可以为装饰预留空间。"
+      ],
+      "avoid_when": [
+        "密集业务界面不宜铺满高强度图案。",
+        "可操作元素不能与装饰图形混淆。"
+      ],
+      "prompt_template": "在主视觉与分区边缘使用少量几何图案和明确色彩对比；正文放在安静的表面上，操作组件保持统一形状与标签；控制图案数量，窄屏减少不必要装饰。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Memphis Design",
+      "aliases": [
+        "Memphis style",
+        "Memphis graphics",
+        "playful geometric design"
+      ],
+      "description": "A visual direction using bold geometry, patterns, contrasting colors and deliberate asymmetry. In interfaces, decoration and functional controls need distinct roles; graphic motifs do not automatically become buttons.",
+      "use_when": [
+        "A campaign or brand benefits from playful graphic expression.",
+        "Limited copy leaves room for decorative composition."
+      ],
+      "avoid_when": [
+        "Avoid filling dense work interfaces with intense patterns.",
+        "Do not make controls indistinguishable from decorative shapes."
+      ],
+      "prompt_template": "Use selective geometric patterns and clear color contrast in key visuals and section edges. Put body text on quiet surfaces and give controls consistent shapes and labels. Limit competing patterns and reduce unnecessary decoration on narrow screens."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "孟菲斯设计与几何图形背景参考；UI 应用建议为本项目原创。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://www.vam.ac.uk/info/collection-selection-boxes-postmodern-design",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

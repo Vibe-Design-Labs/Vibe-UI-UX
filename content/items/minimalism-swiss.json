@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "id": "minimalism-swiss",
+  "kind": "term",
+  "domain": "ui",
+  "category": "style",
+  "status": "draft",
+  "canonical_name": "Minimalism & Swiss Style",
+  "tags": [
+    "style",
+    "ui",
+    "minimalism-swiss",
+    "Swiss style",
+    "International Typographic Style",
+    "minimal Swiss layout"
+  ],
+  "related_ids": [
+    "visual-hierarchy",
+    "whitespace"
+  ],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "极简与瑞士风格",
+      "aliases": [
+        "瑞士平面风格",
+        "国际主义排版",
+        "极简栅格"
+      ],
+      "description": "组合检索标签：极简强调减少无关元素，瑞士风格强调清晰栅格、无衬线排印与信息秩序。两者可以结合，但不属于同一个定义完全相同的流派。",
+      "use_when": [
+        "文本和信息层级比装饰更重要。",
+        "需要建立一致的排版与对齐关系。"
+      ],
+      "avoid_when": [
+        "不要把极简变成隐藏重要操作或帮助。",
+        "品牌需要丰富叙事时，可保留必要的图像与情绪。"
+      ],
+      "prompt_template": "删去重复装饰，按明确栅格对齐标题、正文与操作；用字体大小、字重和留白区分层级，保留可见的操作提示；不要用极低对比度表达克制。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Minimalism & Swiss Style",
+      "aliases": [
+        "Swiss style",
+        "International Typographic Style",
+        "minimal Swiss layout"
+      ],
+      "description": "A combined search label: minimalism removes nonessential elements, while Swiss style emphasizes structured grids, clear typography and visual order. They can work together but are not identical design traditions.",
+      "use_when": [
+        "Typography and information hierarchy matter more than decoration.",
+        "The product needs a consistent alignment and spacing system."
+      ],
+      "avoid_when": [
+        "Do not hide essential actions or help in the name of minimalism.",
+        "Retain meaningful imagery when the brand needs a richer narrative."
+      ],
+      "prompt_template": "Remove redundant decoration and align headings, body text and actions to a clear grid. Use type size, weight and whitespace for hierarchy, retain visible interaction cues, and keep restrained styling legible."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "栅格对齐与响应式组织的概念参考，不作为组合风格标签的定义依据。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://designsystem.digital.gov/utilities/layout-grid/",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

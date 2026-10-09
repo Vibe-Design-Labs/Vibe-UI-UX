@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "ai-native-ui",
+  "kind": "term",
+  "domain": "ui",
+  "category": "pattern",
+  "status": "draft",
+  "canonical_name": "AI-Native UI",
+  "tags": [
+    "pattern",
+    "ui",
+    "ai-native-ui",
+    "AI-first interface",
+    "generative UI",
+    "human-AI interaction"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "AI 原生 UI",
+      "aliases": [
+        "AI优先交互",
+        "智能生成界面",
+        "人机协作界面"
+      ],
+      "description": "围绕 AI 的不确定输出、用户输入、校验和修正关系设计的交互方向。它不是在普通界面中添加聊天框，也不能以“AI 原生”暗示所有建议都准确或所有行动都已完成。",
+      "use_when": [
+        "AI 能力是任务核心且输出需要用户检查。",
+        "产品能够区分生成、验证和执行阶段。"
+      ],
+      "avoid_when": [
+        "不能用流畅文本伪装为已经验证的事实。",
+        "模型建议不应默认直接执行重要外部操作。"
+      ],
+      "prompt_template": "围绕输入、生成、检查与修正组织任务，显示来源、限制与实际执行状态；提供可编辑结果、撤销与非AI替代路径；必要动作由用户确认，不把建议当作已执行结果。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "AI-Native UI",
+      "aliases": [
+        "AI-first interface",
+        "generative UI",
+        "human-AI interaction"
+      ],
+      "description": "An interaction direction designed around uncertain AI output, user input, validation and correction. It is not merely a chat box added to an ordinary interface, and the label does not imply that every suggestion is correct or every action is complete.",
+      "use_when": [
+        "AI capabilities are central to the task and outputs need user review.",
+        "The product can distinguish generation, validation and execution."
+      ],
+      "avoid_when": [
+        "Do not present fluent text as automatically verified fact.",
+        "Model suggestions should not automatically execute consequential external actions."
+      ],
+      "prompt_template": "Organize the task around input, generation, review and correction. Show provenance, limitations and actual execution state. Offer editable results, undo and non-AI alternatives; require confirmation where needed and distinguish suggestions from executed outcomes."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "人机理解、校验与信任边界参考，不将工作标签当作统一视觉体系。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://pair.withgoogle.com/guidebook-v2/chapter/explainability-trust/",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "hero-centric",
+  "kind": "term",
+  "domain": "ui",
+  "category": "landing",
+  "status": "draft",
+  "canonical_name": "Hero-Centric Design",
+  "tags": [
+    "landing",
+    "ui",
+    "hero-centric",
+    "hero section",
+    "hero-first landing page",
+    "hero layout"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "Hero 核心型",
+      "aliases": [
+        "首屏主视觉",
+        "大标题首页",
+        "Hero区"
+      ],
+      "description": "以首屏 Hero 区域集中表达产品价值的页面组织方式，通常包含一个主要标题、简短说明、视觉证据与主行动入口。Hero 是内容优先级安排，不保证转化提升。",
+      "use_when": [
+        "新访客需要迅速理解产品面向谁、解决什么问题。",
+        "首屏有一个明确的下一步动作。"
+      ],
+      "avoid_when": [
+        "主视觉不能把核心说明与按钮挤到不可见位置。",
+        "不要用空泛标语替代可核实的产品价值。"
+      ],
+      "prompt_template": "首屏先说明产品对象和解决的问题，配一个可核实的界面或成果示例；突出一个主操作，次要链接降低视觉权重；移动端优先保留标题、价值说明和入口。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Hero-Centric Design",
+      "aliases": [
+        "hero section",
+        "hero-first landing page",
+        "hero layout"
+      ],
+      "description": "A page organization pattern that concentrates product value in the opening hero section through a main heading, concise explanation, supporting visual evidence and a primary action. It does not guarantee higher conversion.",
+      "use_when": [
+        "New visitors need to understand the audience and product purpose quickly.",
+        "The opening screen has one clear next action."
+      ],
+      "avoid_when": [
+        "Do not let imagery push essential explanation and actions out of view.",
+        "Avoid replacing verifiable value with vague slogans."
+      ],
+      "prompt_template": "State who the product is for and what problem it solves, supported by a verifiable interface or outcome example. Prioritize one action and give secondary links less weight. Keep the heading, value explanation and entry point prominent on mobile."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "首屏层级与理解产品价值的设计参考；不构成转化效果保证。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://www.nngroup.com/articles/first-impressions-human-automaticity/",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}

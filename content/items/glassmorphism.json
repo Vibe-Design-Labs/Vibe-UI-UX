@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "id": "glassmorphism",
+  "kind": "term",
+  "domain": "ui",
+  "category": "style",
+  "status": "draft",
+  "canonical_name": "Glassmorphism",
+  "tags": [
+    "style",
+    "ui",
+    "glassmorphism",
+    "frosted glass",
+    "glass card",
+    "translucent panel"
+  ],
+  "related_ids": [],
+  "locales": {
+    "zh-CN": {
+      "review_status": "draft",
+      "name": "玻璃拟态",
+      "aliases": [
+        "玻璃卡片",
+        "磨砂玻璃",
+        "毛玻璃面板",
+        "backdrop-filter"
+      ],
+      "description": "以半透明表面、背景模糊和细致边缘表现磨砂玻璃般的层次。实际内容的可读性取决于背景与表面的组合，不能只看单独一张浅色样稿。",
+      "use_when": [
+        "内容上方需要一层轻量浮动容器。",
+        "背景具备可辨识层次且文本仍有足够对比。"
+      ],
+      "avoid_when": [
+        "密集表格或复杂背景容易使文字难读。",
+        "不支持模糊或减少透明效果时需要实色回退。"
+      ],
+      "prompt_template": "为少量浮动卡片采用半透明底色、背景模糊与可见边界；文本使用稳定的高对比色，先检查复杂背景；提供不依赖模糊的实色替代，不把所有容器都做成玻璃。"
+    },
+    "en": {
+      "review_status": "draft",
+      "name": "Glassmorphism",
+      "aliases": [
+        "frosted glass",
+        "glass card",
+        "translucent panel",
+        "backdrop-filter"
+      ],
+      "description": "A visual style using translucent surfaces, blurred backdrops and subtle edges to suggest frosted glass and layered depth. Legibility depends on the combined surface and background, not on an isolated mockup.",
+      "use_when": [
+        "A lightweight floating surface is useful above background content.",
+        "Background depth can remain visible without weakening text contrast."
+      ],
+      "avoid_when": [
+        "Dense tables and busy backgrounds can make translucent content difficult to read.",
+        "Provide an opaque fallback when blur or translucency is unavailable."
+      ],
+      "prompt_template": "Use translucency, backdrop blur and visible edges for a small number of floating cards. Keep text contrast stable across busy backgrounds and provide an opaque alternative that works without blur. Avoid applying glass treatment to every container."
+    }
+  },
+  "preview": null,
+  "sources": [
+    {
+      "type": "original",
+      "note": "本项目依开工包清单原创编写中英释义、适用条件与操作描述；尚未人工审校，非外部文章转述。",
+      "url": null,
+      "license": "MIT",
+      "reuse_permission": "not-applicable"
+    },
+    {
+      "type": "reference",
+      "note": "开工包列出的参考文章；原文读取未成功，未核实其中的具体表述与适用场景，未复制外部正文或代码。",
+      "url": "https://mp.weixin.qq.com/s/tZ6oXI5xOsinbTV4vWMVQw",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    },
+    {
+      "type": "reference",
+      "note": "玻璃拟态与可读性限制的概念参考。 查阅范围为公开检索摘要；操作描述为原创，未复制外部文字或代码。",
+      "url": "https://www.nngroup.com/articles/glassmorphism/",
+      "license": "unknown",
+      "reuse_permission": "pending"
+    }
+  ]
+}
