@@ -3,8 +3,9 @@
     "provider": "native-web",
     "status": "supported",
     "methods": [
-      "css-transform",
-      "css-transition"
+      "dom-pointer-events",
+      "request-animation-frame",
+      "css-translate"
     ]
   },
   "warm-card-spotlight": {
@@ -13,9 +14,9 @@
     "methods": [
       "dom-pointer-events",
       "request-animation-frame",
+      "webgl-shader",
       "css-gradient",
-      "css-transform",
-      "css-transition"
+      "css-translate"
     ]
   },
   "gentle-button-press": {
@@ -23,16 +24,16 @@
     "status": "supported",
     "methods": [
       "dom-pointer-events",
-      "css-transform",
-      "css-transition"
+      "request-animation-frame",
+      "css-scale"
     ]
   },
   "sequential-content-entry": {
     "provider": "native-web",
     "status": "supported",
     "methods": [
-      "web-animations",
-      "css-transform"
+      "request-animation-frame",
+      "css-translate"
     ]
   },
   "water-ripple": {
@@ -40,7 +41,8 @@
     "status": "supported",
     "methods": [
       "dom-click",
-      "css-keyframes"
+      "request-animation-frame",
+      "dom-ripple"
     ]
   }
 }

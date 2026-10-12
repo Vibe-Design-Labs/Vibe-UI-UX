@@ -6,7 +6,7 @@
 
 [홈페이지](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [작업대 체험](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [변경 기록](CHANGELOG.md)
 
-**v0.4.1.2.1 · 75 디자인 항목 · 75 전용 미리보기 템플릿 · 5 로컬 레시피 유형 · MIT + OFL**
+**v0.4.2.0.0 · 75 디자인 항목 · 75 전용 미리보기 템플릿 · 5 로컬 레시피 유형 · MIT + OFL**
 
 [![실제 작업대 녹화: 나뭇잎 커서, 따뜻한 스포트라이트, 클릭 파동, 순차 등장](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -38,6 +38,17 @@ Design Compiler의 흐름은 **일상 표현 → 수정 가능한 의도 이해(
 용어 검색은 왼쪽에서 `frosted glass`, `backdrop-filter` 등의 별칭으로 가능합니다. **공개 항목마다 대응하는 미리보기가 있습니다.** 스타일은 고유 소재와 배치를, 모션은 실제 움직임을, 대시보드는 명시된 예시 데이터를, UX 원칙은 작업과 상태를 보여줍니다. 일반 개념 카드로 대신하지 않습니다. [전용 미리보기 규약](docs/PREVIEW_SCENES.md)(중국어).
 
 ![Design Compiler 작업대: 의도 이해, 실제 미리보기, 값과 Agent 설명](docs/media/studio.png)
+
+## 내 프로젝트에 효과 적용하기
+
+**5종 템플릿을 Web, React 컴포넌트 / hook, 영상 프로젝트 ZIP으로 내보냅니다**. 스포트라이트와 상승, 호버 상승, 누름, 클릭 파동, 순차 등장입니다. 조명만 WebGL을 사용하고 다른 동작은 DOM을 사용합니다.
+
+1. 지원 효과를 선택하고 조정합니다. Compiler 충돌이 있다면 먼저 확인합니다.
+2. 코드 출력 형식을 선택하거나 독립 예제에서 값과 시간축을 비교합니다.
+3. Web은 압축을 풀고 `node serve.mjs`를 실행합니다. React는 React 18/19 프로젝트에 넣습니다. 영상은 `npm install` 후 `npm run render`를 실행합니다.
+4. 저장 값을 바꾸려면 `effect.json`을 수정하고 `node sync-export.mjs`로 JSON, 설명, 명세를 동기화합니다. 다른 70개 항목은 대체 코드를 내보내지 않습니다.
+
+[적용 방법과 검증 범위](docs/WEB_COMPONENTS.md)(중국어). 키가 필요 없으며 영상은 4초의 정해진 데모입니다. 이번 버전은 검토 PR로 전달하며 수동 병합과 배포 후 공개 사이트가 갱신됩니다.
 
 ## AI가 필요할 때 TokenDance 연결
 
@@ -98,6 +109,12 @@ npm run preview:pages
 | `server/worker.js` | 선택적 로컬 중계. Pages에는 불필요 |
 | `.github/workflows/pages.yml` | 확인, 압축, 빌드, 배포 |
 
+## 커뮤니티 기여와 크레딧
+
+새 사례와 기능은 **비공개 제안 → 방향 확인 → Fork / PR → 관리자의 검토 → 수동 수록** 순서로 진행합니다. 자신의 사례에 이름을 표시할 수 있습니다. 검사를 통과해도 병합 승인을 의미하지 않습니다. 개인 정보가 없는 일반 버그는 Issue로 신고할 수 있습니다.
+
+[기여자 안내](docs/CONTRIBUTING.md) · [AI 안내](docs/CONTRIBUTING_AI.md) · [사례 제출 양식](docs/contributions/TEMPLATE.md) · [크레딧 목록](docs/contributions/README.md)(상세 안내는 현재 중국어). [확장 프로그램·재사용 코드·멀티 플랫폼 계획](docs/COMMUNITY_ROADMAP.md)은 향후 제안이며 출시된 기능이 아닙니다.
+
 ## 현재 제한
 
 - 항목 본문은 주로 중국어와 영어 초안입니다. 일본어·한국어·독일어 본문은 영어로 명시적으로 대체합니다. 5개 언어 UI와 5개 언어 지식의 검토 완료는 다릅니다.
@@ -105,10 +122,10 @@ npm run preview:pages
 - 구조 검증은 사실과 번역의 인증이 아닙니다. 초안이 남아 엄격한 공개 검토는 아직 통과하지 않습니다. 읽지 못한 위챗 기사 본문을 읽은 출처로 꾸미지 않았습니다.
 - 미리보기는 개념 예시이며 실제 데이터를 저장하지 않습니다. 구현 전 내보낸 결과를 확인하세요. 동작 줄이기, 터치, 키보드에 맞는 인터랙션을 유지합니다.
 
-[컴파일러 구조](docs/DESIGN_COMPILER.md) · [새 항목 50개와 출처](docs/CONTENT_EXPANSION_2026-10-07.md) · [배포 확인](docs/RELEASE_0.4.1.2.0.md) · [5단계 버전 규칙](docs/VERSIONING.md)(상세 문서는 중국어).
+[컴파일러 구조](docs/DESIGN_COMPILER.md) · [새 항목 50개와 출처](docs/CONTENT_EXPANSION_2026-10-07.md) · [배포 확인](docs/RELEASE_0.4.2.0.0.md) · [5단계 버전 규칙](docs/VERSIONING.md)(상세 문서는 중국어).
 
 ## 라이선스와 감사
 
 앱 코드는 [MIT](LICENSE)입니다. Ma Shan Zheng, LXGW WenKai, Caveat 글꼴은 **SIL OFL 1.1**이며 고지와 생성 절차는 [글꼴 안내](docs/FONTS.md)에 있습니다. README 화면과 녹화는 실제 프로젝트 화면입니다.
 
-초기 인터랙션 방향은 Hyperknow, 종이·먹·주홍·손글씨 분위기는 사용자 참고 이미지에서 출발했습니다. 배치와 코드는 직접 작성했고 참고 사이트의 이미지, 상표, 컴포넌트 소스를 재사용하지 않았습니다. 출처, 번역, 재현 가능한 효과, 오류 제안은 [Issues](https://github.com/Vibe-Design-Labs/Vibe-UI-UX/issues)에 남겨주세요.
+초기 인터랙션 방향은 Hyperknow, 종이·먹·주홍·손글씨 분위기는 사용자 참고 이미지에서 출발했습니다. 배치와 코드는 직접 작성했고 참고 사이트의 이미지, 상표, 컴포넌트 소스를 재사용하지 않았습니다. 출처, 번역, 재현 가능한 사례는 [기여자 안내](docs/CONTRIBUTING.md)에 따라 제안하세요. 일반 오류는 [Issues](https://github.com/Vibe-Design-Labs/Vibe-UI-UX/issues)에 남겨주세요.

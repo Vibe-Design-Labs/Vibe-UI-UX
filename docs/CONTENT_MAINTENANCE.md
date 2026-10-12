@@ -2,6 +2,8 @@
 
 维护 skill 为 skills/ui-ux-content-maintainer/SKILL.md。本项目已连接其内容契约：content/items、previews/registry.json、public/previews.js、public/core.js。skill 的 assets/example-pack 仅作为旧的独立样例，不是本项目真实数据。
 
+外部社区贡献先按 [人类版指南](CONTRIBUTING.md) 私信提案，也可以将 [AI 版指南](CONTRIBUTING_AI.md) 交给编程助手。署名、来源和验证使用 [共同提交表](contributions/TEMPLATE.md)。Fork / PR 只是待审请求，维护者手动决定收录；维护者本人授权的日常维护不需要重复走私信流程。
+
 维护步骤：
 
 1. 查看已有 JSON，确认是否只是既有术语的新别名；保留稳定 ID。
@@ -13,7 +15,7 @@
 
 新增内容不需要新增页面。新增演示通常需要开发工作：注册参数、实现 renderer、加入 rendererIds、处理取消与清理、补齐五语新增界面文案、验证预览与输出一致。
 
-GitHub Pages 更新：本地核验后运行 `python scripts/package-source.py`、`npm run build:pages`、`npm run preview:pages`。先在仓库子路径检查导航、字体、词库和参数，再提交 main；已开启 Pages 的仓库会自动验证并发布。首次 / fork 部署见 [Pages 指南](GITHUB_PAGES.md)。源码打包、构建与部署均不调用模型；不需要 GPT 额度或把 TokenDance Key 放到仓库。
+GitHub Pages 更新：本地核验后运行 `python scripts/package-source.py`、`npm run build:pages`、`npm run preview:pages`。先在仓库子路径检查导航、字体、词库和参数，再提交 PR 供维护者审核，人工合并后由 main 部署；已开启 Pages 的仓库会自动验证并发布。首次 / fork 部署见 [Pages 指南](GITHUB_PAGES.md)。源码打包、构建与部署均不调用模型；不需要 GPT 额度或把 TokenDance Key 放到仓库。
 
 不要重新运行一次性 scripts/seed-content.py 覆盖日后维护的内容。结构检查不会帮你联网核验来源，也不会证明知识与翻译正确。
 
@@ -36,3 +38,9 @@ GitHub Pages 更新：本地核验后运行 `python scripts/package-source.py`�
 新内容先完成场景、注册参数、描述变量和五语控件，再加入可见词库。运行 `npm run check:content`（含 `--require-previews`）、`npm test`、`npm run check:docs`。构建会拒绝缺失或未实现的预览；场景还要通过实际浏览器验证。整数数量参数可声明 `integer:true`，不允许用偷偷四舍五入的演示与导出不一致。
 
 完整对应关系、局部数据与 Web 材质近似的边界见 [专属场景说明](PREVIEW_SCENES.md)。这些脚本和演示不调用模型；用其他 AI 更新时也需遵守同一门槛。
+
+## 组件导出（0.4.2.0.0）
+
+[Web / React / 视频导出说明](WEB_COMPONENTS.md)给出支持范围和接入流程。首批 5 个模板改用共享 effect-kit，不再单独维护工作台与下载工程的近似算法。新增可导出模板必须同时具备真实绑定器、参数校验、清理、确定帧实现和证据，再加入 effect-contract 的白名单。源码包与 Pages 构建会复制这些模块；effect-registry.js 由 build 从注册表生成，不另写一份参数常量。
+
+改变导出工程的保存参数时使用 sync-export.mjs。保持预览、effect.json、intent.json、brief.txt 与 manifest 同参；有 Compiler 快照时，参数变更必须重新编译确认。维护脚本和代码导出不调用 AI。本轮先完善 Web，插件、移动 App 与 REA 暂缓。

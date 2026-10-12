@@ -6,7 +6,7 @@
 
 [Website](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [Studio ausprobieren](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [Änderungen](CHANGELOG.md)
 
-**v0.4.1.2.1 · 75 Designeinträge · 75 eigene Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
+**v0.4.2.0.0 · 75 Designeinträge · 75 eigene Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
 
 [![Echte Studioaufnahme: Blattzeiger, warmes Spotlight, Klickwelle und gestaffeltes Erscheinen](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -38,6 +38,17 @@ Design Compiler arbeitet nach **Alltagssprache → bearbeitbares Verständnis (D
 Für Begriffe kannst du links etwa `frosted glass` oder `backdrop-filter` suchen. **Jeder öffentliche Eintrag hat eine passende Vorschau.** Stile zeigen eigene Materialien und Layouts, Bewegungseinträge echte Animationen, Dashboards klar markierte Beispieldaten und UX-Prinzipien Aufgaben und Zustände. Allgemeine Platzhalter entfallen. Siehe den [Vorschauvertrag](docs/PREVIEW_SCENES.md) (Chinesisch).
 
 ![Design Compiler: Verständnis, Vorschau, Parameter und Agent-Beschreibung](docs/media/studio.png)
+
+## Effekte im eigenen Projekt verwenden
+
+**Fünf Vorlagen liefern ZIPs für Web, React-Komponente / Hook und Videoprojekt**: Spotlight mit Anhebung, Hover-Anhebung, Druckreaktion, Klickwelle und gestaffeltes Erscheinen. Nur die Lichtschicht nutzt WebGL, die übrigen Bewegungen DOM.
+
+1. Einen unterstützten Effekt auswählen und anpassen. Compiler-Konflikte vor dem Export bestätigen.
+2. Unter Komponentencode das Ziel wählen oder im eigenständigen Beispiel Parameter und Zeitachse vergleichen.
+3. Web: entpacken und `node serve.mjs` ausführen. React: in ein React-18/19-Projekt integrieren. Video: `npm install`, danach `npm run render`.
+4. Gespeicherte Werte in `effect.json` ändern und mit `node sync-export.mjs` JSON, Beschreibung und Manifest aktualisieren. Die anderen 70 Einträge exportieren keinen Platzhaltercode.
+
+[Integration und Prüfgrenzen](docs/WEB_COMPONENTS.md) (Chinesisch). Kein API-Schlüssel nötig; das Video ist eine viersekündige festgelegte Demonstration. Diese Version wird als Review-PR geliefert. Die öffentliche Website folgt nach manueller Zusammenführung und Deployment.
 
 ## TokenDance nur bei Bedarf verbinden
 
@@ -98,6 +109,12 @@ Führe `npm run check:content`, `npm test` und `npm run check:docs` aus. Baue be
 | `server/worker.js` | Optionaler lokaler Relay; für Pages nicht nötig |
 | `.github/workflows/pages.yml` | Prüfung, Verpackung, Build, Veröffentlichung |
 
+## Community-Beiträge und Namensnennung
+
+Neue Beispiele und Funktionen folgen diesem Ablauf: **privater Vorschlag → abgestimmte Richtung → Fork / PR → Prüfung durch den Maintainer → manuelle Aufnahme**. Beitragende können ihre Beispiele mit ihrem Namen versehen. Erfolgreiche Prüfungen genehmigen keinen Merge. Gewöhnliche Fehler ohne private Angaben können als Issue gemeldet werden.
+
+[Leitfaden für Beitragende](docs/CONTRIBUTING.md) · [KI-Leitfaden](docs/CONTRIBUTING_AI.md) · [Einreichungsformular](docs/contributions/TEMPLATE.md) · [Credits](docs/contributions/README.md) — ausführliche Anleitungen derzeit auf Chinesisch. Der [Plan für Erweiterung, wiederverwendbaren Code und mehrere Plattformen](docs/COMMUNITY_ROADMAP.md) beschreibt zukünftige Arbeit, keine veröffentlichten Funktionen.
+
 ## Aktuelle Grenzen
 
 - Eintragstexte sind überwiegend chinesische/englische Entwürfe. Japanische, koreanische und deutsche Inhalte fallen ausdrücklich auf Englisch zurück. Fünf Oberflächensprachen bedeuten keine fünf vollständig geprüften Wissensbestände.
@@ -105,10 +122,10 @@ Führe `npm run check:content`, `npm test` und `npm run check:docs` aus. Baue be
 - Strukturprüfung bestätigt weder Fakten noch Übersetzungen. Die strenge Inhaltsfreigabe scheitert weiterhin an Entwürfen. Nicht lesbare WeChat-Artikel wurden nicht als gelesene Quellen ausgegeben.
 - Vorschauen zeigen Konzepte und speichern keine echten Daten. Prüfe Exporte vor der Umsetzung. Reduzierte Bewegung, Touch und Tastatur werden berücksichtigt.
 
-[Compiler-Details](docs/DESIGN_COMPILER.md) · [50 neue Einträge und Quellen](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release-Prüfungen](docs/RELEASE_0.4.1.2.0.md) · [Fünfteilige Versionen](docs/VERSIONING.md) — die Detaildokumentation ist derzeit Chinesisch.
+[Compiler-Details](docs/DESIGN_COMPILER.md) · [50 neue Einträge und Quellen](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release-Prüfungen](docs/RELEASE_0.4.2.0.0.md) · [Fünfteilige Versionen](docs/VERSIONING.md) — die Detaildokumentation ist derzeit Chinesisch.
 
 ## Lizenz und Dank
 
 Anwendungscode: [MIT](LICENSE). Die Schriften Ma Shan Zheng, LXGW WenKai und Caveat: **SIL OFL 1.1**, mit vollständigen Hinweisen und Build-Schritten in der [Schriftdokumentation](docs/FONTS.md). README-Bilder zeigen die tatsächliche Projektoberfläche.
 
-Die frühe Interaktionsrichtung orientierte sich an Hyperknow; Papier, Tusche, Zinnoberrot und Handschrift an Nutzerreferenzen. Layout und Code sind eigenständig; Bilder, Marken und Komponentenquellen der Referenzseite wurden nicht übernommen. Verlässliche Quellen, Übersetzungen, reproduzierbare Effekte und Fehlerberichte sind über [Issues](https://github.com/Vibe-Design-Labs/Vibe-UI-UX/issues) willkommen.
+Die frühe Interaktionsrichtung orientierte sich an Hyperknow; Papier, Tusche, Zinnoberrot und Handschrift an Nutzerreferenzen. Layout und Code sind eigenständig; Bilder, Marken und Komponentenquellen der Referenzseite wurden nicht übernommen. Folge dem [Beitragsleitfaden](docs/CONTRIBUTING.md) für Quellen, Übersetzungen und reproduzierbare Beispiele. Gewöhnliche Fehler können als [Issue](https://github.com/Vibe-Design-Labs/Vibe-UI-UX/issues) gemeldet werden.

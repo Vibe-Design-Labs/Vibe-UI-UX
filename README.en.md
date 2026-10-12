@@ -6,7 +6,7 @@
 
 [Website](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [Try the studio](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [Changelog](CHANGELOG.md)
 
-**v0.4.1.2.1 · 75 design entries · 75 dedicated preview templates · 5 local recipe families · MIT + OFL**
+**v0.4.2.0.0 · 75 design entries · 75 dedicated preview templates · 5 local recipe families · MIT + OFL**
 
 [![Real studio capture: leaf cursor, warm spotlight, click ripple and staggered reveal](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -38,6 +38,17 @@ Design Compiler follows **everyday language → editable understanding (Design I
 For terminology lookup, search `frosted glass`, `backdrop-filter` or a known alias in the sidebar. **Every public entry has a corresponding preview.** Styles show distinct materials and layouts, motion entries show real movement, dashboards use clearly labeled synthetic data, and UX principles demonstrate tasks and states. There is no generic concept placeholder. See the [dedicated-preview contract](docs/PREVIEW_SCENES.md) (Chinese).
 
 ![Design Compiler studio: understanding, live preview, parameters and Agent brief](docs/media/studio.png)
+
+## Reuse an effect in your project
+
+**Five templates export runnable Web, React component / hook, and video project ZIPs**: spotlight with lift, hover lift, press feedback, click ripple, and staggered entry. Only the spotlight layer uses WebGL; other motion uses DOM.
+
+1. Select one of these effects and tune it. Confirm any Compiler conflict before exporting.
+2. Choose a target under Component code and download, or open the standalone example to compare parameters and scripted frames.
+3. Web: unzip and run `node serve.mjs`, with no dependencies. React: integrate into your React 18/19 project. Video: run `npm install`, then `npm run render`.
+4. To save parameter changes, edit `effect.json` and run `node sync-export.mjs` to refresh JSON, brief, and manifest. The other 70 entries do not export placeholder code.
+
+[Integration details and verification limits](docs/WEB_COMPONENTS.md) (Chinese). No API key is needed; video is a four-second scripted demonstration. This version is delivered through a review PR; the public site updates after manual merge and deployment.
 
 ## Optional AI with TokenDance
 
@@ -98,6 +109,12 @@ Run `npm run check:content`, `npm test` and `npm run check:docs`; rebuild [font 
 | `server/worker.js` | Optional local/Worker relay; not required by GitHub Pages |
 | `.github/workflows/pages.yml` | Validation, packaging, build and deployment |
 
+## Community contributions and credits
+
+For new cases and features: **private proposal → agreed direction → fork / PR → maintainer review → manual acceptance**. Contributors may credit their own cases; passing checks does not approve a merge. Ordinary bugs without private information can be reported in Issues.
+
+[Contributor guide](docs/CONTRIBUTING.md) · [AI guide](docs/CONTRIBUTING_AI.md) · [Case submission form](docs/contributions/TEMPLATE.md) · [Credits index](docs/contributions/README.md). These detailed guides are currently in Chinese. The [extension, reusable-code and multi-platform plan](docs/COMMUNITY_ROADMAP.md) describes future work, not released features.
+
 ## Current limits
 
 - Most entry text is Chinese/English draft content. Japanese, Korean and German bodies explicitly fall back to English. Five interface languages do not imply five reviewed knowledge collections.
@@ -105,10 +122,10 @@ Run `npm run check:content`, `npm test` and `npm run check:docs`; rebuild [font 
 - Structural validation does not certify facts, sources or translations. Strict publication review intentionally fails while drafts remain. Unread WeChat article text was not fabricated as a consulted source.
 - Previews illustrate concepts and do not save real data. Review exports before implementation. Reduced motion, touch and keyboard interactions are handled separately.
 
-[Compiler structure and constraints](docs/DESIGN_COMPILER.md) · [50 new entries and source status](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release checks](docs/RELEASE_0.4.1.2.0.md) · [Five-part versioning](docs/VERSIONING.md) — detailed documents are currently in Chinese.
+[Compiler structure and constraints](docs/DESIGN_COMPILER.md) · [50 new entries and source status](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release checks](docs/RELEASE_0.4.2.0.0.md) · [Five-part versioning](docs/VERSIONING.md) — detailed documents are currently in Chinese.
 
 ## License and credits
 
 Application code: [MIT](LICENSE). Ma Shan Zheng, LXGW WenKai and Caveat fonts: **SIL OFL 1.1**, with full notices and rebuild steps in [font documentation](docs/FONTS.md). README screenshots and recordings show this project’s actual interface.
 
-Early interaction direction referenced Hyperknow; rice paper, ink, vermilion and handwritten typography followed user-provided visual references. Layout and code are original; reference-site images, trademarks and component source were not reused. Contributions with reliable sources, translations, reproducible effects and bug reports are welcome through [Issues](https://github.com/Vibe-Design-Labs/Vibe-UI-UX/issues).
+Early interaction direction referenced Hyperknow; rice paper, ink, vermilion and handwritten typography followed user-provided visual references. Layout and code are original; reference-site images, trademarks and component source were not reused. Follow the [contributor guide](docs/CONTRIBUTING.md) for sources, translations and reproducible cases; ordinary bug reports can use [Issues](https://github.com/Vibe-Design-Labs/Vibe-UI-UX/issues).
