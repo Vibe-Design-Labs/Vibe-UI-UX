@@ -280,7 +280,11 @@
               "css-gradient",
               "web-animations",
               "dom-click",
-              "css-keyframes"
+              "css-keyframes",
+              "webgl-shader",
+              "css-translate",
+              "css-scale",
+              "dom-ripple"
             ]
           },
           "maxItems": 8

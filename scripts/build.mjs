@@ -5,6 +5,7 @@ import {leafMarkup} from '../public/leaf-art.js';
 import {effectiveParams} from '../public/core.js';
 import {assertCompilerType} from '../public/compiler-schema.js';
 import {assertPreviewCoverage} from '../public/preview-capabilities.js';
+import {componentTemplates} from '../public/effect-contract.js';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 await mkdir(path.join(root,'dist/client'),{recursive:true});await mkdir(path.join(root,'dist/server'),{recursive:true});
 await cp(path.join(root,'public'),path.join(root,'dist/client'),{recursive:true});
@@ -12,7 +13,7 @@ const metadata=JSON.parse(await readFile(path.join(root,'package.json'),'utf8'))
 if(!/^(?:0|[1-9]\d*)(?:\.(?:0|[1-9]\d*)){4}$/.test(metadata.intentkitVersion))throw new Error('intentkitVersion must have five integer segments');
 await writeFile(path.join(root,'dist/client/version.json'),JSON.stringify({version:metadata.intentkitVersion,package_version:metadata.version})+'\n');
 await writeFile(path.join(root,'dist/client/leaf-cursor.svg'),leafMarkup()+'\n');
-for(const name of ['index.html','studio.html','docs.html','authorize.html']){
+for(const name of ['index.html','studio.html','docs.html','authorize.html','effect-example.html']){
  const file=path.join(root,'dist/client',name);const html=await readFile(file,'utf8');
  await writeFile(file,html.replaceAll('__PROJECT_VERSION__',metadata.intentkitVersion).replace(/((?:src|href)="\.\/[^"?]+\.(?:js|css|woff2|zip))"/g,'$1?v='+metadata.intentkitVersion+'"'));
 }
@@ -25,6 +26,8 @@ for(const name of await readdir(path.join(root,'dist/client'))){
 const filenames=(await readdir(path.join(root,'content/items'))).filter(n=>n.endsWith('.json')).sort();
 const items=await Promise.all(filenames.map(n=>readFile(path.join(root,'content/items',n),'utf8').then(JSON.parse)));
 const registry=JSON.parse(await readFile(path.join(root,'previews/registry.json'),'utf8'));
+await writeFile(path.join(root,'dist/client/effect-registry.js'),'export default '+JSON.stringify(Object.fromEntries(componentTemplates.map(id=>{if(!registry.templates[id])throw new Error('Missing shared effect contract: '+id);return [id,registry.templates[id]];})))+';\n');
+await cp(path.join(root,'LICENSE'),path.join(root,'dist/client/application-license.txt'));
 assertPreviewCoverage(items,registry);
 for(const item of items)effectiveParams(item,registry);
 await writeFile(path.join(root,'dist/client/catalog.json'),JSON.stringify({items,registry}));

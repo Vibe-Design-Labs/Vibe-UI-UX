@@ -6,7 +6,7 @@
 
 [打开官网](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [直接试用工作台](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [更新记录](CHANGELOG.md)
 
-**v0.4.1.2.1 · 75 设计词条 · 75 专属预览模板 · 5 本地配方家族 · MIT + OFL**
+**v0.4.2.0.0 · 75 设计词条 · 75 专属预览模板 · 5 本地配方家族 · MIT + OFL**
 
 [![工作台实录：叶片光标、暖金聚光、点击水波与错落入场](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -38,6 +38,17 @@ Vibe coding 最难的一步常常是把感觉讲清楚：轻盈到底是抬升�
 只想查词？使用左侧搜索框输入 `玻璃卡片`、`frosted glass` 或 `backdrop-filter`。从词条中查看释义、来源和描述。**每个官网词条都配有对应预览**：视觉风格展示独立材质与编排，动效展示真实运动，看板用明确标注的模拟数据，UX 原则用任务和状态演示。不再使用通用概念占位。详见[专属预览与维护要求](docs/PREVIEW_SCENES.md)。
 
 ![Design Compiler 工作台：意图理解、效果预览、参数与 Agent 描述](docs/media/studio.png)
+
+## 把效果接入自己的项目
+
+首批 **5 类效果支持独立 Web、React 组件 / hook、视频工程 ZIP**：暖金聚光与抬升、悬停抬升、按压反馈、点击波纹、错落入场。聚光采用真实 WebGL 灯光层，其他动效使用 DOM。
+
+1. 在工作台选择上述效果，调参；如有 Compiler 冲突，先确认。
+2. 在「组件代码」选择目标并下载，或打开独立示例对照参数与时间轴。
+3. Web 包解压后运行 `node serve.mjs`，无需安装依赖。React 包接入自己的 React 18/19 项目；视频包运行 `npm install` 与 `npm run render`。
+4. 永久改参数时编辑 `effect.json` 并运行 `node sync-export.mjs`，同步 JSON、描述与清单。其他 70 个词条不提供占位代码。
+
+[完整接入和验证边界](docs/WEB_COMPONENTS.md)。代码导出不需要密钥；视频是 4 秒脚本演示。本轮版本先交待审 PR，人工合并并部署后官网更新。
 
 ## 想用 AI 时再连接 TokenDance
 
@@ -98,6 +109,12 @@ npm run preview:pages
 | `server/worker.js` | 可选本地/Worker 中转；GitHub Pages 不依赖它 |
 | `.github/workflows/pages.yml` | 检查、源码打包、构建和部署 |
 
+## 社区贡献与署名
+
+新案例与功能建议采用 **先私信提案 → 确认方向 → Fork / PR 交付 → 维护者审核 → 手动收录** 的流程。贡献者可以为自己的案例署名；测试通过不等于同意合并。一般不含私人资料的 bug 可以直接提 Issue。
+
+[给贡献者的指南](docs/CONTRIBUTING.md) · [给 AI 的指南](docs/CONTRIBUTING_AI.md) · [案例提交表](docs/contributions/TEMPLATE.md) · [署名记录](docs/contributions/README.md)。插件、多端与可复用代码的[后续方案](docs/COMMUNITY_ROADMAP.md)是规划，尚未作为功能上线。
+
 ## 当前边界
 
 - 词条正文主要是中英文草稿；日、韩、德正文明确回退英文。五语界面不等于五语知识内容已经审校完成。
@@ -105,10 +122,10 @@ npm run preview:pages
 - 内容结构检查通过不等于来源、事实与翻译已经人工核准。严格发布审校检查目前应失败，草稿状态保留；未能读到的微信正文没有被编造为已读来源。
 - 预览是交互概念示例，不会真实保存数据；导出需由你与开发者审阅后实现。系统减少动态效果、触摸与键盘保留适合的交互。
 
-[编译器结构与约束](docs/DESIGN_COMPILER.md) · [50 个新词条与来源状态](docs/CONTENT_EXPANSION_2026-10-07.md) · [本次发布检查](docs/RELEASE_0.4.1.2.0.md) · [五段版本规则](docs/VERSIONING.md)
+[编译器结构与约束](docs/DESIGN_COMPILER.md) · [50 个新词条与来源状态](docs/CONTENT_EXPANSION_2026-10-07.md) · [本次发布检查](docs/RELEASE_0.4.2.0.0.md) · [五段版本规则](docs/VERSIONING.md)
 
 ## 许可与致谢
 
 应用代码为 [MIT](LICENSE)。字体 Ma Shan Zheng、LXGW WenKai 与 Caveat 使用 **SIL OFL 1.1**，完整许可与子集重建步骤见[字体说明](docs/FONTS.md)。README 的截图和 GIF 来自本项目实际界面。
 
-早期交互方向参考 Hyperknow；米纸、水墨、朱砂与手写气质来自用户给出的视觉参考。编排和代码为原创，未使用参考网站的图片、商标或组件源码。欢迎通过 [Issues](https://github.com/Vibe-Design-Labs/Vibe-UI-UX/issues)提供准确的来源、译文、可验证效果或问题反馈。
+早期交互方向参考 Hyperknow；米纸、水墨、朱砂与手写气质来自用户给出的视觉参考。编排和代码为原创，未使用参考网站的图片、商标或组件源码。欢迎按[贡献指南](docs/CONTRIBUTING.md)提供准确的来源、译文与可验证案例；一般问题反馈可提 [Issue](https://github.com/Vibe-Design-Labs/Vibe-UI-UX/issues)。

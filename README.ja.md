@@ -6,7 +6,7 @@
 
 [ホームページ](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [スタジオを試す](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [変更履歴](CHANGELOG.md)
 
-**v0.4.1.2.1 · 75 デザイン用語 · 75 専用プレビューテンプレート · 5 ローカルレシピ系統 · MIT + OFL**
+**v0.4.2.0.0 · 75 デザイン用語 · 75 専用プレビューテンプレート · 5 ローカルレシピ系統 · MIT + OFL**
 
 [![実際のスタジオ録画：葉のカーソル、暖色の光、クリック波紋、時間差表示](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -38,6 +38,17 @@ Design Compiler の流れは **日常の表現 → 編集できる理解（Desig
 用語を調べるだけなら、左の検索欄で `frosted glass` や `backdrop-filter` を検索できます。**公開する各用語に対応したプレビューがあります。** スタイルは独自の材質と配置、動きは実際のアニメーション、ダッシュボードは明示したサンプルデータ、UX 原則は操作と状態を示します。汎用の代替カードは使いません。[専用プレビューの規約](docs/PREVIEW_SCENES.md)（中国語）。
 
 ![Design Compiler：理解、プレビュー、パラメーター、Agent 向け説明](docs/media/studio.png)
+
+## 効果を自分のプロジェクトで使う
+
+**5 種のテンプレートを Web、React コンポーネント / hook、動画工程の ZIP として出力**できます。スポットライトと浮き上がり、ホバー浮き上がり、押下、波紋、時間差表示に対応します。光の層だけ WebGL、他の動きは DOM です。
+
+1. 対応する効果を選んで調整し、Compiler の矛盾があれば先に確認します。
+2. コード出力の形式を選ぶか、独立した例でパラメーターと時間軸を確認します。
+3. Web は解凍して `node serve.mjs`。React は React 18/19 工程に追加します。動画は `npm install` の後に `npm run render`。
+4. 保存値を変更するときは `effect.json` を編集し、`node sync-export.mjs` で JSON・説明・マニフェストを同期します。他の 70 件は代替コードを出力しません。
+
+[接続手順と検証範囲](docs/WEB_COMPONENTS.md)（中国語）。キーは不要です。動画は 4 秒の決定的なデモであり、操作録画ではありません。本版はレビュー PR として提出し、手動マージと配置の完了後に公開サイトを更新します。
 
 ## AI が必要なときだけ TokenDance に接続
 
@@ -98,6 +109,12 @@ npm run preview:pages
 | `server/worker.js` | 任意のローカル中継。Pages では不要 |
 | `.github/workflows/pages.yml` | 検証、ZIP、ビルド、公開 |
 
+## コミュニティへの参加とクレジット
+
+新しい事例や機能は **非公開で提案 → 方針確認 → Fork / PR → メンテナーのレビュー → 手動で採用** の順に進めます。自分の事例に署名できます。チェックの成功だけでマージが承認されることはありません。個人情報を含まない通常の不具合は Issue で報告できます。
+
+[参加者向けガイド](docs/CONTRIBUTING.md) · [AI 向けガイド](docs/CONTRIBUTING_AI.md) · [事例提出フォーム](docs/contributions/TEMPLATE.md) · [クレジット一覧](docs/contributions/README.md)（詳細は現在中国語）。[拡張機能・再利用コード・複数端末の計画](docs/COMMUNITY_ROADMAP.md)は将来の案で、公開済み機能ではありません。
+
 ## 現在の制約
 
 - 用語本文は主に中国語と英語の草稿です。日本語・韓国語・ドイツ語の本文は英語に明示的にフォールバックします。画面の五言語対応と本文のレビュー完了は別です。
@@ -105,10 +122,10 @@ npm run preview:pages
 - 構造検証は事実や翻訳の認定ではありません。草稿が残るため厳格な公開レビューはまだ通りません。取得できなかった微信記事の本文を読んだとは記録しません。
 - プレビューは概念例で、実データを保存しません。実装前に出力を確認してください。動きを減らす設定、タッチ、キーボードに対応します。
 
-[コンパイラー詳細](docs/DESIGN_COMPILER.md) · [新規 50 件と出典](docs/CONTENT_EXPANSION_2026-10-07.md) · [公開チェック](docs/RELEASE_0.4.1.2.0.md) · [五段の版番号](docs/VERSIONING.md)（詳細文書は中国語）。
+[コンパイラー詳細](docs/DESIGN_COMPILER.md) · [新規 50 件と出典](docs/CONTENT_EXPANSION_2026-10-07.md) · [公開チェック](docs/RELEASE_0.4.2.0.0.md) · [五段の版番号](docs/VERSIONING.md)（詳細文書は中国語）。
 
 ## ライセンスと謝辞
 
 コードは [MIT](LICENSE)。Ma Shan Zheng、LXGW WenKai、Caveat のフォントは **SIL OFL 1.1**。通知と再構築手順は[フォント文書](docs/FONTS.md)にあります。README の画像は実際の本プロジェクトの画面です。
 
-初期の操作方針は Hyperknow、紙・墨・朱色・手書きの雰囲気はユーザーの参考画像を参考にしました。配置とコードは独自で、参考サイトの画像、商標、コンポーネントソースは再利用していません。出典、翻訳、再現できる効果、不具合の提案は [Issues](https://github.com/Vibe-Design-Labs/Vibe-UI-UX/issues)へ。
+初期の操作方針は Hyperknow、紙・墨・朱色・手書きの雰囲気はユーザーの参考画像を参考にしました。配置とコードは独自で、参考サイトの画像、商標、コンポーネントソースは再利用していません。出典、翻訳、再現できる事例は[参加ガイド](docs/CONTRIBUTING.md)に沿って提案してください。通常の不具合は [Issues](https://github.com/Vibe-Design-Labs/Vibe-UI-UX/issues)へ。

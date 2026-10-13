@@ -14,15 +14,16 @@ const samples=[
  ['sequential-content-entry',['内容出现的时候一个接一个进来，不要一起突然出现','Reveal content one by one','コンテンツを一つずつ表示','콘텐츠를 하나씩 나타내기','Inhalte nacheinander einblenden']],
  ['water-ripple',['点一下以后像水波一样扩散','A ripple wave after a click','クリック後に波紋','클릭 후 물결 효과','Eine Welle nach dem Klick']]
 ];
-export function setupCompilerPanel({catalog,data,getCredentials,onApplyRecipe,onBeforeCompile,appURL,mode}){
+export function setupCompilerPanel({catalog,data,getCredentials,onApplyRecipe,onBeforeCompile,onStateChange,appURL,mode}){
  const panel=document.querySelector('#compiler-panel'),output=document.querySelector('#compiler-output'),button=document.querySelector('#compile'),input=document.querySelector('#intent'),examples=document.querySelector('#compiler-examples');
  let result=null,controller=null,notice=false,refreshing=false;
  const strings=()=>data.strings[locale];
  const sourceLabel=()=>compilerText(result.ir.source==='model'?'model':result.ir.source==='user-edited'?'edited':'rule');
  function cancel(){controller?.abort();controller=null;button.disabled=false;button.textContent=compilerText('compile');}
- function clear(){cancel();result=null;notice=false;panel.hidden=true;output.hidden=true;panel.replaceChildren();output.replaceChildren();}
+ function clear(){cancel();result=null;notice=false;panel.hidden=true;output.hidden=true;panel.replaceChildren();output.replaceChildren();onStateChange?.(null);}
  function apply(){if(!result.recipe)return;refreshing=true;try{onApplyRecipe(result.recipe);}finally{refreshing=false;}}
- function render(){
+ function render(){renderContent();onStateChange?.(result);}
+ function renderContent(){
   if(!result)return;const s=strings();panel.hidden=false;panel.replaceChildren();output.hidden=!result.recipe;output.replaceChildren();
   panel.dataset.status=result.status;
   const top=node('div','compiler-top');top.append(node('h2','',compilerText('understanding')),node('span','compiler-badge',compilerText(result.status==='ready'?'ready':result.status==='partial'?'partial':'clarify')));panel.append(top,node('p','compiler-source',sourceLabel()));
