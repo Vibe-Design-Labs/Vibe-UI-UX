@@ -6,7 +6,7 @@
 
 [打开官网](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [直接试用工作台](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [更新记录](CHANGELOG.md)
 
-**v0.4.4.0.0 · 75 设计词条 · 75 专属预览模板 · 5 本地配方家族 · MIT + OFL**
+**v0.4.4.0.1 · 75 设计词条 · 75 专属预览模板 · 5 本地配方家族 · MIT + OFL**
 
 [![工作台实录：叶片光标、暖金聚光、点击水波与错落入场](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -137,7 +137,7 @@ npm run preview:pages
 - 内容结构检查通过不等于来源、事实与翻译已经人工核准。严格发布审校检查目前应失败，草稿状态保留；未能读到的微信正文没有被编造为已读来源。
 - 预览是交互概念示例，不会真实保存数据；导出需由你与开发者审阅后实现。系统减少动态效果、触摸与键盘保留适合的交互。
 
-[编译器结构与约束](docs/DESIGN_COMPILER.md) · [50 个新词条与来源状态](docs/CONTENT_EXPANSION_2026-10-07.md) · [本次发布检查](docs/RELEASE_0.4.4.0.0.md) · [五段版本规则](docs/VERSIONING.md)
+[编译器结构与约束](docs/DESIGN_COMPILER.md) · [50 个新词条与来源状态](docs/CONTENT_EXPANSION_2026-10-07.md) · [本次发布检查](docs/RELEASE_0.4.4.0.1.md) · [五段版本规则](docs/VERSIONING.md)
 
 ## 许可与致谢
 

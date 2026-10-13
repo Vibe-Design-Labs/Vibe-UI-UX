@@ -6,7 +6,7 @@
 
 [ホームページ](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [スタジオを試す](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [変更履歴](CHANGELOG.md)
 
-**v0.4.4.0.0 · 75 デザイン用語 · 75 専用プレビューテンプレート · 5 ローカルレシピ系統 · MIT + OFL**
+**v0.4.4.0.1 · 75 デザイン用語 · 75 専用プレビューテンプレート · 5 ローカルレシピ系統 · MIT + OFL**
 
 [![実際のスタジオ録画：葉のカーソル、暖色の光、クリック波紋、時間差表示](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -137,7 +137,7 @@ npm run preview:pages
 - 構造検証は事実や翻訳の認定ではありません。草稿が残るため厳格な公開レビューはまだ通りません。取得できなかった微信記事の本文を読んだとは記録しません。
 - プレビューは概念例で、実データを保存しません。実装前に出力を確認してください。動きを減らす設定、タッチ、キーボードに対応します。
 
-[コンパイラー詳細](docs/DESIGN_COMPILER.md) · [新規 50 件と出典](docs/CONTENT_EXPANSION_2026-10-07.md) · [公開チェック](docs/RELEASE_0.4.4.0.0.md) · [五段の版番号](docs/VERSIONING.md)（詳細文書は中国語）。
+[コンパイラー詳細](docs/DESIGN_COMPILER.md) · [新規 50 件と出典](docs/CONTENT_EXPANSION_2026-10-07.md) · [公開チェック](docs/RELEASE_0.4.4.0.1.md) · [五段の版番号](docs/VERSIONING.md)（詳細文書は中国語）。
 
 ## ライセンスと謝辞
 

@@ -6,7 +6,7 @@
 
 [Website](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [Try the studio](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [Changelog](CHANGELOG.md)
 
-**v0.4.4.0.0 · 75 design entries · 75 dedicated preview templates · 5 local recipe families · MIT + OFL**
+**v0.4.4.0.1 · 75 design entries · 75 dedicated preview templates · 5 local recipe families · MIT + OFL**
 
 [![Real studio capture: leaf cursor, warm spotlight, click ripple and staggered reveal](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -137,7 +137,7 @@ Parameter cases: **studio → GitHub confirmation → automated review PR → ma
 - Structural validation does not certify facts, sources or translations. Strict publication review intentionally fails while drafts remain. Unread WeChat article text was not fabricated as a consulted source.
 - Previews illustrate concepts and do not save real data. Review exports before implementation. Reduced motion, touch and keyboard interactions are handled separately.
 
-[Compiler structure and constraints](docs/DESIGN_COMPILER.md) · [50 new entries and source status](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release checks](docs/RELEASE_0.4.4.0.0.md) · [Five-part versioning](docs/VERSIONING.md) — detailed documents are currently in Chinese.
+[Compiler structure and constraints](docs/DESIGN_COMPILER.md) · [50 new entries and source status](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release checks](docs/RELEASE_0.4.4.0.1.md) · [Five-part versioning](docs/VERSIONING.md) — detailed documents are currently in Chinese.
 
 ## License and credits
 

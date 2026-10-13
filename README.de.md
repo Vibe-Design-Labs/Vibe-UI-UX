@@ -6,7 +6,7 @@
 
 [Website](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [Studio ausprobieren](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [Änderungen](CHANGELOG.md)
 
-**v0.4.4.0.0 · 75 Designeinträge · 75 eigene Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
+**v0.4.4.0.1 · 75 Designeinträge · 75 eigene Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
 
 [![Echte Studioaufnahme: Blattzeiger, warmes Spotlight, Klickwelle und gestaffeltes Erscheinen](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -137,7 +137,7 @@ Parameterfälle: **Studio → GitHub-Bestätigung → automatischer Review-PR �
 - Strukturprüfung bestätigt weder Fakten noch Übersetzungen. Die strenge Inhaltsfreigabe scheitert weiterhin an Entwürfen. Nicht lesbare WeChat-Artikel wurden nicht als gelesene Quellen ausgegeben.
 - Vorschauen zeigen Konzepte und speichern keine echten Daten. Prüfe Exporte vor der Umsetzung. Reduzierte Bewegung, Touch und Tastatur werden berücksichtigt.
 
-[Compiler-Details](docs/DESIGN_COMPILER.md) · [50 neue Einträge und Quellen](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release-Prüfungen](docs/RELEASE_0.4.4.0.0.md) · [Fünfteilige Versionen](docs/VERSIONING.md) — die Detaildokumentation ist derzeit Chinesisch.
+[Compiler-Details](docs/DESIGN_COMPILER.md) · [50 neue Einträge und Quellen](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release-Prüfungen](docs/RELEASE_0.4.4.0.1.md) · [Fünfteilige Versionen](docs/VERSIONING.md) — die Detaildokumentation ist derzeit Chinesisch.
 
 ## Lizenz und Dank
 
