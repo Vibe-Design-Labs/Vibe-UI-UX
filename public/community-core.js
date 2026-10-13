@@ -1,3 +1,4 @@
+import {validateArtifact,generatedParams,generatedBrief} from './generated-core.js';
 import {effectiveParams,makeBrief} from './core.js';
 import {canExportComponent} from './effect-contract.js';
 
@@ -12,6 +13,8 @@ function text(value,max,required=true){
  return value.trim();
 }
 export function validateSubmission(input,catalog){
+ if(input?.schema_version===2)return validateGeneratedSubmission(input);
+
  if(!object(input)||Object.keys(input).some(key=>!fields.includes(key))||fields.some(key=>!Object.hasOwn(input,key)))throw new Error('Invalid submission fields');
  if(input.schema!=='intentkit.community-submission'||input.schema_version!==1||input.consent!==true||typeof input.attribution!=='boolean')throw new Error('Public contribution consent required');
  if(!submissionLocales.includes(input.locale)||!/^\d+(?:\.\d+){4}$/.test(input.version))throw new Error('Invalid submission version or locale');
@@ -28,7 +31,7 @@ export function submissionBody(input,catalog){
  return submissionMarker+'\n\n```json\n'+JSON.stringify(value,null,2)+'\n```\n\nPlease keep the JSON block intact. This public submission is converted into a review PR; it does not publish or merge automatically.';
 }
 export function parseSubmissionBody(body,catalog){
- if(typeof body!=='string'||new TextEncoder().encode(body).length>12000||!body.startsWith(submissionMarker))throw new Error('Invalid submission body');
+ if(typeof body!=='string'||new TextEncoder().encode(body).length>65000||!body.startsWith(submissionMarker))throw new Error('Invalid submission body');
  const matches=Array.from(body.matchAll(/```json\s*\n([\s\S]*?)\n```/g));if(matches.length!==1)throw new Error('Exactly one JSON block required');
  let value;try{value=JSON.parse(matches[0][1]);}catch{throw new Error('Invalid submission JSON');}
  return validateSubmission(value,catalog);
@@ -42,12 +45,20 @@ export function issueURL(input,catalog,repository){
 export function caseFromSubmission(input,catalog,issue){
  const value=validateSubmission(input,catalog),number=issue.number,login=issue.user?.login;
  if(!Number.isSafeInteger(number)||number<1||!/^[A-Za-z0-9][A-Za-z0-9-]{0,38}$/.test(login||''))throw new Error('Invalid GitHub identity');
+ if(value.schema_version===2)return {schema:'intentkit.community-case',schema_version:2,kind:'generated',id:'case-'+number,artifact:value.artifact,params:value.params,title:value.title,summary:value.summary,author:{github_login:login,display_name:value.author_name||login,attribution:value.attribution},locale:value.locale,content_locale:value.locale,brief:generatedBrief(value.artifact,value.params),source_url:value.source_url,submitted_version:value.version,issue_number:number,license:'MIT',consent:true};
  const item=catalog.items.find(item=>item.id===value.item_id);
  return {schema:'intentkit.community-case',schema_version:1,id:'case-'+number,item_id:item.id,template_id:item.preview.template_id,params:value.params,title:value.title,summary:value.summary,
   author:{github_login:login,display_name:value.author_name||login,attribution:value.attribution},locale:value.locale,content_locale:item.locales[value.locale]?value.locale:'en',brief:makeBrief(item,catalog.registry,value.locale,value.params),
   source_url:value.source_url,submitted_version:value.version,issue_number:number,license:'MIT',consent:true};
 }
 export function validateCommunityCase(value,catalog){
+ if(value?.schema_version===2){
+  const keys=['schema','schema_version','kind','id','artifact','params','title','summary','author','locale','content_locale','brief','source_url','submitted_version','issue_number','license','consent'];
+  if(!object(value)||Object.keys(value).some(k=>!keys.includes(k))||keys.some(k=>!Object.hasOwn(value,k))||value.schema!=='intentkit.community-case'||value.kind!=='generated'||value.license!=='MIT'||!object(value.author)||Object.keys(value.author).some(k=>!['github_login','display_name','attribution'].includes(k)))throw new Error('Invalid generated case');
+  const expected=caseFromSubmission({schema:'intentkit.community-submission',schema_version:2,kind:'generated',artifact:value.artifact,params:value.params,locale:value.locale,title:value.title,summary:value.summary,author_name:value.author.display_name,attribution:value.author.attribution,consent:value.consent,version:value.submitted_version,source_url:value.source_url},catalog,{number:value.issue_number,user:{login:value.author.github_login}});
+  if(value.id!==expected.id||value.content_locale!==expected.content_locale||value.brief!==expected.brief)throw new Error('Generated case differs from source');return expected;
+ }
+
  const allowed=['schema','schema_version','id','item_id','template_id','params','title','summary','author','locale','content_locale','brief','source_url','submitted_version','issue_number','license','consent'];
  if(!object(value)||Object.keys(value).some(key=>!allowed.includes(key))||allowed.some(key=>!Object.hasOwn(value,key))||value.schema!=='intentkit.community-case'||value.schema_version!==1||value.license!=='MIT')throw new Error('Invalid case schema');
  if(!object(value.author)||Object.keys(value.author).some(key=>!['github_login','display_name','attribution'].includes(key)))throw new Error('Invalid case author');
@@ -55,4 +66,13 @@ export function validateCommunityCase(value,catalog){
  const expected=caseFromSubmission(input,catalog,{number:value.issue_number,user:{login:value.author.github_login}});
  if(value.id!==expected.id||value.template_id!==expected.template_id||value.content_locale!==expected.content_locale||value.brief!==expected.brief)throw new Error('Case differs from its registered implementation');
  return expected;
+}
+
+function validateGeneratedSubmission(input){
+ const keys=['schema','schema_version','kind','artifact','params','locale','title','summary','author_name','attribution','consent','version','source_url'];
+ if(!object(input)||Object.keys(input).some(k=>!keys.includes(k))||keys.some(k=>!Object.hasOwn(input,k))||input.schema!=='intentkit.community-submission'||input.kind!=='generated'||input.consent!==true||typeof input.attribution!=='boolean'||!submissionLocales.includes(input.locale)||!/^\d+(?:\.\d+){4}$/.test(input.version))throw new Error('Invalid generated submission');
+ const artifact=validateArtifact(input.artifact),params=generatedParams(artifact,input.params);
+ if(Object.keys(params).length!==Object.keys(input.params).length)throw new Error('Missing generated parameters');
+ const source=text(input.source_url,500,false);if(source){const url=new URL(source);if(url.protocol!=='https:'||url.username||url.password||/[?&](?:token|key|secret|code)=/i.test(source))throw new Error('Invalid source URL');}
+ return {schema:input.schema,schema_version:2,kind:'generated',artifact,params,locale:input.locale,title:text(input.title,60),summary:text(input.summary,300),author_name:text(input.author_name,48,false),attribution:input.attribution,consent:true,version:input.version,source_url:source};
 }

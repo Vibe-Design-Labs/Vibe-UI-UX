@@ -6,17 +6,26 @@
 
 [Website](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [Studio ausprobieren](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [Änderungen](CHANGELOG.md)
 
-**v0.4.3.0.0 · 75 Designeinträge · 75 eigene Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
+**v0.4.4.0.0 · 75 Designeinträge · 75 eigene Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
 
 [![Echte Studioaufnahme: Blattzeiger, warmes Spotlight, Klickwelle und gestaffeltes Erscheinen](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
 Mit den tatsächlichen Renderern des Projekts aufgenommen, ohne KI-generierte Bilder. Das GIF ist eine Aufnahme. Im [Studio](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) kannst du interagieren und Werte einstellen; die Einstellung für reduzierte Bewegung wird berücksichtigt.
 
+## Das Modell einen neuen Effekt schreiben lassen
+
+1. TokenDance verbinden, eine konkrete Interaktion beschreiben und **KI einen neuen Effekt schreiben lassen** wählen. Das Modell schreibt HTML / CSS / JavaScript statt nur eine Vorlage auszuwählen.
+2. Isolierte Vorschau, Parameter und tatsächlichen Quellcode prüfen. Fehlgeschlagene Vorschauen können nicht zur Aufnahme eingereicht werden.
+3. Web-Quellcode-ZIP exportieren und `python -m http.server 4180` starten, oder Effekt-JSON speichern und später mit identischem Code und Parametern importieren. Anpassung und Export rufen kein Modell auf.
+4. Der öffentlichen MIT-Einreichung zustimmen und auf GitHub bestätigen. Der Bot erstellt einen separaten Daten-PR, ohne den Code auszuführen. Veröffentlichung erfolgt erst nach menschlicher Prüfung und manuellem Merge.
+
+Neu generierter Code unterstützt natives Web; die fünf bisherigen Vorlagen behalten React-/Video-Exporte. Diagnose unterscheidet fehlende Antwort, abgeschnittene Ausgabe, JSON-, Prüf- und Laufzeitfehler. Keine automatischen kostenpflichtigen Wiederholungen. Kostenpflichtige Generierung mit echtem Key wurde nicht getestet; menschliche Codeprüfung bleibt erforderlich. [Vertrag und Grenzen](docs/GENERATED_EFFECTS.md) (Chinesisch).
+
 ## Was ist IntentKit?
 
 Beim Vibe Coding ist es oft schwierig, ein Gefühl präzise zu beschreiben. Bedeutet „leichter“ weniger Anhebung beim Hover, eine Größenänderung oder mehr Freiraum? IntentKit verbindet Alltagssprache mit UI/UX-Begriffen, Aliasnamen, Beispielen und Parametern, damit Design, Entwicklung und Einsteiger dasselbe Ergebnis meinen.
 
-Design Compiler arbeitet nach **Alltagssprache → bearbeitbares Verständnis (Design IR) → geprüftes Rezept → echte Vorschau → Designbeschreibung / Agent-Beschreibung / JSON**. Es ist ein Werkzeug zum Prüfen eines Entwurfs, kein Generator vollständiger Seiten. Beliebiger Modellcode wird nicht ausgeführt.
+Design Compiler arbeitet nach **Alltagssprache → bearbeitbares Verständnis (Design IR) → geprüftes Rezept → echte Vorschau → Designbeschreibung / Agent-Beschreibung / JSON**. Es ist ein Werkzeug zum Prüfen eines Entwurfs, kein Generator vollständiger Seiten. Der Rezeptmodus nutzt bekannte Implementierungen; der neue Code-Modus führt einzelne generierte Effekte in einem isolierten Frame aus.
 
 | Funktion | Aktueller Umfang |
 | --- | --- |
@@ -30,7 +39,7 @@ Design Compiler arbeitet nach **Alltagssprache → bearbeitbares Verständnis (D
 ## Zuerst ohne Schlüssel ausprobieren
 
 1. Öffne das [Studio](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) und wähle oben rechts Deutsch.
-2. Wähle das lokale Beispiel **Karte sanft anheben**. Du kannst auch einen Wunsch eingeben und **Verstehen & erstellen** anklicken. Ohne eingerichteten Key gelten lokale Regeln.
+2. Wähle das lokale Beispiel **Karte sanft anheben**. Du kannst auch einen Wunsch eingeben und **Verstehen & Rezepte zuordnen** anklicken. Ohne eingerichteten Key gelten lokale Regeln.
 3. Prüfe das Verständnis und öffne die bearbeitbaren Felder für Ziel, Auslöser und Stärke. Standardwerte und Schlussfolgerungen werden getrennt von deiner Aussage angezeigt.
 4. Bewege die Maus über die Karte und passe rechts die Werte an. Vorschau, Beschreibung und Rezept verwenden dieselben endgültigen Parameter. Bei einem Widerspruch zur Absicht musst du die aktuellen Werte ausdrücklich bestätigen.
 5. Kopiere die **Agent-Beschreibung** aus dem Compiler-Ergebnis in deinen Coding-Assistenten oder exportiere die **Kompilierungs-JSON**. Der bisherige Export rechts bleibt eine getrennte **Einzeleffekt-JSON**.
@@ -55,7 +64,7 @@ Für Begriffe kannst du links etwa `frosted glass` oder `backdrop-filter` suchen
 1. Klicke auf TokenDance verbinden. Das Panel lädt den öffentlichen Modellkatalog; dabei wird kein Modell aufgerufen.
 2. Autorisiere im Popup einen neuen Key oder gib deinen vorhandenen Key aus der [TokenDance-Keyverwaltung](https://tokendance.space/keys) ein. Die Autorisierung erstellt einen Key nach deiner Bestätigung.
 3. Wähle ein Modell mit Chat-Protokoll und **Nur auf dieser Seite behalten**. Wenn der Katalog nicht lädt, kannst du eine offizielle Modell-ID eingeben.
-4. Erst ein eingerichteter Key plus ein ausdrücklicher Klick auf **Effekte finden** oder **Verstehen & erstellen** ruft ein Modell auf. TokenDance berechnet die Nutzung. Die fünf lokalen Beispiele bleiben auch mit Key lokal.
+4. Erst ein eingerichteter Key plus ein ausdrücklicher Klick auf **Effekte finden**, **Verstehen & Rezepte zuordnen** oder **KI einen neuen Effekt schreiben lassen** ruft ein Modell auf. TokenDance berechnet die Nutzung. Die fünf lokalen Beispiele bleiben auch mit Key lokal.
 5. Mit **Schlüssel löschen** trennst du die Verbindung. **Keys bleiben nur im Seitenspeicher und verschwinden beim Neuladen.** Es gibt kein Kontosystem; Keys werden weder in localStorage oder sessionStorage noch im Repository oder in GitHub Secrets gespeichert. Die Sprachwahl kann gespeichert werden.
 
 GitHub Pages verbindet den Browser direkt mit TokenDance; die lokale Serverversion leitet über die aktuelle Instanz weiter. Gib Keys nur in vertrauenswürdigen Instanzen ein. Bei ungültiger Analyse greifen lokale Regeln, ohne automatische kostenpflichtige Wiederholung. Kostenpflichtige Ende-zu-Ende-Tests mit einem echten Key stehen noch aus. [Integration und Testgrenzen](docs/TOKENDANCE.md) (Chinesisch).
@@ -128,7 +137,7 @@ Parameterfälle: **Studio → GitHub-Bestätigung → automatischer Review-PR �
 - Strukturprüfung bestätigt weder Fakten noch Übersetzungen. Die strenge Inhaltsfreigabe scheitert weiterhin an Entwürfen. Nicht lesbare WeChat-Artikel wurden nicht als gelesene Quellen ausgegeben.
 - Vorschauen zeigen Konzepte und speichern keine echten Daten. Prüfe Exporte vor der Umsetzung. Reduzierte Bewegung, Touch und Tastatur werden berücksichtigt.
 
-[Compiler-Details](docs/DESIGN_COMPILER.md) · [50 neue Einträge und Quellen](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release-Prüfungen](docs/RELEASE_0.4.3.0.0.md) · [Fünfteilige Versionen](docs/VERSIONING.md) — die Detaildokumentation ist derzeit Chinesisch.
+[Compiler-Details](docs/DESIGN_COMPILER.md) · [50 neue Einträge und Quellen](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release-Prüfungen](docs/RELEASE_0.4.4.0.0.md) · [Fünfteilige Versionen](docs/VERSIONING.md) — die Detaildokumentation ist derzeit Chinesisch.
 
 ## Lizenz und Dank
 

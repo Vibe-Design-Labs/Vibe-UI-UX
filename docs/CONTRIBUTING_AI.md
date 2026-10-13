@@ -115,6 +115,6 @@ npm run build:pages
 
 ## 工作台参数案例的快捷路径
 
-阅读 [投稿契约](COMMUNITY_PR.md) 与 public/community-core.js。仅使用五种白名单模板；payload 不包含执行代码、模型密钥或自行声称的 GitHub 身份。作者 GitHub 身份来自真实投稿的 issue.user.login，展示署名需本人同意。Actions 只向 community/case-N 分支写 community/cases/case-N.json，创建待审 PR，不写 main、不批准、不合并、不部署。
+阅读 [投稿契约](COMMUNITY_PR.md) 与 public/community-core.js。参数案例仅使用五种白名单模板。新增生成代码案例使用 schema_version 2 / kind generated，按 [代码契约](GENERATED_EFFECTS.md) 保留完整 HTML、CSS、JS 与参数；payload 不包含模型密钥或自行声称的 GitHub 身份。作者 GitHub 身份来自真实投稿的 issue.user.login，展示署名需本人同意。Actions 只向 community/case-N 分支写 community/cases/case-N.json，创建待审 PR，不写 main、不批准、不合并、不部署。
 
-不要为了实现投稿而给所有贡献者官方写权限。已支持案例的数据变更可以自动整理；新渲染器必须走普通代码审查。官网只展示已进入当前构建分支的社区文件，部署工作流只在 main 或维护者主动触发时发布。
+不要为了实现投稿而给所有贡献者官方写权限。已支持案例的数据变更可以自动整理；生成代码必须由维护者导入隔离工作台核验源码、参数与资源开销；注册为正式词库渲染器仍走普通代码审查。官网只展示已进入当前构建分支的社区文件，部署工作流只在 main 或维护者主动触发时发布。

@@ -1,3 +1,4 @@
+import {decodeSubmission} from '../public/submission-codec.js';
 import {readFile,readdir} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
@@ -25,7 +26,7 @@ export async function processCommunityIssue({issue,catalog,repository,api}){
   if(pulls[0])await api('PATCH',root+'/pulls/'+pulls[0].number,{state:'closed'});
   return {withdrawn:true,number:pulls[0]?.number};
  }
- const input=parseSubmissionBody(issue.body,catalog),entry=caseFromSubmission(input,catalog,issue);
+ const input=await decodeSubmission(issue.body,catalog),entry=caseFromSubmission(input,catalog,issue);
  const root='/repos/'+repository,branch='community/'+entry.id,filename='community/cases/'+entry.id+'.json';
  const branchRef=encodeURIComponent(branch),owner=repository.split('/')[0];
  const pulls=await api('GET',root+'/pulls?state=all&head='+encodeURIComponent(owner+':'+branch)+'&base=main&per_page=100');
@@ -45,13 +46,14 @@ export async function processCommunityIssue({issue,catalog,repository,api}){
  if(!previous||Buffer.from(previous.content,'base64').toString('utf8')!==content){
   await api('PUT',root+'/contents/'+filename,{message:'community: propose '+entry.id,content:Buffer.from(content).toString('base64'),branch,...(previous?{sha:previous.sha}:{})});
  }
- const preview=new URL('https://'+owner.toLowerCase()+'.github.io/'+repository.split('/')[1]+'/effect-example.html');preview.searchParams.set('item',entry.item_id);preview.searchParams.set('params',JSON.stringify(entry.params));
- const body='Community parameter case from @'+entry.author.github_login+'.\n\n'+markdown(entry.summary)+'\n\n'
-  +'[Preview the exact submitted parameters]('+preview.href+')\n\n'
-  +'Template: `'+entry.template_id+'`. File: `'+filename+'`.\n\n'
+ const generated=entry.kind==='generated';
+ const preview=new URL('https://'+owner.toLowerCase()+'.github.io/'+repository.split('/')[1]+'/'+(generated?'studio.html':'effect-example.html'));
+ if(!generated){preview.searchParams.set('item',entry.item_id);preview.searchParams.set('params',JSON.stringify(entry.params));}
+ const body=(generated?'Original code case':'Community parameter case')+' from @'+entry.author.github_login+'.\n\n'+markdown(entry.summary)+'\n\n'
+  +(generated?'The HTML, CSS and JavaScript are embedded in `artifact` in the JSON diff. Download that JSON and import it into the [workbench]('+preview.href+') to reproduce the isolated preview. Automation NEVER executes submitted code.\n\n':'[Preview the exact submitted parameters]('+preview.href+')\n\nTemplate: `'+entry.template_id+'`.\n\n')
+  +'File: `'+filename+'`.\n\n'
   +'Display attribution: '+(entry.author.attribution?markdown(entry.author.display_name):'hidden in the gallery; GitHub identity remains public')+'. Consent: public contribution under MIT.\n\n'
-  +'Only one validated data file is proposed. No renderer or workflow code is supplied by this intake. Maintainer review and manual merge are required. This PR does not publish the website.\n\n'
-  +'Closes #'+issue.number+'\n';
+  +'Only one validated data file is proposed. Maintainer must review behavior, accessibility, code, licensing and resource use; static validation is not a code-quality or security certification. Manual merge is required. This PR does not publish the website.\n\nCloses #'+issue.number+'\n';
  const pull=pulls[0]?await api('PATCH',root+'/pulls/'+pulls[0].number,{title:'Community case: '+entry.title,body}):await api('POST',root+'/pulls',{title:'Community case: '+entry.title,head:branch,base:'main',body,maintainer_can_modify:true,draft:false});
  const note='<!-- intentkit-community-result -->\nYour review PR: '+pull.html_url+'\n\nThe official website stays unchanged until the maintainer reviews and merges this PR. Editing the JSON in this submission updates the same open PR. Code checks may require the maintainer to approve the workflow run. / 待审 PR 已创建；维护者审核并手动合并前不会改变官网。';
  const comments=await api('GET',root+'/issues/'+issue.number+'/comments?per_page=100');
@@ -71,7 +73,7 @@ async function main(){
   console.log(result.ignored?'Unrelated issue ignored.':result.withdrawn?'Submission closed; any open review PR withdrawn.':'Created/updated review PR #'+result.number);
  }catch(error){
   console.error(error.status?'GitHub request failed ('+error.status+').':'Submission validation failed.');
-  const note='<!-- intentkit-community-error -->\nCould not create/update the review PR. Check the five supported templates, parameter ranges and public-contribution consent; keep exactly one JSON block. Repository permission or service failures can be retried by editing the submission. / 投稿未转成 PR，请核对参数与公开许可；不会写入 main 或发布官网。';
+  const note='<!-- intentkit-community-error -->\nCould not create/update the review PR. Check the generated-code contract or supported template, parameter ranges and public-contribution consent; keep exactly one JSON or compressed block. Repository permission or service failures can be retried by editing the submission. / 投稿未转成 PR，请核对参数与公开许可；不会写入 main 或发布官网。';
   try{await api('POST','/repos/'+process.env.GITHUB_REPOSITORY+'/issues/'+issue.number+'/comments',{body:note});}catch{}
   process.exitCode=1;
  }

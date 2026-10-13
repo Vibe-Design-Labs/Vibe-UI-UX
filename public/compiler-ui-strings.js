@@ -1,11 +1,11 @@
 export const languages=['zh-CN','en','ja','ko','de'];
 const words={
- compile:['理解并生成方案','Understand & compile','理解して生成','이해하고 생성','Verstehen & erstellen'],
+ compile:['理解并匹配配方','Interpret & match recipes','理解してレシピを検索','해석하고 레시피 매칭','Verstehen & Rezepte zuordnen'],
  helper:['无需密钥可试五类配方；连接后此按钮使用 AI 理解意图。示例与调参均在本地完成。','Try five recipe families without a key. With a connection, this button uses AI. Examples and tuning stay local.','キー不要で5種類を試せます。接続後はAI解析。例と調整はローカルです。','키 없이 다섯 가지를 체험하세요. 연결 시 AI로 분석합니다. 예시와 조정은 로컬입니다.','Fünf Rezepttypen ohne Key testen. Mit Verbindung nutzt dieser Knopf KI. Beispiele und Einstellungen bleiben lokal.'],
  examples:['本地试试 · 不调用模型','Try locally · no model call','ローカルで試す · モデル呼び出しなし','로컬 체험 · 모델 호출 없음','Lokal testen · kein Modellaufruf'],
  understanding:['我这样理解你的意图','Here is my interpretation','意図をこう理解しました','이렇게 이해했어요','So verstehe ich deine Idee'],
  refine:['检查与修改理解','Review & refine','理解を確認・修正','해석 검토 및 수정','Interpretation prüfen & ändern'],
- ready:['方案已生成','Recipe ready','生成済み','생성 완료','Rezept bereit'],
+ ready:['已有配方已匹配','Recipe ready','生成済み','생성 완료','Rezept bereit'],
  partial:['部分实现 · 请查看未覆盖要求','Partial · review limitations','一部実装 · 未対応を確認','부분 구현 · 제한 확인','Teilweise · Grenzen prüfen'],
  clarify:['需要补充或修改意图','Clarification needed','意図の補足が必要','의도 보완 필요','Klärung erforderlich'],
  rule:['本地规则','Local rules','ローカル規則','로컬 규칙','Lokale Regeln'],
