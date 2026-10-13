@@ -6,7 +6,7 @@
 
 [打开官网](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [直接试用工作台](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [更新记录](CHANGELOG.md)
 
-**v0.4.2.0.0 · 75 设计词条 · 75 专属预览模板 · 5 本地配方家族 · MIT + OFL**
+**v0.4.3.0.0 · 75 设计词条 · 75 专属预览模板 · 5 本地配方家族 · MIT + OFL**
 
 [![工作台实录：叶片光标、暖金聚光、点击水波与错落入场](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -109,9 +109,15 @@ npm run preview:pages
 | `server/worker.js` | 可选本地/Worker 中转；GitHub Pages 不依赖它 |
 | `.github/workflows/pages.yml` | 检查、源码打包、构建和部署 |
 
+## 工作台直接投稿
+
+五类已支持效果可以直接点击 **「提交收录 PR」**。填写名称、用途、可选署名与来源，确认公开许可后，在 GitHub 点击 Submit new issue；仓库自动创建携带案例 JSON 的待审 PR，并回复链接。用户无需手动 Fork、安装工具或填写 GitHub Token。
+
+你审核并手动合并后，案例进入[社区页](https://vibe-design-labs.github.io/Vibe-UI-UX/community.html)，可实际预览、调参和导出。投稿不会写入 main 或自动部署。[用户与维护者操作说明](docs/COMMUNITY_PR.md)。本轮工作流进入 main 并启用 Actions 创建 PR 权限后，自动投稿才会生效。
+
 ## 社区贡献与署名
 
-新案例与功能建议采用 **先私信提案 → 确认方向 → Fork / PR 交付 → 维护者审核 → 手动收录** 的流程。贡献者可以为自己的案例署名；测试通过不等于同意合并。一般不含私人资料的 bug 可以直接提 Issue。
+已有参数案例采用 **工作台制作 → GitHub 确认 → 自动创建待审 PR → 维护者审核 → 手动收录**。新代码通过普通 Fork / PR 投稿，私信讨论可选。贡献者可以为自己的案例署名；测试通过不等于同意合并。一般不含私人资料的 bug 可以直接提 Issue。
 
 [给贡献者的指南](docs/CONTRIBUTING.md) · [给 AI 的指南](docs/CONTRIBUTING_AI.md) · [案例提交表](docs/contributions/TEMPLATE.md) · [署名记录](docs/contributions/README.md)。插件、多端与可复用代码的[后续方案](docs/COMMUNITY_ROADMAP.md)是规划，尚未作为功能上线。
 
@@ -122,7 +128,7 @@ npm run preview:pages
 - 内容结构检查通过不等于来源、事实与翻译已经人工核准。严格发布审校检查目前应失败，草稿状态保留；未能读到的微信正文没有被编造为已读来源。
 - 预览是交互概念示例，不会真实保存数据；导出需由你与开发者审阅后实现。系统减少动态效果、触摸与键盘保留适合的交互。
 
-[编译器结构与约束](docs/DESIGN_COMPILER.md) · [50 个新词条与来源状态](docs/CONTENT_EXPANSION_2026-10-07.md) · [本次发布检查](docs/RELEASE_0.4.2.0.0.md) · [五段版本规则](docs/VERSIONING.md)
+[编译器结构与约束](docs/DESIGN_COMPILER.md) · [50 个新词条与来源状态](docs/CONTENT_EXPANSION_2026-10-07.md) · [本次发布检查](docs/RELEASE_0.4.3.0.0.md) · [五段版本规则](docs/VERSIONING.md)
 
 ## 许可与致谢
 

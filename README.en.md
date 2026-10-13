@@ -6,7 +6,7 @@
 
 [Website](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [Try the studio](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [Changelog](CHANGELOG.md)
 
-**v0.4.2.0.0 · 75 design entries · 75 dedicated preview templates · 5 local recipe families · MIT + OFL**
+**v0.4.3.0.0 · 75 design entries · 75 dedicated preview templates · 5 local recipe families · MIT + OFL**
 
 [![Real studio capture: leaf cursor, warm spotlight, click ripple and staggered reveal](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -109,9 +109,15 @@ Run `npm run check:content`, `npm test` and `npm run check:docs`; rebuild [font 
 | `server/worker.js` | Optional local/Worker relay; not required by GitHub Pages |
 | `.github/workflows/pages.yml` | Validation, packaging, build and deployment |
 
+## Submit from the studio
+
+For the five supported effects, click **Submit a review PR**. Add a title, use case, optional attribution and source, then confirm public MIT contribution. On GitHub, click Submit new issue; repository automation opens a review PR with the case JSON and replies with its link. No manual fork, installation or GitHub API token.
+
+After maintainer review and manual merge, the case appears in the [community gallery](https://vibe-design-labs.github.io/Vibe-UI-UX/community.html) with an actual preview and export. Submitting never writes main or deploys. [User and maintainer guide](docs/COMMUNITY_PR.md) (Chinese). Automation becomes active after this workflow is merged into main and Actions may create PRs.
+
 ## Community contributions and credits
 
-For new cases and features: **private proposal → agreed direction → fork / PR → maintainer review → manual acceptance**. Contributors may credit their own cases; passing checks does not approve a merge. Ordinary bugs without private information can be reported in Issues.
+Parameter cases: **studio → GitHub confirmation → automated review PR → maintainer review → manual acceptance**. New code uses ordinary fork / PR contributions; private discussion is optional. Contributors may credit their own cases; passing checks does not approve a merge. Ordinary bugs without private information can be reported in Issues.
 
 [Contributor guide](docs/CONTRIBUTING.md) · [AI guide](docs/CONTRIBUTING_AI.md) · [Case submission form](docs/contributions/TEMPLATE.md) · [Credits index](docs/contributions/README.md). These detailed guides are currently in Chinese. The [extension, reusable-code and multi-platform plan](docs/COMMUNITY_ROADMAP.md) describes future work, not released features.
 
@@ -122,7 +128,7 @@ For new cases and features: **private proposal → agreed direction → fork / P
 - Structural validation does not certify facts, sources or translations. Strict publication review intentionally fails while drafts remain. Unread WeChat article text was not fabricated as a consulted source.
 - Previews illustrate concepts and do not save real data. Review exports before implementation. Reduced motion, touch and keyboard interactions are handled separately.
 
-[Compiler structure and constraints](docs/DESIGN_COMPILER.md) · [50 new entries and source status](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release checks](docs/RELEASE_0.4.2.0.0.md) · [Five-part versioning](docs/VERSIONING.md) — detailed documents are currently in Chinese.
+[Compiler structure and constraints](docs/DESIGN_COMPILER.md) · [50 new entries and source status](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release checks](docs/RELEASE_0.4.3.0.0.md) · [Five-part versioning](docs/VERSIONING.md) — detailed documents are currently in Chinese.
 
 ## License and credits
 

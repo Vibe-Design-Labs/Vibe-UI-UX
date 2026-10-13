@@ -6,7 +6,7 @@
 
 [ホームページ](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [スタジオを試す](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [変更履歴](CHANGELOG.md)
 
-**v0.4.2.0.0 · 75 デザイン用語 · 75 専用プレビューテンプレート · 5 ローカルレシピ系統 · MIT + OFL**
+**v0.4.3.0.0 · 75 デザイン用語 · 75 専用プレビューテンプレート · 5 ローカルレシピ系統 · MIT + OFL**
 
 [![実際のスタジオ録画：葉のカーソル、暖色の光、クリック波紋、時間差表示](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -109,9 +109,15 @@ npm run preview:pages
 | `server/worker.js` | 任意のローカル中継。Pages では不要 |
 | `.github/workflows/pages.yml` | 検証、ZIP、ビルド、公開 |
 
+## スタジオから投稿
+
+対応する 5 種の効果で **収録 PR を送る** を選び、名前・用途・任意の表示名と出典・公開 MIT 同意を入力します。GitHub で Submit new issue を押すと、事例 JSON の審査 PR が自動作成され、リンクが返信されます。手動 Fork・インストール・API トークンは不要です。
+
+管理者がレビューして手動マージすると [コミュニティ](https://vibe-design-labs.github.io/Vibe-UI-UX/community.html) に実際のプレビューと出力を掲載します。投稿は main の書き換えや自動公開を行いません。[操作ガイド](docs/COMMUNITY_PR.md)（中国語）。main にワークフローをマージし、Actions の PR 作成を許可した後に動作します。
+
 ## コミュニティへの参加とクレジット
 
-新しい事例や機能は **非公開で提案 → 方針確認 → Fork / PR → メンテナーのレビュー → 手動で採用** の順に進めます。自分の事例に署名できます。チェックの成功だけでマージが承認されることはありません。個人情報を含まない通常の不具合は Issue で報告できます。
+パラメーター事例は **スタジオ → GitHub 確認 → 自動 PR → 管理者レビュー → 手動採用**。新しいコードは通常の Fork / PR で提案し、非公開の相談は任意です。自分の事例に署名できます。チェックの成功だけでマージが承認されることはありません。個人情報を含まない通常の不具合は Issue で報告できます。
 
 [参加者向けガイド](docs/CONTRIBUTING.md) · [AI 向けガイド](docs/CONTRIBUTING_AI.md) · [事例提出フォーム](docs/contributions/TEMPLATE.md) · [クレジット一覧](docs/contributions/README.md)（詳細は現在中国語）。[拡張機能・再利用コード・複数端末の計画](docs/COMMUNITY_ROADMAP.md)は将来の案で、公開済み機能ではありません。
 
@@ -122,7 +128,7 @@ npm run preview:pages
 - 構造検証は事実や翻訳の認定ではありません。草稿が残るため厳格な公開レビューはまだ通りません。取得できなかった微信記事の本文を読んだとは記録しません。
 - プレビューは概念例で、実データを保存しません。実装前に出力を確認してください。動きを減らす設定、タッチ、キーボードに対応します。
 
-[コンパイラー詳細](docs/DESIGN_COMPILER.md) · [新規 50 件と出典](docs/CONTENT_EXPANSION_2026-10-07.md) · [公開チェック](docs/RELEASE_0.4.2.0.0.md) · [五段の版番号](docs/VERSIONING.md)（詳細文書は中国語）。
+[コンパイラー詳細](docs/DESIGN_COMPILER.md) · [新規 50 件と出典](docs/CONTENT_EXPANSION_2026-10-07.md) · [公開チェック](docs/RELEASE_0.4.3.0.0.md) · [五段の版番号](docs/VERSIONING.md)（詳細文書は中国語）。
 
 ## ライセンスと謝辞
 

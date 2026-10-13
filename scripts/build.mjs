@@ -6,6 +6,7 @@ import {effectiveParams} from '../public/core.js';
 import {assertCompilerType} from '../public/compiler-schema.js';
 import {assertPreviewCoverage} from '../public/preview-capabilities.js';
 import {componentTemplates} from '../public/effect-contract.js';
+import {validateCommunityCase} from '../public/community-core.js';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 await mkdir(path.join(root,'dist/client'),{recursive:true});await mkdir(path.join(root,'dist/server'),{recursive:true});
 await cp(path.join(root,'public'),path.join(root,'dist/client'),{recursive:true});
@@ -13,7 +14,7 @@ const metadata=JSON.parse(await readFile(path.join(root,'package.json'),'utf8'))
 if(!/^(?:0|[1-9]\d*)(?:\.(?:0|[1-9]\d*)){4}$/.test(metadata.intentkitVersion))throw new Error('intentkitVersion must have five integer segments');
 await writeFile(path.join(root,'dist/client/version.json'),JSON.stringify({version:metadata.intentkitVersion,package_version:metadata.version})+'\n');
 await writeFile(path.join(root,'dist/client/leaf-cursor.svg'),leafMarkup()+'\n');
-for(const name of ['index.html','studio.html','docs.html','authorize.html','effect-example.html']){
+for(const name of ['index.html','studio.html','docs.html','authorize.html','effect-example.html','community.html']){
  const file=path.join(root,'dist/client',name);const html=await readFile(file,'utf8');
  await writeFile(file,html.replaceAll('__PROJECT_VERSION__',metadata.intentkitVersion).replace(/((?:src|href)="\.\/[^"?]+\.(?:js|css|woff2|zip))"/g,'$1?v='+metadata.intentkitVersion+'"'));
 }
@@ -31,6 +32,15 @@ await cp(path.join(root,'LICENSE'),path.join(root,'dist/client/application-licen
 assertPreviewCoverage(items,registry);
 for(const item of items)effectiveParams(item,registry);
 await writeFile(path.join(root,'dist/client/catalog.json'),JSON.stringify({items,registry}));
+const cases=await Promise.all((await readdir(path.join(root,'community/cases'))).filter(name=>name.endsWith('.json')).map(async name=>{
+ const entry=validateCommunityCase(JSON.parse(await readFile(path.join(root,'community/cases',name),'utf8')),{items,registry});
+ if(name!==entry.id+'.json')throw new Error('Community filename must match the case ID');return entry;
+}));
+cases.sort((a,b)=>b.issue_number-a.issue_number);
+await writeFile(path.join(root,'dist/client/community-cases.json'),JSON.stringify(cases));
+const repository=process.env.INTENTKIT_SUBMISSION_REPOSITORY||process.env.GITHUB_REPOSITORY||'Vibe-Design-Labs/Vibe-UI-UX';
+if(!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(repository))throw new Error('Invalid submission repository');
+await writeFile(path.join(root,'dist/client/community-config.json'),JSON.stringify({repository,version:metadata.intentkitVersion}));
 const compiler={version:metadata.intentkitVersion};
 for(const [key,name] of Object.entries({schemas:'schema',lexicon:'lexicon',strings:'strings',implementations:'implementations'}))compiler[key]=JSON.parse(await readFile(path.join(root,'compiler',name+'.json'),'utf8'));
 function checkSchemaRefs(value){if(!value||typeof value!=='object')return;if(value.$ref&&(!value.$ref.startsWith('#/$defs/')||!compiler.schemas.$defs[value.$ref.slice(8)]))throw new Error('Unknown compiler schema reference: '+value.$ref);for(const child of Object.values(value))checkSchemaRefs(child);}
