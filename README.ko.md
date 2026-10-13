@@ -6,7 +6,7 @@
 
 [홈페이지](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [작업대 체험](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [변경 기록](CHANGELOG.md)
 
-**v0.4.4.0.0 · 75 디자인 항목 · 75 전용 미리보기 템플릿 · 5 로컬 레시피 유형 · MIT + OFL**
+**v0.4.4.0.1 · 75 디자인 항목 · 75 전용 미리보기 템플릿 · 5 로컬 레시피 유형 · MIT + OFL**
 
 [![실제 작업대 녹화: 나뭇잎 커서, 따뜻한 스포트라이트, 클릭 파동, 순차 등장](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -137,7 +137,7 @@ npm run preview:pages
 - 구조 검증은 사실과 번역의 인증이 아닙니다. 초안이 남아 엄격한 공개 검토는 아직 통과하지 않습니다. 읽지 못한 위챗 기사 본문을 읽은 출처로 꾸미지 않았습니다.
 - 미리보기는 개념 예시이며 실제 데이터를 저장하지 않습니다. 구현 전 내보낸 결과를 확인하세요. 동작 줄이기, 터치, 키보드에 맞는 인터랙션을 유지합니다.
 
-[컴파일러 구조](docs/DESIGN_COMPILER.md) · [새 항목 50개와 출처](docs/CONTENT_EXPANSION_2026-10-07.md) · [배포 확인](docs/RELEASE_0.4.4.0.0.md) · [5단계 버전 규칙](docs/VERSIONING.md)(상세 문서는 중국어).
+[컴파일러 구조](docs/DESIGN_COMPILER.md) · [새 항목 50개와 출처](docs/CONTENT_EXPANSION_2026-10-07.md) · [배포 확인](docs/RELEASE_0.4.4.0.1.md) · [5단계 버전 규칙](docs/VERSIONING.md)(상세 문서는 중국어).
 
 ## 라이선스와 감사
 
