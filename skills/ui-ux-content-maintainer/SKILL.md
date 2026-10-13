@@ -69,4 +69,4 @@ python scripts/validate_content.py /absolute/path/to/content-root --publish-chec
 
 ## 工作台社区投稿维护
 
-按 [自动 PR 契约](../../docs/COMMUNITY_PR.md) 更新。参数案例只修改 community/cases/case-N.json，作者 GitHub 身份取真实投稿事件。投稿代码由公共校验器限定数据与白名单，机器人只创建独立分支 / 待审 PR，不批准、不合并、不部署。自动化需要默认分支工作流与仓库的 Actions 创建 PR 权限；未上线或未实测时明确说明，不伪称已激活。
+按 [自动 PR 契约](../../docs/COMMUNITY_PR.md) 更新。参数案例只修改 community/cases/case-N.json，作者 GitHub 身份取真实投稿事件。参数案例按模板白名单校验；生成代码案例按 [代码契约](../../docs/GENERATED_EFFECTS.md) 校验。实际 HTML / CSS / JavaScript 与参数保存在 artifact 数据中，Actions 不执行投稿代码。维护者需检查源码、隔离预览、参数生效与清理，不能把结构通过等同人工验收。投稿数据由公共校验器限定，机器人只创建独立分支 / 待审 PR，不批准、不合并、不部署。自动化需要默认分支工作流与仓库的 Actions 创建 PR 权限；未上线或未实测时明确说明，不伪称已激活。

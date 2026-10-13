@@ -1,0 +1,45 @@
+import {locale} from './i18n.js';
+export const aiLanguages=['zh-CN','en','ja','ko','de'];
+const words={
+ generate:['让 AI 编写新效果','Ask AI to code a new effect','AIで新しいエフェクトを作成','AI로 새 효과 작성','KI einen neuen Effekt schreiben lassen'],
+ intro:['直接生成 HTML / CSS / JavaScript。预览、参数与投稿共用同一份代码；需要 TokenDance 密钥。','Generate HTML / CSS / JavaScript. Preview, parameters and submission use the same code. A TokenDance key is required.','HTML / CSS / JavaScriptを生成。プレビュー・パラメータ・投稿は同じコードを使用。TokenDanceキーが必要です。','HTML / CSS / JavaScript를 생성합니다. 미리보기·매개변수·제출이 같은 코드를 사용합니다. TokenDance 키가 필요합니다.','HTML / CSS / JavaScript generieren. Vorschau, Parameter und Einreichung verwenden denselben Code. TokenDance-Key erforderlich.'],
+ title:['AI 原创效果','AI-authored effect','AIによる新作','AI 제작 효과','KI-generierter Effekt'],
+ working:['模型正在编写代码…','Model is writing code…','モデルがコードを作成中…','모델이 코드를 작성 중…','Modell schreibt Code…'],
+ cancel:['取消请求','Cancel request','リクエストを中止','요청 취소','Anfrage abbrechen'],
+ waiting:['代码已返回，正在验证隔离预览…','Code received; checking isolated preview…','コードを受信、分離プレビューを確認中…','코드 수신, 격리 미리보기 확인 중…','Code erhalten; isolierte Vorschau wird geprüft…'],
+ ready:['代码已返回 · 预览已运行','Code received · preview running','コード受信 · プレビュー実行中','코드 수신 · 미리보기 실행 중','Code erhalten · Vorschau läuft'],
+ importedReady:['本地导入 · 预览已运行（未调用模型）','Imported locally · preview running (no model call)','ローカル読込 · プレビュー実行中（モデル呼び出しなし）','로컬 가져오기 · 미리보기 실행 중(모델 호출 없음)','Lokal importiert · Vorschau läuft (kein Modellaufruf)'],
+ noKey:['请先连接 TokenDance，再由模型编写新效果。词库配方仍可免费体验。','Connect TokenDance to generate new code. Library recipes remain free to try.','新しいコードにはTokenDanceへの接続が必要です。既存のレシピは無料で試せます。','새 코드를 생성하려면 TokenDance에 연결하세요. 기존 레시피는 무료로 체험할 수 있습니다.','Für neuen Code TokenDance verbinden. Bibliotheksrezepte bleiben kostenlos.'],
+ paid:['不会自动重试。请求发出后，即使取消或校验失败，也可能已产生模型费用。','No automatic retries. A sent request may incur model costs even if cancelled or rejected by validation.','自動再試行はしません。中止や検証失敗でも、送信済みのリクエストには費用が発生する場合があります。','자동 재시도하지 않습니다. 전송된 요청은 취소·검증 실패 시에도 비용이 발생할 수 있습니다.','Keine automatischen Wiederholungen. Gesendete Anfragen können auch bei Abbruch oder fehlgeschlagener Prüfung Kosten verursachen.'],
+ localFallback:['当前展示的是本地配方匹配，不是 AI 编写的新效果。','The displayed result is a local recipe match, not newly authored AI code.','表示中の結果はローカルのレシピ検索で、AIの新規コードではありません。','현재 결과는 로컬 레시피 매칭이며 AI가 작성한 새 코드가 아닙니다.','Das Ergebnis ist ein lokaler Rezepttreffer, kein neuer KI-Code.'],
+ network:['未收到服务响应：网络或跨域连接失败。','No service response received: network or CORS failure.','応答を受信できませんでした。ネットワークまたはCORSの問題です。','서비스 응답을 받지 못했습니다. 네트워크 또는 CORS 오류입니다.','Keine Dienstantwort erhalten: Netzwerk- oder CORS-Fehler.'],
+ serviceError:['已收到服务端错误响应；这不是未连接。','An error response was received from the service; the connection was established.','サーバーのエラー応答を受信しました。接続自体はできています。','서버 오류 응답을 받았습니다. 연결 자체는 이루어졌습니다.','Fehlerantwort vom Dienst erhalten; die Verbindung wurde hergestellt.'],
+ timeout:['等待服务超时；无法确认模型是否已经完成。','Timed out waiting; model completion is unknown.','応答待ちがタイムアウトしました。モデルの完了状況は不明です。','응답 대기 시간 초과. 모델 완료 여부는 알 수 없습니다.','Zeitüberschreitung; Modellabschluss ist unbekannt.'],
+ cancelled:['请求已取消；不再处理这次返回。','Request cancelled; its result will not be applied.','中止しました。この結果は適用されません。','요청 취소됨. 이번 결과는 적용하지 않습니다.','Anfrage abgebrochen; Ergebnis wird nicht angewendet.'],
+ auth:['服务拒绝密钥或授权，请检查连接。','Service rejected the key or authorization.','キーまたは認証が拒否されました。','키 또는 인증이 거부되었습니다.','Dienst hat Schlüssel oder Berechtigung abgelehnt.'],
+ limit:['服务提示余额、配额或请求频率限制。','Service reported a balance, quota or rate limit.','残高・割り当て・リクエスト頻度の制限です。','잔액·할당량·요청 빈도 제한입니다.','Guthaben-, Kontingent- oder Ratenlimit gemeldet.'],
+ model:['服务拒绝当前模型或请求参数。','Service rejected the model or request parameters.','モデルまたはリクエスト設定が拒否されました。','모델 또는 요청 설정이 거부되었습니다.','Modell oder Anfrageparameter abgelehnt.'],
+ input:['请求参数无效，未发起模型调用。','Invalid request input; no model call sent.','入力が無効です。モデルは呼び出していません。','입력이 잘못되어 모델을 호출하지 않았습니다.','Ungültige Eingabe; kein Modellaufruf gesendet.'],
+ 'response-json':['已收到服务响应，但响应正文无法读取或不是有效 JSON。','Service responded, but its body was unreadable or invalid JSON.','応答は届きましたが、本文を読み取れないかJSONが無効です。','응답은 수신했으나 본문을 읽을 수 없거나 JSON이 아닙니다.','Dienstantwort erhalten, aber Inhalt unlesbar oder kein gültiges JSON.'],
+ empty:['已收到服务响应，但没有可用的模型正文。','Service responded without usable model content.','応答に使用可能なモデル出力がありません。','응답에 사용할 수 있는 모델 본문이 없습니다.','Dienstantwort ohne nutzbaren Modellinhalt.'],
+ truncated:['模型已返回，但输出长度达到上限，代码或 JSON 不完整。','Model responded, but hit the output limit; code or JSON is incomplete.','モデルは応答しましたが、出力上限でコードまたはJSONが途中で切れました。','모델이 응답했으나 출력 제한으로 코드 또는 JSON이 불완전합니다.','Modell hat geantwortet, aber Ausgabe wurde am Limit abgeschnitten.'],
+ json:['模型已返回，但输出不是有效 JSON。','Model responded, but output is not valid JSON.','モデル出力が有効なJSONではありません。','모델 출력이 유효한 JSON이 아닙니다.','Modellantwort ist kein gültiges JSON.'],
+ schema:['模型已返回，但结果未通过结构或代码边界校验。','Model responded, but result failed structure or code-boundary validation.','モデル出力が構造・コード制約の検証に合格しませんでした。','모델 결과가 구조 또는 코드 경계 검증을 통과하지 못했습니다.','Modellantwort hat Struktur- oder Codegrenzenprüfung nicht bestanden.'],
+ unsafe:['模型已返回，但包含不可公开的信息，结果已拒绝。','Model responded with information that cannot be published; rejected.','公開できない情報を含むため、出力を拒否しました。','공개할 수 없는 정보가 포함되어 결과를 거부했습니다.','Nicht veröffentlichbare Informationen in Modellantwort; abgelehnt.'],
+ runtime:['代码已返回，但隔离预览没有正常运行；请检查代码。','Code received, but isolated preview failed. Inspect the code.','コードは届きましたが、分離プレビューが正常に動作しません。','코드는 수신했으나 격리 미리보기가 실행되지 않았습니다.','Code erhalten, aber isolierte Vorschau fehlgeschlagen.'],
+ code:['查看实际源码','Inspect actual source','実際のコードを見る','실제 소스 보기','Quellcode ansehen'],
+ download:['导出 Web 源码 ZIP','Export Web source ZIP','WebソースZIPを書き出す','Web 소스 ZIP 내보내기','Web-Quellcode als ZIP exportieren'],
+ submit:['申请收录 · 待审 PR','Submit for a review PR','レビューPRへ投稿','검토 PR 제출','Zur Prüfung als PR einreichen'],
+ restart:['重播代码预览','Restart code preview','コードプレビュー再起動','코드 미리보기 재시작','Code-Vorschau neu starten'],
+ stop:['停止预览','Stop preview','プレビュー停止','미리보기 중지','Vorschau stoppen'],
+ isolation:['此预览运行在隔离窗口中，不接收密钥；代码仍需人工核验。','This preview runs in an isolated frame without your key; code still requires human review.','このプレビューはキーを受け取らない分離フレームで動作します。コードの人手による確認は必要です。','미리보기는 키를 받지 않는 격리 프레임에서 실행됩니다. 코드의 사람 검토는 필요합니다.','Vorschau läuft in einem isolierten Frame ohne Schlüssel; menschliche Codeprüfung bleibt erforderlich.'],
+ author:['署名（可选）','Credit name (optional)','表示名（任意）','표시 이름(선택)','Namensnennung (optional)'],
+ consent:['同意公开本次代码、参数与说明，以 MIT 许可投稿；维护者审核前不会上线。','Publish this code, parameters and description under MIT; no release before maintainer review.','コード・パラメータ・説明をMITで公開投稿します。管理者レビュー前には公開サイトへ反映されません。','코드·매개변수·설명을 MIT로 공개 제출합니다. 관리자 검토 전 사이트에 반영되지 않습니다.','Code, Parameter und Beschreibung unter MIT einreichen; keine Veröffentlichung vor Prüfung.'],
+ copyBody:['复制完整投稿内容','Copy full submission body','投稿本文をコピー','전체 제출 본문 복사','Vollständigen Einreichungstext kopieren'],
+ paste:['代码较长，无法放入链接。先复制完整内容，再打开 GitHub，粘贴到正文并提交 Issue；机器人会转为待审 PR。','Code is too long for a URL. Copy the full body, open GitHub, paste into the issue body and submit. The bot creates a review PR.','コードがURLには長すぎます。本文をコピーしGitHubのIssue本文に貼り付けて送信してください。ボットがレビューPRを作成します。','코드가 URL에 담기에는 깁니다. 본문을 복사해 GitHub 이슈 본문에 붙여 넣고 제출하면 봇이 검토 PR을 만듭니다.','Code ist zu lang für einen Link. Text kopieren, in die GitHub-Issue-Beschreibung einfügen und absenden. Der Bot erstellt einen Prüf-PR.'],
+ open:['打开 GitHub 投稿','Open GitHub submission','GitHub投稿を開く','GitHub 제출 열기','GitHub-Einreichung öffnen'],
+ paused:['预览已停止，代码和参数仍保留。','Preview stopped; code and parameters preserved.','プレビュー停止。コードとパラメータは保持しています。','미리보기 중지됨. 코드와 매개변수는 유지됩니다.','Vorschau gestoppt; Code und Parameter bleiben erhalten.']
+};
+export const generatedDictionaries=Object.fromEntries(aiLanguages.map((language,index)=>[language,Object.fromEntries(Object.entries(words).map(([key,values])=>[key,values[index]]))]));
+export function aiText(key){return generatedDictionaries[locale][key]||key;}
+export function errorText(d){return aiText(d?.code==='network'&&d.received?'serviceError':d?.code||'network')+(d?.status?' (HTTP '+d.status+')':'');}

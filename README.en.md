@@ -6,17 +6,26 @@
 
 [Website](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [Try the studio](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [Changelog](CHANGELOG.md)
 
-**v0.4.3.0.0 · 75 design entries · 75 dedicated preview templates · 5 local recipe families · MIT + OFL**
+**v0.4.4.0.0 · 75 design entries · 75 dedicated preview templates · 5 local recipe families · MIT + OFL**
 
 [![Real studio capture: leaf cursor, warm spotlight, click ripple and staggered reveal](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
 Captured from the project’s actual renderers, without AI-generated frames. The GIF is a recording; the [live studio](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) supports interaction, parameter tuning and reduced-motion preferences.
 
+## Ask the model to write a new effect
+
+1. Connect TokenDance, describe a specific interaction, and choose **Ask AI to code a new effect**. The model writes HTML, CSS and JavaScript instead of choosing a catalog template.
+2. Test the isolated preview, change its declared parameters, and inspect the actual source. A failed preview is reported and cannot be submitted for inclusion.
+3. Export the **Web source ZIP** and run `python -m http.server 4180`, or save the effect JSON and import it later to restore the same code and values. Tuning and export make no model calls.
+4. Submit for a review PR, consent to publishing the code under MIT, then confirm the issue on GitHub. The bot creates an isolated data PR without running submitted code. Maintainer review and manual merge remain required.
+
+Newly generated code exports native Web projects in this release; the five existing templates retain React/video exports. Diagnostics distinguish no response, truncated output, invalid JSON, failed validation and preview errors. No automatic paid retries. Paid live-key generation has not been tested; code quality still needs human review. [Contract and limits](docs/GENERATED_EFFECTS.md) (Chinese).
+
 ## What is IntentKit?
 
 Describing the feeling is often the hardest part of vibe coding. Does “lighter” mean a smaller hover lift, a scale change, or more whitespace? IntentKit connects everyday expressions with UI/UX terminology, aliases, examples and concrete parameters so designers, developers and newcomers can agree on what to build.
 
-Design Compiler follows **everyday language → editable understanding (Design IR) → controlled recipe → real preview → design brief / Agent brief / JSON**. It helps you inspect a design proposal; it does not generate full pages or execute arbitrary model-produced code.
+Design Compiler follows **everyday language → editable understanding (Design IR) → controlled recipe → real preview → design brief / Agent brief / JSON**. It helps you inspect a design proposal; recipe mode stays within known implementations. The new AI code mode runs one model-authored effect in an isolated frame, rather than building a whole site.
 
 | Feature | Available now |
 | --- | --- |
@@ -30,7 +39,7 @@ Design Compiler follows **everyday language → editable understanding (Design I
 ## First run: no key needed
 
 1. Open the [studio](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) and choose English in the top-right language selector.
-2. Click **Try locally → Gentle card lift**, or enter `The card should lift gently on hover, not too much` and click **Understand & compile**. Without a configured key, it uses local rules.
+2. Click **Try locally → Gentle card lift**, or enter `The card should lift gently on hover, not too much` and click **Interpret & match recipes**. Without a configured key, it uses local rules.
 3. Review the understanding and expand the editable fields to correct target, trigger and strength. Defaults and inferences are listed separately from your stated intent.
 4. Hover over the card and adjust the parameters. Preview, brief and recipe use the same final values. If an adjustment conflicts with the intent, review the warning and explicitly accept the current parameters.
 5. Copy the **Agent brief** from the compiler output into your coding assistant, or export the **compilation JSON**. The original right-hand JSON export remains a separate **single-effect export**.
@@ -55,7 +64,7 @@ For terminology lookup, search `frosted glass`, `backdrop-filter` or a known ali
 1. Click **Connect TokenDance**. The panel loads the public model catalog; this does not call a model.
 2. Authorize through the TokenDance popup to create a key, or paste your own existing key from [TokenDance keys](https://tokendance.space/keys). Authorization creates a key after your confirmation.
 3. Choose a chat-compatible model and click **Keep in this page**. If the catalog fails to load, enter an official model ID manually.
-4. With a configured key, only an explicit click on **Find effects** or **Understand & compile** requests a model; TokenDance bills usage. The five local examples remain local even when connected.
+4. With a configured key, only an explicit click on **Find effects** **Interpret & match recipes**, or **Ask AI to code a new effect** requests a model; TokenDance bills usage. The five local examples remain local even when connected.
 5. Use **Forget key** to disconnect. **Keys stay in page memory and clear on refresh**. There is no account system or key storage in localStorage, sessionStorage, the repository or GitHub Secrets. The language preference can be saved.
 
 GitHub Pages connects directly from your browser to TokenDance; local/server hosting uses the current instance’s relay. Enter keys only in trusted deployments. Parsing failures fall back to local rules without automatic paid retries. Paid end-to-end testing with a real key has not been completed. See [integration details and test limits](docs/TOKENDANCE.md) (Chinese).
@@ -128,7 +137,7 @@ Parameter cases: **studio → GitHub confirmation → automated review PR → ma
 - Structural validation does not certify facts, sources or translations. Strict publication review intentionally fails while drafts remain. Unread WeChat article text was not fabricated as a consulted source.
 - Previews illustrate concepts and do not save real data. Review exports before implementation. Reduced motion, touch and keyboard interactions are handled separately.
 
-[Compiler structure and constraints](docs/DESIGN_COMPILER.md) · [50 new entries and source status](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release checks](docs/RELEASE_0.4.3.0.0.md) · [Five-part versioning](docs/VERSIONING.md) — detailed documents are currently in Chinese.
+[Compiler structure and constraints](docs/DESIGN_COMPILER.md) · [50 new entries and source status](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release checks](docs/RELEASE_0.4.4.0.0.md) · [Five-part versioning](docs/VERSIONING.md) — detailed documents are currently in Chinese.
 
 ## License and credits
 

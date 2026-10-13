@@ -73,3 +73,9 @@ npm run build:pages
 - [应用归因](https://tokendance.space/docs/app-attribution.md)
 
 构建、内容维护、自动测试、Pages 发布和模型目录读取不调用模型。只有使用者主动执行意图解析才可能产生 TokenDance 模型费用。
+
+## 0.4.4.0.0：实际代码生成与请求阶段
+
+配方匹配仍使用 compile 任务。独立 generate 任务调用相同固定 Chat Completions 端点，使用单次 max_tokens 7000 请求，实际返回 HTML/CSS/JS 与参数。浏览器等待上限 120 秒，中转上游 110 秒；配方解析分别为 90/85 秒。超时或取消不表示服务商一定未计费。
+
+收到有效 HTTP 响应、正文 JSON 解码、finish_reason 截断、结构校验与代码预览分别处理。直连与中转保留一致的固定诊断，不输出原始网关报错。不会自动重试付费请求。详细流程与验证边界见 [GENERATED_EFFECTS.md](GENERATED_EFFECTS.md)。本轮协议核对与可控响应测试已进行，真实用户密钥的付费生成仍未实测。

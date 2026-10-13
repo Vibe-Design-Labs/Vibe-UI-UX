@@ -2,6 +2,8 @@ import {compileDesign,editDesignIR,compatibleRecipes,updateCompilation,canExport
 import {requestCompilerIntent} from './client-byok.js';
 import {locale,t} from './i18n.js';
 import {notify} from './motion.js';
+import {aiText,errorText} from './generated-strings.js';
+import {diagnostic} from './model-response.js';
 import {languages,compilerDictionaries} from './compiler-ui-strings.js';
 export const compilerText=key=>compilerDictionaries[locale][key]||key;
 const node=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e;};
@@ -16,18 +18,18 @@ const samples=[
 ];
 export function setupCompilerPanel({catalog,data,getCredentials,onApplyRecipe,onBeforeCompile,onStateChange,appURL,mode}){
  const panel=document.querySelector('#compiler-panel'),output=document.querySelector('#compiler-output'),button=document.querySelector('#compile'),input=document.querySelector('#intent'),examples=document.querySelector('#compiler-examples');
- let result=null,controller=null,notice=false,refreshing=false;
+ let result=null,controller=null,notice=null,refreshing=false;
  const strings=()=>data.strings[locale];
  const sourceLabel=()=>compilerText(result.ir.source==='model'?'model':result.ir.source==='user-edited'?'edited':'rule');
  function cancel(){controller?.abort();controller=null;button.disabled=false;button.textContent=compilerText('compile');}
- function clear(){cancel();result=null;notice=false;panel.hidden=true;output.hidden=true;panel.replaceChildren();output.replaceChildren();onStateChange?.(null);}
+ function clear(){cancel();result=null;notice=null;panel.hidden=true;output.hidden=true;panel.replaceChildren();output.replaceChildren();onStateChange?.(null);}
  function apply(){if(!result.recipe)return;refreshing=true;try{onApplyRecipe(result.recipe);}finally{refreshing=false;}}
  function render(){renderContent();onStateChange?.(result);}
  function renderContent(){
   if(!result)return;const s=strings();panel.hidden=false;panel.replaceChildren();output.hidden=!result.recipe;output.replaceChildren();
   panel.dataset.status=result.status;
   const top=node('div','compiler-top');top.append(node('h2','',compilerText('understanding')),node('span','compiler-badge',compilerText(result.status==='ready'?'ready':result.status==='partial'?'partial':'clarify')));panel.append(top,node('p','compiler-source',sourceLabel()));
-  if(notice)panel.append(node('p','compiler-warning',compilerText('fallback')));
+  if(notice)panel.append(node('p','compiler-warning',errorText(notice)+' '+aiText('localFallback')));
   const summary=node('p','compiler-summary');summary.append(node('span','',s.values[result.ir.target]),node('span','',s.values[result.ir.interaction.trigger]),node('span','',s.values[result.ir.intent.feedback_strength]));panel.append(summary);
   const refinement=node('details','compiler-refinement');refinement.append(node('summary','',compilerText('refine')));const grid=node('div','compiler-fields');
   for(const field of compilerFields){const label=node('label'),select=node('select');label.append(node('span','',compilerText(field)));select.dataset.ir=field;
@@ -52,11 +54,11 @@ export function setupCompilerPanel({catalog,data,getCredentials,onApplyRecipe,on
  }
  function refinementState(open){const details=panel.querySelector('.compiler-refinement');if(details)details.open=open;}
  async function run(localOnly=false){
-  const text=input.value.trim();if(!text)return notify(t('enterIntent'));cancel();onBeforeCompile?.();notice=false;
+  const text=input.value.trim();if(!text)return notify(t('enterIntent'));cancel();onBeforeCompile?.();notice=null;
   let ir;const credentials=getCredentials();
-  if(credentials.key&&!localOnly){controller=new AbortController();const active=controller,timeout=setTimeout(()=>active.abort(),40000);button.disabled=true;button.textContent=t('loading');
+  if(credentials.key&&!localOnly){controller=new AbortController();const active=controller,timeout=setTimeout(()=>active.abort(new DOMException('Timed out','TimeoutError')),90000);button.disabled=true;button.textContent=t('loading');
    try{const parsed=await requestCompilerIntent({items:catalog.items,catalog,data,intent:text,locale,model:credentials.model,key:credentials.key,mode,appURL,signal:active.signal});if(controller!==active||active.signal.aborted)return;ir=parsed.ir;}
-   catch{if(controller!==active)return;notice=true;}
+   catch(error){if(controller!==active)return;if(error.code==='cancelled')return;notice=diagnostic(error);}
    finally{clearTimeout(timeout);if(controller===active){controller=null;button.disabled=false;button.textContent=compilerText('compile');}}
   }
   try{result=compileDesign({text,ir,catalog,data,locale});apply();render();}catch{notify(t('apiFormat'));}
