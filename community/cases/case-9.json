@@ -1,0 +1,26 @@
+{
+  "schema": "intentkit.community-case",
+  "schema_version": 1,
+  "id": "case-9",
+  "item_id": "press-feedback",
+  "template_id": "press-feedback",
+  "params": {
+    "scale_start": 0.97,
+    "duration_ms": 120
+  },
+  "title": "按压反馈（很简单的那种）",
+  "summary": "想要证明你这个东西成功交互了的时候",
+  "author": {
+    "github_login": "jingjing-wu0425",
+    "display_name": "京京",
+    "attribution": true
+  },
+  "locale": "zh-CN",
+  "content_locale": "zh-CN",
+  "brief": "按钮按压时缩放到 0.97，过渡 120ms；松开、取消或移出后恢复。支持鼠标与键盘按压；减少动态效果时不缩放。",
+  "source_url": "",
+  "submitted_version": "0.4.3.0.0",
+  "issue_number": 9,
+  "license": "MIT",
+  "consent": true
+}
