@@ -1,0 +1,30 @@
+{
+  "schema": "intentkit.community-case",
+  "schema_version": 1,
+  "id": "case-7",
+  "item_id": "cursor-spotlight",
+  "template_id": "cursor-spotlight",
+  "params": {
+    "radius_px": 160,
+    "opacity": 0.15,
+    "lift_px": 3,
+    "duration_ms": 240,
+    "color": "#EBCB8B",
+    "follow_ms": 80
+  },
+  "title": "[Robot integration test] review PR",
+  "summary": "Maintainer end-to-end automation test. Not a community contribution; the generated PR will be withdrawn without merging.",
+  "author": {
+    "github_login": "virtue192",
+    "display_name": "Maintainer automation test",
+    "attribution": true
+  },
+  "locale": "zh-CN",
+  "content_locale": "zh-CN",
+  "brief": "为卡片添加半径 160px、颜色 #EBCB8B、透明度 0.15 的指针聚光，灯光跟随时间常数 80ms（0 直接跟随）；悬停抬升 3px，抬升过渡 240ms。不拦截点击；触摸与减少动态效果时使用静态状态。",
+  "source_url": "",
+  "submitted_version": "0.4.3.0.0",
+  "issue_number": 7,
+  "license": "MIT",
+  "consent": true
+}
