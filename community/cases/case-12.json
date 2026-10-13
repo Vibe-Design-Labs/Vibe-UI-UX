@@ -1,0 +1,52 @@
+{
+  "schema": "intentkit.community-case",
+  "schema_version": 2,
+  "kind": "generated",
+  "id": "case-12",
+  "artifact": {
+    "schema": "intentkit.generated-effect",
+    "schema_version": 1,
+    "title": "Maintainer test · Ink constellation",
+    "summary": "Maintainer automation test for the new code intake. Not a community contribution; do not merge.",
+    "html": "<section class=\"constellation\"><h2>Catch a little starlight</h2><p>Move here to bend the ink constellation.</p><canvas aria-label=\"Interactive ink constellation\"></canvas></section>",
+    "css": ".constellation{position:relative;min-height:360px;padding:28px;border:2px solid #233d32;border-radius:30px;overflow:hidden;background:#f4ecd9;font-family:Georgia,serif}.constellation h2{font-size:32px;margin:0}.constellation p{font-size:17px}.constellation canvas{display:block;width:100%;height:230px}",
+    "js": "export default function mount(root,params,{reducedMotion}) { const canvas=root.querySelector('canvas'),ctx=canvas.getContext('2d');let p={...params},frame=0,phase=0;const point={x:180,y:110};canvas.width=640;canvas.height=230;function draw(){ctx.clearRect(0,0,640,230);ctx.fillStyle=p.color;for(let i=0;i<24;i++){const angle=i*Math.PI/12+phase;ctx.beginPath();ctx.arc(point.x+Math.cos(angle)*90,point.y+Math.sin(angle)*60,p.dot_size,0,Math.PI*2);ctx.fill();}if(!reducedMotion){phase+=0.004;frame=requestAnimationFrame(draw);}}function move(e){const box=canvas.getBoundingClientRect();point.x=(e.clientX-box.left)*640/box.width;point.y=(e.clientY-box.top)*230/box.height;if(reducedMotion)draw();}canvas.addEventListener('pointermove',move);draw();return {update(next){p={...next};if(reducedMotion)draw();},dispose(){cancelAnimationFrame(frame);canvas.removeEventListener('pointermove',move);}};}",
+    "parameters": [
+      {
+        "id": "dot_size",
+        "label": "Ink dot size",
+        "type": "number",
+        "min": 1,
+        "max": 12,
+        "step": 1,
+        "default": 4,
+        "unit": "px"
+      },
+      {
+        "id": "color",
+        "label": "Ink color",
+        "type": "color",
+        "default": "#bd573d"
+      }
+    ]
+  },
+  "params": {
+    "dot_size": 9,
+    "color": "#bd573d"
+  },
+  "title": "Maintainer test · Ink constellation",
+  "summary": "Maintainer automation test for the new code intake. Not a community contribution; do not merge.",
+  "author": {
+    "github_login": "virtue192",
+    "display_name": "Maintainer automation test",
+    "attribution": true
+  },
+  "locale": "zh-CN",
+  "content_locale": "zh-CN",
+  "brief": "Maintainer test · Ink constellation\n\nMaintainer automation test for the new code intake. Not a community contribution; do not merge.\n\nInk dot size: 9px\nInk color: #bd573d",
+  "source_url": "",
+  "submitted_version": "0.4.4.0.0",
+  "issue_number": 12,
+  "license": "MIT",
+  "consent": true
+}
