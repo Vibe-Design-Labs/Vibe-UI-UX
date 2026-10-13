@@ -6,7 +6,7 @@
 
 [홈페이지](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [작업대 체험](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [변경 기록](CHANGELOG.md)
 
-**v0.4.2.0.0 · 75 디자인 항목 · 75 전용 미리보기 템플릿 · 5 로컬 레시피 유형 · MIT + OFL**
+**v0.4.3.0.0 · 75 디자인 항목 · 75 전용 미리보기 템플릿 · 5 로컬 레시피 유형 · MIT + OFL**
 
 [![실제 작업대 녹화: 나뭇잎 커서, 따뜻한 스포트라이트, 클릭 파동, 순차 등장](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -109,9 +109,15 @@ npm run preview:pages
 | `server/worker.js` | 선택적 로컬 중계. Pages에는 불필요 |
 | `.github/workflows/pages.yml` | 확인, 압축, 빌드, 배포 |
 
+## 작업대에서 바로 제출
+
+지원 효과 5종에서 **등록 검토 PR 제출**을 선택해 이름, 용도, 선택적 이름과 출처, 공개 MIT 동의를 입력합니다. GitHub에서 Submit new issue를 누르면 사례 JSON을 담은 검토 PR이 자동 생성되고 링크가 답글로 제공됩니다. 수동 Fork, 설치, API 토큰이 필요 없습니다.
+
+관리자 검토와 수동 병합 후 [커뮤니티 페이지](https://vibe-design-labs.github.io/Vibe-UI-UX/community.html)에 실제 미리보기와 출력을 제공합니다. 제출은 main 변경이나 배포를 실행하지 않습니다. [운영 안내](docs/COMMUNITY_PR.md)(중국어). 워크플로가 main에 병합되고 Actions의 PR 생성이 허용된 뒤 활성화됩니다.
+
 ## 커뮤니티 기여와 크레딧
 
-새 사례와 기능은 **비공개 제안 → 방향 확인 → Fork / PR → 관리자의 검토 → 수동 수록** 순서로 진행합니다. 자신의 사례에 이름을 표시할 수 있습니다. 검사를 통과해도 병합 승인을 의미하지 않습니다. 개인 정보가 없는 일반 버그는 Issue로 신고할 수 있습니다.
+매개변수 사례는 **작업대 → GitHub 확인 → 자동 검토 PR → 관리자 검토 → 수동 수록** 순서입니다. 새 코드는 일반 Fork / PR로 제출하며 비공개 논의는 선택입니다. 자신의 사례에 이름을 표시할 수 있습니다. 검사를 통과해도 병합 승인을 의미하지 않습니다. 개인 정보가 없는 일반 버그는 Issue로 신고할 수 있습니다.
 
 [기여자 안내](docs/CONTRIBUTING.md) · [AI 안내](docs/CONTRIBUTING_AI.md) · [사례 제출 양식](docs/contributions/TEMPLATE.md) · [크레딧 목록](docs/contributions/README.md)(상세 안내는 현재 중국어). [확장 프로그램·재사용 코드·멀티 플랫폼 계획](docs/COMMUNITY_ROADMAP.md)은 향후 제안이며 출시된 기능이 아닙니다.
 
@@ -122,7 +128,7 @@ npm run preview:pages
 - 구조 검증은 사실과 번역의 인증이 아닙니다. 초안이 남아 엄격한 공개 검토는 아직 통과하지 않습니다. 읽지 못한 위챗 기사 본문을 읽은 출처로 꾸미지 않았습니다.
 - 미리보기는 개념 예시이며 실제 데이터를 저장하지 않습니다. 구현 전 내보낸 결과를 확인하세요. 동작 줄이기, 터치, 키보드에 맞는 인터랙션을 유지합니다.
 
-[컴파일러 구조](docs/DESIGN_COMPILER.md) · [새 항목 50개와 출처](docs/CONTENT_EXPANSION_2026-10-07.md) · [배포 확인](docs/RELEASE_0.4.2.0.0.md) · [5단계 버전 규칙](docs/VERSIONING.md)(상세 문서는 중국어).
+[컴파일러 구조](docs/DESIGN_COMPILER.md) · [새 항목 50개와 출처](docs/CONTENT_EXPANSION_2026-10-07.md) · [배포 확인](docs/RELEASE_0.4.3.0.0.md) · [5단계 버전 규칙](docs/VERSIONING.md)(상세 문서는 중국어).
 
 ## 라이선스와 감사
 

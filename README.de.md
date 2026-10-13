@@ -6,7 +6,7 @@
 
 [Website](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [Studio ausprobieren](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [Änderungen](CHANGELOG.md)
 
-**v0.4.2.0.0 · 75 Designeinträge · 75 eigene Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
+**v0.4.3.0.0 · 75 Designeinträge · 75 eigene Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
 
 [![Echte Studioaufnahme: Blattzeiger, warmes Spotlight, Klickwelle und gestaffeltes Erscheinen](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -109,9 +109,15 @@ Führe `npm run check:content`, `npm test` und `npm run check:docs` aus. Baue be
 | `server/worker.js` | Optionaler lokaler Relay; für Pages nicht nötig |
 | `.github/workflows/pages.yml` | Prüfung, Verpackung, Build, Veröffentlichung |
 
+## Direkt aus dem Studio einreichen
+
+Bei den fünf unterstützten Effekten **Review-PR einreichen** wählen. Name, Verwendung, optionale Namensanzeige und Quelle sowie öffentliche MIT-Einwilligung angeben. Auf GitHub Submit new issue bestätigen; die Automatisierung erstellt einen Review-PR mit dem JSON-Fall und antwortet mit dem Link. Kein manueller Fork, keine Installation oder API-Token-Eingabe.
+
+Nach Maintainer-Review und manuellem Merge erscheint der Fall in der [Community-Galerie](https://vibe-design-labs.github.io/Vibe-UI-UX/community.html), mit echter Vorschau und Export. Einreichen ändert main nicht und veröffentlicht nichts. [Bedienungsanleitung](docs/COMMUNITY_PR.md) (Chinesisch). Aktiv nach Merge des Workflows in main und Freigabe der PR-Erstellung durch Actions.
+
 ## Community-Beiträge und Namensnennung
 
-Neue Beispiele und Funktionen folgen diesem Ablauf: **privater Vorschlag → abgestimmte Richtung → Fork / PR → Prüfung durch den Maintainer → manuelle Aufnahme**. Beitragende können ihre Beispiele mit ihrem Namen versehen. Erfolgreiche Prüfungen genehmigen keinen Merge. Gewöhnliche Fehler ohne private Angaben können als Issue gemeldet werden.
+Parameterfälle: **Studio → GitHub-Bestätigung → automatischer Review-PR → Maintainer-Prüfung → manuelle Aufnahme**. Neuer Code folgt normalen Fork / PR-Beiträgen; private Diskussion ist optional. Beitragende können ihre Beispiele mit ihrem Namen versehen. Erfolgreiche Prüfungen genehmigen keinen Merge. Gewöhnliche Fehler ohne private Angaben können als Issue gemeldet werden.
 
 [Leitfaden für Beitragende](docs/CONTRIBUTING.md) · [KI-Leitfaden](docs/CONTRIBUTING_AI.md) · [Einreichungsformular](docs/contributions/TEMPLATE.md) · [Credits](docs/contributions/README.md) — ausführliche Anleitungen derzeit auf Chinesisch. Der [Plan für Erweiterung, wiederverwendbaren Code und mehrere Plattformen](docs/COMMUNITY_ROADMAP.md) beschreibt zukünftige Arbeit, keine veröffentlichten Funktionen.
 
@@ -122,7 +128,7 @@ Neue Beispiele und Funktionen folgen diesem Ablauf: **privater Vorschlag → abg
 - Strukturprüfung bestätigt weder Fakten noch Übersetzungen. Die strenge Inhaltsfreigabe scheitert weiterhin an Entwürfen. Nicht lesbare WeChat-Artikel wurden nicht als gelesene Quellen ausgegeben.
 - Vorschauen zeigen Konzepte und speichern keine echten Daten. Prüfe Exporte vor der Umsetzung. Reduzierte Bewegung, Touch und Tastatur werden berücksichtigt.
 
-[Compiler-Details](docs/DESIGN_COMPILER.md) · [50 neue Einträge und Quellen](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release-Prüfungen](docs/RELEASE_0.4.2.0.0.md) · [Fünfteilige Versionen](docs/VERSIONING.md) — die Detaildokumentation ist derzeit Chinesisch.
+[Compiler-Details](docs/DESIGN_COMPILER.md) · [50 neue Einträge und Quellen](docs/CONTENT_EXPANSION_2026-10-07.md) · [Release-Prüfungen](docs/RELEASE_0.4.3.0.0.md) · [Fünfteilige Versionen](docs/VERSIONING.md) — die Detaildokumentation ist derzeit Chinesisch.
 
 ## Lizenz und Dank
 

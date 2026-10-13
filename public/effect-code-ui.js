@@ -3,6 +3,7 @@ import {componentArchive} from './effect-export.js';
 import {componentText,effectLabels} from './component-strings.js';
 import {locale} from './i18n.js';
 import {canExportCompilation} from './compiler-core.js';
+import {setupCommunitySubmit} from './community-submit.js';
 
 export function setupComponentExport({getState}){
  const panel=document.querySelector('#component-export');if(!panel)return {refresh(){}};
@@ -17,6 +18,7 @@ export function setupComponentExport({getState}){
   link.textContent=componentText('open');link.hidden=!supported||blocked(state);
   status.textContent=componentText(!supported?'unsupported':blocked(state)?'conflict':'supported');
   if(supported){const url=new URL('./effect-example.html',location.href);url.searchParams.set('item',state.item.id);url.searchParams.set('params',JSON.stringify(state.params));link.href=url.href;}
+  community.refresh();
  }
  button.addEventListener('click',async()=>{
   const state=getState();if(pending||!canExportComponent(state.item)||blocked(state))return;
@@ -27,5 +29,6 @@ export function setupComponentExport({getState}){
    const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=snapshot.item_id+'-'+selectedTarget+'.zip';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   }catch{status.textContent=componentText('failed');}finally{pending=false;const failed=status.textContent===componentText('failed');refresh();if(failed)status.textContent=componentText('failed');}
  });
+ const community=setupCommunitySubmit({panel,getState});
  refresh();return {refresh};
 }

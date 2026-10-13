@@ -1,0 +1,28 @@
+name: Create community review PR
+on:
+  issues:
+    types: [opened, edited, closed]
+permissions:
+  contents: read
+concurrency:
+  group: community-intake-${{ github.event.issue.number }}
+  cancel-in-progress: false
+jobs:
+  intake:
+    if: startsWith(github.event.issue.title, '[IntentKit case] ') && startsWith(github.event.issue.body, '<!-- intentkit-community-submission:v1 -->')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Validate data and create a review PR
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/community-intake.mjs

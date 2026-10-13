@@ -1,0 +1,33 @@
+import {locale} from './i18n.js';
+import {submissionLocales} from './community-core.js';
+export const communityWords={
+ submit:['提交收录 PR','Submit a review PR','収録 PR を送る','등록 검토 PR 제출','Review-PR einreichen'],
+ title:['把你的效果，交给社区。','Share your effect with the community.','あなたの効果を、コミュニティへ。','내 효과를 커뮤니티에.','Dein Effekt für die Community.'],
+ intro:['GitHub 确认投稿后，仓库自动创建待审 PR。你不用手动 Fork，也不需要填写 GitHub Token。维护者合并前，官网不变。','Confirm the submission on GitHub; automation opens a review PR. No manual fork or API token. The site stays unchanged until the maintainer merges it.','GitHub で投稿を確認すると、審査用 PR を自動作成します。手動 Fork やトークンは不要。マージ前はサイトを変更しません。','GitHub에서 제출을 확인하면 검토 PR이 자동 생성됩니다. 수동 Fork나 토큰이 필요 없고 병합 전 사이트는 그대로입니다.','Auf GitHub bestätigen; die Automatisierung erstellt einen Review-PR. Kein manueller Fork oder Token. Erst der Merge ändert die Website.'],
+ caseTitle:['案例名称','Case title','ケース名','사례 이름','Fallname'],
+ summary:['这个效果适合什么场景？','Where is this effect useful?','どんな場面で使いますか？','어떤 상황에 유용한가요?','Wo ist der Effekt sinnvoll?'],
+ author:['署名昵称（留空使用 GitHub 名称）','Display name (optional; defaults to GitHub)','表示名（任意・GitHub 名が既定）','표시 이름 (선택, 기본값은 GitHub)','Anzeigename (optional; sonst GitHub)'],
+ source:['参考来源链接（选填，HTTPS）','Reference URL (optional, HTTPS)','参考 URL（任意・HTTPS）','참고 링크 (선택, HTTPS)','Referenz-URL (optional, HTTPS)'],
+ attribution:['在案例页公开显示署名','Show my name in the gallery','ケースに名前を表示','사례에 이름 표시','Name in der Galerie zeigen'],
+ consent:['我同意公开提交这些参数与文字，按 MIT 许可收录。GitHub 投稿及账户信息公开可见。','I agree to publish these parameters and text under MIT. The GitHub submission and account identity are public.','この値と文章を MIT で公開します。GitHub 投稿とアカウント情報は公開されます。','매개변수와 글을 MIT로 공개하는 데 동의합니다. GitHub 제출과 계정 정보는 공개됩니다.','Ich veröffentliche Parameter und Text unter MIT. GitHub-Einreichung und Kontoidentität sind öffentlich.'],
+ continue:['前往 GitHub 确认投稿 ↗','Confirm on GitHub ↗','GitHub で投稿を確認 ↗','GitHub에서 제출 확인 ↗','Auf GitHub bestätigen ↗'],
+ close:['关闭','Close','閉じる','닫기','Schließen'],
+ invalid:['请检查名称、用途、来源和公开许可。不要填写密钥。','Check the title, use case, source and consent. Do not include keys.','名前・用途・出典・公開同意を確認してください。キーは入力しないでください。','이름, 용도, 출처와 동의를 확인하세요. 키를 입력하지 마세요.','Name, Verwendung, Quelle und Einwilligung prüfen. Keine Schlüssel eingeben.'],
+ snapshot:['提交的是你打开此面板时的参数快照。修改效果后请关闭并重新打开。','This submits the snapshot captured when opening this panel. Reopen it after changing the effect.','この画面を開いた時点の値を送信します。効果を変えたら開き直してください。','이 패널을 열었을 때의 값이 제출됩니다. 효과 변경 후 다시 여세요.','Der beim Öffnen erfasste Stand wird eingereicht. Nach Änderungen neu öffnen.'],
+ steps:['GitHub 打开后点击 Submit new issue；稍后刷新投稿页即可看到自动创建的 PR 链接。这个表单只是投稿入口，结果是待审 PR。','On GitHub, click Submit new issue. Refresh the submission to see the generated PR link. The intake form leads to a review PR.','GitHub の Submit new issue を押し、少し待って更新すると PR リンクが表示されます。フォームは PR 作成の入口です。','GitHub에서 Submit new issue를 누르세요. 잠시 후 새로고침하면 PR 링크가 표시됩니다. 이 양식은 PR 생성 입구입니다.','Auf GitHub Submit new issue wählen; danach aktualisieren, um den PR-Link zu sehen. Das Formular führt zu einem Review-PR.'],
+ opened:['已打开 GitHub。确认投稿后，请在投稿页查看 PR 链接。','GitHub opened. Confirm there, then check the generated PR link.','GitHub を開きました。投稿後に PR リンクをご確認ください。','GitHub가 열렸습니다. 제출 후 PR 링크를 확인하세요.','GitHub geöffnet. Dort bestätigen und den PR-Link prüfen.'],
+ blocked:['浏览器阻止了新窗口，请允许弹窗后重试。','The browser blocked the new tab. Allow it and retry.','新しいタブがブロックされました。許可して再試行してください。','새 창이 차단되었습니다. 허용한 뒤 다시 시도하세요.','Neuer Tab blockiert. Erlauben und erneut versuchen.'],
+ gallery:['社区案例','Community cases','コミュニティの例','커뮤니티 사례','Community-Beispiele'],
+ galleryTitle:['让好感觉，一起生长。','Let good ideas grow together.','いい感覚を、一緒に育てる。','좋은 느낌을 함께 키우기.','Gute Ideen wachsen gemeinsam.'],
+ galleryIntro:['这里只展示维护者已经合并收录的参数案例。每个案例都能预览、调节和导出代码，署名按作者选择展示。','Only maintainer-merged parameter cases appear here. Preview, adjust and export each case; attribution follows the author’s choice.','管理者がマージしたパラメーター事例のみを表示します。各事例を確認・調整・出力でき、名前表示は作者の選択に従います。','관리자가 병합한 매개변수 사례만 표시합니다. 미리보기, 조정, 코드 출력이 가능하며 이름 표시는 작성자가 선택합니다.','Hier stehen nur vom Maintainer zusammengeführte Parameterfälle. Vorschau, Anpassung und Export; Namensanzeige nach Autorenwahl.'],
+ empty:['第一批案例，等你一起完成。去工作台调出一个满意的效果，点击「提交收录 PR」。','Be among the first contributors. Tune an effect in the studio and submit a review PR.','最初の事例を一緒に作りましょう。スタジオで調整し、収録 PR を送ってください。','첫 사례를 함께 만들어 주세요. 작업대에서 효과를 조정하고 검토 PR을 제출하세요.','Gestalte die ersten Fälle mit. Im Studio anpassen und einen Review-PR einreichen.'],
+ preview:['体验这个案例 ↗','Try this case ↗','この事例を試す ↗','사례 체험 ↗','Fall ausprobieren ↗'],
+ anonymous:['作者选择隐藏展示署名','Attribution hidden by author choice','作者の希望で名前非表示','작성자 요청으로 이름 비공개','Namensanzeige auf Autorenwunsch verborgen'],
+ loading:['正在读取社区案例…','Loading community cases…','事例を読み込み中…','사례 불러오는 중…','Community-Fälle werden geladen…'],
+ error:['案例读取失败，请刷新重试。','Could not load cases. Refresh and retry.','読み込めませんでした。再読み込みしてください。','불러오지 못했습니다. 새로고침하세요.','Laden fehlgeschlagen. Bitte aktualisieren.'],
+ openStudio:['去工作台创作 ↗','Create in the studio ↗','スタジオで作る ↗','작업대에서 만들기 ↗','Im Studio gestalten ↗'],
+ pending:['查看待审投稿 ↗','View pending submissions ↗','審査中の投稿を見る ↗','검토 중 제출 보기 ↗','Offene Einreichungen ansehen ↗'],
+ guide:['投稿说明 ↗','Submission guide ↗','投稿ガイド ↗','제출 안내 ↗','Einreichungsleitfaden ↗'],
+ scope:['首批接受聚光、抬升、按压、波纹、错落入场的参数案例；新渲染器继续通过代码 PR 提交。','Initial intake: spotlight, lift, press, ripple and stagger parameter cases. New renderers use ordinary code PRs.','初期は光・浮上・押下・波紋・時間差表示のパラメーター事例。新レンダラーは通常のコード PR で提案します。','첫 접수는 조명, 상승, 누름, 파동, 순차 등장 매개변수 사례입니다. 새 렌더러는 일반 코드 PR로 제출합니다.','Zuerst Parameterfälle für Licht, Anhebung, Druck, Welle und Staffelung. Neue Renderer über normale Code-PRs.'],
+};
+export const communityText=key=>communityWords[key]?.[submissionLocales.indexOf(locale)]||key;
