@@ -8,7 +8,7 @@ if(!Number.isInteger(port)||port<1||port>65535)throw new Error('Invalid preview 
 const server=createServer(async(req,res)=>{
  const abort=new AbortController();req.on('aborted',()=>abort.abort());res.on('close',()=>{if(!res.writableEnded)abort.abort();});
  try{
-  const chunks=[];let size=0;for await(const chunk of req){size+=chunk.length;if(size>20000){res.writeHead(413);res.end();return;}chunks.push(chunk);}
+  const chunks=[];let size=0;for await(const chunk of req){size+=chunk.length;if(new URL(req.url,'http://localhost:'+port).pathname!=='/api/translate'&&size>20000){res.writeHead(413);res.end();return;}chunks.push(chunk);}
   const body=Buffer.concat(chunks),request=new Request('http://localhost:'+port+req.url,{method:req.method,headers:req.headers,signal:abort.signal,...(['GET','HEAD'].includes(req.method)?{}:{body})});
   const response=await worker.fetch(request);res.writeHead(response.status,Object.fromEntries(response.headers));
   if(response.body)await pipeline(Readable.fromWeb(response.body),res);else res.end();

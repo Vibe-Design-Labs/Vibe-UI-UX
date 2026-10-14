@@ -30,7 +30,7 @@ test('direct and relay modes use the identical model prompt and generation param
 
 test('static BYOK rejects an unknown endpoint mode or invalid input before any request', async () => {
   let calls = 0;
-  for (const change of [{mode: 'https://untrusted.test'}, {key: ''}, {key: 'bad\nkey'}, {model: '../wrong model'}, {locale: 'unknown'}, {intent: 'x'.repeat(2001)}]) {
+  for (const change of [{mode: 'https://untrusted.test'}, {key: ''}, {key: 'bad\nkey'}, {model: '../wrong model'}, {locale: 'unknown'}, {intent: '   '}]) {
     await assert.rejects(requestSuggestions({...input, ...change}, async () => {calls++; return output();}), /input/);
   }
   assert.equal(calls, 0);
@@ -42,7 +42,7 @@ test('static BYOK rejects invented candidates, malformed output and reflected se
   }
 });
 
-test('static BYOK bounds gateway response size and sanitizes gateway errors', async () => {
+test('static BYOK rejects invalid gateway JSON and sanitizes gateway errors', async () => {
   await assert.rejects(requestSuggestions(input, async () => new Response('x'.repeat(180001))), /format/);
   for (const [status, message] of [[401, 'auth'], [429, 'limit'], [404, 'model'], [503, 'network']]) {
     await assert.rejects(requestSuggestions(input, async () => new Response(key, {status})), e => e.message === message && !e.message.includes(key));

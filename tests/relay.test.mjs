@@ -13,9 +13,9 @@ test('BYOK relay uses a fixed origin and never sends credentials inside prompt o
  assert.equal(called,1);assert.equal(response.status,200);assert.ok(!(await response.text()).includes(key));
  assert.equal(response.headers.get('cache-control'),'no-store');
 });
-test('no upstream call for cross-origin, invalid model, missing key or oversized intent',async()=>{
+test('no upstream call for cross-origin, invalid model, missing key or empty intent',async()=>{
  let called=0;const upstream=()=>{called++;throw new Error('Unexpected');};
- for(const req of [request({}, {Origin:'https://malicious.test'}),request({model:'../ bad model'}),request({intent:'a'.repeat(2001)}),request({}, {'X-TokenDance-Key':''})]){
+ for(const req of [request({}, {Origin:'https://malicious.test'}),request({model:'../ bad model'}),request({intent:'   '}),request({}, {'X-TokenDance-Key':''})]){
   const response=await translate(req,upstream);assert.ok(response.status>=400&&response.status<500);
  }
  assert.equal(called,0);

@@ -46,7 +46,7 @@ test('code submission compresses losslessly; trusted identity and exact code/par
 });
 test('compressed intake is bounded and rejects decompression bombs and malformed payloads',async()=>{
  const body='<!-- intentkit-community-submission:v1 -->\n```intentkit-gzip\nxxx\n```';await assert.rejects(decodeSubmission(body,catalog));
- const bytes=new Uint8Array(await new Response(new Blob(['x'.repeat(100000)]).stream().pipeThrough(new CompressionStream('gzip'))).arrayBuffer());let s='';for(const b of bytes)s+=String.fromCharCode(b);await assert.rejects(decodeSubmission(body.replace('xxx',btoa(s).replaceAll('+','-').replaceAll('/','_').replace(/=+$/,'')),catalog),/too large/);
+ const bytes=new Uint8Array(await new Response(new Blob(['x'.repeat(32*1024*1024+1)]).stream().pipeThrough(new CompressionStream('gzip'))).arrayBuffer());let s='';for(const b of bytes)s+=String.fromCharCode(b);await assert.rejects(decodeSubmission(body.replace('xxx',btoa(s).replaceAll('+','-').replaceAll('/','_').replace(/=+$/,'')),catalog),/submission-size/);
 });
 test('intake writes only a data artifact PR and never executes or merges model-authored JavaScript',async()=>{
  const encoded=await encodedSubmission(submission(),catalog,'Vibe-Design-Labs/Vibe-UI-UX'),calls=[];

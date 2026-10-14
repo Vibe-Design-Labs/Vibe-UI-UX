@@ -1,4 +1,5 @@
 import {aiText} from './generated-strings.js';
+import {setupUsageCheck} from './usage-check-ui.js';
 import {t} from './i18n.js';
 import {notify} from './motion.js';
 import {applicationURL, validKey, validModel, loadModels, beginAuthorization, authorizationCode, exchangeAuthorization} from './tokendance.js';
@@ -7,6 +8,7 @@ export function setupTokenDanceConnection({mode, onCredentials}) {
   const $ = id => document.getElementById(id), dialog = $('connection');
   const appURL = applicationURL(import.meta.url);
   let key = '', model = '', models = null, modelsController = null, modelsStatus = 'modelsIdle', auth = null, authStatus = 'authorizationHelp';
+  const usageCheck=setupUsageCheck({container:dialog,getKey:()=>key,mode});
   function renderModelSelection(){
     const selector=$('active-model');if(!selector)return;
     $('active-model-label').textContent=aiText('activeModel');selector.replaceChildren();
@@ -28,7 +30,7 @@ export function setupTokenDanceConnection({mode, onCredentials}) {
     note.textContent = t('connectionNote') + ' ' + t(mode === 'direct' ? 'connectionDirect' : 'connectionRelay');
     $('models-status').textContent = t(modelsStatus) + (modelsStatus === 'modelsLoaded' ? ' · ' + models.length : '');
     $('authorization-status').textContent = t(authStatus);
-    $('authorize-key').disabled = !!auth;renderModelSelection();
+    $('authorize-key').disabled = !!auth;renderModelSelection();usageCheck.refresh();
   }
   function cancelAuthorization() {
     if (!auth) return;
@@ -104,17 +106,17 @@ export function setupTokenDanceConnection({mode, onCredentials}) {
     const k = $('api-key').value.trim(), m = $('model').value.trim();
     if (!validKey(k) || !validModel(m)) return notify(t('invalidKey'));
     if (models && !models.some(item => item.id === m)) return notify(t('modelUnsupported'));
-    cancelAuthorization(); key = k; model = m; $('api-key').value = ''; onCredentials({key, model});
+    cancelAuthorization();usageCheck.clear();key = k; model = m; $('api-key').value = ''; onCredentials({key, model});
     refreshLocale(); dialog.close(); notify(t('keySaved'));
   });
   $('forget-key').addEventListener('click', () => {
-    cancelAuthorization(); key = ''; model = ''; $('api-key').value = ''; $('model').value = '';
+    cancelAuthorization();usageCheck.clear();key = ''; model = ''; $('api-key').value = ''; $('model').value = '';
     onCredentials({key, model}); refreshLocale(); dialog.close(); notify(t('keyForgotten'));
   });
-  dialog.addEventListener('close', () => { cancelAuthorization(); $('api-key').value = ''; });
+  dialog.addEventListener('close', () => { cancelAuthorization();usageCheck.cancel();$('api-key').value = ''; });
   addEventListener('pagehide', () => {
-    cancelAuthorization(); modelsController?.abort(); key = ''; model = ''; $('api-key').value = ''; onCredentials({key, model});
+    cancelAuthorization();usageCheck.clear();modelsController?.abort();key = ''; model = ''; $('api-key').value = ''; onCredentials({key, model});refreshLocale();
   });
   refreshLocale();
-  return {refreshLocale, appURL};
+  return {refreshLocale,appURL,getPlatformModels:()=>models?.map(item=>item.id)||[]};
 }

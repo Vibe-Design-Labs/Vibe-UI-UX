@@ -19,11 +19,15 @@ Captured from the project’s actual renderers, without AI-generated frames. The
 3. Export the **Web source ZIP** and run `python -m http.server 4180`, or save the effect JSON and import it later to restore the same code and values. Tuning and export make no model calls.
 4. Submit for a review PR, consent to publishing the code under MIT, then confirm the issue on GitHub. The bot creates an isolated data PR without running submitted code. Maintainer review and manual merge remain required.
 
-Newly generated code exports native Web projects in this release; the five existing templates retain React/video exports. Diagnostics distinguish no response, truncated output, invalid JSON, failed validation and preview errors. No automatic paid retries. Paid live-key generation has not been tested; code quality still needs human review. [Contract and limits](docs/GENERATED_EFFECTS.md) (Chinese).
+Newly generated code exports native Web projects in this release; the five existing templates retain React/video exports. Diagnostics distinguish no response, truncated output, invalid JSON, failed validation and preview errors. No automatic paid retries. The maintainer confirmed a real generated preview for the paper-valley brief using their own key; visual fidelity and each interaction still need human review. [Contract and limits](docs/GENERATED_EFFECTS.md) (Chinese).
 
-Before generating, check **Active model** in the studio. Changes apply immediately; the request sends that exact ID without fallback models. Generation streams reasoning/code progress. Kimi K3 (`kimi-k3`) uses `high` reasoning and JSON mode, with a 16,000-token output ceiling. Limits: 150 seconds for the initial response, 120 seconds without stream data, and 10 minutes total. Generated mode hides library templates; failed generation never presents an old template as new output.
+Before generating, check **Active model** in the studio. Changes apply immediately; each request sends that exact ID without fallback models. Generation streams reasoning/code progress. Kimi K3 (`kimi-k3`) uses `high` reasoning and JSON mode. The app omits `max_tokens` / `max_completion_tokens` and imposes no prompt, generated source or JSON-import length cap. The selected service owns its defaults and limits. There is no overall deadline while data arrives; initial response wait is 150s and idle timeout is 120s, with manual cancellation. Failed generation never presents an old library template as new output.
 
-The **Model call receipt** compares the requested ID with the service-reported ID. A mismatch rejects the result; an absent ID stays unconfirmed. Copy diagnostics without the key, prompt, source or reasoning text, and compare them with TokenDance logs. Matching reported IDs do not independently prove internal routing. [Fix verification and limits](docs/RELEASE_0.4.4.0.2.md) (Chinese).
+The **Model call receipt** compares the requested ID with the upstream model field. A different recognized catalog ID is rejected. An unknown upstream label stays unconfirmed, without being renamed K3; valid code can still preview. A missing label also stays unconfirmed. Copy diagnostics without the key, prompt, source or reasoning text, and compare them with TokenDance logs. Matching reported IDs do not independently prove internal routing. [Fix verification and limits](docs/RELEASE_0.4.4.0.2.md) (Chinese).
+
+If developer tools are unavailable, use the [key-free connection check](https://vibe-design-labs.github.io/Vibe-UI-UX/connection-check.html): public catalog plus an empty unauthenticated request, with a sanitized report and no model generation. It cannot verify the model or billing of a previous call.
+
+The connection panel also reads [recent usage](docs/TOKENDANCE.md) on click: one read-only GET for up to 20 account calls over 24 hours, without generation or automatic pagination. Copied reports keep model, provider, time and trace IDs; account, key names and costs are omitted. A sample alone does not prove a previous call’s model.
 
 ## What is IntentKit?
 
@@ -71,7 +75,7 @@ For terminology lookup, search `frosted glass`, `backdrop-filter` or a known ali
 4. With a configured key, only an explicit click on **Find effects** **Interpret & match recipes**, or **Ask AI to code a new effect** requests a model; TokenDance bills usage. The five local examples remain local even when connected.
 5. Use **Forget key** to disconnect. **Keys stay in page memory and clear on refresh**. There is no account system or key storage in localStorage, sessionStorage, the repository or GitHub Secrets. The language preference can be saved.
 
-GitHub Pages connects directly from your browser to TokenDance; local/server hosting uses the current instance’s relay. Enter keys only in trusted deployments. Parsing failures fall back to local rules without automatic paid retries. Paid end-to-end testing with a real key has not been completed. See [integration details and test limits](docs/TOKENDANCE.md) (Chinese).
+GitHub Pages connects directly from your browser to TokenDance; local/server hosting uses the current instance’s relay. Enter keys only in trusted deployments. Recipe parsing can fall back to local rules; original-code generation reports failures without substituting an old template or retrying paid requests. The maintainer confirmed a real generated preview; other models and scenarios need separate verification. See [integration details and test limits](docs/TOKENDANCE.md) (Chinese).
 
 ## Run your fork locally
 

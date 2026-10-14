@@ -7,3 +7,4 @@
 .recovery-action{display:inline-block;margin:8px 0 0 12px;font-size:18px;color:var(--red);text-decoration:underline;background:transparent;min-height:44px;padding:8px 0}
 .connection-dialog button:disabled{opacity:.65;cursor:wait}
 @media(max-width:480px){.connection-dialog{padding:20px;width:calc(100vw - 24px)}.dialog-top h2{font-size:27px}.authorize-button{font-size:20px}.connection-dialog .connection-status{font-size:16px}.model-label-row{flex-wrap:wrap;gap:0}}
+.usage-check{margin-top:24px;padding-top:18px;border-top:1px dashed #8c967d}.usage-check p{font-size:16px;line-height:1.6}.usage-check button{padding:10px 14px;margin:8px 8px 8px 0;border:1px solid #8c967d;border-radius:10px;font:17px var(--notes);background:#e9e7d5;color:#233d32}.usage-check textarea{box-sizing:border-box;width:100%;min-height:210px;resize:vertical;padding:10px;border:1px solid #8c967d;border-radius:10px;font:13px/1.5 ui-monospace,monospace;background:#fffaf0;color:#233d32}
