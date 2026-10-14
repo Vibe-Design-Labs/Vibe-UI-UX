@@ -1,0 +1,85 @@
+{
+  "schema": "intentkit.community-case",
+  "schema_version": 2,
+  "kind": "generated",
+  "id": "case-16",
+  "artifact": {
+    "schema": "intentkit.generated-effect",
+    "schema_version": 1,
+    "title": "风有了形状",
+    "summary": "原生 SVG 交互首屏：六层纸谷先重叠后逐层展开，随后轻微呼吸；指针/拖动产生分层视差、柔和跟随、轮廓金光与速度朱砂碎片；点击触发金色波纹并依次抬起各层，离开后在约 500ms 内回稳；减少动态时仅保留静态层次与点击朱砂反馈。限制：依赖 pointer events，碎片有上限，波纹并发受限以避免叠加。",
+    "html": "<div class='wind-valley'>\n  <div class='title' aria-hidden='true'>让想象，<br><span>长出形状。</span></div>\n  <svg class='stage' viewBox='0 0 900 620' role='img' aria-label='纸上的微型山谷'>\n    <g class='tilt'><g class='layers'></g><g class='glow'></g><g class='fx'></g></g>\n  </svg>\n  <div class='hint'>移动拨动山谷 · 轻触唤起风</div>\n</div>",
+    "css": ".wind-valley{position:relative;width:100%;min-height:100vh;overflow:hidden;background:#f4ecd9;color:#233d32;--paper:#f4ecd9;--ink:#233d32;--red:#bd573d;--gold:#d8b96e;font-family:ui-serif,'Songti SC','Noto Serif CJK SC',serif}.title{position:absolute;z-index:3;left:clamp(22px,6vw,84px);top:clamp(24px,7vh,76px);font-size:clamp(34px,6vw,76px);line-height:1.08;letter-spacing:.08em;font-weight:700}.title span{color:#bd573d}.hint{position:absolute;z-index:3;left:clamp(24px,6vw,86px);bottom:clamp(22px,6vh,58px);font-size:13px;letter-spacing:.28em;opacity:.62}.stage{position:absolute;z-index:2;right:-4vw;top:52%;width:min(78vw,880px);height:auto;transform:translateY(-50%);touch-action:none;cursor:crosshair}.wind-valley.reduced .stage{cursor:pointer}.layers path{fill:var(--paper);stroke:#233d32;stroke-width:1.35;stroke-linejoin:round;vector-effect:non-scaling-stroke}.glow path{fill:none;stroke:#d8b96e;stroke-width:2.1;stroke-linecap:round;pointer-events:none;vector-effect:non-scaling-stroke;opacity:0}.fx circle{fill:#bd573d;pointer-events:none}.fx .ring{fill:none;stroke:#d8b96e;stroke-width:1.6;pointer-events:none;vector-effect:non-scaling-stroke}@media (max-width:720px){.stage{right:-28vw;width:118vw;top:55%}.title{font-size:clamp(30px,9vw,54px)}}",
+    "js": "export default function mount(root,params,{reducedMotion}){\nconst NS='http://www.w3.org/2000/svg',P=Object.assign({parallax_depth:1,follow_delay:160,fragment_count:12,glow_strength:65,paper_color:'#f4ecd9'},params||{});\nconst clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t,eo=t=>1-Math.pow(1-t,3);\nconst svg=root.querySelector('.stage'),tiltG=root.querySelector('.tilt'),layersG=root.querySelector('.layers'),glowG=root.querySelector('.glow'),fxG=root.querySelector('.fx');\nroot.classList.toggle('reduced',!!reducedMotion);root.style.setProperty('--paper',P.paper_color);\nconst PATHS=[\n'M285 620 C330 285 375 215 450 198 C535 180 620 220 690 285 C735 330 755 380 765 620 Z',\n'M220 620 C275 320 340 245 435 222 C545 196 665 250 760 345 C815 402 835 465 845 620 Z',\n'M165 620 C225 350 300 275 420 250 C550 224 700 280 805 390 C865 455 878 512 884 620 Z',\n'M112 620 C176 378 262 302 402 276 C558 246 726 312 834 438 C880 496 892 552 896 620 Z',\n'M62 620 C132 410 232 335 386 306 C566 272 754 356 876 494 C910 536 922 580 928 620 Z',\n'M22 620 C96 438 206 370 372 338 C574 302 778 402 900 560 L900 620 Z'];\nconst TARGETS=[{dx:-18,dy:-34,r:-1},{dx:-9,dy:-20,r:-.6},{dx:1,dy:-6,r:.3},{dx:12,dy:9,r:1.1},{dx:25,dy:25,r:2.2},{dx:40,dy:42,r:3.4}];\nconst DEPTH=[.2,.34,.5,.68,.86,1],CX=[515,532,552,578,610,650],CY=[430,450,470,500,540,590];\nlet disposed=false,raf=0,rmDone=false,clickTimer=0,start=performance.now();\nlet pointer={inside:false,x:450,y:330,nx:0,ny:0,tx:0,ty:0,snx:0,sny:0,lx:450,ly:330,lt:0,speed:0,leaving:false};\nlet waves=new Array(6).fill(0),ripples=[],frags=[],layers=[];\nfunction mk(tag,attrs){const n=document.createElementNS(NS,tag);for(const k in attrs)n.setAttribute(k,attrs[k]);return n}\nPATHS.forEach((d,i)=>{const node=mk('path',{d:d}),gl=mk('path',{d:d,class:'gl'});node.dataset.i=i;layersG.appendChild(node);glowG.appendChild(gl);layers.push({node,gl,d,samples:[],len:0,cx:CX[i],cy:CY[i],g:0,t:TARGETS[i]});});\nfunction applyStatic(){layers.forEach((l,i)=>{const e=eo(1),t=l.t;l.node.setAttribute('transform','translate('+t.dx+' '+t.dy+') rotate('+t.r+' '+l.cx+' '+l.cy+') scale(1)');l.node.setAttribute('opacity',1);l.gl.setAttribute('opacity',0)});tiltG.setAttribute('transform','rotate(0 450 360)')}\nfunction toSvg(e){const r=svg.getBoundingClientRect();return{x:(e.clientX-r.left)*900/Math.max(1,r.width),y:(e.clientY-r.top)*620/Math.max(1,r.height),w:r.width,h:r.height,ok:e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom}}\nfunction onMove(e){if(disposed||reducedMotion)return;const p=toSvg(e),now=performance.now();pointer.inside=p.ok;pointer.leaving=false;if(p.ok){pointer.tx=p.x;pointer.ty=p.y;pointer.nx=clamp(p.x/450-1,-1,1);pointer.ny=clamp(p.y/310-1,-1,1);const dt=Math.max(8,now-pointer.lt),dx=p.x-pointer.lx,dy=p.y-pointer.ly;pointer.speed=Math.hypot(dx,dy)/dt*16;const max=Math.min(24,Math.max(0,P.fragment_count));if(frags.length<max&&pointer.speed>.28&&Math.random()<clamp((pointer.speed-.25)/4,0,.65)){const a=Math.atan2(dy,dx)+ (Math.random()-.5)*.9,sp=clamp(pointer.speed,0,8),c=mk('circle',{cx:p.x+(Math.random()-.5)*10,cy:p.y+(Math.random()-.5)*10,r:(1.4+Math.random()*2.4).toFixed(2)});fxG.appendChild(c);frags.push({n:c,x:p.x,y:p.y,vx:Math.cos(a)*(34+sp*16),vy:-(58+sp*24)-Math.random()*28,life:0,max:800});}pointer.lx=p.x;pointer.ly=p.y;pointer.lt=now;}else{pointer.nx=0;pointer.ny=0;pointer.speed=0;pointer.leaving=true;}}\nfunction nearestLayer(x,y){let bi=0,bd=1e9;layers.forEach((l,i)=>{const d=Math.hypot(l.cx-x,l.cy-y);if(d<bd){bd=d;bi=i}});return bi}\nfunction onDown(e){if(disposed)return;const p=toSvg(e);if(!p.ok)return;if(reducedMotion){const i=nearestLayer(p.x,p.y);layers[i].node.style.fill='#bd573d';layers[i].node.style.stroke='#bd573d';clearTimeout(clickTimer);clickTimer=setTimeout(()=>{if(!disposed){layers[i].node.style.fill='';layers[i].node.style.stroke=''}},180);return;}if(ripples.length>=3)return;const ring=mk('circle',{class:'ring',cx:p.x,cy:p.y,r:0});fxG.appendChild(ring);ripples.push({x:p.x,y:p.y,t0:performance.now(),ring:ring,hit:new Array(6).fill(false)});}\nfunction onLeave(){pointer.inside=false;pointer.nx=0;pointer.ny=0;pointer.speed=0;pointer.leaving=true;}\nroot.addEventListener('pointermove',onMove);root.addEventListener('pointerdown',onDown);root.addEventListener('pointerleave',onLeave);root.addEventListener('pointercancel',onLeave);\nfunction frame(now){if(disposed)return;raf=requestAnimationFrame(frame);if(reducedMotion){if(!rmDone){rmDone=true;applyStatic()}return;}const dt=clamp((now-(frame.last||now))/1000,0,.05);frame.last=now;const allStart=start+5*70+620,introAll=now>allStart;const k=1-Math.exp(-dt*1000/Math.max(30,P.follow_delay));pointer.snx+=(pointer.nx-pointer.snx)*k;pointer.sny+=(pointer.ny-pointer.sny)*k;if(!pointer.inside&&Math.abs(pointer.snx)<.002&&Math.abs(pointer.sny)<.002){pointer.snx=0;pointer.sny=0}tiltG.setAttribute('transform','rotate('+clamp(pointer.snx*5,-5,5)+' 450 360) translate(0 '+clamp(pointer.sny*2,-2,2)+')');\nfor(let ri=ripples.length-1;ri>=0;ri--){const rp=ripples[ri],prog=(now-rp.t0)/700;if(prog>=1){rp.ring.remove();ripples.splice(ri,1);continue}const rad=prog*760;rp.ring.setAttribute('r',rad.toFixed(1));rp.ring.setAttribute('opacity',(0.9*(1-prog)).toFixed(3));layers.forEach((l,i)=>{if(!rp.hit[i]&&Math.hypot(l.cx-rp.x,l.cy-rp.y)<=rad){rp.hit[i]=true;waves[i]=now}})}\nfor(let i=0;i<6;i++){const l=layers[i],t=l.t,p0=clamp((now-start-i*70)/620,0,1),e=eo(p0),sx=t.dx*-0.82,sy=t.dy*-0.82-8,sr=t.r*-0.7;let dx=lerp(sx,t.dx,e),dy=lerp(sy,t.dy,e),rot=lerp(sr,t.r,e)+pointer.snx*t.r*.45,sc=lerp(.9,1,e),op=lerp(0,1,e);const maxMove=(i===0?4:20)*clamp(P.parallax_depth,0,2);dx+=clamp(pointer.snx*maxMove*DEPTH[i],-maxMove,maxMove);dy+=clamp(pointer.sny*maxMove*.55*DEPTH[i],-maxMove,maxMove);if(introAll){dy+=Math.sin((now-start)*Math.PI*2/5000+i*.72)*3}if(waves[i]){const wp=(now-waves[i])/700;if(wp>=1)waves[i]=0;else{const s=Math.sin(Math.PI*clamp(wp,0,1));dy-=s*9;sc*=1+s*.018;op=clamp(op+s*.12,0,1)}}l.node.setAttribute('transform','translate('+dx.toFixed(2)+' '+dy.toFixed(2)+') rotate('+rot.toFixed(3)+' '+l.cx+' '+l.cy+') scale('+sc.toFixed(4)+')');l.node.setAttribute('opacity',op.toFixed(3));\nconst targetG=pointer.inside?clamp(P.glow_strength/100,0,1):0;l.g+=(targetG-l.g)*k;let opG=0;if(pointer.inside&&l.samples.length){let bd=1e9,ba=0;for(let s=0;s<l.samples.length;s++){const pt=l.samples[s],d=Math.hypot(pt[0]-pointer.tx,pt[1]-pointer.ty);if(d<bd){bd=d;ba=l.len*s/(l.samples.length-1)}}const win=Math.min(l.len*.28,42+l.g*24);opG=clamp(1-bd/230,0,1)*l.g*.9;l.gl.setAttribute('stroke-dasharray',win.toFixed(1)+' '+Math.max(1,l.len-win).toFixed(1));l.gl.setAttribute('stroke-dashoffset',(-(ba-win/2)).toFixed(1))}l.gl.setAttribute('opacity',opG.toFixed(3));}\nfor(let i=frags.length-1;i>=0;i--){const f=frags[i];f.life+=dt*1000*(pointer.leaving?2.2:1);f.vy+=62*dt;f.x+=f.vx*dt;f.y+=f.vy*dt;f.n.setAttribute('cx',f.x.toFixed(1));f.n.setAttribute('cy',f.y.toFixed(1));f.n.setAttribute('opacity',clamp(1-f.life/f.max,0,1).toFixed(3));if(f.life>=f.max){f.n.remove();frags.splice(i,1)}}}\nrequestAnimationFrame(()=>{layers.forEach(l=>{l.len=l.node.getTotalLength();for(let s=0;s<=96;s++){const p=l.node.getPointAtLength(l.len*s/96);l.samples.push([p.x,p.y])}});raf=requestAnimationFrame(frame)});\nreturn{update(next){Object.assign(P,next||{});P.parallax_depth=clamp(+P.parallax_depth||0,0,2);P.follow_delay=clamp(+P.follow_delay||160,40,320);P.fragment_count=clamp(Math.round(+P.fragment_count||0),0,24);P.glow_strength=clamp(+P.glow_strength||0,0,100);root.style.setProperty('--paper',P.paper_color);if(reducedMotion)applyStatic();if(frags.length>P.fragment_count){for(let i=P.fragment_count;i<frags.length;i++)frags[i].n.remove();frags.length=Math.max(0,P.fragment_count)}},dispose(){disposed=true;cancelAnimationFrame(raf);clearTimeout(clickTimer);root.removeEventListener('pointermove',onMove);root.removeEventListener('pointerdown',onDown);root.removeEventListener('pointerleave',onLeave);root.removeEventListener('pointercancel',onLeave);ripples.forEach(r=>r.ring.remove());frags.forEach(f=>f.n.remove());ripples=[];frags=[];layers=[];waves=new Array(6).fill(0)}}}",
+    "parameters": [
+      {
+        "id": "parallax_depth",
+        "label": "视差深度",
+        "type": "number",
+        "min": 0,
+        "max": 2,
+        "step": 0.1,
+        "default": 1,
+        "unit": ""
+      },
+      {
+        "id": "follow_delay",
+        "label": "跟随延迟",
+        "type": "number",
+        "min": 40,
+        "max": 320,
+        "step": 10,
+        "default": 160,
+        "unit": "ms"
+      },
+      {
+        "id": "fragment_count",
+        "label": "碎片数量",
+        "type": "number",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "default": 12,
+        "unit": ""
+      },
+      {
+        "id": "glow_strength",
+        "label": "金光强度",
+        "type": "number",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "default": 65,
+        "unit": ""
+      },
+      {
+        "id": "paper_color",
+        "label": "纸片颜色",
+        "type": "color",
+        "default": "#f4ecd9"
+      }
+    ]
+  },
+  "params": {
+    "parallax_depth": 1,
+    "follow_delay": 160,
+    "fragment_count": 12,
+    "glow_strength": 65,
+    "paper_color": "#f4ecd9"
+  },
+  "title": "风有了形状",
+  "summary": "原生 SVG 交互首屏：六层纸谷先重叠后逐层展开，随后轻微呼吸；指针/拖动产生分层视差、柔和跟随、轮廓金光与速度朱砂碎片；点击触发金色波纹并依次抬起各层，离开后在约 500ms 内回稳；减少动态时仅保留静态层次与点击朱砂反馈。限制：依赖 pointer events，碎片有上限，波纹并发受限以避免叠加。",
+  "author": {
+    "github_login": "virtue192",
+    "display_name": "慢慢🌙",
+    "attribution": true
+  },
+  "locale": "zh-CN",
+  "content_locale": "zh-CN",
+  "brief": "风有了形状\n\n原生 SVG 交互首屏：六层纸谷先重叠后逐层展开，随后轻微呼吸；指针/拖动产生分层视差、柔和跟随、轮廓金光与速度朱砂碎片；点击触发金色波纹并依次抬起各层，离开后在约 500ms 内回稳；减少动态时仅保留静态层次与点击朱砂反馈。限制：依赖 pointer events，碎片有上限，波纹并发受限以避免叠加。\n\n视差深度: 1\n跟随延迟: 160ms\n碎片数量: 12\n金光强度: 65\n纸片颜色: #f4ecd9",
+  "source_url": "",
+  "submitted_version": "0.4.4.0.2",
+  "issue_number": 16,
+  "license": "MIT",
+  "consent": true
+}
