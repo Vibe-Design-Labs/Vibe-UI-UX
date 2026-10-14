@@ -1,3 +1,4 @@
+import {aiText} from './generated-strings.js';
 import {t} from './i18n.js';
 import {notify} from './motion.js';
 import {applicationURL, validKey, validModel, loadModels, beginAuthorization, authorizationCode, exchangeAuthorization} from './tokendance.js';
@@ -6,6 +7,20 @@ export function setupTokenDanceConnection({mode, onCredentials}) {
   const $ = id => document.getElementById(id), dialog = $('connection');
   const appURL = applicationURL(import.meta.url);
   let key = '', model = '', models = null, modelsController = null, modelsStatus = 'modelsIdle', auth = null, authStatus = 'authorizationHelp';
+  function renderModelSelection(){
+    const selector=$('active-model');if(!selector)return;
+    $('active-model-label').textContent=aiText('activeModel');selector.replaceChildren();
+    const entries=models||[];
+    if(!model){const option=document.createElement('option');option.value='';option.textContent=aiText('noModel');selector.append(option);}
+    if(model&&!entries.some(item=>item.id===model)){const option=document.createElement('option');option.value=model;option.textContent=model;selector.append(option);}
+    for(const item of entries){const option=document.createElement('option');option.value=item.id;option.textContent=item.name+' · '+item.id;selector.append(option);}
+    selector.value=model;selector.disabled=!key;
+    $('active-model-note').textContent=aiText('modelPolicy')+(model?' ID: '+model:'');
+  }
+  function chooseModel(value){
+    const next=value.trim();if(!validModel(next)||models&&!models.some(item=>item.id===next))return false;
+    if(model!==next){model=next;if(key)onCredentials({key,model});}if($('model').value!==next)$('model').value=next;renderModelSelection();return true;
+  }
   function refreshLocale() {
     $('connect').textContent = t(key ? 'connected' : 'connect');
     const note = document.querySelector('.dialog-note');
@@ -13,7 +28,7 @@ export function setupTokenDanceConnection({mode, onCredentials}) {
     note.textContent = t('connectionNote') + ' ' + t(mode === 'direct' ? 'connectionDirect' : 'connectionRelay');
     $('models-status').textContent = t(modelsStatus) + (modelsStatus === 'modelsLoaded' ? ' · ' + models.length : '');
     $('authorization-status').textContent = t(authStatus);
-    $('authorize-key').disabled = !!auth;
+    $('authorize-key').disabled = !!auth;renderModelSelection();
   }
   function cancelAuthorization() {
     if (!auth) return;
@@ -83,6 +98,8 @@ export function setupTokenDanceConnection({mode, onCredentials}) {
     } catch { if (auth === current) { cancelAuthorization(); authStatus = 'authorizationFailed'; refreshLocale(); } }
     finally { clearTimeout(timeout); }
   });
+  $('active-model')?.addEventListener('change',event=>{if(key&&!chooseModel(event.target.value)){renderModelSelection();notify(t('modelUnsupported'));}});
+  $('model').addEventListener('input',event=>{if(key)chooseModel(event.target.value);});
   $('save-key').addEventListener('click', () => {
     const k = $('api-key').value.trim(), m = $('model').value.trim();
     if (!validKey(k) || !validModel(m)) return notify(t('invalidKey'));

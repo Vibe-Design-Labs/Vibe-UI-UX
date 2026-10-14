@@ -1,3 +1,5 @@
+import {readGenerationResponse,generationWatchdog} from './generation-stream.js';
+import {modelReceipt,receiptHeaders} from './model-audit.js';
 import {generationPrompt,validateArtifact} from './generated-core.js';
 import {parseModelResponse,diagnostic} from './model-response.js';
 import assets from './assets.js';
@@ -7,19 +9,40 @@ import {compilerPrompt,validateModelIntent} from './compiler-core.js';
 import {validateSuggestions} from './core.js';
 import {tokenDanceEndpoint as endpoint, modelsEndpoint, exchangeEndpoint, validKey, validVerifier, gatewayError, compatibleModels, applicationURL, suggestionBody} from './tokendance.js';
 const security={'X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"};
-const json=(value,status=200)=>new Response(JSON.stringify(value),{status,headers:{...security,'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'}});
+const json=(value,status=200,extraHeaders={})=>new Response(JSON.stringify(value),{status,headers:{...security,...extraHeaders,'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'}});
 export async function translate(request,upstream=fetch){if(request.method!=='POST')return json({error:'method'},405);const url=new URL(request.url),origin=request.headers.get('Origin');if(origin&&origin!==url.origin)return json({error:'origin'},403);if(!request.headers.get('Content-Type')?.startsWith('application/json'))return json({error:'input'},415);
  const key=request.headers.get('X-TokenDance-Key');if(!key||key.length>512||/[\r\n]/.test(key))return json({error:'auth'},401);
  let value;try{const text=await boundedText(request,16000);value=JSON.parse(text);}catch{return json({error:'input'},400);}
  if(typeof value.intent!=='string'||!value.intent.trim()||value.intent.length>2000||typeof value.model!=='string'||!/^[a-zA-Z0-9._:/-]{1,120}$/.test(value.model)||!['zh-CN','en','ja','ko','de'].includes(value.locale))return json({error:'input'},400);
  if(value.task!==undefined&&!['compile','generate'].includes(value.task))return json({error:'input'},400);
- const upstreamSignal=AbortSignal.timeout(value.task==='generate'?110000:value.task==='compile'?85000:35000);
+ const streamControl=value.task==='generate'?generationWatchdog(request.signal):null;
+ const upstreamSignal=streamControl?.signal||AbortSignal.timeout(value.task==='compile'?85000:35000);
  try{const response=await upstream(endpoint,{method:'POST',redirect:'error',signal:upstreamSignal,headers:{'Authorization':'Bearer '+key,'Content-Type':'application/json','X-App-URL':applicationURL(new URL('/',request.url))},body:JSON.stringify(value.task==='generate'?generationPrompt(value):value.task==='compile'?compilerPrompt(catalog.items,compilerData,value):suggestionBody(catalog.items,value))});
- if(value.task){try{return json(await parseModelResponse(response,key,v=>value.task==='generate'?validateArtifact(v):validateModelIntent(v,catalog,compilerData,value.intent)));}catch(error){if(upstreamSignal.aborted){error.code='timeout';error.received=true;error.httpStatus=response.status;}return json({error:error.message,diagnostic:diagnostic(error),...(error.recovery?{recovery:error.recovery}:{})},error.message==='auth'?401:error.message==='limit'?429:502);}}
+ if(value.task==='generate'){
+  if(response.ok&&response.headers.get('Content-Type')?.includes('text/event-stream'))return generatedRelay(response,value.model,key,streamControl);
+  let receipt=modelReceipt(value.model,{httpStatus:response.status},key);
+  try{const generated=await readGenerationResponse(response,{key,model:value.model,signal:upstreamSignal,onActivity:streamControl.activity,onProgress(progress){receipt=progress.receipt;}});return json(generated.artifact,200,receiptHeaders(generated.receipt));}
+  catch(error){return json({error:error.message,diagnostic:diagnostic(error),receipt:error.receipt||receipt,...(error.recovery?{recovery:error.recovery}:{})},error.message==='auth'?401:error.message==='limit'?429:502);}
+  finally{streamControl.dispose();}
+ }
+ if(value.task){try{return json(await parseModelResponse(response,key,v=>validateModelIntent(v,catalog,compilerData,value.intent),{expectedModel:value.model}));}catch(error){if(upstreamSignal.aborted){error.code='timeout';error.received=true;error.httpStatus=response.status;}return json({error:error.message,diagnostic:diagnostic(error),...(error.receipt?{receipt:error.receipt}:{}),...(error.recovery?{recovery:error.recovery}:{})},error.message==='auth'?401:error.message==='limit'?429:502);}}
  if(!response.ok){const error=gatewayError(response);return json({error:error.message,...(error.recovery?{recovery:error.recovery}:{})},error.message==='auth'?401:error.message==='limit'?429:502);}
- const result=JSON.parse(await boundedText(response,180000));let text=result.choices?.[0]?.message?.content;if(typeof text!=='string'||text.length>10000||text.includes(key))return json({error:'format'},502);text=text.trim().replace(/^```(?:json)?\s*/,'').replace(/\s*```$/,'');const candidates=validateSuggestions(JSON.parse(text),catalog.items);return json({candidates});
- }catch(error){return json({... (value.task?{diagnostic:{code:error?.name==='TimeoutError'||error?.name==='AbortError'?'timeout':'network',received:false,status:null}}:{}),error:error?.name==='TimeoutError'||error?.name==='AbortError'||error instanceof TypeError?'network':'format'},502);}
+ let receipt;const candidates=await parseModelResponse(response,key,result=>validateSuggestions(result,catalog.items),{expectedModel:value.model,onAudit:value=>receipt=value});return json({candidates},200,receiptHeaders(receipt));
+ }catch(error){streamControl?.dispose();if(error.code==='model-mismatch')return json({error:'model-mismatch',diagnostic:diagnostic(error),receipt:error.receipt},502);return json({... (value.task?{diagnostic:{code:error?.name==='TimeoutError'||error?.name==='AbortError'?'timeout':'network',received:false,status:null}}:{}),error:error?.name==='TimeoutError'||error?.name==='AbortError'||error instanceof TypeError?'network':'format'},502);}
 }
+function generatedRelay(response,model,key,control){
+ const encoder=new TextEncoder();let closed=false,receipt=modelReceipt(model,{httpStatus:response.status},key),last=0,lastActivity=0;
+ const body=new ReadableStream({async start(controller){
+  const emit=value=>{if(!closed)controller.enqueue(encoder.encode('data: '+JSON.stringify(value)+'\n\n'));};
+  try{
+   const result=await readGenerationResponse(response,{key,model,signal:control.signal,onActivity(){control.activity();if(Date.now()-lastActivity>10000&&!closed){lastActivity=Date.now();controller.enqueue(encoder.encode(': activity\n\n'));}},onProgress(progress){receipt=progress.receipt;if(Date.now()-last>250||progress.phase==='validating'){last=Date.now();emit({type:'progress',...progress});}}});
+   emit({type:'result',artifact:result.artifact,receipt:result.receipt});
+  }catch(error){emit({type:'error',diagnostic:diagnostic(error),receipt:error.receipt||receipt});}
+  finally{control.dispose();if(!closed){closed=true;controller.close();}}
+ },cancel(){closed=true;control.abort();control.dispose();}});
+ return new Response(body,{headers:{...security,'Content-Type':'text/event-stream; charset=utf-8','Cache-Control':'no-store','X-IntentKit-Stream':'1'}});
+}
+
 async function boundedText(message,limit){if(!message.body)return '';const reader=message.body.getReader();const decoder=new TextDecoder();let size=0,text='';try{for(;;){const {done,value}=await reader.read();if(done)break;size+=value.byteLength;if(size>limit){await reader.cancel();throw new Error('Response too large');}text+=decoder.decode(value,{stream:true});}return text+decoder.decode();}finally{reader.releaseLock();}}
 export async function models(request,upstream=fetch){
  if(request.method!=='GET')return json({error:'method'},405);

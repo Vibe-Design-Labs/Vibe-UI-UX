@@ -38,7 +38,29 @@ const words={
  copyBody:['复制完整投稿内容','Copy full submission body','投稿本文をコピー','전체 제출 본문 복사','Vollständigen Einreichungstext kopieren'],
  paste:['代码较长，无法放入链接。先复制完整内容，再打开 GitHub，粘贴到正文并提交 Issue；机器人会转为待审 PR。','Code is too long for a URL. Copy the full body, open GitHub, paste into the issue body and submit. The bot creates a review PR.','コードがURLには長すぎます。本文をコピーしGitHubのIssue本文に貼り付けて送信してください。ボットがレビューPRを作成します。','코드가 URL에 담기에는 깁니다. 본문을 복사해 GitHub 이슈 본문에 붙여 넣고 제출하면 봇이 검토 PR을 만듭니다.','Code ist zu lang für einen Link. Text kopieren, in die GitHub-Issue-Beschreibung einfügen und absenden. Der Bot erstellt einen Prüf-PR.'],
  open:['打开 GitHub 投稿','Open GitHub submission','GitHub投稿を開く','GitHub 제출 열기','GitHub-Einreichung öffnen'],
- paused:['预览已停止，代码和参数仍保留。','Preview stopped; code and parameters preserved.','プレビュー停止。コードとパラメータは保持しています。','미리보기 중지됨. 코드와 매개변수는 유지됩니다.','Vorschau gestoppt; Code und Parameter bleiben erhalten.']
+ paused:['预览已停止，代码和参数仍保留。','Preview stopped; code and parameters preserved.','プレビュー停止。コードとパラメータは保持しています。','미리보기 중지됨. 코드와 매개변수는 유지됩니다.','Vorschau gestoppt; Code und Parameter bleiben erhalten.'],
+ modelAudit:['调用模型核对','Model call receipt','モデル呼び出し照合','모델 호출 확인','Modellaufruf abgleichen'],
+ activeModel:['当前生效模型','Active model','現在のモデル','현재 모델','Aktives Modell'],
+ noModel:['连接后选择模型','Connect to select a model','接続してモデルを選択','연결 후 모델 선택','Verbinden und Modell wählen'],
+ modelPolicy:['切换立即生效；请求只发送这个模型 ID，不配置备用模型。','Changes apply immediately. Only this model ID is sent; no fallback models.','切替はすぐ反映。送信するモデルIDは一つで、代替モデルは設定しません。','전환이 즉시 적용됩니다. 이 모델 ID만 보내며 대체 모델은 설정하지 않습니다.','Änderung gilt sofort. Nur diese Modell-ID, keine Ersatzmodelle.'],
+ requestModel:['本次请求模型','Requested model','リクエストしたモデル','요청 모델','Angefragtes Modell'],
+ reportedModel:['服务响应报告模型','Server-reported model','応答に記載されたモデル','서버 응답 모델','Vom Dienst gemeldetes Modell'],
+ unreported:['服务未提供，无法核对','Not reported; cannot compare','未提供のため照合不可','제공되지 않아 확인 불가','Nicht gemeldet; nicht prüfbar'],
+ matching:['响应模型 ID 与请求一致','Response model ID matches request','応答モデルIDが一致','응답 모델 ID 일치','Antwort-Modell-ID stimmt überein'],
+ unknownModel:['服务未报告模型身份，不能据此确认实际路由。','Service did not report model identity; actual routing is unconfirmed.','モデル情報がないため実際のルートは確認できません。','모델 정보가 없어 실제 라우팅은 확인되지 않았습니다.','Dienst meldet keine Modellidentität; tatsächliches Routing unbestätigt.'],
+ 'model-mismatch':['服务报告的模型与请求不一致，结果已拒绝；未自动换模型或重试。','Reported model differs from request. Result rejected; no model switch or retry.','応答モデルが要求と異なるため拒否。自動切替・再試行はしません。','응답 모델이 달라 결과를 거부했습니다. 자동 전환·재시도하지 않습니다.','Gemeldetes Modell weicht ab; Ergebnis abgelehnt, kein Wechsel oder erneuter Aufruf.'],
+ 'stream-interrupted':['服务输出流中断，未收到完整结束标记；未自动重试。','Output stream interrupted without a complete finish; no automatic retry.','出力が終了前に途切れました。自動再試行しません。','출력 스트림이 완료 전에 중단되었습니다. 자동 재시도하지 않습니다.','Ausgabestream ohne Abschluss unterbrochen; keine automatische Wiederholung.'],
+ thinking:['模型正在思考，已收到推理字符','Model is reasoning; reasoning characters received','モデルが思考中。推論文字数','모델 추론 중 · 수신 추론 문자','Modell denkt; empfangene Denkzeichen'],
+ writing:['模型正在编写代码，已收到代码字符','Model is writing code; code characters received','コードを生成中。コード文字数','코드 작성 중 · 수신 코드 문자','Modell schreibt Code; empfangene Codezeichen'],
+ validating:['输出已结束，正在校验代码','Output complete; validating code','出力完了。コードを検証中','출력 완료 · 코드 검증 중','Ausgabe abgeschlossen; Code wird geprüft'],
+ awaiting:['等待服务开始返回','Waiting for service response','応答開始を待っています','서비스 응답 대기','Warte auf Dienstantwort'],
+ requestId:['请求 ID','Request ID','リクエストID','요청 ID','Anfrage-ID'],
+ responseId:['响应 ID','Response ID','応答ID','응답 ID','Antwort-ID'],
+ copyDiagnostic:['复制调用诊断（不含密钥）','Copy diagnostics (without key)','診断情報をコピー（キーなし）','진단 복사(키 제외)','Diagnose ohne Schlüssel kopieren'],
+ auditNote:['这些是服务返回的信息，可用 ID 对照 TokenDance 日志；不等于独立验证了供应商内部路由。','These are service-reported fields. Compare IDs with TokenDance logs; this does not independently verify internal provider routing.','サービスが返した情報です。TokenDanceのログとIDを照合してください。内部ルートの独立検証ではありません。','서비스가 반환한 정보입니다. TokenDance 로그와 ID를 대조하세요. 내부 라우팅을 독립 검증한 것은 아닙니다.','Vom Dienst gemeldete Angaben. IDs mit TokenDance-Protokollen vergleichen; keine unabhängige Prüfung interner Routen.'],
+ budget:['单次输出预算上限 16,000 tokens；Kimi K3 使用 high 推理。初始等待 150 秒，流中无数据 120 秒，总计最多 10 分钟，可随时取消。','One call, up to 16,000 output tokens; Kimi K3 uses high reasoning. Initial wait 150s, stream idle 120s, total 10 min; cancellation available.','出力上限16,000トークン。Kimi K3はhigh推論。初回150秒、無通信120秒、合計10分。中止可能。','출력 한도 16,000 토큰. Kimi K3는 high 추론. 초기 150초, 스트림 유휴 120초, 총 10분. 취소 가능.','Max. 16.000 Ausgabe-Tokens, Kimi K3 mit high. Anfang 150s, ohne Streamdaten 120s, gesamt 10 Min.; abbrechbar.'],
+ backLibrary:['返回词库预览','Return to library preview','ライブラリに戻る','라이브러리 미리보기로','Zur Bibliotheksvorschau'],
+ seconds:['秒','s','秒','초','s']
 };
 export const generatedDictionaries=Object.fromEntries(aiLanguages.map((language,index)=>[language,Object.fromEntries(Object.entries(words).map(([key,values])=>[key,values[index]]))]));
 export function aiText(key){return generatedDictionaries[locale][key]||key;}

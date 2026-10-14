@@ -10,9 +10,10 @@ import {validateCommunityCase} from '../public/community-core.js';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 await mkdir(path.join(root,'dist/client'),{recursive:true});await mkdir(path.join(root,'dist/server'),{recursive:true});
 await cp(path.join(root,'public'),path.join(root,'dist/client'),{recursive:true});
-const frameCore=(await readFile(path.join(root,'public/generated-core.js'),'utf8')).replace(/export /g,'');
+const framePolicy=(await readFile(path.join(root,'public/generation-policy.js'),'utf8')).replace(/export /g,'');
+const frameCore=(await readFile(path.join(root,'public/generated-core.js'),'utf8')).replace(/^import [^\n]+\n/gm,'').replace(/export /g,'');
 const frameBootstrap=(await readFile(path.join(root,'public/generated-frame.js'),'utf8')).replace(/^import [^\n]+\n/,'');
-await writeFile(path.join(root,'dist/client/generated-frame-boot.js'),'(()=>{\n'+frameCore+'\n'+frameBootstrap+'\n})();\n');
+await writeFile(path.join(root,'dist/client/generated-frame-boot.js'),'(()=>{\n'+framePolicy+'\n'+frameCore+'\n'+frameBootstrap+'\n})();\n');
 const metadata=JSON.parse(await readFile(path.join(root,'package.json'),'utf8'));
 if(!/^(?:0|[1-9]\d*)(?:\.(?:0|[1-9]\d*)){4}$/.test(metadata.intentkitVersion))throw new Error('intentkitVersion must have five integer segments');
 await writeFile(path.join(root,'dist/client/version.json'),JSON.stringify({version:metadata.intentkitVersion,package_version:metadata.version})+'\n');
@@ -59,7 +60,7 @@ for(const recipe of compiler.recipes){
 }
 await writeFile(path.join(root,'dist/client/compiler.json'),JSON.stringify(compiler));
 await writeFile(path.join(root,'dist/server/compiler-data.js'),'export default '+JSON.stringify(compiler)+';\n');
-for(const name of ['compiler-core.js','compiler-schema.js','generated-core.js','model-response.js'])await cp(path.join(root,'public',name),path.join(root,'dist/server',name));
+for(const name of ['compiler-core.js','compiler-schema.js','generated-core.js','model-response.js','model-audit.js','generation-policy.js','generation-stream.js'])await cp(path.join(root,'public',name),path.join(root,'dist/server',name));
 const files={};async function walk(dir,prefix=''){for(const name of await readdir(dir)){const filename=path.join(dir,name),key=prefix+'/'+name;if((await stat(filename)).isDirectory())await walk(filename,key);else files[key]=(await readFile(filename)).toString('base64');}}
 await walk(path.join(root,'dist/client'));await writeFile(path.join(root,'dist/server/assets.js'),'export default '+JSON.stringify(files)+';\n');
 await cp(path.join(root,'server/worker.js'),path.join(root,'dist/server/index.js'));await cp(path.join(root,'public/core.js'),path.join(root,'dist/server/core.js'));

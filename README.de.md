@@ -6,7 +6,7 @@
 
 [Website](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [Studio ausprobieren](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [Änderungen](CHANGELOG.md)
 
-**v0.4.4.0.1 · 75 Designeinträge · 75 eigene Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
+**v0.4.4.0.2 · 75 Designeinträge · 75 eigene Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
 
 [![Echte Studioaufnahme: Blattzeiger, warmes Spotlight, Klickwelle und gestaffeltes Erscheinen](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -20,6 +20,10 @@ Mit den tatsächlichen Renderern des Projekts aufgenommen, ohne KI-generierte Bi
 4. Der öffentlichen MIT-Einreichung zustimmen und auf GitHub bestätigen. Der Bot erstellt einen separaten Daten-PR, ohne den Code auszuführen. Veröffentlichung erfolgt erst nach menschlicher Prüfung und manuellem Merge.
 
 Neu generierter Code unterstützt natives Web; die fünf bisherigen Vorlagen behalten React-/Video-Exporte. Diagnose unterscheidet fehlende Antwort, abgeschnittene Ausgabe, JSON-, Prüf- und Laufzeitfehler. Keine automatischen kostenpflichtigen Wiederholungen. Kostenpflichtige Generierung mit echtem Key wurde nicht getestet; menschliche Codeprüfung bleibt erforderlich. [Vertrag und Grenzen](docs/GENERATED_EFFECTS.md) (Chinesisch).
+
+Vor dem Generieren **Aktives Modell** prüfen. Änderungen gelten sofort; nur diese ID wird gesendet, ohne Ersatzmodelle. Der Stream zeigt getrennt den Fortschritt von Denken und Code. Kimi K3 (`kimi-k3`) nutzt `high` und den JSON-Modus, mit maximal 16.000 Ausgabe-Tokens. Wartezeiten: 150 Sekunden bis zur ersten Antwort, 120 Sekunden ohne Streamdaten, insgesamt 10 Minuten. Der Generierungsmodus blendet Bibliotheksvorlagen aus; bei Fehlern erscheint keine alte Vorlage als neues Ergebnis.
+
+**Modellaufruf abgleichen** vergleicht Anfrage-ID und gemeldete Modell-ID. Abweichungen führen zur Ablehnung; fehlende IDs bleiben unbestätigt. Diagnose ohne Schlüssel, Prompt, Quellcode oder Denktext kopieren und mit TokenDance-Protokollen vergleichen. Übereinstimmende gemeldete IDs beweisen interne Routen nicht unabhängig. [Prüfung und Grenzen der Korrektur](docs/RELEASE_0.4.4.0.2.md) (Chinesisch).
 
 ## Was ist IntentKit?
 

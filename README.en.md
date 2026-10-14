@@ -6,7 +6,7 @@
 
 [Website](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [Try the studio](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [Changelog](CHANGELOG.md)
 
-**v0.4.4.0.1 · 75 design entries · 75 dedicated preview templates · 5 local recipe families · MIT + OFL**
+**v0.4.4.0.2 · 75 design entries · 75 dedicated preview templates · 5 local recipe families · MIT + OFL**
 
 [![Real studio capture: leaf cursor, warm spotlight, click ripple and staggered reveal](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -20,6 +20,10 @@ Captured from the project’s actual renderers, without AI-generated frames. The
 4. Submit for a review PR, consent to publishing the code under MIT, then confirm the issue on GitHub. The bot creates an isolated data PR without running submitted code. Maintainer review and manual merge remain required.
 
 Newly generated code exports native Web projects in this release; the five existing templates retain React/video exports. Diagnostics distinguish no response, truncated output, invalid JSON, failed validation and preview errors. No automatic paid retries. Paid live-key generation has not been tested; code quality still needs human review. [Contract and limits](docs/GENERATED_EFFECTS.md) (Chinese).
+
+Before generating, check **Active model** in the studio. Changes apply immediately; the request sends that exact ID without fallback models. Generation streams reasoning/code progress. Kimi K3 (`kimi-k3`) uses `high` reasoning and JSON mode, with a 16,000-token output ceiling. Limits: 150 seconds for the initial response, 120 seconds without stream data, and 10 minutes total. Generated mode hides library templates; failed generation never presents an old template as new output.
+
+The **Model call receipt** compares the requested ID with the service-reported ID. A mismatch rejects the result; an absent ID stays unconfirmed. Copy diagnostics without the key, prompt, source or reasoning text, and compare them with TokenDance logs. Matching reported IDs do not independently prove internal routing. [Fix verification and limits](docs/RELEASE_0.4.4.0.2.md) (Chinese).
 
 ## What is IntentKit?
 
