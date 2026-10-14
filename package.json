@@ -1,6 +1,6 @@
 {
   "name": "intentkit",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "private": true,
   "type": "module",
   "license": "MIT",
@@ -17,5 +17,5 @@
   "engines": {
     "node": ">=20"
   },
-  "intentkitVersion": "0.4.4.0.1"
+  "intentkitVersion": "0.4.4.0.2"
 }

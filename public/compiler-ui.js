@@ -57,7 +57,7 @@ export function setupCompilerPanel({catalog,data,getCredentials,onApplyRecipe,on
   const text=input.value.trim();if(!text)return notify(t('enterIntent'));cancel();onBeforeCompile?.();notice=null;
   let ir;const credentials=getCredentials();
   if(credentials.key&&!localOnly){controller=new AbortController();const active=controller,timeout=setTimeout(()=>active.abort(new DOMException('Timed out','TimeoutError')),90000);button.disabled=true;button.textContent=t('loading');
-   try{const parsed=await requestCompilerIntent({items:catalog.items,catalog,data,intent:text,locale,model:credentials.model,key:credentials.key,mode,appURL,signal:active.signal});if(controller!==active||active.signal.aborted)return;ir=parsed.ir;}
+   try{const parsed=await requestCompilerIntent({items:catalog.items,catalog,data,intent:text,locale,model:credentials.model,key:credentials.key,platformModels:credentials.platformModels,mode,appURL,signal:active.signal});if(controller!==active||active.signal.aborted)return;ir=parsed.ir;}
    catch(error){if(controller!==active)return;if(error.code==='cancelled')return;notice=diagnostic(error);}
    finally{clearTimeout(timeout);if(controller===active){controller=null;button.disabled=false;button.textContent=compilerText('compile');}}
   }

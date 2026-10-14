@@ -6,7 +6,7 @@
 
 [Website](https://vibe-design-labs.github.io/Vibe-UI-UX/) · [Studio ausprobieren](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html) · [Änderungen](CHANGELOG.md)
 
-**v0.4.4.0.1 · 75 Designeinträge · 75 eigene Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
+**v0.4.4.0.2 · 75 Designeinträge · 75 eigene Vorschauvorlagen · 5 lokale Rezeptfamilien · MIT + OFL**
 
 [![Echte Studioaufnahme: Blattzeiger, warmes Spotlight, Klickwelle und gestaffeltes Erscheinen](docs/media/effects.gif)](https://vibe-design-labs.github.io/Vibe-UI-UX/studio.html?item=custom-cursor)
 
@@ -19,7 +19,15 @@ Mit den tatsächlichen Renderern des Projekts aufgenommen, ohne KI-generierte Bi
 3. Web-Quellcode-ZIP exportieren und `python -m http.server 4180` starten, oder Effekt-JSON speichern und später mit identischem Code und Parametern importieren. Anpassung und Export rufen kein Modell auf.
 4. Der öffentlichen MIT-Einreichung zustimmen und auf GitHub bestätigen. Der Bot erstellt einen separaten Daten-PR, ohne den Code auszuführen. Veröffentlichung erfolgt erst nach menschlicher Prüfung und manuellem Merge.
 
-Neu generierter Code unterstützt natives Web; die fünf bisherigen Vorlagen behalten React-/Video-Exporte. Diagnose unterscheidet fehlende Antwort, abgeschnittene Ausgabe, JSON-, Prüf- und Laufzeitfehler. Keine automatischen kostenpflichtigen Wiederholungen. Kostenpflichtige Generierung mit echtem Key wurde nicht getestet; menschliche Codeprüfung bleibt erforderlich. [Vertrag und Grenzen](docs/GENERATED_EFFECTS.md) (Chinesisch).
+Neu generierter Code unterstützt natives Web; die fünf bisherigen Vorlagen behalten React-/Video-Exporte. Diagnose unterscheidet fehlende Antwort, abgeschnittene Ausgabe, JSON-, Prüf- und Laufzeitfehler. Keine automatischen kostenpflichtigen Wiederholungen. Der Maintainer hat mit eigenem Key eine echte generierte Vorschau des Papiertals bestätigt; visuelle Übereinstimmung und jede Interaktion brauchen menschliche Prüfung. [Vertrag und Grenzen](docs/GENERATED_EFFECTS.md) (Chinesisch).
+
+Vor dem Generieren **Aktives Modell** prüfen. Änderungen gelten sofort; jede Anfrage sendet genau diese ID ohne Ersatzmodelle. Denken und Code haben getrennte Fortschrittsanzeigen. Kimi K3 (`kimi-k3`) nutzt `high` und JSON-Modus. Die App sendet keine `max_tokens` / `max_completion_tokens` und begrenzt weder Prompt, generierten Quelltext noch JSON-Import. Standardwerte und Grenzen des gewählten Dienstes gelten. Keine Gesamtdauer bei laufendem Datenempfang; anfangs 150s, Leerlauf 120s und manuelles Abbrechen. Alte Vorlagen erscheinen bei Fehlern nicht als neue Ergebnisse.
+
+**Modellaufruf abgleichen** zeigt angefragte ID und Upstream-model. Abweichende bekannte Katalog-IDs werden abgelehnt. Unbekannte Labels bleiben unbestätigt und werden nicht als K3 ausgegeben; geprüfter Code kann angezeigt werden. Fehlende Labels bleiben ebenfalls unbestätigt. Diagnose ohne Schlüssel, Prompt, Quellcode oder Denktext kopieren und mit TokenDance-Protokollen vergleichen. Übereinstimmende gemeldete IDs beweisen interne Routen nicht unabhängig. [Prüfung und Grenzen der Korrektur](docs/RELEASE_0.4.4.0.2.md) (Chinesisch).
+
+Ohne Entwicklertools hilft die [Verbindungsprüfung ohne Schlüssel](https://vibe-design-labs.github.io/Vibe-UI-UX/connection-check.html?lang=de): öffentlicher Katalog, leere Anfrage ohne Anmeldung, bereinigter Bericht, keine Modellgenerierung. Frühere Modelle oder Kosten werden nicht bestätigt.
+
+Im Verbindungspanel [letzte Aufrufe](docs/TOKENDANCE.md) auf Klick lesen: ein GET für bis zu 20 Kontoaufrufe aus 24 Stunden, ohne Generierung oder automatische Folgeseiten. Der Bericht enthält Modell, Anbieter, Zeit und Trace-IDs; Konto, Schlüsselnamen und Kosten fehlen. Die Stichprobe allein bestätigt kein früheres Modell.
 
 ## Was ist IntentKit?
 
@@ -67,7 +75,7 @@ Für Begriffe kannst du links etwa `frosted glass` oder `backdrop-filter` suchen
 4. Erst ein eingerichteter Key plus ein ausdrücklicher Klick auf **Effekte finden**, **Verstehen & Rezepte zuordnen** oder **KI einen neuen Effekt schreiben lassen** ruft ein Modell auf. TokenDance berechnet die Nutzung. Die fünf lokalen Beispiele bleiben auch mit Key lokal.
 5. Mit **Schlüssel löschen** trennst du die Verbindung. **Keys bleiben nur im Seitenspeicher und verschwinden beim Neuladen.** Es gibt kein Kontosystem; Keys werden weder in localStorage oder sessionStorage noch im Repository oder in GitHub Secrets gespeichert. Die Sprachwahl kann gespeichert werden.
 
-GitHub Pages verbindet den Browser direkt mit TokenDance; die lokale Serverversion leitet über die aktuelle Instanz weiter. Gib Keys nur in vertrauenswürdigen Instanzen ein. Bei ungültiger Analyse greifen lokale Regeln, ohne automatische kostenpflichtige Wiederholung. Kostenpflichtige Ende-zu-Ende-Tests mit einem echten Key stehen noch aus. [Integration und Testgrenzen](docs/TOKENDANCE.md) (Chinesisch).
+GitHub Pages verbindet den Browser direkt mit TokenDance; lokale Instanzen nutzen ihren eigenen Relay. Schlüssel nur in vertrauenswürdige Instanzen eingeben. Rezeptanalyse kann lokale Regeln verwenden; Fehler bei neuem Code werden ohne alte Ersatzvorlage oder kostenpflichtige Wiederholung angezeigt. Der Maintainer bestätigte eine echte generierte Vorschau; andere Modelle und Szenarien brauchen eigene Prüfungen. [Integration und Prüfgrenzen](docs/TOKENDANCE.md) (Chinesisch).
 
 ## Fork lokal starten
 

@@ -1,3 +1,4 @@
+import {modelReceipt} from './model-audit.js';
 import {requestGeneratedEffect} from './generation-client.js';
 import {mountGeneratedPreview} from './generated-preview.js';
 import {generatedParams,generatedBrief} from './generated-core.js';
@@ -11,19 +12,37 @@ const node=(tag,cls,value)=>{const e=document.createElement(tag);if(cls)e.classN
 const download=(blob,name)=>{const url=URL.createObjectURL(blob),a=node('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
 export function setupGeneratedStudio({getCredentials,appURL,mode,onStart,catalog}){
  const button=document.querySelector('#generate'),panel=document.querySelector('#generated-panel'),input=document.querySelector('#intent');
- let request=null,preview=null,artifact=null,params=null,ready=false,failure=null,generating=false,generationLocale=locale,config=null,imported=false;
+ let request=null,preview=null,artifact=null,params=null,ready=false,failure=null,generating=false,generationLocale=locale,config=null,imported=false,audit=null,progress=null,trace=null,startedAt=0,endedAt=0,auditSignature=null,lastProgress=0;
  const importLabel=document.querySelector('#generated-import-label');
  function stop(){preview?.dispose();preview=null;ready=false;}
- function cancel(){if(request){request.abort();request=null;generating=false;failure={code:'cancelled'};render();}}
+ function modeView(active){document.body.dataset.studioMode=active?'generated':'library';}
+ function cancel(){if(request){request.abort();request=null;generating=false;endedAt=Date.now();failure={code:'cancelled'};render();}}
  function status(value){ready=value==='ready';failure=value==='runtime'?{code:'runtime',received:true}:null;const status=panel.querySelector('[data-generated-status]');if(status)status.textContent=value==='ready'?text(imported?'importedReady':'ready'):errorText(failure);panel.querySelectorAll('[data-ready]').forEach(e=>e.disabled=!ready);}
  function startPreview(){stop();const stage=panel.querySelector('.generated-stage');if(!stage||!artifact)return;preview=mountGeneratedPreview(stage,artifact,params,{onStatus:status,title:artifact.title});}
+ function showDiagnostics(){
+  const box=panel.querySelector('[data-model-audit]');if(!box||!audit)return;const signature=JSON.stringify({audit,trace});if(signature===auditSignature)return;auditSignature=signature;box.replaceChildren();box.append(node('summary','',text('modelAudit')));
+  for(const [label,value]of [['requestModel',audit.requestedModel],['reportedModel',audit.reportedModel],['requestId',audit.requestId],['responseId',audit.responseId]])box.append(node('p','',text(label)+': '+(value||text('unreported'))));
+  if(trace)for(const [label,value]of [['transportMode',trace.mode],['requestURL',trace.requestURL],['responseURL',trace.responseURL]])box.append(node('p','',text(label)+': '+(value||text('unreported'))));
+  box.append(node('p','generated-note',text('auditNote')));
+  const copy=node('button','',text('copyDiagnostic'));copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(JSON.stringify({schema:'intentkit.call-diagnostic',...audit,transport:trace,started_at:startedAt?new Date(startedAt).toISOString():null,ended_at:endedAt?new Date(endedAt).toISOString():null,status:failure?.code||(generating?'running':ready?'preview-ready':'code-received'),elapsed_ms:Math.max(0,(endedAt||Date.now())-startedAt),reasoning_chars:progress?.reasoningChars||0,code_chars:progress?.codeChars||0},null,2));notify(t('copied'));}catch{notify(t('copyFail'));}});box.append(copy);
+  const check=node('a','generated-check-link',text('connectionCheck'));const url=new URL('./connection-check.html',import.meta.url);url.searchParams.set('lang',locale);check.href=url.href;check.target='_blank';check.rel='noopener noreferrer';box.append(check);
+ }
+ function showProgress(){
+  if(!generating)return;const now=Date.now();if(now-lastProgress<100)return;lastProgress=now;const message=panel.querySelector('[data-generated-status]');if(!message)return;
+  const phase=progress?.phase;message.textContent=(phase==='thinking'?text('thinking')+' '+progress.reasoningChars:phase==='code'?text('writing')+' '+progress.codeChars:phase==='validating'?text('validating'):text('awaiting'))+' · '+Math.floor((Date.now()-startedAt)/1000)+' '+text('seconds');showDiagnostics();
+ }
  function render(){
   button.disabled=generating;button.textContent=generating?text('working'):text('generate');document.querySelector('#generated-helper').textContent=text('intro');
+  document.querySelector('#generated-budget')?.replaceChildren(node('span','',text('budget')));
   document.querySelector('#generated-import-caption').textContent=locale==='zh-CN'?'导入效果 JSON · 本地预览':({en:'Import effect JSON · local preview',ja:'エフェクトJSONを読み込む',ko:'효과 JSON 가져오기',de:'Effekt-JSON lokal importieren'}[locale]);
   if(!artifact&&!failure&&!generating){panel.hidden=true;return;}panel.hidden=false;panel.replaceChildren();panel.append(node('h2','',text('title')));
   const message=node('p','generated-status',generating?text('working'):failure?errorText(failure):text('waiting'));message.dataset.generatedStatus='';message.setAttribute('role','status');panel.append(message);
   if(generating){const b=node('button','',text('cancel'));b.addEventListener('click',cancel);panel.append(b);}
   if(generating||failure)panel.append(node('p','generated-note',text('paid')));
+  if(audit){auditSignature=null;const box=node('details','generated-audit');box.dataset.modelAudit='';box.open=true;panel.append(box);showDiagnostics();}
+  const back=node('button','generated-back',text('backLibrary'));back.addEventListener('click',()=>clear());panel.append(back);
+  if(artifact&&!imported&&['unknown','unconfirmed'].includes(audit?.modelStatus))panel.append(node('p','compiler-warning',text(audit.modelStatus==='unconfirmed'?'unconfirmedModel':'unknownModel')));
+  if(artifact&&!imported&&audit?.modelStatus==='matching')panel.append(node('p','generated-note',text('matching')));
   if(!artifact)return;
   panel.append(node('h3','',artifact.title),node('p','',artifact.summary));const stage=node('div','generated-stage');panel.append(stage,node('p','generated-note',text('isolation')));
   const controls=node('div','generated-controls');
@@ -42,10 +61,10 @@ export function setupGeneratedStudio({getCredentials,appURL,mode,onStart,catalog
  }
  async function run(){
   const intent=input.value.trim();if(!intent)return notify(t('enterIntent'));const credentials=getCredentials();if(!credentials.key){notify(text('noKey'));document.querySelector('#connect').click();return;}
-  cancel();stop();artifact=null;params=null;failure=null;generating=true;imported=false;generationLocale=locale;onStart?.();const active=new AbortController();request=active;const timer=setTimeout(()=>active.abort(new DOMException('Timed out','TimeoutError')),120000);render();
-  try{const result=await requestGeneratedEffect({intent,model:credentials.model,key:credentials.key,locale:generationLocale,mode,signal:active.signal,appURL});if(request!==active||active.signal.aborted)return;artifact=result;params=generatedParams(artifact);}
+  cancel();stop();artifact=null;params=null;failure=null;generating=true;imported=false;generationLocale=locale;audit=modelReceipt(credentials.model);progress=null;trace=null;startedAt=Date.now();endedAt=0;onStart?.();modeView(true);const active=new AbortController();request=active;render();const timer=setInterval(showProgress,1000);
+  try{const result=await requestGeneratedEffect({intent,model:credentials.model,key:credentials.key,platformModels:credentials.platformModels,locale:generationLocale,mode,signal:active.signal,appURL,onTrace(value){if(request===active){trace=value;showDiagnostics();}},onReceipt(value){if(request===active){audit=value;showDiagnostics();}},onProgress(value){if(request===active){progress=value;showProgress();}}});if(request!==active||active.signal.aborted)return;artifact=result;params=generatedParams(artifact);}
   catch(error){if(request!==active)return;failure=diagnostic(error);}
-  finally{clearTimeout(timer);if(request===active){request=null;generating=false;render();}}
+  finally{clearInterval(timer);if(request===active){endedAt=Date.now();request=null;generating=false;render();}}
  }
  async function submission(){
   if(!artifact||!ready)return;
@@ -61,12 +80,13 @@ export function setupGeneratedStudio({getCredentials,appURL,mode,onStart,catalog
     const encoded=await encodedSubmission(payload,catalog,config.repository);const link=node('a','community-submit-link',text('open'));link.href=encoded.url;link.target='_blank';link.rel='noopener noreferrer';actions.prepend(link);prepare.remove();
     if(encoded.needsPaste){hint.textContent=text('paste');const copy=node('button','',text('copyBody'));copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(encoded.body);notify(t('copied'));}catch{notify(t('copyFail'));}});actions.prepend(copy);const fallback=node('textarea');fallback.readOnly=true;fallback.value=encoded.body;dialog.append(fallback);}
     else {hint.textContent=locale==='zh-CN'?'点击打开后，在 GitHub 确认提交。机器人创建待审 PR；审核合并前官网不变。':'Confirm the issue on GitHub. The bot creates a review PR; the site remains unchanged until review and merge.';link.click();}
-   }catch{consent.disabled=false;author.disabled=false;prepare.disabled=!consent.checked;hint.textContent=t('apiFormat');}
+   }catch(error){consent.disabled=false;author.disabled=false;prepare.disabled=!consent.checked;hint.textContent=error.message==='submission-size'?text('submissionSize'):t('apiFormat');}
   });
  }
+ function clear(){cancel();stop();artifact=null;params=null;failure=null;audit=null;progress=null;trace=null;modeView(false);render();}
  button.addEventListener('click',run);input.addEventListener('input',cancel);
- importLabel.querySelector('input').addEventListener('change',async event=>{const file=event.target.files[0];if(!file)return;try{if(file.size>65000)throw new Error();const project=importGeneratedProject(JSON.parse(await file.text()));cancel();stop();onStart?.();artifact=project.artifact;params=project.params;imported=true;failure=null;generationLocale=locale;render();}catch{notify(t('apiFormat'));}finally{event.target.value='';}});
+ importLabel.querySelector('input').addEventListener('change',async event=>{const file=event.target.files[0];if(!file)return;try{const project=importGeneratedProject(JSON.parse(await file.text()));cancel();stop();onStart?.();modeView(true);audit=null;progress=null;artifact=project.artifact;params=project.params;imported=true;failure=null;generationLocale=locale;render();}catch{notify(t('apiFormat'));}finally{event.target.value='';}});
  addEventListener('pagehide',()=>{cancel();stop();});addEventListener('pageshow',event=>{if(event.persisted&&artifact)render();});
  matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',()=>{if(artifact)render();});render();
- return {cancel,refreshLocale(){cancel();stop();render();},clear(){cancel();stop();artifact=null;params=null;failure=null;render();}};
+ return {cancel,refreshLocale(){cancel();stop();render();},clear};
 }
