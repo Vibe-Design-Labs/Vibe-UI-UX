@@ -11,3 +11,11 @@ export function envelopeReceipt(requestedModel,envelope,response,key,previous={}
 }
 export function receiptHeaders(receipt){const headers={};for(const [field,header]of Object.entries({requestedModel:'X-IntentKit-Requested-Model',reportedModel:'X-IntentKit-Reported-Model',requestId:'X-IntentKit-Request-Id',responseId:'X-IntentKit-Response-Id'}))if(receipt?.[field])headers[header]=receipt[field];return headers;}
 export function headerReceipt(requestedModel,response,key){return modelReceipt(requestedModel,{reportedModel:response.headers.get('X-IntentKit-Reported-Model'),requestId:response.headers.get('X-IntentKit-Request-Id'),responseId:response.headers.get('X-IntentKit-Response-Id'),httpStatus:response.status},key);}
+function safeURL(value,key){
+ if(typeof value!=='string'||value.length>2048)return null;
+ try{const url=new URL(value);if(!['https:','http:'].includes(url.protocol)||url.username||url.password)return null;const clean=url.origin+url.pathname,decoded=decodeURIComponent(clean);return secretPattern.test(decoded)||key&&decoded.includes(key)?null:clean;}catch{return null;}
+}
+export function transportReceipt(mode,endpoint,response,key=''){
+ const format=response?.headers?.get('Content-Type')?.split(';')[0].trim().toLowerCase();
+ return {mode:['direct','relay'].includes(mode)?mode:null,requestURL:safeURL(endpoint,key),responseURL:safeURL(response?.url,key),responseType:['basic','cors','default','error','opaque','opaqueredirect'].includes(response?.type)?response.type:null,responseFormat:response?['text/event-stream','application/json','text/html'].includes(format)?format:'other':null};
+}

@@ -4,7 +4,7 @@ import {readFile} from 'node:fs/promises';
 import {requestGeneratedEffect} from '../public/generation-client.js';
 import {requestSuggestions} from '../public/client-byok.js';
 import {generationPrompt} from '../public/generated-core.js';
-import {modelReceipt} from '../public/model-audit.js';
+import {modelReceipt,transportReceipt} from '../public/model-audit.js';
 import {translate} from '../dist/server/index.js';
 const artifact=JSON.parse(await readFile(new URL('./fixtures/generated-effect.json',import.meta.url))),key='mock-stream-secret-only',input={key,intent:'Build six paper layers with pointer parallax.',model:'kimi-k3',locale:'en',mode:'direct'};
 const encode=value=>'data: '+JSON.stringify(value)+'\r\n\r\n',wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
@@ -32,6 +32,15 @@ test('reported DeepSeek model for a Kimi request is rejected before rendering, w
 test('an unreported model remains explicitly unconfirmed, never fabricated as the requested model',async()=>{
  let receipt;assert.deepEqual(await requestGeneratedEffect({...input,onReceipt:r=>receipt=r},async()=>Response.json({choices:[{message:{content:JSON.stringify(artifact)}}]})),artifact);assert.equal(receipt.reportedModel,null);assert.equal(receipt.modelStatus,'unknown');
  const sanitized=modelReceipt(input.model,{reportedModel:key,responseId:key,requestId:'sk-'+'x'.repeat(24)},key);assert.equal(sanitized.reportedModel,null);assert.equal(sanitized.requestId,null);assert(!JSON.stringify(sanitized).includes(key));
+});
+test('transport diagnostics retain sanitized request/response provenance without credentials, query or source text',async()=>{
+ const response={url:'https://tokendance.space/gateway/v1/chat/completions?private=hidden#fragment',type:'cors',headers:new Headers({'Content-Type':'text/event-stream; charset=utf-8'})};
+ const trace=transportReceipt('direct','https://tokendance.space/gateway/v1/chat/completions?key=hidden',response,key);
+ assert.equal(trace.requestURL,'https://tokendance.space/gateway/v1/chat/completions');assert.equal(trace.responseURL,trace.requestURL);assert.equal(trace.responseType,'cors');assert.equal(trace.responseFormat,'text/event-stream');assert(!JSON.stringify(trace).includes('hidden'));
+ assert.equal(transportReceipt('relay','https://user:password@example.test/api',null,key).requestURL,null);
+ assert.equal(transportReceipt('direct','https://example.test/'+encodeURIComponent(key),null,key).requestURL,null);
+ const traces=[];await assert.rejects(requestGeneratedEffect({...input,onTrace:t=>traces.push(t)},async()=>sse(completionFrames('qianfan-vl-v1'))),e=>e.code==='model-mismatch');
+ assert.equal(traces.length,2);assert.equal(traces[0].responseFormat,null);assert.equal(traces[1].responseFormat,'text/event-stream');assert.equal(traces[1].requestURL,trace.requestURL);assert(!JSON.stringify(traces).includes(key));
 });
 test('flowing output may exceed initial timeout, but inactivity, hard deadline and cancellation terminate without retries',async()=>{
  const frames=completionFrames();let calls=0;const result=await requestGeneratedEffect({...input,limits:{initial_ms:20,idle_ms:45,total_ms:2000}},async()=>{calls++;return sse(frames,8);});assert.deepEqual(result,artifact);assert.equal(calls,1);
